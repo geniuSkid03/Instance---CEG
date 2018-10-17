@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,7 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +40,8 @@ import com.inspiregeniussquad.handstogether.appFragments.TechFragment;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NoSwipeViewPager;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,7 +50,6 @@ import java.util.List;
 import butterknife.BindView;
 
 public class HomeActivity extends SuperCompatActivity {
-
 
     @BindView(R.id.expandable_list)
     ExpandableListView expandableListView;
@@ -178,22 +179,29 @@ public class HomeActivity extends SuperCompatActivity {
     private void loadPersonalData(NavigationView navigationView) {
         View view = navigationView.getHeaderView(0);
 
-        ImageView imageView = view.findViewById(R.id.profile_image); //for setting dp
+        CircularImageView imageView = view.findViewById(R.id.profile_image); //for setting dp
         TextView nameTv = view.findViewById(R.id.user_name); //for name
         TextView emailTv = view.findViewById(R.id.user_email); //for email
 
-        nameTv.setText("GnanaPriya");
+        if (dataStorage.isDataAvailable(Keys.USER_DATA)) {
+            Users users = gson.fromJson(dataStorage.getString(Keys.USER_DATA), Users.class);
+            if (users != null) {
+                nameTv.setText(users.getName());
+                emailTv.setText(users.getEmail());
 
-//        if (dataStorage.isDataAvailable(Keys.USER_DATA)) {
-//            Users users = gson.fromJson(dataStorage.getString(Keys.USER_DATA), Users.class);
-//            if (users != null) {
-//                nameTv.setText(users.getName());
-//                emailTv.setText(users.getEmail());
-//                dataStorage.saveString(Keys.USER_NAME, users.getName());
-//                dataStorage.saveString(Keys.MOBILE, users.getMobile());
-//                dataStorage.saveString(Keys.USER_EMAIL, users.getEmail());
-//            }
-//        }
+                imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
+                        ContextCompat.getDrawable(this, R.drawable.ic_man) :
+                        ContextCompat.getDrawable(this, R.drawable.ic_girl));
+
+//                if (users.getImgUrl() == null) {
+//                    imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
+//                            ContextCompat.getDrawable(this, R.drawable.ic_man) :
+//                            ContextCompat.getDrawable(this, R.drawable.ic_girl));
+//                } else {
+//                    Picasso.get().load(users.getImgUrl()).into(imageView);
+//                }
+            }
+        }
     }
 
     @Override
@@ -356,8 +364,7 @@ public class HomeActivity extends SuperCompatActivity {
                     setAndShowFragment(Keys.FRAGMENT_OTHERS);
                     break;
                 case 4:
-                    showSnack(getString(R.string.function_not_set));
-                    //showSignoutAlert();
+                    showSignoutAlert();
                     break;
             }
         }
@@ -367,7 +374,7 @@ public class HomeActivity extends SuperCompatActivity {
         closeNavMenu();
 
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setMessage("Are you sure, you want to sign out?");
+        alertDialog.setMessage(getString(R.string.log_out_hint));
         alertDialog.setCancelable(false);
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override

@@ -76,12 +76,12 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_arrow_drop_down.png.flat",
-        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_drop_down.png"
-    },
-    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_account.png.flat",
         "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_account.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_arrow_drop_down.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_drop_down.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -172,24 +172,24 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
-        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_clubs.png.flat",
-        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_clubs.png"
-    },
-    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_in.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\ab5bbdfd994ac65261514d6fb47ab5b0\\res\\anim\\design_snackbar_in.xml"
     },
     {
-        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_arrow_drop_up.png.flat",
-        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_arrow_drop_up.png"
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_clubs.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_clubs.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_others.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_others.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_others.png.flat",
-        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_others.png"
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_arrow_drop_up.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_arrow_drop_up.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -226,6 +226,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_girl.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard.png.flat",
@@ -564,6 +568,10 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_man.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-mdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -700,6 +708,10 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\color\\abc_tint_default.xml"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_man.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -832,6 +844,10 @@
         "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_man.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
@@ -866,6 +882,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_bottom_navigation_item_background.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\ab5bbdfd994ac65261514d6fb47ab5b0\\res\\drawable\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_girl.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
@@ -1034,6 +1054,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_tint.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\1bdf0a812c63b19bf1dac6c73bacd97f\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_man.xml.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_man.xml"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -1440,6 +1464,10 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_girl.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_arrow_drop_up.xml.flat",
         "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_drop_up.xml"
     },
@@ -1548,6 +1576,10 @@
         "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_man.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6a494b85e9e9e97857ba339266bc6177\\res\\drawable\\notification_icon_background.xml"
     },
@@ -1586,6 +1618,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_man.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -1738,6 +1774,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6a494b85e9e9e97857ba339266bc6177\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_man.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_man.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -2340,6 +2380,10 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_girl.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
@@ -2472,6 +2516,10 @@
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\ab5bbdfd994ac65261514d6fb47ab5b0\\res\\drawable-xhdpi-v4\\design_ic_visibility_off.png"
     },
     {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_girl.png"
+    },
+    {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
@@ -2518,6 +2566,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_girl.xml.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_girl.xml"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -2570,6 +2622,10 @@
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\drawable-ldrtl-xhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_girl.png.flat",
+        "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_girl.png"
     },
     {
         "merged": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",

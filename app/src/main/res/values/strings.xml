@@ -68,4 +68,10 @@
     <string name="no_internet_title">No Internet!</string>
     <string name="connect_to_n">Connect to an active network and try again!</string>
     <string name="retry">Retry</string>
+    <string name="no_internt_conn">Internet connection unavailable!</string>
+    <string name="otp_invalid">Enter valid OTP!</string>
+    <string name="error_in_db_connection">Error in connecting database, try again after sometime!</string>
+    <string name="cannot_create_account">Some error occurred while processing, try again later!</string>
+    <string name="ok">OK</string>
+    <string name="log_out_hint">Are you sure, you want to log out?</string>
 </resources>

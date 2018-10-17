@@ -62,7 +62,7 @@ public class SignupActivity extends SuperCompatActivity {
 
     private static final int GMAIL_SIGNIN = 333;
     private GoogleApiClient googleApiClient;
-    private String mobileNumber;
+    private String mobileNumber, name, email, imgUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +75,6 @@ public class SignupActivity extends SuperCompatActivity {
         //getting mobile number
         if (getIntent().getExtras() != null) {
             mobileNumber = getIntent().getStringExtra("mobile");
-        } else {
-            mobileNumber = "6380995858";
         }
 
         //setting up clients for email auto-retrival process
@@ -90,13 +88,10 @@ public class SignupActivity extends SuperCompatActivity {
                 goTo(this, MobileNumberActivity.class, true);
                 break;
             case R.id.register_me:
-                //getting all necessary data from UI
-
                 String email = emailEd.getText().toString().trim();
                 String name = nameEd.getText().toString().trim();
-                String gender = maleRdBtn.isChecked() ? "Male" : femaleRdBtn.isChecked() ? "Female" : "";
+                String gender = maleRdBtn.isChecked() ? Keys.MALE : femaleRdBtn.isChecked() ? Keys.FEMALE : "";
 
-                showProgress(getString(R.string.registering_you));
                 //function to validate and register user
                 checkAndRegister(email, name, gender);
                 break;
@@ -120,6 +115,7 @@ public class SignupActivity extends SuperCompatActivity {
     }
 
     private void checkAndRegister(String email, String name, String gender) {
+        showProgress(getString(R.string.registering_you));
 
         if (TextUtils.isEmpty(email)) {
             cancelProgress();
@@ -139,106 +135,40 @@ public class SignupActivity extends SuperCompatActivity {
             return;
         }
 
-        writeUserDataDb(email, name, mobileNumber, gender);
+        insertUserIntoDb(new Users(name, email, mobileNumber, gender));
     }
 
-    private int nextUserId;
-
-    private void writeUserDataDb(final String email, final String name, final String mobileNumber, final String gender) {
-
-        final DatabaseReference usersDatabaseReference = getReferenceFromDatabase(Keys.TABLE_USER_ID).child(Keys.USER_ID);
-
-        usersDatabaseReference.runTransaction(new Transaction.Handler() {
-            @NonNull
+    private void insertUserIntoDb(final Users users) {
+        usersDatabaseReference.child(usersDatabaseReference.push().getKey()).setValue(users, new DatabaseReference.CompletionListener() {
             @Override
-            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-                if (mutableData.getValue(int.class) == null) {
-                    usersDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.getValue() == null) {
-                                usersDatabaseReference.setValue(0);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            cancelProgress();
-                            AppHelper.showToast(SignupActivity.this, "OnCancelled : doTransaction");
-                        }
-                    });
-                    return Transaction.abort();
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                if(databaseError == null) {
+                    goToHome(users);
+                } else {
+                    cancelProgress();
+                    showInfoAlert(getString(R.string.cannot_create_account));
                 }
-                nextUserId = mutableData.getValue(int.class);
-                mutableData.setValue(nextUserId + 1);
-
-                AppHelper.print("User id: " + nextUserId);
-
-                return Transaction.success(mutableData);
-            }
-
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, boolean state, @Nullable DataSnapshot dataSnapshot) {
-//                checkIsExistingUser(mobileNumber, nextUserId, name, email, gender);
-                insertIntoDb(name, email, gender, nextUserId, mobileNumber);
-                showToast(SignupActivity.this, "Logging you in!");
             }
         });
     }
 
-    private void checkIsExistingUser(final String mobileNumber, final int nextUserId, final String name, final String email, final String gender) {
+    private void goToHome(Users users) {
+        dataStorage.saveString(Keys.USER_NAME, users.getName());
+        dataStorage.saveString(Keys.MOBILE, users.getMobile());
+        dataStorage.saveString(Keys.USER_EMAIL, users.getEmail());
+        dataStorage.saveString(Keys.USER_GENDER, users.getGender());
+        dataStorage.saveString(Keys.PROFILE_IMAGE, imgUrl);
 
-        DatabaseReference userReference = getReferenceFromDatabase(Keys.TABLE_USER);
-        userReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Users users = dataSnapshot1.getValue(Users.class);
+        if (!TextUtils.isEmpty(imgUrl)) {
+            users.setImgUrl(imgUrl);
+        }
 
-                    if (users != null && !users.getMobile().equals(mobileNumber)) {
-                        insertIntoDb(name, email, gender, nextUserId, mobileNumber);
-                        showToast(SignupActivity.this, "Logging you in!");
-                    } else {
-//                        goHome();
-                    }
-                }
-            }
+        dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
+        dataStorage.saveBoolean(Keys.IS_ONLINE, true);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
+        cancelProgress();
+        goTo(this, HomeActivity.class, true);
     }
-
-    private void insertIntoDb(final String name, final String email, final String gender, int nextUserId, final String mobileNumber) {
-
-        usersDatabaseReference/*.child(Keys.TABLE_USER)*/
-                .child(String.valueOf(nextUserId))
-                .setValue(new Users(name, email, mobileNumber, gender))
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            dataStorage.saveString(Keys.USER_NAME, name);
-                            dataStorage.saveString(Keys.MOBILE, mobileNumber);
-                            dataStorage.saveString(Keys.USER_EMAIL, email);
-                            dataStorage.saveString(Keys.USER_DATA, gson.toJson(new Users(name, email, mobileNumber, gender)));
-
-                            cancelProgress();
-
-                            dataStorage.saveBoolean(Keys.IS_ONLINE, true);
-                            goTo(SignupActivity.this, HomeActivity.class, true);
-                        } else {
-                            cancelProgress();
-                            showToast(SignupActivity.this, getString(R.string.some_error_occurred));
-                        }
-                    }
-                });
-    }
-
 
     private void setUpGoogle() {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -287,6 +217,7 @@ public class SignupActivity extends SuperCompatActivity {
         }
     }
 
+
     //Getting email values and setting it in views
     private void checkEmails(GoogleSignInResult googleSignInResult) {
         AppHelper.print("Checking emails");
@@ -294,9 +225,9 @@ public class SignupActivity extends SuperCompatActivity {
         if (googleSignInResult.isSuccess()) {
             GoogleSignInAccount googleSignInAccount = googleSignInResult.getSignInAccount();
             if (googleSignInAccount != null) {
-                String name = googleSignInAccount.getDisplayName();
-                String email = googleSignInAccount.getEmail();
-                String imgUrl = String.valueOf(googleSignInAccount.getPhotoUrl());
+                name = googleSignInAccount.getDisplayName();
+                email = googleSignInAccount.getEmail();
+                imgUrl = String.valueOf(googleSignInAccount.getPhotoUrl());
 
                 emailEd.setText(email);
                 nameEd.setText(name);

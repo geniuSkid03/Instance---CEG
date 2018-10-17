@@ -9,6 +9,8 @@ public class Keys {
     public static final String MOBILE = "mobile";
     public static final String USER_NAME = "user_name";
     public static final String USER_EMAIL = "user_email";
+    public static final String USER_GENDER = "user_gender";
+    public static final String PROFILE_IMAGE = "profile_image";
 
     public static final String FRAGMENT_HOME = "HOME_FRAGMENT";
     public static final String FRAGMENT_CULTURALS = "FRAGMENT_CULTURALS";
@@ -21,7 +23,18 @@ public class Keys {
 
     public static final String NEWS_ITEM = "news_item";
     public static final String USERS = "Users";
-    public static String TABLE_USER = "tbl_user";
-    public static String TABLE_USER_ID = "tbl_user_id";
-    public static String USER_ID = "id";
+    public static final String MALE = "Male";
+    public static final String FEMALE = "Female";
+    public static final String OTHERS = "others";
+    public static final String TABLE_USER_ID = "tbl_user_id";
+    public static final String USER_ID = "id";
+
+    //table names
+    public static String TABLE_USER = "Users";
+
+    //table attributes
+    public static final String ATTR_MOBILE = "mobile";
+    public static final String ATTR_USERNAME = "name";
+    public static final String ATTR_GENDER = "gender";
+    public static final String ATTR_EMAIL = "email";
 }

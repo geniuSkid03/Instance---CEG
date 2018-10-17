@@ -19,8 +19,6 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseException;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
@@ -29,7 +27,7 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Objects;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -62,11 +60,9 @@ public class OtpVerificationActivity extends SuperCompatActivity {
         setContentView(R.layout.activity_otp_verification);
 
         //getting mobile number via intent
-//        if (getIntent().getExtras() != null) {
-//            mobileNumber = getIntent().getStringExtra("mobile");
-//        } else {
-        mobileNumber = "6380995858";
-//        }
+        if (getIntent().getExtras() != null) {
+            mobileNumber = getIntent().getStringExtra("mobile");
+        }
 
         //for underline
         changeNumberTv.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -213,7 +209,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
             crossCheckOtp(phoneAuthCredential, mobileNumber);
         } else {
             //otp verification failed
-            otpEd.setError("Enter valid OTP!");
+            otpEd.setError(getString(R.string.otp_invalid));
         }
     }
 
@@ -232,7 +228,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                     cancelProgress();
                     //otp verification failed
                     otpEd.setText("");
-                    otpEd.setError("Enter valid OTP!");
+                    otpEd.setError(getString(R.string.otp_invalid));
                 }
             }
         });
@@ -243,62 +239,67 @@ public class OtpVerificationActivity extends SuperCompatActivity {
         //checking for internet connection
         if (!AppHelper.isNetworkAvailable(this)) {
             cancelProgress();
-            AppHelper.showToast(this, "Internet connection unavailable!");
+            AppHelper.showToast(this, getString(R.string.no_internt_conn));
             return;
         }
 
-        final DatabaseReference databaseReference = getReferenceFromDatabase(Keys.USERS);
-
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        usersDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                cancelProgress();
-
-                for(DataSnapshot data : dataSnapshot.getChildren()) {
-                    Users users = data.getValue(Users.class);
-
-                    AppHelper.print("Users: "+users.getMobile());
+                if (dataSnapshot.exists()) {
+                    retriveMobileFromDatabase((Map<String, Object>) dataSnapshot.getValue(), mobileNumber);
+                } else {
+                    //no user has registered, table was not created
+                    //so allow him to signup
+                    goToSignUp();
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 cancelProgress();
-                AppHelper.print("Database error: " + databaseError);
+                //show error as db error
+
+                showSnack(getString(R.string.error_in_db_connection));
             }
         });
-
-
     }
 
-    private void checkSnapShot(DataSnapshot dataSnapshot, String mobileNumber) {
-        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-            Users users = dataSnapshot1.getValue(Users.class);
+    private void retriveMobileFromDatabase(Map<String, Object> value, String mobileNumber) {
+        ArrayList<String> phoneNumbers = new ArrayList<>();
 
-            if (users != null) {
-                if (users.getMobile() != null) {
-                    if (users.getMobile().equals(mobileNumber)) {
-                        AppHelper.print("Mobile number already exists");
-                        goToHome();
-                    } else {
-                        AppHelper.print("New user mobile number not found");
-                        goToSignUp();
-                    }
-                } else {
-                    AppHelper.print("New user table not found");
-                    goToSignUp();
-                }
-            } else {
-                cancelProgress();
-                showToast(OtpVerificationActivity.this, "Temporary error in verifying otp!");
+        for (Map.Entry<String, Object> entry : value.entrySet()) {
+            Map usersMap = (Map) entry.getValue();
+            phoneNumbers.add((String) usersMap.get(Keys.ATTR_MOBILE));
+
+            //trying to load profile of user, if mobile number found
+            if(((String) usersMap.get(Keys.ATTR_MOBILE)).equalsIgnoreCase(mobileNumber)) {
+                Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
+                        (String) usersMap.get(Keys.ATTR_EMAIL),
+                        (String) usersMap.get(Keys.ATTR_MOBILE),
+                        (String) usersMap.get(Keys.ATTR_GENDER));
+
+                dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
             }
+        }
+
+        if (phoneNumbers.size() != 0) {
+            if (phoneNumbers.contains(mobileNumber)) {
+                //user already registered load profile and go home
+                goToHome();
+            } else {
+                //user not registered
+                goToSignUp();
+            }
+        } else {
+            //user not registered
+            goToSignUp();
         }
     }
 
     private void goToSignUp() {
         cancelProgress();
-        goTo(OtpVerificationActivity.this, SignupActivity.class, true, "mobile", mobileNumber);
+        goTo(OtpVerificationActivity.this, SignupActivity.class, true, Keys.MOBILE, mobileNumber);
     }
 
     private void goToHome() {

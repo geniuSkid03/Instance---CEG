@@ -2,7 +2,7 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class Users {
 
-    private String StudentID, name, email, mobile, gender;
+    private String StudentID, name, email, mobile, gender, imgUrl;
 
     public Users() {
 
@@ -50,5 +50,17 @@ public class Users {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public void setStudentID(String studentID) {
+        StudentID = studentID;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

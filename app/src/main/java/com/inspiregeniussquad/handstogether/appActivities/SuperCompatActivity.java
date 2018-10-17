@@ -2,6 +2,7 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -52,7 +53,7 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     protected SignalReceiver connectionChangeReceiver;
 
-    protected AlertDialog noInternetDialog;
+    protected AlertDialog noInternetDialog, infoAlert;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -77,15 +78,15 @@ public class SuperCompatActivity extends AppCompatActivity {
 
         //firebase database
         parentDatabaseReference = FirebaseDatabase.getInstance().getReference();
-
-        childDatabaseReference = parentDatabaseReference.child("newUser");
+        usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
 
         newUser = new ArrayList<>();
 
-        usersDatabaseReference = getReferenceFromDatabase("Users");
-
         //progress view
         progressDialog = new ProgressDialog(this);
+
+        //alert dialogs
+        infoAlert = new AlertDialog.Builder(this).create();
 
         //no internet alert receiver
         connectionChangeReceiver = new SignalReceiver(this, Keys.NO_INTERNET_CONNECTION, new Action() {
@@ -125,7 +126,7 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     private void onConnectionChangeDetected(boolean isInternetAvailable) {
 
-        AppHelper.print("Network result: "+isInternetAvailable);
+        AppHelper.print("Network result: " + isInternetAvailable);
 
         if (!isInternetAvailable) {
             showNoInternetAlert();
@@ -203,6 +204,24 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected void cancelProgress() {
         if (progressDialog.isShowing() && progressDialog != null) {
             progressDialog.dismiss();
+        }
+    }
+
+    protected void showInfoAlert(String msg) {
+        if (infoAlert != null) {
+            if (msg != null) {
+                infoAlert.setMessage(msg);
+                infoAlert.setButton(android.app.AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                infoAlert.setCancelable(false);
+                if (!isFinishing()) {
+                    infoAlert.show();
+                }
+            }
         }
     }
 
