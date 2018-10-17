@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\geniuS\\Android\\Android Studio Projects\\HandsTogether\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6a494b85e9e9e97857ba339266bc6177\\res\\values-v21\\values-v21.xml",
@@ -80,7 +80,7 @@
                     }
                 },
                 {
-                    "source": "G:\\geniuS\\Android\\Android Studio Projects\\HandsTogether\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "source": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\src\\main\\res\\values-v21\\styles.xml",
                     "from": {
                         "startLines": "1,7,16",
                         "startColumns": "4,4,4",
