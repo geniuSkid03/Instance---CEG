@@ -1,6 +1,8 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -13,6 +15,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -87,6 +90,12 @@ public class HomeActivity extends SuperCompatActivity {
     private AchievementsFragment achievementsFragment;
     private OthersFragment othersFragment;
 
+    private Toolbar searchableToolbar;
+    private Menu searchMenu;
+    private MenuItem searchMenuItem;
+
+    private SearchView searchView;
+
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
@@ -133,6 +142,8 @@ public class HomeActivity extends SuperCompatActivity {
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+//        setSearchToolbar();
 
         headerList = new ArrayList<>();
         childModelsList = new ArrayList<>();
@@ -208,6 +219,9 @@ public class HomeActivity extends SuperCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
+
+
+
         return true;
     }
 
@@ -519,6 +533,14 @@ public class HomeActivity extends SuperCompatActivity {
             backPressed = 0;
             onBackPressed();
         }
+    }
 
+    private void whiteNotificationBar(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = view.getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            view.setSystemUiVisibility(flags);
+            getWindow().setStatusBarColor(Color.WHITE);
+        }
     }
 }

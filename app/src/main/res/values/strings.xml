@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Instance - CEG</string>
+    <string name="app_name">Instance</string>
     <string name="appbar_scrolling_view_behavior">Scrolling</string>
     <string name="sign_out">Log Out</string>
     <string name="btn_login">Log In</string>
@@ -55,7 +55,7 @@
     <string name="circular">Circular</string>
     <string name="newsfeed">Newsfeed</string>
     <string name="loading">loading</string>
-    <string name="lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry_lorem_ipsum_has_been_the_industry_s_standard_dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
     <string name="read_more">Read more…</string>
     <string name="function_not_set">Function Not Set!</string>
     <string name="press_again_to_exit">Press BACK again to exit!</string>
@@ -74,4 +74,5 @@
     <string name="cannot_create_account">Some error occurred while processing, try again later!</string>
     <string name="ok">OK</string>
     <string name="log_out_hint">Are you sure, you want to log out?</string>
+    <string name="action_search">search</string>
 </resources>

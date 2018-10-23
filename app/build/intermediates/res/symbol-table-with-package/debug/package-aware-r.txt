@@ -1390,6 +1390,7 @@ string hint_password
 string home
 string lbl_forgot_password
 string loading
+string log_out_hint
 string login_again
 string lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry_lorem_ipsum_has_been_the_industry_s_standard_dummy
 string male
