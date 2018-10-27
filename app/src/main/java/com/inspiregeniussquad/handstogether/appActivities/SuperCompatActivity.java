@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -31,12 +33,16 @@ import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appInterfaces.Action;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
+import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import butterknife.ButterKnife;
+import id.zelory.compressor.Compressor;
 
 public class SuperCompatActivity extends AppCompatActivity {
 
@@ -52,8 +58,8 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected Animation scaleUpAnim, scaleDownAnim;
 
     protected SignalReceiver connectionChangeReceiver;
-
     protected AlertDialog noInternetDialog, infoAlert;
+    protected PermissionHelper permissionHelper;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -64,6 +70,9 @@ public class SuperCompatActivity extends AppCompatActivity {
 
         //shared preferences data
         dataStorage = new DataStorage(this);
+
+        //permissions helper
+        permissionHelper = new PermissionHelper(this);
     }
 
     @Override
@@ -312,5 +321,33 @@ public class SuperCompatActivity extends AppCompatActivity {
             Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
         }
     }
+
+    protected boolean isAboveM() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
+
+    protected String getImagePath(Uri uri) {
+        String path = AppHelper.getRealPathFromURI(this, uri);
+        try {
+            return getCompressedImagePath(path);
+        } catch (Exception e) {
+            AppHelper.print("Registration process : Exception in image compression");
+            e.printStackTrace();
+            return path;
+        }
+    }
+
+    private String getCompressedImagePath(String actualImagePath) throws IOException {
+        return getCompressedImagePath(this, actualImagePath);
+    }
+
+    public static String getCompressedImagePath(Context context, String imagePath) throws IOException {
+        File actualFile = new File(imagePath);
+        AppHelper.print("Actual: " + actualFile.getAbsolutePath() + " " + actualFile.length());
+        File compressedFile = new Compressor(context).compressToFile(actualFile);
+        AppHelper.print("Compressed: " + compressedFile.getAbsolutePath() + " " + compressedFile.length());
+        return compressedFile.getAbsolutePath();
+    }
+
 
 }

@@ -15,16 +15,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.ExpandableListAdapter;
@@ -37,6 +34,7 @@ import com.inspiregeniussquad.handstogether.appFragments.CulturalsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.HomeFragment;
 import com.inspiregeniussquad.handstogether.appFragments.NonTechFragment;
 import com.inspiregeniussquad.handstogether.appFragments.OthersFragment;
+import com.inspiregeniussquad.handstogether.appFragments.SettingsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.SocialFragment;
 import com.inspiregeniussquad.handstogether.appFragments.SportsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.TechFragment;
@@ -44,7 +42,6 @@ import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListe
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NoSwipeViewPager;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,7 +70,6 @@ public class HomeActivity extends SuperCompatActivity {
     private int lastExpandedPosition = -1;
 
     private ExpandableListAdapter expandableListAdapter;
-    private NavMenuModels menuOne, menuTwo, menuThree, menuFour, menuFive;
 
     private List<NavMenuModels> headerList;
     private List<NavMenuModels> childModelsList;
@@ -89,12 +85,9 @@ public class HomeActivity extends SuperCompatActivity {
     private SportsFragment sportsFragment;
     private AchievementsFragment achievementsFragment;
     private OthersFragment othersFragment;
+    private SettingsFragment settingsFragment;
+//    private AboutFragment aboutFragment;
 
-    private Toolbar searchableToolbar;
-    private Menu searchMenu;
-    private MenuItem searchMenuItem;
-
-    private SearchView searchView;
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -133,6 +126,14 @@ public class HomeActivity extends SuperCompatActivity {
         if (othersFragment != null && othersFragment.isAdded()) {
             fragmentManager.putFragment(outState, Keys.FRAGMENT_OTHERS, othersFragment);
         }
+
+        if (settingsFragment != null && settingsFragment.isAdded()) {
+            fragmentManager.putFragment(outState, Keys.FRAGMENT_SETTINGS, settingsFragment);
+        }
+
+//        if (aboutFragment != null && aboutFragment.isAdded()) {
+//            fragmentManager.putFragment(outState, Keys.FRAGMENT_ABOUT, aboutFragment);
+//        }
     }
 
     @Override
@@ -203,52 +204,29 @@ public class HomeActivity extends SuperCompatActivity {
                 imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
                         ContextCompat.getDrawable(this, R.drawable.ic_man) :
                         ContextCompat.getDrawable(this, R.drawable.ic_girl));
-
-//                if (users.getImgUrl() == null) {
-//                    imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
-//                            ContextCompat.getDrawable(this, R.drawable.ic_man) :
-//                            ContextCompat.getDrawable(this, R.drawable.ic_girl));
-//                } else {
-//                    Picasso.get().load(users.getImgUrl()).into(imageView);
-//                }
             }
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-
-
-
+//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void setUpNavigationMenus() {
         //creating navigation menu
-        menuOne = new NavMenuModels(R.drawable.ic_dashboard, "Home", false, false);
+        NavMenuModels menuOne = new NavMenuModels(R.drawable.ic_dashboard, getString(R.string.home), false, false);
 
         addToHeaderList(menuOne);
 
-        menuTwo = new NavMenuModels(R.drawable.ic_clubs, "Clubs", false, true);
+        NavMenuModels menuTwo = new NavMenuModels(R.drawable.ic_clubs, getString(R.string.clubs), false, true);
 
-        NavMenuModels subMenuOne = new NavMenuModels(R.drawable.ic_sub_teams, "Tech", true, false);
-        NavMenuModels subMenuTwo = new NavMenuModels(R.drawable.ic_sub_teams, "Non-tech", true, false);
-        NavMenuModels subMenuThree = new NavMenuModels(R.drawable.ic_sub_teams, "Social", true, false);
-        NavMenuModels subMenuFour = new NavMenuModels(R.drawable.ic_sub_teams, "Sports", true, false);
-        NavMenuModels subMenuFive = new NavMenuModels(R.drawable.ic_sub_teams, "Cultural", true, false);
+        NavMenuModels subMenuOne = new NavMenuModels(R.drawable.ic_sub_teams, getString(R.string.tech), true, false);
+        NavMenuModels subMenuTwo = new NavMenuModels(R.drawable.ic_sub_teams, getString(R.string.entertainment), true, false);
+        NavMenuModels subMenuThree = new NavMenuModels(R.drawable.ic_sub_teams, getString(R.string.social), true, false);
+        NavMenuModels subMenuFour = new NavMenuModels(R.drawable.ic_sub_teams, getString(R.string.sports), true, false);
+        NavMenuModels subMenuFive = new NavMenuModels(R.drawable.ic_sub_teams, getString(R.string.cultural), true, false);
 
         childModelsList.add(subMenuOne);
         childModelsList.add(subMenuTwo);
@@ -259,14 +237,20 @@ public class HomeActivity extends SuperCompatActivity {
         addToHeaderList(menuTwo);
         addToChildList(menuTwo, childModelsList);
 
-        menuThree = new NavMenuModels(R.drawable.ic_upcoming, "Achievements", false, false);
+        NavMenuModels menuThree = new NavMenuModels(R.drawable.ic_upcoming, getString(R.string.achivements), false, false);
         addToHeaderList(menuThree);
 
-        menuFour = new NavMenuModels(R.drawable.ic_others, "Others", false, false);
+        NavMenuModels menuFour = new NavMenuModels(R.drawable.ic_others, getString(R.string.others), false, false);
         addToHeaderList(menuFour);
 
-        menuFive = new NavMenuModels(R.drawable.ic_sign_out, "Log out", false, false);
+        NavMenuModels menuFive = new NavMenuModels(R.drawable.ic_settings, getString(R.string.settings), false, false);
         addToHeaderList(menuFive);
+
+//        NavMenuModels menuSix = new NavMenuModels(R.drawable.ic_about, getString(R.string.about), false, false);
+//        addToHeaderList(menuSix);
+
+        NavMenuModels menuSeven = new NavMenuModels(R.drawable.ic_sign_out, getString(R.string.log_out), false, false);
+        addToHeaderList(menuSeven);
 
         //generating expandable list view
         expandableListAdapter = new ExpandableListAdapter(this, headerList, childsList);
@@ -276,6 +260,8 @@ public class HomeActivity extends SuperCompatActivity {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 checkAndShowFragmentForGroups(groupPosition, expandableListAdapter.getGroup(groupPosition).hasChildren);
+                expandableListAdapter.setSelectedGroupAs(groupPosition);
+                expandableListAdapter.notifyDataSetChanged();
                 return false;
             }
         });
@@ -285,6 +271,8 @@ public class HomeActivity extends SuperCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 checkAndShowFragmentForChild(groupPosition, childPosition);
                 expandableListView.collapseGroup(groupPosition);
+                expandableListAdapter.setSelectedChildAs(childPosition);
+                expandableListAdapter.notifyDataSetChanged();
                 return false;
             }
         });
@@ -295,7 +283,6 @@ public class HomeActivity extends SuperCompatActivity {
                 expandableListView.setSelection(groupPosition);
             }
         });
-
     }
 
     private void addToHeaderList(NavMenuModels menu) {
@@ -309,6 +296,32 @@ public class HomeActivity extends SuperCompatActivity {
             childsList.put(menu, childModelsList);
         }
     }
+
+    private void checkAndShowFragmentForGroups(int groupPosition, boolean hasChildren) {
+        if (!hasChildren) {
+            switch (groupPosition) {
+                case 0:
+                    setAndShowFragment(Keys.FRAGMENT_HOME);
+                    break;
+                case 2:
+                    setAndShowFragment(Keys.FRAGMENT_ACHIEVEMENTS);
+                    break;
+                case 3:
+                    setAndShowFragment(Keys.FRAGMENT_OTHERS);
+                    break;
+                case 4:
+                    setAndShowFragment(Keys.FRAGMENT_SETTINGS);
+                    break;
+                case 5:
+                    setAndShowFragment(Keys.FRAGMENT_ABOUT);
+                    break;
+                case 6:
+                    showSignoutAlert();
+                    break;
+            }
+        }
+    }
+
 
     private void checkAndShowFragmentForChild(int groupPosition, int childPosition) {
         switch (groupPosition) {
@@ -347,40 +360,14 @@ public class HomeActivity extends SuperCompatActivity {
         if (!TextUtils.isEmpty(fragmentToShow)) {
             int fragmentId = myPagerAdapter.getFragment(fragmentToShow);
             noSwipeViewPager.setCurrentItem(fragmentId, false);
-            setSelectedFragmentAs(fragmentId);
-
+            closeNavMenu();
             AppHelper.print("Setting fragment as: " + fragmentToShow);
         }
-    }
-
-    private void setSelectedFragmentAs(int fragmentId) {
-        //todo show selected fragment highlight color by referring fragmentID
-        closeNavMenu();
-
     }
 
     private void closeNavMenu() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
-    }
-
-    private void checkAndShowFragmentForGroups(int groupPosition, boolean hasChildren) {
-        if (!hasChildren) {
-            switch (groupPosition) {
-                case 0:
-                    setAndShowFragment(Keys.FRAGMENT_HOME);
-                    break;
-                case 2:
-                    setAndShowFragment(Keys.FRAGMENT_ACHIEVEMENTS);
-                    break;
-                case 3:
-                    setAndShowFragment(Keys.FRAGMENT_OTHERS);
-                    break;
-                case 4:
-                    showSignoutAlert();
-                    break;
-            }
         }
     }
 
@@ -420,6 +407,7 @@ public class HomeActivity extends SuperCompatActivity {
             sportsFragment = (SportsFragment) fragmentManager.getFragment(savedInstanceState, Keys.FRAGMENT_SPORTS);
             achievementsFragment = (AchievementsFragment) fragmentManager.getFragment(savedInstanceState, Keys.FRAGMENT_ACHIEVEMENTS);
             othersFragment = (OthersFragment) fragmentManager.getFragment(savedInstanceState, Keys.FRAGMENT_OTHERS);
+            settingsFragment = (SettingsFragment) fragmentManager.getFragment(savedInstanceState, Keys.FRAGMENT_SETTINGS);
         }
 
         if (homeFragment == null) {
@@ -454,6 +442,14 @@ public class HomeActivity extends SuperCompatActivity {
             othersFragment = new OthersFragment();
         }
 
+        if (settingsFragment == null) {
+            settingsFragment = new SettingsFragment();
+        }
+
+//        if (aboutFragment == null) {
+//            aboutFragment = new AboutFragment();
+//        }
+
         homeFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
             @Override
             public void refreshFragments() {
@@ -469,6 +465,8 @@ public class HomeActivity extends SuperCompatActivity {
         myPagerAdapter.addFragment(Keys.FRAGMENT_SPORTS, sportsFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_ACHIEVEMENTS, achievementsFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_OTHERS, othersFragment);
+        myPagerAdapter.addFragment(Keys.FRAGMENT_SETTINGS, settingsFragment);
+//        myPagerAdapter.addFragment(Keys.FRAGMENT_ABOUT, aboutFragment);
 
         noSwipeViewPager.setAdapter(myPagerAdapter);
         noSwipeViewPager.setOffscreenPageLimit(8);

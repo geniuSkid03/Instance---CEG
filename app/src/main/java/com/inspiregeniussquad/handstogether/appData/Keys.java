@@ -20,6 +20,8 @@ public class Keys {
     public static final String FRAGMENT_SOCIAL = "SOCIAL_FRAGMENT";
     public static final String FRAGMENT_ACHIEVEMENTS = "ACHIEVEMENTS_FRAGMENT";
     public static final String FRAGMENT_OTHERS = "OTHERS_FRAGMENT";
+    public static final String FRAGMENT_SETTINGS = "SETTINGS_FRAGMENT";
+    public static final String FRAGMENT_ABOUT = "ABOUT_FRAGMENT";
 
     public static final String NEWS_ITEM = "news_item";
     public static final String USERS = "Users";
@@ -28,13 +30,26 @@ public class Keys {
     public static final String OTHERS = "others";
     public static final String TABLE_USER_ID = "tbl_user_id";
     public static final String USER_ID = "id";
+    public static final Object TEAM_NAME = "tName";
 
     //table names
     public static String TABLE_USER = "Users";
+    public static final String TABLE_TEAM = "Teams";
 
-    //table attributes
+
+    //user attributes
     public static final String ATTR_MOBILE = "mobile";
     public static final String ATTR_USERNAME = "name";
     public static final String ATTR_GENDER = "gender";
     public static final String ATTR_EMAIL = "email";
+
+    //team attributes
+    public static final String ATTR_NAME = "teamName";
+    public static final String ATTR_DESC = "teamDesc";
+    public static final String ATTR_MOTTO = "teamMotto";
+    public static final String ATTR_MEMBERS_COUNT = "teamMembersCount";
+    public static final String ATTR_LOGO_URI= "teamLogoUri";
+
+    public static final String PERMISSIONS_GRANTED = "all_permissions_available";
+
 }

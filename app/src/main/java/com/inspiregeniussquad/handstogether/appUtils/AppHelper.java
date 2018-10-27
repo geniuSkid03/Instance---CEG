@@ -1,13 +1,18 @@
 package com.inspiregeniussquad.handstogether.appUtils;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.widget.Toast;
+
+import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -54,4 +59,21 @@ public class AppHelper {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
+    public static String getRealPathFromURI(Context context, Uri uri) {
+        String path = "";
+        try {
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+
+            if (cursor != null) {
+                cursor.moveToFirst();
+                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                path = cursor.getString(idx);
+                cursor.close();
+            }
+            return path;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return path;
+        }
+    }
 }

@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "165859413607-anbo3km40icfvgabfqnnkaqsevs5ggg3.apps.googleusercontent.com",
+          "client_id": "165859413607-if0op0ddd558cqplot688cjh25pjfc26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inspiregeniussquad.handstogether",
+            "certificate_hash": "b1b00d154014baffff9bf1204ea91f63dfab25ec"
+          }
+        },
+        {
+          "client_id": "165859413607-hhu1moppd6ema5blqo62m5b11qrm3e13.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.inspiregeniussquad.handstogether",

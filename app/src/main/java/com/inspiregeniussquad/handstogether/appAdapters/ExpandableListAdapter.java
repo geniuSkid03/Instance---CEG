@@ -26,6 +26,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private HashMap<NavMenuModels, List<NavMenuModels>> childList;
     private LayoutInflater layoutInflater;
     private ImageView dropDownIv;
+    private View headerView, childView;
+    private int selectedGroupPosition = 0, selectedChildPosition = 0;
 
     public ExpandableListAdapter(Context context, List<NavMenuModels> headerList,
                                  HashMap<NavMenuModels, List<NavMenuModels>> childList) {
@@ -59,6 +61,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         String childName = getChild(groupPosition, childPosition).menuTag;
         int childIcon = getChild(groupPosition, childPosition).menuIconId;
         boolean isGroup = getChild(groupPosition, childPosition).isGroup;
+        boolean isSelected = getChild(groupPosition, childPosition).isSelected;
 
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.list_child, null);
@@ -71,7 +74,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         childIconIv.setImageDrawable(ContextCompat.getDrawable(context, childIcon));
         childTagTv.setText(childName);
 
+        childView = convertView.findViewById(R.id.selected_child_view);
+        childView.setVisibility(childPosition == selectedChildPosition ? View.VISIBLE : View.INVISIBLE);
+
         return convertView;
+    }
+
+    public void setSelectedGroupAs(int selectedGroupPosition) {
+        this.selectedGroupPosition = selectedGroupPosition;
+    }
+
+    public void setSelectedChildAs(int selectedChildPosition) {
+        this.selectedChildPosition = selectedChildPosition;
     }
 
     @Override
@@ -108,6 +122,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         int headerIcon = getGroup(groupPosition).menuIconId;
         boolean isGroup = getGroup(groupPosition).isGroup;
         boolean hasChildren = getGroup(groupPosition).hasChildren;
+        boolean isSelected = getGroup(groupPosition).isSelected;
 
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.list_group_header, null);
@@ -122,6 +137,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         dropDownIv.setImageDrawable(isExpanded ?
                 ContextCompat.getDrawable(context, R.drawable.ic_arrow_up) :
                 ContextCompat.getDrawable(context, R.drawable.ic_arrow_down));
+
+        headerView = convertView.findViewById(R.id.selected_header_view);
+        headerView.setVisibility(groupPosition == selectedGroupPosition ? View.VISIBLE : View.INVISIBLE);
 
         return convertView;
     }

@@ -24,4 +24,7 @@
     <color name="primaryTextColor">#FFFFFF</color>
     <color name="secondaryTextColor">@color/app_grey</color>
 
+    <color name="layout_bg">#90caf9</color>
+
+
 </resources>

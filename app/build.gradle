@@ -46,8 +46,8 @@ dependencies {
 
     //fire base support dependencies
     implementation 'com.google.firebase:firebase-core:16.0.4'
-    implementation 'com.google.firebase:firebase-auth:16.0.4'
-    implementation 'com.google.firebase:firebase-database:16.0.3'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.4'
 
     //page loading indicator view
     implementation 'com.wang.avi:library:2.1.3'
@@ -58,6 +58,15 @@ dependencies {
     //image loading helper dependency
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    //image compression
+    implementation 'id.zelory:compressor:2.1.0'
+
+    //font changing
+    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    //fireabse storage
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

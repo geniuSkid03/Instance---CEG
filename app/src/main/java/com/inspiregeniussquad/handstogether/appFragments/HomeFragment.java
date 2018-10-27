@@ -102,28 +102,6 @@ public class HomeFragment extends SuperFragment {
             }
         };
 
-        //setting tab listener for tab layout
-        tabSelectedListener = new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getIcon() != null) {
-                    tab.getIcon().setColorFilter(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.black), PorterDuff.Mode.SRC_IN);
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                if (tab.getIcon() != null) {
-                    tab.getIcon().setColorFilter(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN);
-                }
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        };
-
         return view;
     }
 
@@ -140,8 +118,20 @@ public class HomeFragment extends SuperFragment {
         viewPager.setAdapter(fragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.addOnTabSelectedListener(tabSelectedListener);
         viewPager.setOffscreenPageLimit(1);
+
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            switch (i) {
+                case 0:
+                    TabLayout.Tab tabCall = tabLayout.getTabAt(i);
+                    Objects.requireNonNull(tabCall).setIcon(R.drawable.newsfeed_icon);
+                    break;
+                case 1:
+                    TabLayout.Tab tabCall2 = tabLayout.getTabAt(i);
+                    Objects.requireNonNull(tabCall2).setIcon(R.drawable.circular_icon);
+                    break;
+            }
+        }
     }
 
     public void refreshHomeFragment() {

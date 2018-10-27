@@ -1,16 +1,28 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
+import com.inspiregeniussquad.handstogether.appData.DataStorage;
+import com.inspiregeniussquad.handstogether.appData.Keys;
+import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -19,6 +31,20 @@ public class SuperFragment extends Fragment {
 
     protected Gson gson = new Gson();
     private Unbinder unbinder;
+
+    protected DataStorage dataStorage;
+    protected PermissionHelper permissionHelper;
+
+    protected FirebaseStorage firebaseStorage;
+    protected StorageReference storageReference;
+
+    protected StorageReference teamLogoStorageReference;
+    protected UploadTask uploadTask;
+    protected DatabaseReference teamDbReference;
+
+    protected ProgressDialog progressDialog;
+    protected AlertDialog simpleAlertDialog;
+
 
     //here fragment is attached with activity
     @Override
@@ -30,6 +56,20 @@ public class SuperFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //instances and references for firebase database
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
+        teamLogoStorageReference = firebaseStorage.getReference();
+
+        //node and child references
+        teamDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
+
+        dataStorage = new DataStorage(getActivity());
+        permissionHelper = new PermissionHelper(getActivity());
+        progressDialog = new ProgressDialog(getActivity());
+        simpleAlertDialog = new AlertDialog.Builder(getActivity()).create();
+
     }
 
     //view creation and views are inflated here
@@ -137,5 +177,42 @@ public class SuperFragment extends Fragment {
                 getActivity().finish();
             }
         }
+    }
+
+    protected void showToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void showProgress(String msg) {
+        if (msg != null) {
+            progressDialog.setMessage(msg);
+            progressDialog.setCancelable(false);
+            if (!progressDialog.isShowing()) {
+                progressDialog.show();
+            }
+        }
+    }
+
+    protected void cancelProgress() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+    }
+
+    protected void showSimpleAlert(String msg, String btnText, final SimpleAlert simpleAlert) {
+        if(simpleAlertDialog != null) {
+            simpleAlertDialog.setMessage(msg);
+            simpleAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, btnText, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    simpleAlert.onBtnClicked(dialog, which);
+                }
+            });
+            simpleAlertDialog.show();
+        }
+    }
+
+    interface SimpleAlert {
+        void onBtnClicked(DialogInterface dialogInterface, int which);
     }
 }

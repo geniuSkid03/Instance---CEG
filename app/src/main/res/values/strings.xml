@@ -75,4 +75,69 @@
     <string name="ok">OK</string>
     <string name="log_out_hint">Are you sure, you want to log out?</string>
     <string name="action_search">search</string>
+    <string name="achivements">Achievements</string>
+    <string name="others">Others</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="clubs">Clubs</string>
+    <string name="tech">Technical</string>
+    <string name="non_tech">Non-tech</string>
+    <string name="social">Social</string>
+    <string name="sports">Sports</string>
+    <string name="cultural">Cultural</string>
+    <string name="general">General</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="version">App Version</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="search">Search</string>
+    <string name="search_event">Search event…</string>
+    <string name="search_ciruclar">Search Circular…</string>
+    <string name="permission_message">App needs permission to run properly!</string>
+    <string name="permission_title">Permission Needed.</string>
+    <string name="permission">Permission</string>
+    <string name="permission_hint">List of permissions needed by app to run smoothly.</string>
+    <string name="i_agree">I Agree</string>
+    <string name="location_title" translatable="false">LOCATION</string>
+    <string name="phone_title" translatable="false">PHONE</string>
+    <string name="contact_title" translatable="false">CONTACT</string>
+    <string name="sms_title" translatable="false">SMS</string>
+    <string name="storage_title" translatable="false">STORAGE</string>
+    <string name="camera_title" translatable="false">CAMERA</string>
+    <string name="contact_permsn_hint">Contacts permission is to make emergency contacts within your app and you can call them at anytime during the trip. Standard call charges may apply as per your carrier.</string>
+    <string name="location_permsn_hint">Location permission is to make you drive safely to reach customer and for navigation purpose.</string>
+    <string name="phone_permsn_hint">This permission is meant to add contacts to app and you can make a call in case of any emergency, it also allows you to make a call to customer for getting clear information about the trip.</string>
+    <string name="sms_permsn_hint">Incase of OTP verification, you are not stressed by the app to read and enter the OTP again. By providing this permission, the app itself reads and verifies OTP automatically.</string>
+    <string name="storage_permsn_hint">This allows you to upload images and videos about carriage details and drivers identity information for verification purpose.</string>
+    <string name="camera_permsn_hint">You will be able to upload and send details of carriage and goods with this permission. It was also used to upload images and videos for driver verification process.</string>
+    <string name="read" translatable="false">by reading</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="open_camera">Open camera</string>
+    <string name="choose_operation">Choose an Operation!</string>
+    <string name="pick_from_gallery">Pick from gallery</string>
+    <string name="app_photo">Add Photo by</string>
+    <string name="hello_admin">Hello, Admin!</string>
+    <string name="choose_your_updation">What do you want to update?</string>
+    <string name="news_will_be_shown_in_newsfeed">News will be shown in newsfeed</string>
+    <string name="create_a_news">Create a news</string>
+    <string name="create_a_circular">Create a circular</string>
+    <string name="it_will_be_shown_in_circular_tab">It will be shown in circular tab</string>
+    <string name="add_team">Add Team</string>
+    <string name="add_or_edit_team_information">Add or edit team information</string>
+    <string name="manage_team">Manage Teams</string>
+    <string name="admin_panel">Admin Panel</string>
+    <string name="update_team">Update Team</string>
+    <string name="team_name">Team name</string>
+    <string name="team_motto">Team Motto</string>
+    <string name="team_logo">Team Logo</string>
+    <string name="team_desc">Team Description</string>
+    <string name="provide_team_logo">Provide Team Logo!</string>
+    <string name="enter_team_name">Enter Team Name!</string>
+    <string name="enter_team_motto">Enter Team Motto!</string>
+    <string name="creating_team_profile">Creating team profile…</string>
+    <string name="team_already_exist">Team info already exists!</string>
+    <string name="team_added_successfully">Team Info added successfully!</string>
+    <string name="db_error">Some Error occured while creating new team, try again later!</string>
+    <string name="validating_info">Validating informations...</string>
+
 </resources>

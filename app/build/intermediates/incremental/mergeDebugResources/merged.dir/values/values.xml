@@ -20,6 +20,7 @@
         <enum name="gone" value="0"/>
         <enum name="invisible" value="1"/>
     </attr>
+    <attr format="string" name="fontPath"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
     <attr format="boolean" name="layout_constrainedHeight"/>
@@ -192,6 +193,7 @@
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="layout_bg">#90caf9</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -819,6 +821,7 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="calligraphy_tag_id" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
@@ -886,10 +889,17 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="about">About</string>
+    <string name="achivements">Achievements</string>
+    <string name="action_search">search</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in_short">Sign In</string>
+    <string name="add_or_edit_team_information">Add or edit team information</string>
+    <string name="add_team">Add Team</string>
+    <string name="admin_panel">Admin Panel</string>
     <string name="already_registered_login_here">Already Registered? login here</string>
-    <string name="app_name">Instance - CEG</string>
+    <string name="app_name">Instance</string>
+    <string name="app_photo">Add Photo by</string>
     <string name="appbar_scrolling_view_behavior">Scrolling</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="btn_back">Back</string>
@@ -898,13 +908,19 @@
     <string name="btn_link_to_register">Register here</string>
     <string name="btn_login">Log In</string>
     <string name="btn_reset_password">Reset Password</string>
+    <string name="camera_permsn_hint">You will be able to upload and send details of carriage and goods with this permission. It was also used to upload images and videos for driver verification process.</string>
+    <string name="camera_title" translatable="false">CAMERA</string>
     <string name="cancel">Cancel</string>
     <string name="cannot_create_account">Some error occurred while processing, try again later!</string>
     <string name="change_number">Change number</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="choose_email">Choose Email</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
     <string name="choose_gender">Choose your Gender!</string>
+    <string name="choose_operation">Choose an Operation!</string>
+    <string name="choose_your_updation">What do you want to update?</string>
     <string name="circular">Circular</string>
+    <string name="clubs">Clubs</string>
     <string name="collpasing_tool_bar_image">Collapsing Tool bar Image</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
@@ -926,12 +942,23 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="connect_to_n">Connect to an active network and try again!</string>
     <string name="cont">Continue</string>
+    <string name="contact_permsn_hint">Contacts permission is to make emergency contacts within your app and you can call them at anytime during the trip. Standard call charges may apply as per your carrier.</string>
+    <string name="contact_title" translatable="false">CONTACT</string>
+    <string name="create_a_circular">Create a circular</string>
+    <string name="create_a_news">Create a news</string>
+    <string name="creating_team_profile">Creating team profile…</string>
+    <string name="cultural">Cultural</string>
+    <string name="db_error">Some Error occured while creating new team, try again later!</string>
     <string name="default_web_client_id" translatable="false">165859413607-kv774rtngss6fluq8qq68k77rvmbm6dq.apps.googleusercontent.com</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
     <string name="email">Email</string>
     <string name="end">*-*-*-*-*-*-*</string>
     <string name="enter_email">Enter Email to continue!</string>
     <string name="enter_name">Enter Name to continue!</string>
+    <string name="enter_team_motto">Enter Team Motto!</string>
+    <string name="enter_team_name">Enter Team Name!</string>
     <string name="enter_your_mobile_number">Enter your mobile number</string>
+    <string name="entertainment">Entertainment</string>
     <string name="error_in_db_connection">Error in connecting database, try again after sometime!</string>
     <string name="female">Female</string>
     <string name="firebase_database_url" translatable="false">https://wefive-50838.firebaseio.com</string>
@@ -939,22 +966,29 @@
     <string name="function_not_set">Function Not Set!</string>
     <string name="gcm_defaultSenderId" translatable="false">165859413607</string>
     <string name="gender">Gender</string>
+    <string name="general">General</string>
     <string name="google_api_key" translatable="false">AIzaSyDIrQYxbCloCAmISbslRZwkDzdgqu1l02U</string>
     <string name="google_app_id" translatable="false">1:165859413607:android:e368f772df159c39</string>
     <string name="google_conn_failed">Google connection Failed</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDIrQYxbCloCAmISbslRZwkDzdgqu1l02U</string>
     <string name="google_storage_bucket" translatable="false">wefive-50838.appspot.com</string>
+    <string name="hello_admin">Hello, Admin!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_email">Email</string>
     <string name="hint_name">Name</string>
     <string name="hint_password">Password</string>
     <string name="home">Home</string>
+    <string name="i_agree">I Agree</string>
+    <string name="it_will_be_shown_in_circular_tab">It will be shown in circular tab</string>
     <string name="lbl_forgot_password">Fogot password?</string>
     <string name="loading">loading</string>
+    <string name="location_permsn_hint">Location permission is to make you drive safely to reach customer and for navigation purpose.</string>
+    <string name="location_title" translatable="false">LOCATION</string>
+    <string name="log_out">Log out</string>
     <string name="log_out_hint">Are you sure, you want to log out?</string>
     <string name="login_again">Login Me, I have account!</string>
-    <string name="lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry_lorem_ipsum_has_been_the_industry_s_standard_dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
     <string name="male">Male</string>
+    <string name="manage_team">Manage Teams</string>
     <string name="mobile">Mobile Number</string>
     <string name="mobile_invalid">Invalid Number</string>
     <string name="mobile_number_empty">Enter valid number</string>
@@ -964,10 +998,14 @@
     <string name="navigation">Navigation</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="news_will_be_shown_in_newsfeed">News will be shown in newsfeed</string>
     <string name="newsfeed">Newsfeed</string>
     <string name="no_internet_title">No Internet!</string>
     <string name="no_internt_conn">Internet connection unavailable!</string>
+    <string name="non_tech">Non-tech</string>
     <string name="ok">OK</string>
+    <string name="open_camera">Open camera</string>
+    <string name="others">Others</string>
     <string name="otp">Enter OTP here</string>
     <string name="otp_invalid">Enter valid OTP!</string>
     <string name="otp_timer">Timing</string>
@@ -976,20 +1014,50 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="permission">Permission</string>
+    <string name="permission_hint">List of permissions needed by app to run smoothly.</string>
+    <string name="permission_message">App needs permission to run properly!</string>
+    <string name="permission_title">Permission Needed.</string>
+    <string name="phone_permsn_hint">This permission is meant to add contacts to app and you can make a call in case of any emergency, it also allows you to make a call to customer for getting clear information about the trip.</string>
+    <string name="phone_title" translatable="false">PHONE</string>
+    <string name="pick_from_gallery">Pick from gallery</string>
     <string name="press_again_to_exit">Press BACK again to exit!</string>
     <string name="project_id" translatable="false">wefive-50838</string>
+    <string name="provide_team_logo">Provide Team Logo!</string>
+    <string name="read" translatable="false">by reading</string>
     <string name="read_more">Read more…</string>
     <string name="registering_you">Registering your account…</string>
     <string name="requesting_otp">Requesting Otp…</string>
     <string name="resend_otp">Resend</string>
     <string name="retry">Retry</string>
+    <string name="search">Search</string>
+    <string name="search_ciruclar">Search Circular…</string>
+    <string name="search_event">Search event…</string>
     <string name="search_menu_title">Search</string>
+    <string name="settings">Settings</string>
     <string name="sign_out">Log Out</string>
+    <string name="sms_permsn_hint">Incase of OTP verification, you are not stressed by the app to read and enter the OTP again. By providing this permission, the app itself reads and verifies OTP automatically.</string>
+    <string name="sms_title" translatable="false">SMS</string>
+    <string name="social">Social</string>
     <string name="some_error_occurred">Some Error Occurred!</string>
+    <string name="sports">Sports</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="storage_permsn_hint">This allows you to upload images and videos about carriage details and drivers identity information for verification purpose.</string>
+    <string name="storage_title" translatable="false">STORAGE</string>
+    <string name="team_added_successfully">Team Info added successfully!</string>
+    <string name="team_already_exist">Team info already exists!</string>
+    <string name="team_desc">Team Description</string>
+    <string name="team_logo">Team Logo</string>
+    <string name="team_motto">Team Motto</string>
+    <string name="team_name">Team name</string>
+    <string name="tech">Technical</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="update_team">Update Team</string>
+    <string name="validating_info">Validating informations...</string>
     <string name="verify">Verify</string>
     <string name="verifying_otp">Verifying otp…</string>
+    <string name="version">App Version</string>
     <string name="wait_we_will_send_otp">Wait we will send OTP\nto your mobile number</string>
     <string name="we_will_try_to_auto_verify_if_not_enter_manually">Auto verification</string>
     <string name="we_will_try_to_auto_verify_if_not_entered_manually">We will try to auto verify your number, if not enter it manually</string>
@@ -2128,6 +2196,10 @@
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
+    <style name="ButtonBg" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/ripple</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
     <style name="CardView" parent="Base.CardView">
     </style>
     <style name="CardView.Dark">
@@ -2319,6 +2391,18 @@
     <style name="RtlUnderlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton">
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
+    </style>
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabBackground">?android:attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+    </style>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/app_grey</item>
+        <item name="textAllCaps">true</item>
     </style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
