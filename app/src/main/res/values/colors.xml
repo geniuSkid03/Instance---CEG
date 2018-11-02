@@ -25,6 +25,7 @@
     <color name="secondaryTextColor">@color/app_grey</color>
 
     <color name="layout_bg">#90caf9</color>
+    <color name="hint_text_color">#757575</color>
 
 
 </resources>

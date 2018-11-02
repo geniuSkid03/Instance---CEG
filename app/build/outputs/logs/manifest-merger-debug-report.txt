@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\ab5bbdfd994ac65261514d6fb47ab5b0\AndroidManifest.xml:17:1-22:12
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\f5410e466635936cf84f195502d2a068\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\86e2ba5a15d5a331ed4775cb2307c7dd\AndroidManifest.xml:17:1-22:12
@@ -53,20 +53,20 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Asort Technologies
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\71b14b989b3bcfdeff13b683326c91bd\AndroidManifest.xml:2:1-9:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c9e664c047e71361ff2640e3ea84240b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\de59fcb2d597e01d9bb2547ac6c31c0f\AndroidManifest.xml:17:1-22:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
-INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
+INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
 	package
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-96:12
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:1-92:12
 		INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:2:11-69
@@ -77,7 +77,7 @@ ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\A
 	android:name
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:6:9-55
 uses-permission#android.permission.INTERNET
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:8:5-67
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:9:5-67
 MERGED from [com.google.firebase:firebase-database:16.0.4] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.4.aar\bc2063d904b0310a6a9fa38d102067cd\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-database:16.0.4] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.4.aar\bc2063d904b0310a6a9fa38d102067cd\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-storage:16.0.4] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\firebase-storage-16.0.4.aar\0d11ef624cd6c56ea6a63d2edd295f5b\AndroidManifest.xml:24:5-67
@@ -91,41 +91,41 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] C:\Users\Asort 
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\1fd94e4773696cfbab90525f2ec3d049\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\1fd94e4773696cfbab90525f2ec3d049\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:8:22-64
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:9:22-64
 uses-permission#android.permission.CAMERA
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:9:5-65
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:10:5-65
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:9:22-62
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:10:22-62
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:10:5-80
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:11:5-80
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:10:22-77
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:11:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:11:5-81
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:11:22-78
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:12:22-78
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:12:5-75
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:13:5-75
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:12:22-72
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:13:22-72
 uses-permission#android.permission.READ_CONTACTS
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:13:5-72
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:14:5-72
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:13:22-69
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:14:22-69
 uses-permission#android.permission.READ_SMS
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:14:5-67
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:15:5-67
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:14:22-64
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:15:22-64
 uses-permission#android.permission.RECEIVE_SMS
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:15:5-70
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:16:5-70
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:15:22-67
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:16:22-67
 uses-permission#android.permission.CALL_PHONE
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:16:5-69
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:17:5-69
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:16:22-66
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:17:22-66
 application
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:18:5-94:19
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:19:5-90:19
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\f5410e466635936cf84f195502d2a068\AndroidManifest.xml:11:5-20
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\f5410e466635936cf84f195502d2a068\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7223d4c580d2c7deec20e66e75576c51\AndroidManifest.xml:9:5-20
@@ -171,60 +171,80 @@ MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Asort Technologies\.
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\71b14b989b3bcfdeff13b683326c91bd\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Asort Technologies\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\71b14b989b3bcfdeff13b683326c91bd\AndroidManifest.xml:7:5-20
 	android:supportsRtl
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:26:9-35
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:27:9-35
 	android:label
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:23:9-41
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:24:9-41
 	android:hardwareAccelerated
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:21:9-43
-	android:roundIcon
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:25:9-54
-	android:largeHeap
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:24:9-33
-	android:icon
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:22:9-43
+	android:roundIcon
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:26:9-54
+	android:largeHeap
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:25:9-33
+	android:icon
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:23:9-43
 	android:allowBackup
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:21:9-35
 	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:27:9-40
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:28:9-40
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:19:9-47
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:20:9-47
 activity#com.inspiregeniussquad.handstogether.appActivities.SplashActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:28:9-31:62
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:29:9-32:62
 	android:label
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:30:13-45
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:31:13-45
 	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:31:13-59
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:32:13-59
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:29:13-57
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:30:13-57
 activity#com.inspiregeniussquad.handstogether.appActivities.HomeActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:42:9-56:20
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:33:9-47:20
 	android:screenOrientation
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:46:13-49
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:37:13-49
 	android:launchMode
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:44:13-44
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:35:13-44
 	android:noHistory
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:45:13-38
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:36:13-38
 	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:47:13-56
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:38:13-56
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:43:13-55
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:34:13-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:48:13-52:29
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:39:13-43:29
 action#android.intent.action.MAIN
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:49:17-69
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:49:25-66
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:40:25-66
 category#android.intent.category.LAUNCHER
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:51:17-77
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:42:17-77
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:51:27-74
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:42:27-74
 intent-filter#action:name:android.intent.action.VIEW
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:53:13-55:29
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:44:13-46:29
 action#android.intent.action.VIEW
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:54:17-69
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:45:17-69
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:54:25-66
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:45:25-66
 activity#com.inspiregeniussquad.handstogether.appActivities.MobileNumberActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:48:9-52:55
+	android:screenOrientation
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:51:13-49
+	android:launchMode
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:50:13-44
+	android:theme
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:52:13-52
+	android:name
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:49:13-63
+activity#com.inspiregeniussquad.handstogether.appActivities.OtpVerificationActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:53:9-57:55
+	android:screenOrientation
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:56:13-49
+	android:launchMode
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:55:13-44
+	android:theme
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:57:13-52
+	android:name
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:54:13-66
+activity#com.inspiregeniussquad.handstogether.appActivities.SignupActivity
 ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:58:9-62:55
 	android:screenOrientation
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:61:13-49
@@ -233,67 +253,65 @@ ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\A
 	android:theme
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:62:13-52
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:59:13-63
-activity#com.inspiregeniussquad.handstogether.appActivities.OtpVerificationActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:63:9-67:55
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:59:13-57
+activity#com.inspiregeniussquad.handstogether.appActivities.NewsItemViewActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:63:9-67:62
 	android:screenOrientation
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:66:13-49
 	android:launchMode
 		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:65:13-44
 	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:67:13-52
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:67:13-59
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:64:13-66
-activity#com.inspiregeniussquad.handstogether.appActivities.SignupActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:68:9-72:55
-	android:screenOrientation
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:71:13-49
-	android:launchMode
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:70:13-44
-	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:72:13-52
-	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:69:13-57
-activity#com.inspiregeniussquad.handstogether.appActivities.NewsItemViewActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:73:9-77:62
-	android:screenOrientation
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:76:13-49
-	android:launchMode
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:75:13-44
-	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:77:13-59
-	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:74:13-63
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:64:13-63
 activity#com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:79:9-75
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:68:9-75
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:79:19-72
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:68:19-72
 activity#com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:81:9-77
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:69:9-77
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:81:19-74
-activity#com.inspiregeniussquad.handstogether.appActivities.UpdateNewsActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:83:9-70
-	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:83:19-67
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:69:19-74
 activity#com.inspiregeniussquad.handstogether.appActivities.AdminActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:85:9-65
-	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:85:19-62
-activity#com.inspiregeniussquad.handstogether.appActivities.UpdateCircularActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:87:9-74
-	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:87:19-71
-activity#com.inspiregeniussquad.handstogether.appActivities.ManageTeamsActivity
-ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:89:9-93:59
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:70:9-74:55
 	android:screenOrientation
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:92:13-49
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:73:13-49
 	android:launchMode
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:91:13-44
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:72:13-44
 	android:theme
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:93:13-56
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:74:13-52
 	android:name
-		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:90:13-62
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:71:13-56
+activity#com.inspiregeniussquad.handstogether.appActivities.ManageTeamsActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:75:9-79:55
+	android:screenOrientation
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:78:13-49
+	android:launchMode
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:77:13-44
+	android:theme
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:79:13-52
+	android:name
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:76:13-62
+activity#com.inspiregeniussquad.handstogether.appActivities.ManageNewsActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:80:9-84:55
+	android:screenOrientation
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:83:13-49
+	android:launchMode
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:82:13-44
+	android:theme
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:84:13-52
+	android:name
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:81:13-61
+activity#com.inspiregeniussquad.handstogether.appActivities.ManageCircularActivity
+ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:85:9-89:55
+	android:screenOrientation
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:88:13-49
+	android:launchMode
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:87:13-44
+	android:theme
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:89:13-52
+	android:name
+		ADDED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml:86:13-65
 uses-sdk
 INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from G:\geniuS\Android\Android Studio Projects\Instance CEG\app\src\main\AndroidManifest.xml

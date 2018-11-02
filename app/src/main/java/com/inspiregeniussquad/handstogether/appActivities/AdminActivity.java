@@ -1,7 +1,10 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.inspiregeniussquad.handstogether.R;
@@ -10,6 +13,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class AdminActivity extends SuperCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @BindView(R.id.add_news)
     CardView newsCv;
@@ -24,6 +30,25 @@ public class AdminActivity extends SuperCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+        setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setTitle(getString(R.string.admin_panel));
+            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @OnClick({R.id.add_circular, R.id.add_news, R.id.manage_teams})
@@ -44,10 +69,10 @@ public class AdminActivity extends SuperCompatActivity {
     private void openActivity(int key) {
         switch (key) {
             case 0:
-                goTo(this, UpdateNewsActivity.class, false);
+                goTo(this, ManageCircularActivity.class, false);
                 break;
             case 1:
-                goTo(this, UpdateCircularActivity.class, false);
+                goTo(this, ManageNewsActivity.class, false);
                 break;
             case 2:
                 goTo(this, ManageTeamsActivity.class, false);

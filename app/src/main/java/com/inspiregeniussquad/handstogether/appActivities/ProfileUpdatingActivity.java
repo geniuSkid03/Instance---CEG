@@ -12,6 +12,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -34,10 +35,10 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     ImageView userProfileIv;
 
     @BindView(R.id.name)
-    TextInputEditText userNameEd;
+    EditText userNameEd;
 
     @BindView(R.id.email)
-    TextInputEditText userEmailEd;
+    EditText userEmailEd;
 
     @BindView(R.id.radio_grp)
     RadioGroup genderRdGrp;

@@ -41,16 +41,6 @@
             android:name="com.inspiregeniussquad.handstogether.appActivities.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoTitle.Splash" />
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.VIEW" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.HomeActivity"
             android:launchMode="singleTask"
@@ -88,14 +78,26 @@
             android:theme="@style/AppTheme.NoTitle.Splash" />
         <activity android:name="com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity" />
         <activity android:name="com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.UpdateNewsActivity" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.AdminActivity" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.UpdateCircularActivity" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.AdminActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.ManageTeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageNewsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageCircularActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

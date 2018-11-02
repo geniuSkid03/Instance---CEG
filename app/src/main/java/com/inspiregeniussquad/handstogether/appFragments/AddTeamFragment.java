@@ -19,8 +19,6 @@ import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -239,25 +237,25 @@ public class AddTeamFragment extends SuperFragment {
         for (Map.Entry<String, Object> entry : value.entrySet()) {
             Map teamMap = (Map) entry.getValue();
             String teamName = (String) teamMap.get(Keys.ATTR_NAME);
-            AppHelper.print("Name: "+teamName);
+            AppHelper.print("Name: " + teamName);
 
             teamArrayList.add(teamName.toLowerCase());
         }
 
         //checking if team name already exists in database
-        if(teamArrayList.size() != 0) {
-           if(teamArrayList.contains(teamName.toLowerCase())) {
-               cancelProgress();
+        if (teamArrayList.size() != 0) {
+            if (teamArrayList.contains(teamName.toLowerCase())) {
+                cancelProgress();
 
-               showSimpleAlert(getString(R.string.team_already_exist), getString(R.string.ok), new SimpleAlert() {
-                   @Override
-                   public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                       dialogInterface.dismiss();
-                   }
-               });
-           } else {
-               insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
-           }
+                showSimpleAlert(getString(R.string.team_already_exist), getString(R.string.ok), new SimpleAlert() {
+                    @Override
+                    public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                });
+            } else {
+                insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
+            }
         } else {
             insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
         }
@@ -269,7 +267,7 @@ public class AddTeamFragment extends SuperFragment {
 
         AppHelper.print("Team: " + team.getTeamName() + "\t" + team.getTeamMotto() + "\t" + team.getTeamLogoUri());
 
-        final StorageReference storageRef = teamLogoStorageReference.child("TeamLogo/" + teamName.trim()+"_Logo");
+        final StorageReference storageRef = teamLogoStorageReference.child("TeamLogo/" + teamName.trim() + "_Logo");
 
         uploadTask = storageRef.putFile(teamImgUri);
 
@@ -318,7 +316,7 @@ public class AddTeamFragment extends SuperFragment {
                         }
                     });
                 } else {
-                    AppHelper.print("Database error: "+databaseError.getMessage());
+                    AppHelper.print("Database error: " + databaseError.getMessage());
 
                     showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
                         @Override

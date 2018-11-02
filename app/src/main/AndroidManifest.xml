@@ -5,6 +5,7 @@
     <uses-permission
         android:name="android.permission.GET_ACCOUNTS"
         android:maxSdkVersion="22" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -29,16 +30,6 @@
             android:name=".appActivities.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoTitle.Splash" />
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.VIEW" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
         <activity
             android:name=".appActivities.HomeActivity"
             android:launchMode="singleTask"
@@ -54,7 +45,6 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
@@ -75,22 +65,28 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle.Splash" />
-
         <activity android:name=".appActivities.ProfileUpdatingActivity" />
-
         <activity android:name=".appActivities.PermissionsHelperActivity" />
-
-        <activity android:name=".appActivities.UpdateNewsActivity" />
-
-        <activity android:name=".appActivities.AdminActivity" />
-
-        <activity android:name=".appActivities.UpdateCircularActivity" />
-
+        <activity
+            android:name=".appActivities.AdminActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
         <activity
             android:name=".appActivities.ManageTeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name=".appActivities.ManageNewsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name=".appActivities.ManageCircularActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
     </application>
 
 </manifest>

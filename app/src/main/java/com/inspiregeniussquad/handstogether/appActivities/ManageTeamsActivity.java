@@ -36,10 +36,12 @@ public class ManageTeamsActivity extends SuperCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_teams);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         //creating fragments
         if (addTeamFragment == null) {
