@@ -20,9 +20,9 @@ import java.lang.Override;
 public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
   private ProfileUpdatingActivity target;
 
-  private View view2131296318;
+  private View view2131296319;
 
-  private View view2131296555;
+  private View view2131296559;
 
   @UiThread
   public ProfileUpdatingActivity_ViewBinding(ProfileUpdatingActivity target) {
@@ -36,7 +36,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.choose_image, "field 'chooseImgBtn' and method 'onBtnClicked'");
     target.chooseImgBtn = Utils.castView(view, R.id.choose_image, "field 'chooseImgBtn'", ImageButton.class);
-    view2131296318 = view;
+    view2131296319 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = Utils.findRequiredViewAsType(source, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
     view = Utils.findRequiredView(source, R.id.update_profile, "field 'updateProfileBtn' and method 'onBtnClicked'");
     target.updateProfileBtn = Utils.castView(view, R.id.update_profile, "field 'updateProfileBtn'", AppCompatButton.class);
-    view2131296555 = view;
+    view2131296559 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -76,9 +76,9 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = null;
     target.updateProfileBtn = null;
 
-    view2131296318.setOnClickListener(null);
-    view2131296318 = null;
-    view2131296555.setOnClickListener(null);
-    view2131296555 = null;
+    view2131296319.setOnClickListener(null);
+    view2131296319 = null;
+    view2131296559.setOnClickListener(null);
+    view2131296559 = null;
   }
 }

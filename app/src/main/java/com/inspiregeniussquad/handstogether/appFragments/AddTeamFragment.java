@@ -34,6 +34,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -41,16 +42,16 @@ public class AddTeamFragment extends SuperFragment {
 
     private AppCompatButton addTeamBtn;
     private CircularImageView teamLogoIv;
-    private ImageButton imgLoadBtn;
-    private EditText teamNameEd, teamMottoEd, teamDescED;
+    private ImageButton imgLoadBtn, reduceTeamMemberBtn, addTeamMemberBtn;
+    private EditText teamNameEd, teamMottoEd, teamMembersCountEd, teamMembersNamesEd;
 
     private Uri teamImgUri, finalTeamImgUri;
 
     private static final int CHOOSE_FILE = 101;
     private static final int OPEN_CAMERA = 100;
 
-    private String teamName;
-    private String teamMotto;
+    private String teamName, teamMotto, teamMembersCount, teamMembersNames;
+    private int membersCount = 10;
 
     @Override
     protected View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,7 +65,10 @@ public class AddTeamFragment extends SuperFragment {
         imgLoadBtn = view.findViewById(R.id.load_team_image);
         teamNameEd = view.findViewById(R.id.team_name);
         teamMottoEd = view.findViewById(R.id.team_motto);
-        teamDescED = view.findViewById(R.id.team_desc);
+        teamMembersCountEd = view.findViewById(R.id.team_members_count);
+        teamMembersNamesEd = view.findViewById(R.id.team_members_name);
+        addTeamMemberBtn = view.findViewById(R.id.minus_team_member);
+        reduceTeamMemberBtn = view.findViewById(R.id.add_team_member);
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -76,14 +80,32 @@ public class AddTeamFragment extends SuperFragment {
                     case R.id.load_team_image:
                         showOptionsForLoadingImage();
                         break;
+                    case R.id.add_team_member:
+                        addByOne();
+                        break;
+                    case R.id.minus_team_member:
+                        minusByOne();
+                        break;
                 }
             }
         };
 
         addTeamBtn.setOnClickListener(clickListener);
         imgLoadBtn.setOnClickListener(clickListener);
+        addTeamMemberBtn.setOnClickListener(clickListener);
+        reduceTeamMemberBtn.setOnClickListener(clickListener);
 
         return view;
+    }
+
+    private void addByOne() {
+        membersCount = membersCount + 1;
+        teamMembersCountEd.setText(String.format(Locale.getDefault(), "%d", membersCount));
+    }
+
+    private void minusByOne() {
+        membersCount = membersCount - 1;
+        teamMembersCountEd.setText(String.format(Locale.getDefault(), "%d", membersCount));
     }
 
     private void showOptionsForLoadingImage() {
@@ -93,7 +115,7 @@ public class AddTeamFragment extends SuperFragment {
 //        builder.setItems(items, new DialogInterface.OnClickListener() {
 //            @Override
 //            public void onClick(DialogInterface dialog, int item) {
-        boolean result = dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED);
+//        boolean result = dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED);
 //                if (items[item].equals(getString(R.string.open_camera))) {
 //                    if (result) {
 //                        getPermissionAndOpenCamera();
@@ -101,7 +123,7 @@ public class AddTeamFragment extends SuperFragment {
 //                        showPermissionDenied();
 //                    }
 //                } else if (items[item].equals(getString(R.string.pick_from_gallery))) {
-        if (result) {
+        if (dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
             galleryIntent();
         } else {
             showPermissionDenied();
@@ -201,6 +223,18 @@ public class AddTeamFragment extends SuperFragment {
             return false;
         }
 
+        teamMembersCount = teamMembersCountEd.getText().toString().trim();
+        if (!TextUtils.isDigitsOnly(teamMembersCount) && TextUtils.isEmpty(teamMembersCount)) {
+            showToast(getString(R.string.enter_team_count));
+            return false;
+        }
+
+        teamMembersNames = teamMembersNamesEd.getText().toString().trim();
+        if (TextUtils.isEmpty(teamMembersNames)) {
+            showToast(getString(R.string.enter_team_members_names));
+            return false;
+        }
+
         return true;
     }
 
@@ -217,7 +251,7 @@ public class AddTeamFragment extends SuperFragment {
                 } else {
                     //no team has registered
                     //creating new Team
-                    insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
+                    insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount)));
                 }
             }
 
@@ -254,12 +288,17 @@ public class AddTeamFragment extends SuperFragment {
                     }
                 });
             } else {
-                insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
+                insertIntoStorage();
             }
         } else {
-            insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString()));
+            insertIntoStorage();
         }
+    }
 
+    private void insertIntoStorage() {
+        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount));
+
+        insertIntoStorage(team);
     }
 
     private void insertIntoStorage(Team team) {
@@ -289,7 +328,7 @@ public class AddTeamFragment extends SuperFragment {
                     cancelProgress();
 
                     if (finalTeamImgUri != null) {
-                        insertIntoTeam(new Team(teamName, teamMotto, finalTeamImgUri.toString()));
+                        insertIntoStorage();
                     } else {
                         AppHelper.print("Team logo uri null");
                         showToast(getString(R.string.db_error));

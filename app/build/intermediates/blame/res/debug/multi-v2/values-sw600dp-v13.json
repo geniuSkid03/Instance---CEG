@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "E:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\ab5bbdfd994ac65261514d6fb47ab5b0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\29cfb818dde0e03fe4b04d8b12d5bca6\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\5f09e074f1f0ebbc228ef0961488380c\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

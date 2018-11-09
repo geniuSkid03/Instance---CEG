@@ -884,6 +884,7 @@ drawable googleg_standard_color_18
 drawable ic_about
 drawable ic_account
 drawable ic_account_icon
+drawable ic_add_icon
 drawable ic_add_image
 drawable ic_admin_panel
 drawable ic_arrow_back
@@ -913,6 +914,7 @@ drawable ic_menu_manage
 drawable ic_menu_send
 drawable ic_menu_share
 drawable ic_menu_slideshow
+drawable ic_minus_icon
 drawable ic_news_icon
 drawable ic_newsfeed_selected
 drawable ic_newsfeed_unselected
@@ -996,6 +998,7 @@ id add_circular
 id add_event_poster
 id add_news
 id add_team_btn
+id add_team_member
 id adjust_height
 id adjust_width
 id admin_panel
@@ -1133,6 +1136,7 @@ id media_actions
 id message
 id middle
 id mini
+id minus_team_member
 id mob_num_verify
 id mob_number_view
 id mobile
@@ -1232,6 +1236,8 @@ id tag_transition_group
 id team_desc
 id team_logo
 id team_logo2
+id team_members_count
+id team_members_name
 id team_motto
 id team_name
 id team_spinner
@@ -1502,12 +1508,15 @@ string creating_team_profile
 string cultural
 string date
 string db_error
+string default_members_count
 string default_web_client_id
 string dummy_text
 string email
 string end
 string enter_email
 string enter_name
+string enter_team_count
+string enter_team_members_names
 string enter_team_motto
 string enter_team_name
 string enter_your_mobile_number
@@ -1551,6 +1560,7 @@ string male
 string manage_circulars
 string manage_news
 string manage_team
+string members_count
 string mobile
 string mobile_invalid
 string mobile_number_empty
@@ -1614,6 +1624,7 @@ string team_added_successfully
 string team_already_exist
 string team_desc
 string team_logo
+string team_members_names
 string team_motto
 string team_name
 string tech

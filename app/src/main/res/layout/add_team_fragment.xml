@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/add_team_btn"
+        android:layout_above="@+id/next_btn"
         android:fillViewport="true"
         android:paddingStart="8dp"
         android:paddingTop="4dp"
@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--Team Logo image-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -27,14 +28,29 @@
                 android:layout_margin="4dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="4dp"
-                    android:text="@string/team_logo"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="12sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_logo_icon"
+                        android:tint="@color/hint_text_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/team_logo"
+                        android:textColor="@color/hint_text_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="130dp"
@@ -46,78 +62,215 @@
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:layout_margin="4dp"
-                        android:foregroundGravity="center"/>
+                        android:foregroundGravity="center" />
 
                     <ImageButton
-                        android:contentDescription="@null"
                         android:id="@+id/load_team_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="8dp"
-                        android:tint="@color/app_grey"
                         android:background="@android:color/transparent"
-                        android:src="@drawable/ic_camera_icon" />
+                        android:contentDescription="@null"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_camera_icon"
+                        android:tint="@color/app_grey" />
 
                 </RelativeLayout>
 
             </LinearLayout>
 
+            <!--Team Name-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/border_line"
+                android:layout_marginBottom="6dp"
                 android:orientation="vertical"
-                android:padding="4dp">
+                android:padding="4sp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="@string/team_name"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="12sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp">
 
-                <EditText
-                    android:id="@+id/team_name"
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_name_icon"
+                        android:tint="@color/hint_text_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/team_name"
+                        android:textColor="@color/hint_text_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1" />
+                    android:background="@drawable/border_line">
+
+                    <EditText
+                        android:id="@+id/team_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textMultiLine"
+                        android:maxLines="10" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <!--Team Name-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/border_line"
+                android:layout_marginBottom="6dp"
                 android:orientation="vertical"
-                android:padding="4dp">
+                android:padding="4sp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="@string/team_motto"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="12sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp">
 
-                <EditText
-                    android:id="@+id/team_motto"
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_star_icon"
+                        android:tint="@color/hint_text_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/team_motto"
+                        android:textColor="@color/hint_text_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="2" />
+                    android:background="@drawable/border_line">
+
+                    <EditText
+                        android:id="@+id/team_motto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textMultiLine"
+                        android:maxLines="10" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <!--Team members count-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="4dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_team_icon"
+                        android:tint="@color/hint_text_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/members_count"
+                        android:textColor="@color/hint_text_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <LinearLayout
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/border_line">
+
+                        <ImageButton
+                            android:id="@+id/minus_team_member"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_minus_icon" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/team_members_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:text="@string/default_members_count"
+                        android:gravity="center"
+                        android:minWidth="100dp" />
+
+                    <LinearLayout
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/border_line">
+
+                        <ImageButton
+                            android:id="@+id/add_team_member"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_add_icon" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--Team motto-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:background="@drawable/border_line"
                 android:orientation="vertical"
                 android:padding="4dp">
@@ -126,15 +279,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="@string/team_desc"
+                    android:text="@string/team_members_names"
                     android:textColor="@color/primaryColor"
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/team_desc"
+                    android:id="@+id/team_members_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="5" />
+                    android:maxLines="50" />
 
             </LinearLayout>
 
@@ -142,12 +295,12 @@
 
     </ScrollView>
 
+
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/add_team_btn"
+        android:id="@+id/next_btn"
         style="@style/ButtonBg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/add_team" />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

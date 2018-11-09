@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
+            "outputFile": "E:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\values-my\\values-my.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,1956",
-                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
-                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,2035"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,37",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,4799",
-                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
-                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,4878"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\4e88540e8f7a6d42d38ebd63bbc2339f\\res\\values-my\\values.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\b19103afaff1c9f5582a8a18fb376201\\res\\values-my\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\1bdf0a812c63b19bf1dac6c73bacd97f\\res\\values-my\\values.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\95fe27d6325475e0780c5edfc9bdeee0\\res\\values-my\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6a494b85e9e9e97857ba339266bc6177\\res\\values-my\\values-my.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\5f09e074f1f0ebbc228ef0961488380c\\res\\values-my\\values-my.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,1956",
+                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
+                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,2035"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,37",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,4799",
+                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
+                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,4878"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\02bb750023b1d7db5f3e5fb62a12b54a\\res\\values-my\\values-my.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

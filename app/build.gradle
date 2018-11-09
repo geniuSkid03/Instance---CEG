@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
     //fire base support dependencies
+    implementation 'com.firebase:firebase-client-android:2.5.2'
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.firebase:firebase-database:16.0.4'
@@ -64,9 +65,12 @@ dependencies {
     //font changing
     implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
 
-    //fireabse storage
+    //firebase storage
     implementation 'com.google.firebase:firebase-storage:16.0.4'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
+
+    //firebase job dispatcher
+    implementation 'com.firebase:firebase-jobdispatcher:0.6.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

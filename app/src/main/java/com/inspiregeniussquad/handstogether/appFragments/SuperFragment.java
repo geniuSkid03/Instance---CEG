@@ -57,7 +57,7 @@ public class SuperFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //instances and references for firebase database
+        //instances and references for fire base database
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
         teamLogoStorageReference = firebaseStorage.getReference();

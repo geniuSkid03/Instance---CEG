@@ -166,5 +166,11 @@
     <string name="circular_image">Image attachment:</string>
     <string name="your_recently_updated_circulars">Your recently updated circulars</string>
     <string name="name">Name</string>
+    <string name="members_count">Members Count</string>
+    <string name="team_members_names">Team Members Name</string>
+    <string name="default_members_count">10</string>
+    <string name="enter_team_count">Enter value for team members count!</string>
+    <string name="enter_team_members_names">Enter team members names!</string>
+    <string name="next">Next</string>
 
 </resources>

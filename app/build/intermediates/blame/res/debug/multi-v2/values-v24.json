@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\geniuS\\Android\\Android Studio Projects\\Instance CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "E:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\e6fc55db213b7c9c392eadb349fe8755\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\dfea3932e597e50e1a4df2a9b0ec11ca\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asort Technologies\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\86e2ba5a15d5a331ed4775cb2307c7dd\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\5f09e074f1f0ebbc228ef0961488380c\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
