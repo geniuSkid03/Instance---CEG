@@ -35,6 +35,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.SplashActivity"
@@ -45,16 +46,7 @@
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
@@ -76,7 +68,20 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle.Splash" />
         <activity android:name="com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.AdminActivity"
             android:launchMode="singleTask"
@@ -97,19 +102,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
-        <!--
-             Receives GooglePlay execution requests and forwards them to the
-             appropriate internal service.
-        -->
-        <service
-            android:name="com.firebase.jobdispatcher.GooglePlayReceiver"
-            android:exported="true"
-            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
-            <intent-filter>
-                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
-            </intent-filter>
-        </service>
-
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.AddTeamMembersActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"
@@ -210,6 +207,18 @@
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="com.inspiregeniussquad.handstogether.com.squareup.picasso"
             android:exported="false" />
+        <!--
+             Receives GooglePlay execution requests and forwards them to the
+             appropriate internal service.
+        -->
+        <service
+            android:name="com.firebase.jobdispatcher.GooglePlayReceiver"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

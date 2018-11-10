@@ -172,5 +172,18 @@
     <string name="enter_team_count">Enter value for team members count!</string>
     <string name="enter_team_members_names">Enter team members names!</string>
     <string name="next">Next</string>
+    <string name="permissoin_denied_string">Permissions to access camera or gallery was not available, go to app settings and enable all permissions</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="position">Position</string>
+    <string name="president">President</string>
+    <string name="member">Member</string>
+    <string name="vice_president">Vice President</string>
+    <string name="member_name">Member Name</string>
+    <string name="enter_name_and_position_of_members">Enter Name and Position of members:</string>
+    <string name="add_member">Add Member</string>
+    <string name="no_members_have_been_added_yet">No Members have been added yet!</string>
+    <string name="choose_position">Choose position of member!</string>
+    <string name="empty" />
+    <string name="save">Save</string>
 
 </resources>

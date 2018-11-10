@@ -57,7 +57,7 @@
                     android:layout_height="130dp"
                     android:background="@drawable/border_line">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <ImageView
                         android:id="@+id/team_logo"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
@@ -229,6 +229,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="@null"
+                            android:tint="@color/red"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:background="@android:color/transparent"
                             android:src="@drawable/ic_minus_icon" />
@@ -242,6 +243,10 @@
                         android:maxLength="3"
                         android:maxLines="1"
                         android:text="@string/default_members_count"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:focusableInTouchMode="false"
                         android:gravity="center"
                         android:minWidth="100dp" />
 
@@ -255,6 +260,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="@null"
+                            android:tint="@color/green"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:background="@android:color/transparent"
                             android:src="@drawable/ic_add_icon" />
@@ -262,32 +268,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
-
-            </LinearLayout>
-
-            <!--Team motto-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/border_line"
-                android:orientation="vertical"
-                android:padding="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="@string/team_members_names"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/team_members_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="50" />
 
             </LinearLayout>
 
@@ -299,6 +279,7 @@
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/next_btn"
         style="@style/ButtonBg"
+        android:text="@string/next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

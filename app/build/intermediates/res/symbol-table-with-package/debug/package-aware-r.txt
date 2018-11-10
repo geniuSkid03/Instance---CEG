@@ -543,6 +543,7 @@ color divider
 color error_color_material
 color foreground_material_dark
 color foreground_material_light
+color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color hint_text_color
@@ -575,6 +576,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondaryColor
@@ -899,6 +901,7 @@ drawable ic_circular_icon
 drawable ic_circular_selected
 drawable ic_circular_unselected
 drawable ic_clubs
+drawable ic_correct_icon
 drawable ic_dashboard
 drawable ic_event_date
 drawable ic_event_desc
@@ -907,6 +910,7 @@ drawable ic_event_venue
 drawable ic_girl
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_logo_icon
 drawable ic_man
 drawable ic_menu_camera
 drawable ic_menu_gallery
@@ -915,15 +919,18 @@ drawable ic_menu_send
 drawable ic_menu_share
 drawable ic_menu_slideshow
 drawable ic_minus_icon
+drawable ic_name_icon
 drawable ic_news_icon
 drawable ic_newsfeed_selected
 drawable ic_newsfeed_unselected
 drawable ic_no_internet_icon
 drawable ic_others
+drawable ic_position_icon
 drawable ic_profile
 drawable ic_search
 drawable ic_settings
 drawable ic_sign_out
+drawable ic_star_icon
 drawable ic_sub_teams
 drawable ic_team_icon
 drawable ic_time_icon
@@ -957,6 +964,7 @@ drawable permission_storage
 drawable rectangle_border
 drawable ripple
 drawable rounded_btn_bg
+drawable shadow_bg
 drawable side_nav_bar
 drawable splash
 drawable tab_color_selector
@@ -994,10 +1002,10 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_btn
 id add_circular
 id add_event_poster
 id add_news
-id add_team_btn
 id add_team_member
 id adjust_height
 id adjust_width
@@ -1133,6 +1141,11 @@ id manage_teams_tab
 id manage_teams_viewpager
 id masked
 id media_actions
+id member_image
+id member_info_view
+id member_name
+id member_position
+id member_position_spinner
 id message
 id middle
 id mini
@@ -1154,6 +1167,8 @@ id nested_scrollview
 id never
 id news_feed_recycler_view
 id news_loading_view
+id next_btn
+id no_members_view
 id none
 id normal
 id normal_tool_bar
@@ -1187,6 +1202,7 @@ id right
 id right_icon
 id right_side
 id rsend_otp_btn
+id save
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1210,6 +1226,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected_child_view
 id selected_header_view
+id shadow_bg
 id shortcut
 id showCustom
 id showHome
@@ -1236,8 +1253,9 @@ id tag_transition_group
 id team_desc
 id team_logo
 id team_logo2
+id team_member_name
 id team_members_count
-id team_members_name
+id team_members_names_list
 id team_motto
 id team_name
 id team_spinner
@@ -1325,6 +1343,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_team_members
 layout activity_admin
 layout activity_home
 layout activity_manage_circular
@@ -1376,6 +1395,7 @@ layout fragment_tech
 layout list_child
 layout list_group_header
 layout manage_circular_fragment
+layout members_name_item
 layout nav_header_home
 layout nav_header_navigation_drawer
 layout news_content_view
@@ -1407,6 +1427,7 @@ layout update_team_fragment
 menu activity_navigation_drawer_drawer
 menu home_search
 menu navigation_drawer
+menu ok_menu
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -1445,6 +1466,7 @@ string achivements
 string action_search
 string action_settings
 string action_sign_in_short
+string add_member
 string add_news
 string add_or_edit_team_information
 string add_team
@@ -1471,6 +1493,7 @@ string choose_email
 string choose_from_gallery
 string choose_gender
 string choose_operation
+string choose_position
 string choose_team
 string choose_your_updation
 string circular
@@ -1512,9 +1535,11 @@ string default_members_count
 string default_web_client_id
 string dummy_text
 string email
+string empty
 string end
 string enter_email
 string enter_name
+string enter_name_and_position_of_members
 string enter_team_count
 string enter_team_members_names
 string enter_team_motto
@@ -1560,6 +1585,8 @@ string male
 string manage_circulars
 string manage_news
 string manage_team
+string member
+string member_name
 string members_count
 string mobile
 string mobile_invalid
@@ -1575,8 +1602,10 @@ string new_circular
 string news_visibility
 string news_will_be_shown_in_newsfeed
 string newsfeed
+string next
 string no_internet_title
 string no_internt_conn
+string no_members_have_been_added_yet
 string non_tech
 string ok
 string open_camera
@@ -1593,9 +1622,12 @@ string permission
 string permission_hint
 string permission_message
 string permission_title
+string permissoin_denied_string
 string phone_permsn_hint
 string phone_title
 string pick_from_gallery
+string position
+string president
 string press_again_to_exit
 string project_id
 string provide_team_logo
@@ -1606,10 +1638,12 @@ string registering_you
 string requesting_otp
 string resend_otp
 string retry
+string save
 string search
 string search_ciruclar
 string search_event
 string search_menu_title
+string select_picture
 string settings
 string sign_out
 string sms_permsn_hint
@@ -1637,6 +1671,7 @@ string validating_info
 string verify
 string verifying_otp
 string version
+string vice_president
 string video_url
 string visible
 string wait_we_will_send_otp

@@ -25,7 +25,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
 
   private View view2131296375;
 
-  private View view2131296473;
+  private View view2131296480;
 
   private View view2131296413;
 
@@ -70,7 +70,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.register_me, "field 'registerMeBtn' and method 'onclicked'");
     target.registerMeBtn = Utils.castView(view, R.id.register_me, "field 'registerMeBtn'", AppCompatButton.class);
-    view2131296473 = view;
+    view2131296480 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -109,8 +109,8 @@ public class SignupActivity_ViewBinding implements Unbinder {
     view2131296415 = null;
     view2131296375.setOnClickListener(null);
     view2131296375 = null;
-    view2131296473.setOnClickListener(null);
-    view2131296473 = null;
+    view2131296480.setOnClickListener(null);
+    view2131296480 = null;
     view2131296413.setOnClickListener(null);
     view2131296413 = null;
   }

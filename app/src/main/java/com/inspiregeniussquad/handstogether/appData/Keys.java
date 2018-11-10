@@ -31,6 +31,7 @@ public class Keys {
     public static final String TABLE_USER_ID = "tbl_user_id";
     public static final String USER_ID = "id";
     public static final Object TEAM_NAME = "tName";
+    public static final String TEAM = "team";
 
     //table names
     public static String TABLE_USER = "Users";

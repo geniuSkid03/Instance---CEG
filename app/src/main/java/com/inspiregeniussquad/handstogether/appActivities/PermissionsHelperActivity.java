@@ -37,11 +37,12 @@ public class PermissionsHelperActivity extends SuperCompatActivity {
         int[] permissionIcons = {R.drawable.permission_phone, R.drawable.permission_contact,
                 R.drawable.permission_sms, R.drawable.permission_storage, R.drawable.permission_camera};
 
-        String[] permissionsTitle = {getString(R.string.location_title), getString(R.string.phone_title), getString(R.string.contact_title),
-                getString(R.string.sms_title), getString(R.string.storage_title), getString(R.string.camera_title)};
+        String[] permissionsTitle = {getString(R.string.location_title), getString(R.string.phone_title), getString(R.string.contact_title), getString(R.string.sms_title), getString(R.string.storage_title), getString(R.string.camera_title)};
 
-        String[] permissionHint = {getString(R.string.location_permsn_hint), getString(R.string.phone_permsn_hint), getString(R.string.contact_permsn_hint),
-                getString(R.string.sms_permsn_hint), getString(R.string.storage_permsn_hint), getString(R.string.camera_permsn_hint)};
+        String[] permissionHint = {getString(R.string.location_permsn_hint),
+                getString(R.string.phone_permsn_hint), getString(R.string.contact_permsn_hint),
+                getString(R.string.sms_permsn_hint), getString(R.string.storage_permsn_hint),
+                getString(R.string.camera_permsn_hint)};
 
         PermissionsAdapter permissionsAdapter = new PermissionsAdapter(this, permissionIcons, permissionsTitle, permissionHint);
         permissionLv.setAdapter(permissionsAdapter);
@@ -59,10 +60,24 @@ public class PermissionsHelperActivity extends SuperCompatActivity {
                 break;
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //todo remove this line when app launch final
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            askPermissions();
+        }
+    }
+
     private void askPermissions() {
         permissionHelper.initPermissions(requiredPermissions);
         if (!permissionHelper.isAllPermissionAvailable()) {
             permissionHelper.askAllPermissions();
+        } else {
+            performFunctions();
         }
     }
 

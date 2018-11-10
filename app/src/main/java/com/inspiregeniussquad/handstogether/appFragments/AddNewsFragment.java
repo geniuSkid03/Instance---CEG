@@ -25,7 +25,7 @@ public class AddNewsFragment extends SuperFragment {
     private RadioButton showNewsRb, hideNewsRb;
     private ImageButton posterImgBtn;
     private ImageView posterIv;
-    private AppCompatButton addTeamBtn;
+    private AppCompatButton publishNewsBtn;
 
     private String teamName, eventDesc, eventName, venueName, videoUrl, eventDate, eventTime;
     private Uri eventPoster;
@@ -38,8 +38,7 @@ public class AddNewsFragment extends SuperFragment {
 
     private View initView(View view) {
 
-        addTeamBtn = view.findViewById(R.id.next_btn);
-        addTeamBtn.setText(getString(R.string.next));
+        publishNewsBtn = view.findViewById(R.id.publish_news);
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -48,32 +47,29 @@ public class AddNewsFragment extends SuperFragment {
             }
         };
 
-        addTeamBtn.setOnClickListener(clickListener);
+        publishNewsBtn.setOnClickListener(clickListener);
 
         return view;
     }
 
     private void doFunctionsForClick(View view) {
         switch (view.getId()) {
-            case R.id.next_btn:
-                if(isFirstCompleted) {
-                   showTeamMemberView();
-                } else {
-                    hideTeamMemberView();
+            case R.id.publish_news:
+                if (isAllDetailsGiven()) {
+                    publishNews();
                 }
                 break;
         }
     }
 
-    private void showTeamMemberView() {
-        addTeamBtn.setText(getString(R.string.add_team));
-        //hide team member name entering view
+    private boolean isAllDetailsGiven() {
+        showToast("Clicked");
+        return false;
     }
 
-    private void hideTeamMemberView() {
-        addTeamBtn.setText(getString(R.string.next));
-        isFirstCompleted = true;
-        //get all details about team members and hide team member name view
-        //after getting all values hide those views and show the view for entering member name and spinner each
+    private void publishNews() {
+
     }
+
+
 }

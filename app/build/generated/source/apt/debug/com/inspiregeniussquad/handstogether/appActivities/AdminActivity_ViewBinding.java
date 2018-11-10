@@ -16,9 +16,9 @@ import java.lang.Override;
 public class AdminActivity_ViewBinding implements Unbinder {
   private AdminActivity target;
 
-  private View view2131296288;
+  private View view2131296289;
 
-  private View view2131296286;
+  private View view2131296287;
 
   private View view2131296420;
 
@@ -35,7 +35,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     target.toolbar = Utils.findRequiredViewAsType(source, R.id.toolbar, "field 'toolbar'", Toolbar.class);
     view = Utils.findRequiredView(source, R.id.add_news, "field 'newsCv' and method 'onClicked'");
     target.newsCv = Utils.castView(view, R.id.add_news, "field 'newsCv'", CardView.class);
-    view2131296288 = view;
+    view2131296289 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -44,7 +44,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.add_circular, "field 'circularCv' and method 'onClicked'");
     target.circularCv = Utils.castView(view, R.id.add_circular, "field 'circularCv'", CardView.class);
-    view2131296286 = view;
+    view2131296287 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,10 +74,10 @@ public class AdminActivity_ViewBinding implements Unbinder {
     target.circularCv = null;
     target.manageTeamsCv = null;
 
-    view2131296288.setOnClickListener(null);
-    view2131296288 = null;
-    view2131296286.setOnClickListener(null);
-    view2131296286 = null;
+    view2131296289.setOnClickListener(null);
+    view2131296289 = null;
+    view2131296287.setOnClickListener(null);
+    view2131296287 = null;
     view2131296420.setOnClickListener(null);
     view2131296420 = null;
   }
