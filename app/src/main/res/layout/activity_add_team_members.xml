@@ -30,6 +30,7 @@
             android:text="@string/no_members_have_been_added_yet"/>
 
         <TextView
+            android:id="@+id/members_count_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primaryColor"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
             android:paddingTop="8dp"
+            android:divider="@null"
             android:visibility="invisible"
             android:paddingEnd="8dp" />
 

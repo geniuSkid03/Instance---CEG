@@ -25,12 +25,16 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appBroadcastReceivers.SignalReceiver;
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
+import com.inspiregeniussquad.handstogether.appFragments.SuperFragment;
 import com.inspiregeniussquad.handstogether.appInterfaces.Action;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
@@ -49,7 +53,10 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected Gson gson = new Gson();
 
     public FirebaseAuth firebaseAuth;
-    public DatabaseReference parentDatabaseReference, childDatabaseReference, usersDatabaseReference;
+    public DatabaseReference parentDatabaseReference, childDatabaseReference, usersDatabaseReference, teamDatabaseReference;
+    public StorageReference storageReference;
+    public FirebaseStorage firebaseStorage;
+
     public ProgressDialog progressDialog;
 
     protected DataStorage dataStorage;
@@ -58,8 +65,10 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected Animation scaleUpAnim, scaleDownAnim;
 
     protected SignalReceiver connectionChangeReceiver;
-    protected AlertDialog noInternetDialog, infoAlert;
+    protected AlertDialog noInternetDialog, infoAlert, simpleAlertDialog, okCancelAlertDialog;
     protected PermissionHelper permissionHelper;
+
+    protected UploadTask uploadTask;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -88,6 +97,11 @@ public class SuperCompatActivity extends AppCompatActivity {
         //firebase database
         parentDatabaseReference = FirebaseDatabase.getInstance().getReference();
         usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
+        teamDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
+
+        //fire base storage
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
 
         newUser = new ArrayList<>();
 
@@ -96,6 +110,8 @@ public class SuperCompatActivity extends AppCompatActivity {
 
         //alert dialogs
         infoAlert = new AlertDialog.Builder(this).create();
+        simpleAlertDialog = new AlertDialog.Builder(this).create();
+        okCancelAlertDialog = new AlertDialog.Builder(this).create();
 
         //no internet alert receiver
         connectionChangeReceiver = new SignalReceiver(this, Keys.NO_INTERNET_CONNECTION, new Action() {
@@ -127,6 +143,10 @@ public class SuperCompatActivity extends AppCompatActivity {
     private void loadAllAnims() {
         scaleDownAnim = AnimationUtils.loadAnimation(this, R.anim.scale_down_animation);
         scaleUpAnim = AnimationUtils.loadAnimation(this, R.anim.scale_up_animatin);
+    }
+
+    protected StorageReference getStorageReference() {
+        return storageReference;
     }
 
     protected DatabaseReference getReferenceFromDatabase(String tableName) {
@@ -200,12 +220,10 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     //to show progress view
     protected void showProgress(String msg) {
-        if (progressDialog != null) {
-            if (!progressDialog.isShowing() && !isFinishing()) {
+        if (progressDialog != null && !isFinishing()) {
                 progressDialog.setMessage(msg);
                 progressDialog.setCancelable(false);
                 progressDialog.show();
-            }
         }
     }
 
@@ -349,5 +367,45 @@ public class SuperCompatActivity extends AppCompatActivity {
         return compressedFile.getAbsolutePath();
     }
 
+    protected void showSimpleAlert(String msg, String btnText, final SimpleAlert simpleAlert) {
+        if(simpleAlertDialog != null) {
+            simpleAlertDialog.setMessage(msg);
+            simpleAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, btnText, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    simpleAlert.onBtnClicked(dialog, which);
+                }
+            });
+            simpleAlertDialog.show();
+        }
+    }
+
+    protected void showOkCancelAlert(String msg, final OkCancelAlert okCancelAlert) {
+        if(okCancelAlertDialog != null) {
+            okCancelAlertDialog.setMessage(msg);
+            okCancelAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    okCancelAlert.onOkClicked(dialog, which);
+                }
+            });
+            okCancelAlertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    okCancelAlert.onCancelClicked(dialog, which);
+                }
+            });
+            okCancelAlertDialog.show();
+        }
+    }
+
+    public interface SimpleAlert {
+        void onBtnClicked(DialogInterface dialogInterface, int which);
+    }
+
+    public interface OkCancelAlert {
+        void onOkClicked(DialogInterface dialogInterface, int which);
+        void onCancelClicked(DialogInterface dialogInterface, int which);
+    }
 
 }

@@ -900,6 +900,7 @@ drawable ic_camera_icon
 drawable ic_circular_icon
 drawable ic_circular_selected
 drawable ic_circular_unselected
+drawable ic_close_icon
 drawable ic_clubs
 drawable ic_correct_icon
 drawable ic_dashboard
@@ -1062,6 +1063,7 @@ id dark
 id date
 id decor_content_parent
 id default_activity_button
+id delete
 id desc
 id desc_view
 id design_bottom_sheet
@@ -1141,11 +1143,12 @@ id manage_teams_tab
 id manage_teams_viewpager
 id masked
 id media_actions
+id mem_name
+id mem_position
 id member_image
 id member_info_view
-id member_name
-id member_position
 id member_position_spinner
+id members_count_display
 id message
 id middle
 id mini
@@ -1553,6 +1556,7 @@ string event_name
 string event_poster
 string event_time
 string event_venue
+string exit_without_addning_team
 string female
 string firebase_database_url
 string forgot_password_msg
@@ -1585,9 +1589,12 @@ string male
 string manage_circulars
 string manage_news
 string manage_team
+string maximum_number_reached
 string member
+string member_exist
 string member_name
 string members_count
+string members_count_not_matching
 string mobile
 string mobile_invalid
 string mobile_number_empty
@@ -1607,7 +1614,9 @@ string no_internet_title
 string no_internt_conn
 string no_members_have_been_added_yet
 string non_tech
+string number_of_members
 string ok
+string one
 string open_camera
 string others
 string otp
@@ -1634,6 +1643,7 @@ string provide_team_logo
 string publish
 string read
 string read_more
+string registering_team_in_progress
 string registering_you
 string requesting_otp
 string resend_otp
@@ -1664,9 +1674,12 @@ string team_name
 string tech
 string time
 string title_activity_navigation_drawer
+string two
 string update_news
 string update_profile
 string update_team
+string upload_failed
+string uploading_data
 string validating_info
 string verify
 string verifying_otp

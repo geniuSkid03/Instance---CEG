@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Team {
 
     private String name, desc, motto;
-    //    private ArrayList<TeamMembers> teamMembers;
-    private String logoUri, membersCount, teamMembers;
+        private ArrayList<TeamMembers> teamMembers;
+    private String logoUri, membersCount;
 
-    public Team(String name, String motto, String logoUri, /*ArrayList<TeamMembers>*/ String teamMembers, String membersCount) {
+    public Team(String name, String motto, String logoUri, ArrayList<TeamMembers> teamMembers, String membersCount) {
         this.motto = motto;
         this.logoUri = logoUri;
         this.name = name;
@@ -55,11 +55,11 @@ public class Team {
         this.membersCount = membersCount;
     }
 
-    public String/*ArrayList<TeamMembers>*/ getTeamMembers() {
+    public ArrayList<TeamMembers> getTeamMembers() {
         return teamMembers;
     }
 
-    public void setTeamMembers(/*ArrayList<TeamMembers>*/ String teamMembers) {
+    public void setTeamMembers(ArrayList<TeamMembers> teamMembers) {
         this.teamMembers = teamMembers;
     }
 

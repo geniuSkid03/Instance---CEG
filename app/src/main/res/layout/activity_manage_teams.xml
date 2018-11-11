@@ -19,6 +19,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/manage_teams_tab"
             style="@style/TabLayoutStyle"
+            app:elevation="6dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 

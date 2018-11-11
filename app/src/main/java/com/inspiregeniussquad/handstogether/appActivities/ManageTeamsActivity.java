@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.inspiregeniussquad.handstogether.R;
@@ -62,5 +63,20 @@ public class ManageTeamsActivity extends SuperCompatActivity {
         adapter.addFragment(addTeamFragment, getString(R.string.add_team));
         adapter.addFragment(updateTeamFragment, getString(R.string.update_team));
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

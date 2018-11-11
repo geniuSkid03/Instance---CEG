@@ -71,7 +71,6 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="8dp"
-                        android:background="@android:color/transparent"
                         android:contentDescription="@null"
                         android:padding="8dp"
                         android:src="@drawable/ic_camera_icon"

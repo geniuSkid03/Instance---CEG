@@ -1,14 +1,11 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,15 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appActivities.AddTeamMembersActivity;
 import com.inspiregeniussquad.handstogether.appData.Keys;
@@ -34,10 +22,7 @@ import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
 
 public class AddTeamFragment extends SuperFragment {
 
@@ -205,15 +190,15 @@ public class AddTeamFragment extends SuperFragment {
     }
 
     private void getAllTeamMembers() {
-        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), "", teamMembersCount);
+        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), null, teamMembersCount);
         goTo(getActivity(), AddTeamMembersActivity.class, true, Keys.TEAM, gson.toJson(team));
     }
 
-    private void checkAndAddTeamData() {
-        if (isAllDataAvailable()) {
-            uploadTeamDataToDb();
-        }
-    }
+//    private void checkAndAddTeamData() {
+//        if (isAllDataAvailable()) {
+//            uploadTeamDataToDb();
+//        }
+//    }
 
     private boolean isAllDataAvailable() {
         if (teamImgUri == null) {
@@ -250,133 +235,133 @@ public class AddTeamFragment extends SuperFragment {
     }
 
     //pre checking if team data already exists
-    private void uploadTeamDataToDb() {
+//    private void uploadTeamDataToDb() {
+//
+//        showProgress(getString(R.string.validating_info));
+//
+//        teamDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    checkWithExistingTeams((Map<String, Object>) dataSnapshot.getValue());
+//                } else {
+//                    //no team has registered
+//                    //creating new Team
+//                    insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount)));
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                cancelProgress();
+//                //show error as db error
+//                showToast(getString(R.string.team_already_exist));
+//            }
+//        });
+//    }
 
-        showProgress(getString(R.string.validating_info));
+//    private void checkWithExistingTeams(Map<String, Object> value) {
+//        ArrayList<String> teamArrayList = new ArrayList<>();
+//
+//        //getting team data from database
+//        for (Map.Entry<String, Object> entry : value.entrySet()) {
+//            Map teamMap = (Map) entry.getValue();
+//            String teamName = (String) teamMap.get(Keys.ATTR_NAME);
+//            AppHelper.print("Name: " + teamName);
+//
+//            teamArrayList.add(teamName.toLowerCase());
+//        }
+//
+//        //checking if team name already exists in database
+//        if (teamArrayList.size() != 0) {
+//            if (teamArrayList.contains(teamName.toLowerCase())) {
+//                cancelProgress();
+//
+//                showSimpleAlert(getString(R.string.team_already_exist), getString(R.string.ok), new SimpleAlert() {
+//                    @Override
+//                    public void onBtnClicked(DialogInterface dialogInterface, int which) {
+//                        dialogInterface.dismiss();
+//                    }
+//                });
+//            } else {
+//                insertIntoStorage();
+//            }
+//        } else {
+//            insertIntoStorage();
+//        }
+//    }
 
-        teamDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    checkWithExistingTeams((Map<String, Object>) dataSnapshot.getValue());
-                } else {
-                    //no team has registered
-                    //creating new Team
-                    insertIntoStorage(new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount)));
-                }
-            }
+//    private void insertIntoStorage() {
+//        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount));
+//
+//        insertIntoTeam(team);
+//    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                cancelProgress();
-                //show error as db error
-                showToast(getString(R.string.team_already_exist));
-            }
-        });
-    }
+//    private void insertIntoStorage(Team team) {
+//        showProgress(getString(R.string.creating_team_profile));
+//
+//        AppHelper.print("Team: " + team.getTeamName() + "\t" + team.getTeamMotto() + "\t" + team.getTeamLogoUri());
+//
+//        final StorageReference storageRef = teamLogoStorageReference.child("TeamLogo/" + teamName.trim() + "_Logo");
+//
+//        uploadTask = storageRef.putFile(teamImgUri);
+//
+//        uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+//            @Override
+//            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                if (!task.isSuccessful()) {
+//                    cancelProgress();
+//                    AppHelper.showToast(getActivity(), getString(R.string.db_error));
+//                    throw Objects.requireNonNull(task.getException());
+//                }
+//                return storageRef.getDownloadUrl();
+//            }
+//        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Uri> task) {
+//                if (task.isSuccessful()) {
+//                    finalTeamImgUri = task.getResult();
+//                    cancelProgress();
+//
+//                    if (finalTeamImgUri != null) {
+//                        insertIntoStorage();
+//                    } else {
+//                        AppHelper.print("Team logo uri null");
+//                        showToast(getString(R.string.db_error));
+//                    }
+//
+//                } else {
+//                    cancelProgress();
+//                }
+//            }
+//        });
+//    }
 
-    private void checkWithExistingTeams(Map<String, Object> value) {
-        ArrayList<String> teamArrayList = new ArrayList<>();
-
-        //getting team data from database
-        for (Map.Entry<String, Object> entry : value.entrySet()) {
-            Map teamMap = (Map) entry.getValue();
-            String teamName = (String) teamMap.get(Keys.ATTR_NAME);
-            AppHelper.print("Name: " + teamName);
-
-            teamArrayList.add(teamName.toLowerCase());
-        }
-
-        //checking if team name already exists in database
-        if (teamArrayList.size() != 0) {
-            if (teamArrayList.contains(teamName.toLowerCase())) {
-                cancelProgress();
-
-                showSimpleAlert(getString(R.string.team_already_exist), getString(R.string.ok), new SimpleAlert() {
-                    @Override
-                    public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                        dialogInterface.dismiss();
-                    }
-                });
-            } else {
-                insertIntoStorage();
-            }
-        } else {
-            insertIntoStorage();
-        }
-    }
-
-    private void insertIntoStorage() {
-        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), teamMembersNames, String.valueOf(teamMembersCount));
-
-        insertIntoStorage(team);
-    }
-
-    private void insertIntoStorage(Team team) {
-        showProgress(getString(R.string.creating_team_profile));
-
-        AppHelper.print("Team: " + team.getTeamName() + "\t" + team.getTeamMotto() + "\t" + team.getTeamLogoUri());
-
-        final StorageReference storageRef = teamLogoStorageReference.child("TeamLogo/" + teamName.trim() + "_Logo");
-
-        uploadTask = storageRef.putFile(teamImgUri);
-
-        uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    cancelProgress();
-                    AppHelper.showToast(getActivity(), getString(R.string.db_error));
-                    throw Objects.requireNonNull(task.getException());
-                }
-                return storageRef.getDownloadUrl();
-            }
-        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isSuccessful()) {
-                    finalTeamImgUri = task.getResult();
-                    cancelProgress();
-
-                    if (finalTeamImgUri != null) {
-                        insertIntoStorage();
-                    } else {
-                        AppHelper.print("Team logo uri null");
-                        showToast(getString(R.string.db_error));
-                    }
-
-                } else {
-                    cancelProgress();
-                }
-            }
-        });
-    }
-
-    private void insertIntoTeam(Team team) {
-        teamDbReference.child(Objects.requireNonNull(teamDbReference.push().getKey())).setValue(team, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                cancelProgress();
-
-                if (databaseError == null) {
-                    showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                } else {
-                    AppHelper.print("Database error: " + databaseError.getMessage());
-
-                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                }
-            }
-        });
-    }
+//    private void insertIntoTeam(Team team) {
+//        teamDbReference.child(Objects.requireNonNull(teamDbReference.push().getKey())).setValue(team, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+//                cancelProgress();
+//
+//                if (databaseError == null) {
+//                    showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
+//                        @Override
+//                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    });
+//                } else {
+//                    AppHelper.print("Database error: " + databaseError.getMessage());
+//
+//                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
+//                        @Override
+//                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//    }
 
 }

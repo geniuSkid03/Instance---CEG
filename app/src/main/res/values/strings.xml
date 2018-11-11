@@ -185,5 +185,15 @@
     <string name="choose_position">Choose position of member!</string>
     <string name="empty" />
     <string name="save">Save</string>
+    <string name="number_of_members">Number of members to add:</string>
+    <string name="member_exist">Member already exist in this name!</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="maximum_number_reached">Sorry, team members count reached, cannot add further!</string>
+    <string name="members_count_not_matching">The member details you have entered is not equal to the number of members you have specified, do you want to continue?</string>
+    <string name="uploading_data">Preparing to upload, please wait...</string>
+    <string name="upload_failed">Uploaded task failed</string>
+    <string name="registering_team_in_progress">Registering team...</string>
+    <string name="exit_without_addning_team">Team data insertion was not finished, do you want to go bacK?</string>
 
 </resources>
