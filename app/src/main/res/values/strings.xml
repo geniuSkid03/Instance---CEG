@@ -195,5 +195,12 @@
     <string name="upload_failed">Uploaded task failed</string>
     <string name="registering_team_in_progress">Registering team...</string>
     <string name="exit_without_addning_team">Team data insertion was not finished, do you want to go bacK?</string>
+    <string name="event_name_empty">Enter event name!</string>
+    <string name="event_desc_empty">Enter event description!</string>
+    <string name="event_dare_empty">Enter event date!</string>
+    <string name="event_time_empty">Enter time of the event!</string>
+    <string name="event_venue_empty">Enter event venue!@</string>
+    <string name="event_poster_empty">Upload event poster image!</string>
+    <string name="empty_news_visiblity">Choose news Visibility!</string>
 
 </resources>

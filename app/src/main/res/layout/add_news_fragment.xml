@@ -470,6 +470,7 @@
                         android:background="@drawable/border_line">
 
                         <RadioGroup
+                            android:id="@+id/news_rgrb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
