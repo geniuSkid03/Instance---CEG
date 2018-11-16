@@ -15,6 +15,7 @@ import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -84,10 +85,10 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             dateTv = itemView.findViewById(R.id.date);
             readMoreTv = itemView.findViewById(R.id.read_more);
 
-            nameTv.setText(newsFeedItems.getName());
-            descTv.setText(newsFeedItems.getEventDesc());
-            timeTv.setText(newsFeedItems.getPostedTime());
-            dateTv.setText(newsFeedItems.getPostedDate());
+            nameTv.setText(newsFeedItems.geteName());
+            descTv.setText(newsFeedItems.geteDesc());
+            timeTv.setText(newsFeedItems.getpTime());
+            dateTv.setText(newsFeedItems.geteDate());
             readMoreTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -95,31 +96,12 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                 }
             });
 
-            logoCiv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.logo_spartanz));
-            posterImgIv.setImageDrawable(getImgFor(newsFeedItems.getId()));
-
-            AppHelper.print("Img: " + getImgFor(newsFeedItems.getId()));
-
 //            logoCiv.setImageBitmap(AppHelper.getBitMapFromByteArray(newsFeedItems.getLogoDrawable()));
 //            posterImgIv.setImageBitmap(AppHelper.getBitMapFromByteArray(newsFeedItems.getPosterDrawable()));
 
-//            Picasso.get().load(newsFeedItems.getLogoUrl()).into(logoCiv);
-//            Picasso.get().load(newsFeedItems.getPosterImageUrl()).into(posterImgIv);
+//            Picasso.get().load(newsFeedItems.getT()).into(logoCiv);
+            Picasso.get().load(newsFeedItems.getPstrUrl()).into(posterImgIv);
         }
-    }
-
-    private Drawable getImgFor(int id) {
-        switch (id) {
-            case 0:
-                return ContextCompat.getDrawable(context, R.drawable.intra_vareity_sho);
-            case 1:
-                return ContextCompat.getDrawable(context, R.drawable.informals);
-            case 2:
-                return ContextCompat.getDrawable(context, R.drawable.twelve_years_ceg_spartans);
-            case 3:
-                return ContextCompat.getDrawable(context, R.drawable.mime_performace);
-        }
-        return null;
     }
 
     public interface onViewClickedListener {

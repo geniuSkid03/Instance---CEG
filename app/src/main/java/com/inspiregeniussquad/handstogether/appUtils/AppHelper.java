@@ -16,6 +16,9 @@ import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import static android.content.Context.LOCATION_SERVICE;
 
@@ -46,6 +49,12 @@ public class AppHelper {
         if (context != null && context.getResources() != null) {
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static String getFormattedDate(Calendar calendar) {
+        String myFormat = "dd/MM/yy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
+        return sdf.format(calendar.getTime());
     }
 
     public static byte[] getBitMapFromDrawable(Context context, int drawable) {

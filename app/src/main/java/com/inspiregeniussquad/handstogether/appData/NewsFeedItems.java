@@ -2,117 +2,116 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class NewsFeedItems {
 
-    private String name, logoUrl, posterImageUrl, title, eventDate, venue, eventDesc, postedDate, postedTime;
-    private byte[] logoDrawable, posterDrawable;
-    private int id;
+    private int likes;
+    private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
+    private String comments;
 
     public NewsFeedItems() {
 
     }
 
-    public NewsFeedItems(String name, String title, String eventDesc, String eventDate, String postedDate, String postedTime, String posterImageUrl) {
-        this.name = name;
-        this.title = title;
-        this.eventDate = eventDate;
-        this.eventDesc = eventDesc;
-        this.postedDate = postedDate;
-        this.postedTime = postedTime;
-        this.posterImageUrl = posterImageUrl;
+    public String gettName() {
+        return tName;
     }
 
-    public String getName() {
-        return name;
+    public void settName(String tName) {
+        this.tName = tName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String geteName() {
+        return eName;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
+    public void seteName(String eName) {
+        this.eName = eName;
     }
 
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
+    public String geteDesc() {
+        return eDesc;
     }
 
-    public String getPosterImageUrl() {
-        return posterImageUrl;
+    public void seteDesc(String eDesc) {
+        this.eDesc = eDesc;
     }
 
-    public void setPosterImageUrl(String posterImageUrl) {
-        this.posterImageUrl = posterImageUrl;
+    public String geteDate() {
+        return eDate;
     }
 
-    public String getTitle() {
-        return title;
+    public void seteDate(String eDate) {
+        this.eDate = eDate;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+
+    public String geteTime() {
+        return eTime;
     }
 
-    public String getEventDate() {
-        return eventDate;
+    public void seteTime(String eTime) {
+        this.eTime = eTime;
     }
 
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
+    public String getpTime() {
+        return pTime;
     }
 
-    public String getVenue() {
-        return venue;
+    public void setpTime(String pTime) {
+        this.pTime = pTime;
     }
 
-    public void setVenue(String venue) {
-        this.venue = venue;
+    public String getvName() {
+        return vName;
     }
 
-    public String getEventDesc() {
-        return eventDesc;
+    public void setvName(String vName) {
+        this.vName = vName;
     }
 
-    public void setEventDesc(String eventDesc) {
-        this.eventDesc = eventDesc;
+    public String getVidUrl() {
+        return vidUrl;
     }
 
-    public String getPostedDate() {
-        return postedDate;
+    public void setVidUrl(String vidUrl) {
+        this.vidUrl = vidUrl;
     }
 
-    public void setPostedDate(String postedDate) {
-        this.postedDate = postedDate;
+    public String getPstrUrl() {
+        return pstrUrl;
     }
 
-    public String getPostedTime() {
-        return postedTime;
+    public void setPstrUrl(String pstrUrl) {
+        this.pstrUrl = pstrUrl;
     }
 
-    public void setPostedTime(String postedTime) {
-        this.postedTime = postedTime;
+    public String geteVenue() {
+        return eVenue;
     }
 
-    public byte[] getLogoDrawable() {
-        return logoDrawable;
+    public void seteVenue(String eVenue) {
+        this.eVenue = eVenue;
     }
 
-    public void setLogoDrawable(byte[] logoDrawable) {
-        this.logoDrawable = logoDrawable;
+    public int getLikes() {
+        return likes;
     }
 
-    public byte[] getPosterDrawable() {
-        return posterDrawable;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
-    public void setPosterDrawable(byte[] posterDrawable) {
-        this.posterDrawable = posterDrawable;
+    public String getComments() {
+        return comments;
     }
 
-    public int getId() {
-        return id;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
     }
 }

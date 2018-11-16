@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.widget.AppCompatButton;
@@ -29,16 +30,15 @@ public class AddTeamFragment extends SuperFragment {
     private AppCompatButton addTeamBtn;
     private ImageView teamLogoIv;
     private ImageButton imgLoadBtn, reduceTeamMemberBtn, addTeamMemberBtn;
-    private EditText teamNameEd, teamMottoEd, teamMembersCountEd;
+    private EditText teamNameEd, teamMottoEd, teamMembersCountEd, teamDescEd;
 
     private Uri teamImgUri, finalTeamImgUri;
 
     private static final int CHOOSE_FILE = 101;
     private static final int OPEN_CAMERA = 100;
 
-    private String teamName, teamMotto, teamMembersCount, teamMembersNames;
+    private String teamName, teamMotto, teamMembersCount, teamDesc;
     private int membersCount = 10;
-
 
     @Override
     protected View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class AddTeamFragment extends SuperFragment {
         imgLoadBtn = view.findViewById(R.id.load_team_image);
         teamNameEd = view.findViewById(R.id.team_name);
         teamMottoEd = view.findViewById(R.id.team_motto);
+        teamDescEd = view.findViewById(R.id.team_desc);
         teamMembersCountEd = view.findViewById(R.id.team_members_count);
         addTeamMemberBtn = view.findViewById(R.id.minus_team_member);
         reduceTeamMemberBtn = view.findViewById(R.id.add_team_member);
@@ -62,7 +63,6 @@ public class AddTeamFragment extends SuperFragment {
                 switch (v.getId()) {
                     case R.id.next_btn:
                         onFirstStepCompleted();
-//                        checkAndAddTeamData();
                         break;
                     case R.id.load_team_image:
                         showOptionsForLoadingImage();
@@ -98,38 +98,22 @@ public class AddTeamFragment extends SuperFragment {
     }
 
     private void showOptionsForLoadingImage() {
-//        final CharSequence[] items = {getString(R.string.open_camera), getString(R.string.pick_from_gallery), getString(R.string.cancel)};
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//        builder.setTitle("Add Photo!");
-//        builder.setItems(items, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int item) {
-//        boolean result = dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED);
-//                if (items[item].equals(getString(R.string.open_camera))) {
-//                    if (result) {
-//                        getPermissionAndOpenCamera();
-//                    } else {
-//                        showPermissionDenied();
-//                    }
-//                } else if (items[item].equals(getString(R.string.pick_from_gallery))) {
         if (dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
             galleryIntent();
         } else {
             showToast(getString(R.string.permissoin_denied_string));
         }
-//                } else if (items[item].equals(getString(R.string.cancel))) {
-//                    dialog.dismiss();
-//                }
-//            }
-//        });
-//        builder.show();
     }
 
     private void galleryIntent() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_picture)), CHOOSE_FILE);
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        startActivityForResult(intent, CHOOSE_FILE);
+        //        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_picture)), CHOOSE_FILE);
     }
 
 //    private void getPermissionAndOpenCamera() {
@@ -190,15 +174,9 @@ public class AddTeamFragment extends SuperFragment {
     }
 
     private void getAllTeamMembers() {
-        Team team = new Team(teamName, teamMotto, teamImgUri.toString(), null, teamMembersCount);
+        Team team = new Team(teamName, teamMotto, teamDesc, teamImgUri.toString(), null, teamMembersCount);
         goTo(getActivity(), AddTeamMembersActivity.class, true, Keys.TEAM, gson.toJson(team));
     }
-
-//    private void checkAndAddTeamData() {
-//        if (isAllDataAvailable()) {
-//            uploadTeamDataToDb();
-//        }
-//    }
 
     private boolean isAllDataAvailable() {
         if (teamImgUri == null) {
@@ -219,20 +197,30 @@ public class AddTeamFragment extends SuperFragment {
             return false;
         }
 
+        teamDesc = teamDescEd.getText().toString().trim();
+        if (TextUtils.isEmpty(teamDesc)) {
+            showToast(getString(R.string.enter_desc));
+            return false;
+        }
+
         teamMembersCount = teamMembersCountEd.getText().toString().trim();
         if (!TextUtils.isDigitsOnly(teamMembersCount) && TextUtils.isEmpty(teamMembersCount)) {
             showToast(getString(R.string.enter_team_count));
             return false;
         }
-
 //        teamMembersNames = teamMembersNamesEd.getText().toString().trim();
 //        if (TextUtils.isEmpty(teamMembersNames)) {
 //            showToast(getString(R.string.enter_team_members_names));
 //            return false;
 //        }
-
         return true;
     }
+
+    //    private void checkAndAddTeamData() {
+//        if (isAllDataAvailable()) {
+//            uploadTeamDataToDb();
+//        }
+//    }
 
     //pre checking if team data already exists
 //    private void uploadTeamDataToDb() {
@@ -363,5 +351,4 @@ public class AddTeamFragment extends SuperFragment {
 //            }
 //        });
 //    }
-
 }

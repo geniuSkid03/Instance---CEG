@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 
 public class EditNewsFragment extends SuperFragment {
 
     private SwipeRefreshLayout refreshUpdatedNewsLayout;
     private RecyclerView updatedNewsRv;
+
+    private FragmentInterfaceListener fragmentInterfaceListener;
 
     @Override
     protected View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,5 +31,28 @@ public class EditNewsFragment extends SuperFragment {
         //if swiped to left then delete, make the visibility of the news to 0
 
         return view;
+    }
+
+    public void refreshPostedNews(){
+
+    }
+
+    public void setFragmentInterfaceListener(FragmentInterfaceListener fragmentInterfaceListener) {
+        this.fragmentInterfaceListener = fragmentInterfaceListener;
+    }
+
+    public FragmentInterfaceListener getFragmentInterfaceListener () {
+        return fragmentInterfaceListener;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if(isVisibleToUser){
+            if(getFragmentInterfaceListener() != null){
+                getFragmentInterfaceListener().refreshFragments();
+            }
+        }
     }
 }

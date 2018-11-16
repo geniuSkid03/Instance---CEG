@@ -186,6 +186,8 @@ public class HomeActivity extends SuperCompatActivity {
         });
 
         loadPersonalData(navigationView);
+
+        dataStorage.saveString(Keys.MOBILE, "9159860007");
     }
 
     private void loadPersonalData(NavigationView navigationView) {

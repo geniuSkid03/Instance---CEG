@@ -77,8 +77,9 @@ public class NewsItemViewActivity extends SuperCompatActivity {
         }
 
         if (toShowNewsItem != null) {
-            getSupportActionBar().setTitle(toShowNewsItem.getName());
-            updateUi(toShowNewsItem);
+            getSupportActionBar().setTitle(toShowNewsItem.geteName());
+            //todo show ui for news item view
+//            updateUi(toShowNewsItem);
         } else {
             AppHelper.print("To Show Item empty");
         }
@@ -120,30 +121,30 @@ public class NewsItemViewActivity extends SuperCompatActivity {
         teamLogo2Iv.setVisibility(View.INVISIBLE);
     }
 
-    private void updateUi(NewsFeedItems toShowNewsItem) {
-        infoDescTv.setText(toShowNewsItem.getEventDesc());
-        titleTv.setText(toShowNewsItem.getTitle());
-        dateTv.setText(toShowNewsItem.getPostedDate());
-        timeTv.setText(toShowNewsItem.getPostedTime());
-
-        teamLogoIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
-        teamLogo2Iv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
-
-        switch (toShowNewsItem.getId()) {
-            case 0:
-                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.informals));
-                break;
-            case 1:
-                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.intra_vareity_sho));
-                break;
-            case 2:
-                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.twelve_years_ceg_spartans));
-                break;
-            case 3:
-                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.mime_performace));
-                break;
-        }
-    }
+//    private void updateUi(NewsFeedItems toShowNewsItem) {
+//        infoDescTv.setText(toShowNewsItem.getEventDesc());
+//        titleTv.setText(toShowNewsItem.getTitle());
+//        dateTv.setText(toShowNewsItem.getPostedDate());
+//        timeTv.setText(toShowNewsItem.getPostedTime());
+//
+//        teamLogoIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
+//        teamLogo2Iv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
+//
+//        switch (toShowNewsItem.getId()) {
+//            case 0:
+//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.informals));
+//                break;
+//            case 1:
+//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.intra_vareity_sho));
+//                break;
+//            case 2:
+//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.twelve_years_ceg_spartans));
+//                break;
+//            case 3:
+//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.mime_performace));
+//                break;
+//        }
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

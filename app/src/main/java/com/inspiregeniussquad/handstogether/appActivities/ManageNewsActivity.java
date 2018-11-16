@@ -10,6 +10,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.MyViewPagerAdapter;
 import com.inspiregeniussquad.handstogether.appFragments.AddNewsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.EditNewsFragment;
+import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 
 import butterknife.BindView;
 
@@ -47,6 +48,13 @@ public class ManageNewsActivity extends SuperCompatActivity {
         if (editNewsFragment == null) {
             editNewsFragment = new EditNewsFragment();
         }
+
+        editNewsFragment.setFragmentInterfaceListener(new FragmentInterfaceListener() {
+            @Override
+            public void refreshFragments() {
+                editNewsFragment.refreshPostedNews();
+            }
+        });
 
         setupViewPager(manageNewsViewPager);
 

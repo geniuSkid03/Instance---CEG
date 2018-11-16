@@ -63,9 +63,10 @@
                         android:background="@drawable/border_line">
 
                         <Spinner
+                            android:padding="6dp"
                             android:id="@+id/team_spinner"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent" />
 
                     </LinearLayout>
 
@@ -434,6 +435,7 @@
 
                 <!--News Visiblity-->
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"

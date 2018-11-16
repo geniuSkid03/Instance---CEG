@@ -137,9 +137,9 @@
     <string name="creating_team_profile">Creating team profile…</string>
     <string name="team_already_exist">Team info already exists!</string>
     <string name="team_added_successfully">Team Info added successfully!</string>
-    <string name="db_error">Some Error occured while creating new team, try again later!</string>
-    <string name="validating_info">Validating informations...</string>
-    <string name="choose_team">Choose team:</string>
+    <string name="db_error">Some Error occurred while creating, try again later!</string>
+    <string name="validating_info">Validating informations…</string>
+    <string name="choose_team">Choose team</string>
     <string name="update_news">Update News</string>
     <string name="add_news">Add News</string>
     <string name="manage_news">Manage News</string>
@@ -202,5 +202,18 @@
     <string name="event_venue_empty">Enter event venue!@</string>
     <string name="event_poster_empty">Upload event poster image!</string>
     <string name="empty_news_visiblity">Choose news Visibility!</string>
+    <string name="updating_news">Updating news...</string>
+    <string name="news_updated_success">News updated successfully!</string>
+    <string name="content_dev">Content Developer</string>
+    <string name="creative_head">Creative Head</string>
+    <string name="production_deisgner">Production Designer</string>
+    <string name="tresurer">Treasurer</string>
+    <string name="hrm">HRM</string>
+    <string name="SEM">SEM</string>
+    <string name="dance_manager">Dance Manager</string>
+    <string name="logistics_manager">Logistics Manager</string>
+    <string name="yt_manager">YT Manager</string>
+    <string name="enter_desc">Enter Description</string>
+    <string name="loading_teams">Loading team datas...</string>
 
 </resources>

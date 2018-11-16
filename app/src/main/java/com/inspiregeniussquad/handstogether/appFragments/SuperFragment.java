@@ -20,6 +20,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
+import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
@@ -40,10 +41,10 @@ public class SuperFragment extends Fragment {
 
     protected StorageReference teamLogoStorageReference;
     protected UploadTask uploadTask;
-    protected DatabaseReference teamDbReference;
+    protected DatabaseReference teamDbReference, newsDbReference;
 
     protected ProgressDialog progressDialog;
-    protected AlertDialog simpleAlertDialog;
+    protected AlertDialog simpleAlertDialog, infoAlert;
 
 
     //here fragment is attached with activity
@@ -64,11 +65,13 @@ public class SuperFragment extends Fragment {
 
         //node and child references
         teamDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
+        newsDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_NEWSFEED);
 
         dataStorage = new DataStorage(getActivity());
         permissionHelper = new PermissionHelper(getActivity());
         progressDialog = new ProgressDialog(getActivity());
         simpleAlertDialog = new AlertDialog.Builder(getActivity()).create();
+        infoAlert = new AlertDialog.Builder(getActivity()).create();
 
     }
 
@@ -196,6 +199,24 @@ public class SuperFragment extends Fragment {
     protected void cancelProgress() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
+        }
+    }
+
+    protected void showInfoAlert(String msg) {
+        if (infoAlert != null) {
+            if (msg != null) {
+                infoAlert.setMessage(msg);
+                infoAlert.setButton(android.app.AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                infoAlert.setCancelable(false);
+                if (!getActivity().isFinishing()) {
+                    infoAlert.show();
+                }
+            }
         }
     }
 

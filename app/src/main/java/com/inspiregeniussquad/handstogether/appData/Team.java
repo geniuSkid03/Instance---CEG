@@ -7,10 +7,16 @@ public class Team {
     private String name, desc, motto;
         private ArrayList<TeamMembers> teamMembers;
     private String logoUri, membersCount;
+    private String email, website, fbLink;
 
-    public Team(String name, String motto, String logoUri, ArrayList<TeamMembers> teamMembers, String membersCount) {
+    public Team(){
+
+    }
+
+    public Team(String name, String motto, String desc, String logoUri, ArrayList<TeamMembers> teamMembers, String membersCount) {
         this.motto = motto;
         this.logoUri = logoUri;
+        this.desc = desc;
         this.name = name;
         this.membersCount = membersCount;
         this.teamMembers = teamMembers;

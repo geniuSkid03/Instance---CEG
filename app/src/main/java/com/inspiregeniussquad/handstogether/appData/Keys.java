@@ -36,7 +36,7 @@ public class Keys {
     //table names
     public static String TABLE_USER = "Users";
     public static final String TABLE_TEAM = "Teams";
-
+    public static final String TABLE_NEWSFEED = "Newsfeed";
 
     //user attributes
     public static final String ATTR_MOBILE = "mobile";
@@ -52,5 +52,9 @@ public class Keys {
     public static final String ATTR_LOGO_URI= "teamLogoUri";
 
     public static final String PERMISSIONS_GRANTED = "all_permissions_available";
+
+    //team Names
+    public static final String TEAM_SPARTANZ = "CEG Spartanz";
+
 
 }

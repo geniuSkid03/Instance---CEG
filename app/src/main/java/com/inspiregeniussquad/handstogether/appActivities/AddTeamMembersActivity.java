@@ -20,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,7 +32,6 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appData.TeamMembers;
-import com.inspiregeniussquad.handstogether.appFragments.SuperFragment;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
@@ -99,7 +97,9 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
             teamMembersCount = Integer.parseInt(team.getTeamMembersCount());
         }
 
-        final String[] positionNames = {getString(R.string.choose), getString(R.string.president), getString(R.string.member), getString(R.string.vice_president)};
+        final String[] positionNames = {getString(R.string.choose), getString(R.string.president), getString(R.string.member), getString(R.string.vice_president), getString(R.string.content_dev),
+                getString(R.string.creative_head), getString(R.string.production_deisgner), getString(R.string.tresurer), getString(R.string.hrm),
+                getString(R.string.SEM), getString(R.string.dance_manager), getString(R.string.logistics_manager), getString(R.string.yt_manager)};
         loadSpinner(positionNames);
 
         teamMembersArrayList = new ArrayList<>();
@@ -313,7 +313,7 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
         showProgress(getString(R.string.uploading_data));
 
-        final StorageReference storageRef = storageReference.child("TeamLogo" + teamLogoName);
+        final StorageReference storageRef = storageReference.child("TeamLogo/" + teamLogoName);
 
         uploadTask = storageRef.putFile(teamLogoUri);
 
