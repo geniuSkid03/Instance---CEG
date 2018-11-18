@@ -37,6 +37,7 @@ public class Keys {
     public static String TABLE_USER = "Users";
     public static final String TABLE_TEAM = "Teams";
     public static final String TABLE_NEWSFEED = "Newsfeed";
+    public static final String TABLE_CIRCULAR = "Circular";
 
     //user attributes
     public static final String ATTR_MOBILE = "mobile";

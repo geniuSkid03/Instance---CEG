@@ -2,7 +2,8 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class CircularDataItems {
 
-    private String circularImgPath, postedDate;
+    private String circularImgPath, pDate;
+    private String cTitle, cDesc;
 
     public CircularDataItems() {
 
@@ -16,11 +17,27 @@ public class CircularDataItems {
         this.circularImgPath = circularImgPath;
     }
 
-    public String getPostedDate() {
-        return postedDate;
+    public String getpDate() {
+        return pDate;
     }
 
-    public void setPostedDate(String postedDate) {
-        this.postedDate = postedDate;
+    public void setpDate(String pDate) {
+        this.pDate = pDate;
+    }
+
+    public String getcTitle() {
+        return cTitle;
+    }
+
+    public void setcTitle(String cTitle) {
+        this.cTitle = cTitle;
+    }
+
+    public String getcDesc() {
+        return cDesc;
+    }
+
+    public void setcDesc(String cDesc) {
+        this.cDesc = cDesc;
     }
 }

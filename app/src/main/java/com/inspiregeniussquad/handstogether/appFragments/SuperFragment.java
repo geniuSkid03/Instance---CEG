@@ -41,7 +41,7 @@ public class SuperFragment extends Fragment {
 
     protected StorageReference teamLogoStorageReference;
     protected UploadTask uploadTask;
-    protected DatabaseReference teamDbReference, newsDbReference;
+    protected DatabaseReference teamDbReference, newsDbReference, circularDbReference;
 
     protected ProgressDialog progressDialog;
     protected AlertDialog simpleAlertDialog, infoAlert;
@@ -66,6 +66,7 @@ public class SuperFragment extends Fragment {
         //node and child references
         teamDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
         newsDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_NEWSFEED);
+        circularDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_CIRCULAR);
 
         dataStorage = new DataStorage(getActivity());
         permissionHelper = new PermissionHelper(getActivity());

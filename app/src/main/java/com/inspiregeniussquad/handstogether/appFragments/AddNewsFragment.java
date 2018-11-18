@@ -300,7 +300,7 @@ public class AddNewsFragment extends SuperFragment {
 
         showProgress(getString(R.string.uploading_data));
 
-        final StorageReference storageRef = storageReference.child("Posters" + posterName);
+        final StorageReference storageRef = storageReference.child("Posters/" + posterName);
 
         uploadTask = storageRef.putFile(eventPoster);
 

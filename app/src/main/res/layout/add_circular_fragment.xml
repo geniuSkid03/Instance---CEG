@@ -170,7 +170,7 @@
                                 android:scaleType="fitXY" />
 
                             <ImageButton
-                                android:id="@+id/load_circular"
+                                android:id="@+id/load_circular_image"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:layout_alignParentEnd="true"
@@ -185,7 +185,7 @@
                 </LinearLayout>
 
                 <!--Circular Visibility-->
-                <LinearLayout
+                <!--<LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
@@ -245,7 +245,7 @@
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </LinearLayout>-->
 
             </LinearLayout>
 

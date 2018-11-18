@@ -215,5 +215,10 @@
     <string name="yt_manager">YT Manager</string>
     <string name="enter_desc">Enter Description</string>
     <string name="loading_teams">Loading team datas...</string>
+    <string name="enter_title_circular">Provide Circular title!</string>
+    <string name="enter_circular_desc">Provide circular description!</string>
+    <string name="enter_circular_image">Provide circular Image!</string>
+    <string name="updating_circular">Publishing circular...</string>
+    <string name="cirular_updated_success">Cirular published successfully!</string>
 
 </resources>
