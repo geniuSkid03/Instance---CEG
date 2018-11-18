@@ -17,8 +17,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +28,6 @@ import com.google.firebase.storage.UploadTask;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appData.Keys;
-import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +55,7 @@ public class AddCircularFragment extends SuperFragment {
 
         publishCircularBtn = view.findViewById(R.id.publish_circular);
         circularIv = view.findViewById(R.id.circular_image);
-        loadCircularImgBtn = view.findViewById(R.id.load_circular);
+        loadCircularImgBtn = view.findViewById(R.id.load_circular_image);
         titleEd = view.findViewById(R.id.circular_name);
         descEd = view.findViewById(R.id.circular_desc);
 
@@ -240,12 +237,19 @@ public class AddCircularFragment extends SuperFragment {
         circularDataItems.setcDesc(description);
         circularDataItems.setCircularImgPath(circularImgUri.toString());
         circularDataItems.setpDate(pDate);
+        circularDataItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 
         return circularDataItems;
     }
 
     private void showUpdatedCirularFeed(){
+        clearViews();
+    }
 
+    private void clearViews() {
+        titleEd.setText("");
+        descEd.setText("");
+        circularIv.setImageResource(0);
     }
 
 }

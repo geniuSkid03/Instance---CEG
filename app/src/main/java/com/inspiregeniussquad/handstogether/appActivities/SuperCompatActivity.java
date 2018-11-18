@@ -34,7 +34,6 @@ import com.inspiregeniussquad.handstogether.appBroadcastReceivers.SignalReceiver
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
-import com.inspiregeniussquad.handstogether.appFragments.SuperFragment;
 import com.inspiregeniussquad.handstogether.appInterfaces.Action;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
@@ -309,10 +308,11 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        super.onPause();
 
         //removing broadcast receivers
         unRegisterReceivers();
+
+        super.onPause();
     }
 
     @Override

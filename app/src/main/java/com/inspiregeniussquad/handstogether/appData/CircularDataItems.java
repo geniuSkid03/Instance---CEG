@@ -4,9 +4,18 @@ public class CircularDataItems {
 
     private String circularImgPath, pDate;
     private String cTitle, cDesc;
+    private String postedBy;
 
     public CircularDataItems() {
 
+    }
+
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
     }
 
     public String getCircularImgPath() {

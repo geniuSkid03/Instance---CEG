@@ -10,6 +10,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.MyViewPagerAdapter;
 import com.inspiregeniussquad.handstogether.appFragments.AddCircularFragment;
 import com.inspiregeniussquad.handstogether.appFragments.ManageCircularFragment;
+import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 
 import butterknife.BindView;
 
@@ -47,6 +48,13 @@ public class ManageCircularActivity extends SuperCompatActivity {
         if (manageCircularFragment == null) {
             manageCircularFragment = new ManageCircularFragment();
         }
+
+        manageCircularFragment.setFragmentInterfaceListener(new FragmentInterfaceListener() {
+            @Override
+            public void refreshFragments() {
+                manageCircularFragment.refreshCirculars();
+            }
+        });
 
         setupViewPager(manageCircularViewPager);
 

@@ -5,9 +5,18 @@ public class NewsFeedItems {
     private int likes;
     private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
     private String comments;
+    private String pDate;
 
     public NewsFeedItems() {
 
+    }
+
+    public String getpDate() {
+        return pDate;
+    }
+
+    public void setpDate(String pDate) {
+        this.pDate = pDate;
     }
 
     public String gettName() {

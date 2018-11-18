@@ -220,5 +220,13 @@
     <string name="enter_circular_image">Provide circular Image!</string>
     <string name="updating_circular">Publishing circular...</string>
     <string name="cirular_updated_success">Cirular published successfully!</string>
+    <string name="you_haven_t_updated_any_news">You haven\'t updated any news!</string>
+    <string name="loading_your_news">Loading news updated by you...</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="deleting_news">Deleting news item...</string>
+    <string name="updated_on">Updated on:</string>
+    <string name="you_haven_t_updated_any_circulars">You haven\'t updated any circulars!</string>
+    <string name="loading_circular_updated_by_you">Loading circulars updated by you!</string>
 
 </resources>

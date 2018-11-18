@@ -38,7 +38,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.inspiregeniussquad.handstogether.R;
-import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appData.Team;
@@ -394,6 +393,15 @@ public class AddNewsFragment extends SuperFragment {
         int postedMin = calendar.get(Calendar.MINUTE);
         String postedTime = postedHr + ":" + postedMin;
 
+        int date = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        calendar.set(date, year, month, 0, 0);
+        String postedDate = AppHelper.getFormattedDate(calendar);
+
+        AppHelper.print("Date posted: "+postedDate);
+        AppHelper.print("Time posted: "+postedTime);
+
         NewsFeedItems newsFeedItems = new NewsFeedItems();
 
         newsFeedItems.settName(teamDataHelper.getTeamName(teamId));
@@ -402,6 +410,7 @@ public class AddNewsFragment extends SuperFragment {
         newsFeedItems.seteDate(eventDate);
         newsFeedItems.seteTime(eventTime);
         newsFeedItems.setpTime(postedTime);
+        newsFeedItems.setpDate(postedDate);
         newsFeedItems.seteVenue(venueName);
         newsFeedItems.setVidUrl(videoUrl);
         newsFeedItems.setPstrUrl(uploadedPosterUri.toString());
