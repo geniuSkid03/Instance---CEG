@@ -184,6 +184,14 @@ butterknife/Optional.class
 butterknife/internal/ListenerClass$NONE.class
 butterknife/internal/ListenerClass.class
 butterknife/internal/ListenerMethod.class
+com/bumptech/glide/annotation/Excludes.class
+com/bumptech/glide/annotation/GlideExtension.class
+com/bumptech/glide/annotation/GlideModule.class
+com/bumptech/glide/annotation/GlideOption.class
+com/bumptech/glide/annotation/GlideType.class
+com/bumptech/glide/annotation/compiler/Index.class
+com/bumptech/glide/gifdecoder/GifDecoder$GifDecodeStatus.class
+com/bumptech/glide/util/Synthetic.class
 com/fasterxml/jackson/annotation/JacksonAnnotation.class
 com/fasterxml/jackson/annotation/JacksonAnnotationsInside.class
 com/fasterxml/jackson/annotation/JacksonInject.class
@@ -416,3 +424,5 @@ okio/Source.class
 okio/Timeout.class
 okio/package-info.class
 org/reactivestreams/Publisher.class
+uk/co/chrisjenx/calligraphy/CalligraphyConfig$Builder.class
+uk/co/chrisjenx/calligraphy/CalligraphyConfig.class

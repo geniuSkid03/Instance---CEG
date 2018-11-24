@@ -388,16 +388,9 @@ public class AddNewsFragment extends SuperFragment {
     }
 
     private NewsFeedItems getNewsFeedItems(Uri uploadedPosterUri) {
-        Calendar calendar = Calendar.getInstance();
-        int postedHr = calendar.get(Calendar.HOUR_OF_DAY);
-        int postedMin = calendar.get(Calendar.MINUTE);
-        String postedTime = postedHr + ":" + postedMin;
 
-        int date = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH);
-        int year = calendar.get(Calendar.YEAR);
-        calendar.set(date, year, month, 0, 0);
-        String postedDate = AppHelper.getFormattedDate(calendar);
+        String postedTime = AppHelper.getCurrentTime();
+        String postedDate = AppHelper.getTodaysDate();
 
         AppHelper.print("Date posted: "+postedDate);
         AppHelper.print("Time posted: "+postedTime);
@@ -414,7 +407,7 @@ public class AddNewsFragment extends SuperFragment {
         newsFeedItems.seteVenue(venueName);
         newsFeedItems.setVidUrl(videoUrl);
         newsFeedItems.setPstrUrl(uploadedPosterUri.toString());
-        newsFeedItems.setLikes(0);
+        newsFeedItems.setLikes("0");
         newsFeedItems.setComments("");
         newsFeedItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 

@@ -35,7 +35,6 @@ import butterknife.OnClick;
 
 public class OtpVerificationActivity extends SuperCompatActivity {
 
-
     @BindView(R.id.verify_btn)
     AppCompatButton verifyBtn;
 
@@ -61,7 +60,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
 
         //getting mobile number via intent
         if (getIntent().getExtras() != null) {
-            mobileNumber = getIntent().getStringExtra("mobile");
+            mobileNumber = getIntent().getStringExtra(Keys.MOBILE);
         }
 
         //for underline
@@ -96,7 +95,6 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     }
 
     private void reqOtpAgain(final String mobileNumber, PhoneAuthProvider.ForceResendingToken resendingToken) {
-
         showProgress(getString(R.string.requesting_otp));
 
         //clearing view

@@ -1,5 +1,6 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +21,8 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomeFragment extends SuperFragment {
 
@@ -149,7 +152,7 @@ public class HomeFragment extends SuperFragment {
         }
 
         if (newsFeedFragment != null) {
-            if (newsFeedFragment.isVisible()) {
+            if (newsFeedFragment.isAdded()) {
                 newsFeedFragment.refreshNewsFeed();
             } else {
                 AppHelper.print("newsFeedFragment is not visible");
@@ -159,7 +162,7 @@ public class HomeFragment extends SuperFragment {
         }
 
         if (circularFragment != null) {
-            if (circularFragment.isVisible()) {
+            if (circularFragment.isAdded()) {
                 circularFragment.refreshCirculars();
             }
         }

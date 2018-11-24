@@ -127,16 +127,15 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_time_icon"
+                                android:src="@drawable/ic_like_icon"
                                 android:tint="@color/colorPrimaryDark" />
 
                             <TextView
-                                android:id="@+id/time"
+                                android:id="@+id/likes"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:padding="1dp"
-                                android:text="@string/loading"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
@@ -151,16 +150,15 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_calendar_icon"
+                                android:src="@drawable/ic_comments_icon"
                                 android:tint="@color/colorPrimaryDark" />
 
                             <TextView
-                                android:id="@+id/date"
+                                android:id="@+id/comments"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:padding="1dp"
-                                android:text="@string/loading"
                                 android:textSize="14sp" />
 
                         </LinearLayout>

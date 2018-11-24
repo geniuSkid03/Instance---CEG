@@ -1,8 +1,10 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
@@ -54,7 +59,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     class NewsFeedView extends RecyclerView.ViewHolder {
 
         private CircularImageView logoCiv;
-        private TextView nameTv, descTv, timeTv, dateTv, readMoreTv;
+        private TextView nameTv, descTv, likeTv, cmntTv, readMoreTv;
         private ImageView posterImgIv;
         private View itemView;
         private int position;
@@ -81,30 +86,50 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             posterImgIv = itemView.findViewById(R.id.event_poster);
             nameTv = itemView.findViewById(R.id.name);
             descTv = itemView.findViewById(R.id.desc);
-            timeTv = itemView.findViewById(R.id.time);
-            dateTv = itemView.findViewById(R.id.date);
+            likeTv = itemView.findViewById(R.id.likes);
+            cmntTv = itemView.findViewById(R.id.comments);
             readMoreTv = itemView.findViewById(R.id.read_more);
 
             nameTv.setText(newsFeedItems.geteName());
             descTv.setText(newsFeedItems.geteDesc());
-            timeTv.setText(newsFeedItems.getpTime());
-            dateTv.setText(newsFeedItems.geteDate());
+            likeTv.setText(newsFeedItems.getLikes());
+            cmntTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    viewClickedListener.onCommentsClicked(position);
+                }
+            });
             readMoreTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     viewClickedListener.onViewClicked(position);
                 }
             });
+            posterImgIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    viewClickedListener.onImageClicked(position);
+                }
+            });
 
-//            logoCiv.setImageBitmap(AppHelper.getBitMapFromByteArray(newsFeedItems.getLogoDrawable()));
-//            posterImgIv.setImageBitmap(AppHelper.getBitMapFromByteArray(newsFeedItems.getPosterDrawable()));
+//            Glide.with(context)
+//                    .load(newsFeedItems.getPstrUrl())
+//                    .into(new SimpleTarget<Drawable>() {
+//                        @Override
+//                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+//                            posterImgIv.setImageDrawable(resource);
+//                        }
+//                    });
 
-//            Picasso.get().load(newsFeedItems.getT()).into(logoCiv);
             Picasso.get().load(newsFeedItems.getPstrUrl()).into(posterImgIv);
         }
     }
 
     public interface onViewClickedListener {
         void onViewClicked(int position);
+
+        void onCommentsClicked(int position);
+
+        void onImageClicked(int position);
     }
 }

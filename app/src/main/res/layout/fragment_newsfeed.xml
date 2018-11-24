@@ -11,30 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:id="@+id/news_loading_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/no_news_view"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/oops_no_new_news"
         android:layout_centerInParent="true"
-        android:gravity="center"
-        android:minWidth="150dp"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="2dp"
-            android:text="@string/loading"
-            android:textSize="22sp" />
-
-        <com.wang.avi.AVLoadingIndicatorView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:indicatorColor="@color/colorAccent"
-            app:indicatorName="PacmanIndicator" />
-
-    </LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

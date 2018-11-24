@@ -902,6 +902,7 @@ drawable ic_circular_selected
 drawable ic_circular_unselected
 drawable ic_close_icon
 drawable ic_clubs
+drawable ic_comments_icon
 drawable ic_correct_icon
 drawable ic_dashboard
 drawable ic_delete_icon
@@ -913,6 +914,7 @@ drawable ic_event_venue
 drawable ic_girl
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_like_icon
 drawable ic_logo_icon
 drawable ic_man
 drawable ic_menu_camera
@@ -930,6 +932,7 @@ drawable ic_no_internet_icon
 drawable ic_others
 drawable ic_position_icon
 drawable ic_profile
+drawable ic_save_icon
 drawable ic_search
 drawable ic_settings
 drawable ic_sign_out
@@ -974,6 +977,7 @@ drawable tab_color_selector
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable twelve_years_ceg_spartans
+font base_font
 font custom_font
 id ALT
 id CTRL
@@ -1042,17 +1046,18 @@ id choose_image
 id chronometer
 id circular_desc
 id circular_image
-id circular_loading_view
 id circular_logo_view
 id circular_name
 id circular_recycler_view
 id clip_horizontal
 id clip_vertical
+id close_preview
 id collapseActionView
 id collapsing_app_bar_layout
 id collapsing_tool_bar_image
 id collapsing_tool_bar_layout
 id collapsing_toolbar
+id comments
 id container
 id contentPanel
 id content_layout
@@ -1100,8 +1105,10 @@ id fill
 id fill_horizontal
 id fill_vertical
 id fixed
+id footer
 id forever
 id ghost_view
+id glide_custom_view_target_tag
 id gone
 id groups
 id header_root
@@ -1122,6 +1129,7 @@ id item_touch_helper_previous_elevation
 id largeLabel
 id left
 id light
+id likes
 id line1
 id line3
 id listMode
@@ -1170,11 +1178,12 @@ id navigation_header_container
 id nested_scrollview
 id never
 id news_feed_recycler_view
-id news_loading_view
 id news_rgrb
 id next_btn
+id no_circular_view
 id no_members_view
 id no_news_updated
+id no_news_view
 id no_updated_circular
 id none
 id normal
@@ -1195,6 +1204,8 @@ id permissions_icon
 id permissions_list
 id permissions_title
 id pin
+id posted_date_time
+id poster_image
 id profile_image
 id progress_circular
 id progress_horizontal
@@ -1213,6 +1224,7 @@ id rsend_otp_btn
 id save
 id save_image_matrix
 id save_non_transition_alpha
+id save_preview
 id save_scale_type
 id screen
 id scroll
@@ -1300,7 +1312,6 @@ id update_team_btn
 id updated_date
 id updated_news_rv
 id useLogo
-id user_email
 id user_name
 id user_profile
 id verify_btn
@@ -1355,6 +1366,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_team_members
 layout activity_admin
+layout activity_comments_view
 layout activity_home
 layout activity_manage_circular
 layout activity_manage_news
@@ -1364,6 +1376,7 @@ layout activity_news_item_view
 layout activity_news_item_view_new
 layout activity_otp_verification
 layout activity_permissions_helper
+layout activity_poster_view
 layout activity_profile_updation
 layout activity_signup
 layout activity_splash
@@ -1537,7 +1550,6 @@ string common_signin_button_text
 string common_signin_button_text_long
 string connect_to_n
 string cont
-string contact_permsn_hint
 string contact_title
 string content_dev
 string create_a_circular
@@ -1610,9 +1622,10 @@ string it_will_be_shown_in_circular_tab
 string lbl_forgot_password
 string loading
 string loading_circular_updated_by_you
+string loading_cirulars
+string loading_news_feed
 string loading_teams
 string loading_your_news
-string location_permsn_hint
 string location_title
 string log_out
 string log_out_hint
@@ -1644,6 +1657,7 @@ string news_visibility
 string news_will_be_shown_in_newsfeed
 string newsfeed
 string next
+string no_circulars
 string no_internet_title
 string no_internt_conn
 string no_members_have_been_added_yet
@@ -1651,6 +1665,7 @@ string non_tech
 string number_of_members
 string ok
 string one
+string oops_no_new_news
 string open_camera
 string others
 string otp

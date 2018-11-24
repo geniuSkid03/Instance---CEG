@@ -2,9 +2,8 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class NewsFeedItems {
 
-    private int likes;
     private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
-    private String comments;
+    private String comments, likes;
     private String pDate;
 
     public NewsFeedItems() {
@@ -100,11 +99,11 @@ public class NewsFeedItems {
         this.eVenue = eVenue;
     }
 
-    public int getLikes() {
+    public String getLikes() {
         return likes;
     }
 
-    public void setLikes(int likes) {
+    public void setLikes(String likes) {
         this.likes = likes;
     }
 

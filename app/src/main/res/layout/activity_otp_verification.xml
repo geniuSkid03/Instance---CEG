@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     android:fitsSystemWindows="true">
 
     <ScrollView
@@ -15,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/continue_btn"
             android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
@@ -24,39 +22,48 @@
                 android:layout_width="166dp"
                 android:layout_height="146dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:contentDescription="@null"
                 android:src="@drawable/demoscreen" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16sp"
+                android:layout_marginEnd="16sp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="@string/wait_we_will_send_otp"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="italic" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp" />
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/otp"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="16sp"
+                android:background="@drawable/border_line"
                 android:gravity="center"
-                android:hint="@string/otp"
-                android:inputType="number"
-                android:maxLength="6"
-                android:maxLines="1"
-                android:minWidth="200dp"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/colorPrimary" />
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:hint="@string/otp"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/otp_timer"
@@ -65,20 +72,18 @@
                 android:layout_gravity="center"
                 android:layout_margin="4dp"
                 android:text="@string/otp_timer"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:visibility="gone" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/rsend_otp_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_height="40dp"
                 android:layout_margin="8dp"
-                android:background="@color/black"
-                android:padding="12dp"
+                style="@style/ButtonBg"
                 android:text="@string/resend_otp"
-                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
                 android:visibility="gone" />
 
             <TextView
@@ -89,22 +94,20 @@
                 android:layout_margin="8dp"
                 android:padding="4dp"
                 android:text="@string/change_number"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
-                android:textStyle="italic"
-                android:visibility="visible" />
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="17sp"
+                android:layout_marginEnd="16sp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="@string/we_will_try_to_auto_verify_if_not_entered_manually"
-                android:textColor="@color/white"
-                android:textStyle="italic" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
@@ -112,14 +115,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/verify_btn"
+        style="@style/ButtonBg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/black"
-        android:gravity="center"
-        android:text="@string/verify"
-        android:textColor="@color/primaryTextColor"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:text="@string/verify" />
 
 </RelativeLayout>

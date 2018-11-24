@@ -16,6 +16,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ import java.util.Objects;
 
 import butterknife.ButterKnife;
 import id.zelory.compressor.Compressor;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SuperCompatActivity extends AppCompatActivity {
 
@@ -87,10 +89,12 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //init firebase instance
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        //init fire base instance
         FirebaseApp.initializeApp(this);
 
-        //firebase authentication
+        //fire base authentication
         firebaseAuth = FirebaseAuth.getInstance();
 
         //firebase database
@@ -291,11 +295,15 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     private void registerReceivers() {
-        connectionChangeReceiver.register();
+        if(connectionChangeReceiver != null && !connectionChangeReceiver.isRegistered()) {
+            connectionChangeReceiver.register();
+        }
     }
 
     private void unRegisterReceivers() {
-        connectionChangeReceiver.unRegister();
+        if(connectionChangeReceiver != null && connectionChangeReceiver.isRegistered()) {
+            connectionChangeReceiver.unRegister();
+        }
     }
 
     @Override
@@ -353,6 +361,34 @@ public class SuperCompatActivity extends AppCompatActivity {
             e.printStackTrace();
             return path;
         }
+    }
+
+    protected void checkDataAndOpen() {
+        if(dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
+            if (dataStorage.isDataAvailable(Keys.MOBILE)) {
+                if (dataStorage.isDataAvailable(Keys.IS_ONLINE)) {
+                    if (dataStorage.getBoolean(Keys.IS_ONLINE)) {
+                        goTo(this, HomeActivity.class, true);
+                    } else {
+                        goToMobVerification();
+                    }
+                } else {
+                    goToMobVerification();
+                }
+            } else {
+                goToMobVerification();
+            }
+        } else {
+            goToPermissions();
+        }
+    }
+
+    private void goToPermissions() {
+        goTo(this, PermissionsHelperActivity.class, true);
+    }
+
+    private void goToMobVerification() {
+        goTo(this, MobileNumberActivity.class, true);
     }
 
     private String getCompressedImagePath(String actualImagePath) throws IOException {

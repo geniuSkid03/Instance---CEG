@@ -18,6 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static android.content.Context.LOCATION_SERVICE;
@@ -49,6 +50,20 @@ public class AppHelper {
         if (context != null && context.getResources() != null) {
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static String getCurrentTime() {
+        Calendar calendar = Calendar.getInstance();
+        int postedHr = calendar.get(Calendar.HOUR_OF_DAY);
+        int postedMin = calendar.get(Calendar.MINUTE);
+        return postedHr + ":" + postedMin;
+    }
+
+    public static String getTodaysDate() {
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+
+        return df.format(c);
     }
 
     public static String getFormattedDate(Calendar calendar) {

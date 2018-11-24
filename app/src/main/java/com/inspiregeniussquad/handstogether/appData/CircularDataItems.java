@@ -2,12 +2,20 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class CircularDataItems {
 
-    private String circularImgPath, pDate;
+    private String circularImgPath, pDate, pTime;
     private String cTitle, cDesc;
     private String postedBy;
 
     public CircularDataItems() {
 
+    }
+
+    public String getpTime() {
+        return pTime;
+    }
+
+    public void setpTime(String pTime) {
+        this.pTime = pTime;
     }
 
     public String getPostedBy() {

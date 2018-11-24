@@ -17,27 +17,31 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appActivities.NewsItemViewActivity;
+import com.inspiregeniussquad.handstogether.appActivities.PosterViewActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.NewsFeedAdapter;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class NewsFeedFragment extends SuperFragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView newsFeedRv;
-    private LinearLayout newsLoadingView;
+    private TextView noNewsTv;
 
     private boolean isRefreshing;
 
     private NewsFeedAdapter newsFeedAdapter;
     private ArrayList<NewsFeedItems> newsFeedItemsArrayList;
-
-    private NewsFeedItems itemOne, itemTwo, itemThree, itemFour;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,12 +58,22 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             public void onViewClicked(int position) {
                 onNewsItemClicked(newsFeedItemsArrayList.get(position));
             }
+
+            @Override
+            public void onCommentsClicked(int position) {
+                onCommentItemClicked(newsFeedItemsArrayList.get(position));
+            }
+
+            @Override
+            public void onImageClicked(int position) {
+                onImageItemClicked(newsFeedItemsArrayList.get(position));
+            }
         });
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-       inflater.inflate(R.menu.home_search, menu);
+        inflater.inflate(R.menu.home_search, menu);
 
         MenuItem searchMenuItem = menu.findItem(R.id.action_filter_search);
         SearchView searchView = (SearchView) searchMenuItem.getActionView();
@@ -84,7 +98,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     private View initNewsFeedView(View view) {
 
         newsFeedRv = view.findViewById(R.id.news_feed_recycler_view);
-        newsLoadingView = view.findViewById(R.id.news_loading_view);
+        noNewsTv = view.findViewById(R.id.no_news_view);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         newsFeedRv.setLayoutManager(linearLayoutManager);
@@ -96,8 +110,79 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         goTo(getActivity(), NewsItemViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItem));
     }
 
-    public void refreshNewsFeed(){
+    private void onImageItemClicked(NewsFeedItems newsFeedItems) {
+        goTo(getContext(), PosterViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+    }
 
+    private void onCommentItemClicked(NewsFeedItems newsFeedItems) {
+
+    }
+
+    public void refreshNewsFeed() {
+        showProgress(getString(R.string.loading));
+
+        newsDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    AppHelper.print("News exists and trying to retrive!");
+                    retriveDataFromDb(dataSnapshot);
+                } else {
+                    AppHelper.print("No news found!");
+                    cancelProgress();
+                    updateUi();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                cancelProgress();
+                updateUi();
+                AppHelper.print("Db Error while loading news feed: " + databaseError);
+                showToast(getString(R.string.db_error));
+            }
+        });
+    }
+
+    private void retriveDataFromDb(DataSnapshot dataSnapshot) {
+        Map<String, NewsFeedItems> newsFeedItemsMap = (Map<String, NewsFeedItems>) dataSnapshot.getValue();
+
+        newsFeedItemsArrayList.clear();
+
+        for (Map.Entry<String, NewsFeedItems> teamEntry : newsFeedItemsMap.entrySet()) {
+            Map map = (Map) teamEntry.getValue();
+
+            NewsFeedItems newsFeedItems = new NewsFeedItems();
+            newsFeedItems.settName((String) map.get("tName"));
+            newsFeedItems.seteName((String) map.get("eName"));
+            newsFeedItems.seteDesc((String) map.get("eDesc"));
+            newsFeedItems.seteDate((String) map.get("eDate"));
+            newsFeedItems.seteTime((String) map.get("eTime"));
+            newsFeedItems.setpTime((String) map.get("pTime"));
+            newsFeedItems.setpDate((String) map.get("pDate"));
+            newsFeedItems.seteVenue((String) map.get("eVenue"));
+            newsFeedItems.setVidUrl((String) map.get("vidUrl"));
+            newsFeedItems.setPstrUrl((String) map.get("pstrUrl"));
+            newsFeedItems.setLikes((String) map.get("likes"));
+
+            newsFeedItemsArrayList.add(newsFeedItems);
+        }
+
+        updateUi();
+    }
+
+    private void updateUi() {
+        if (newsFeedItemsArrayList.size() != 0) {
+            newsFeedAdapter.notifyDataSetChanged();
+            newsFeedRv.setAdapter(newsFeedAdapter);
+        }
+
+        newsFeedRv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.INVISIBLE : View.VISIBLE);
+        noNewsTv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.VISIBLE : View.INVISIBLE);
+
+        cancelProgress();
+
+        animateWithData(newsFeedRv);
     }
 
     private void animateWithData(RecyclerView recyclerView) {
@@ -124,16 +209,16 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        if(TextUtils.isEmpty(newText)) {
+        if (TextUtils.isEmpty(newText)) {
             resetSearch();
             return false;
         }
 
-        AppHelper.print("Search Text: "+newText);
+        AppHelper.print("Search Text: " + newText);
 
         ArrayList<NewsFeedItems> filteredNewsItem = new ArrayList<>(newsFeedItemsArrayList);
         for (NewsFeedItems newsFeedItems : newsFeedItemsArrayList) {
-            if(!newsFeedItems.geteName().toLowerCase().contains(newText.toLowerCase())) {
+            if (!newsFeedItems.geteName().toLowerCase().contains(newText.toLowerCase())) {
                 filteredNewsItem.remove(newsFeedItems);
             }
         }

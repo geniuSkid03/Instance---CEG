@@ -9,6 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         app:cardCornerRadius="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
@@ -40,25 +43,25 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:gravity="center"
-                            android:text="GnanaPriya"
                             android:textSize="18sp" />
 
                         <TextView
+                            android:id="@+id/posted_date_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:gravity="center"
-                            android:text="4 hours ago"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -68,19 +71,19 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/circular_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:maxLines="2"
-                android:padding="4dp"
-                android:text="Meeting at Venue, for celebration of 12 years of CEG spartans @3pm" />
+                android:padding="4dp" />
 
             <ImageView
+                android:id="@+id/circular_image"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_margin="6dp"
-                android:src="@drawable/twelve_years_ceg_spartans"
                 android:contentDescription="@null"
                 android:scaleType="fitXY" />
 

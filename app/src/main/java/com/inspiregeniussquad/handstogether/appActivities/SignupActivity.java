@@ -69,9 +69,6 @@ public class SignupActivity extends SuperCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        //disabling auto focus of edittext
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
         //getting mobile number
         if (getIntent().getExtras() != null) {
             mobileNumber = getIntent().getStringExtra("mobile");

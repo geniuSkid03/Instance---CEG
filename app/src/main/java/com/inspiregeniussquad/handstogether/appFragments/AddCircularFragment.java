@@ -228,8 +228,9 @@ public class AddCircularFragment extends SuperFragment {
     }
 
     private CircularDataItems getCircularItems(Uri circularImgUri){
-        Calendar posetedDate = Calendar.getInstance();
-        String pDate = AppHelper.getFormattedDate(posetedDate);
+
+        String pDate = AppHelper.getTodaysDate();
+        String pTime = AppHelper.getCurrentTime();
 
         CircularDataItems circularDataItems = new CircularDataItems();
 
@@ -237,6 +238,7 @@ public class AddCircularFragment extends SuperFragment {
         circularDataItems.setcDesc(description);
         circularDataItems.setCircularImgPath(circularImgUri.toString());
         circularDataItems.setpDate(pDate);
+        circularDataItems.setpTime(pTime);
         circularDataItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 
         return circularDataItems;

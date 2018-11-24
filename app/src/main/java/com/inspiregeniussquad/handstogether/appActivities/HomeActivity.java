@@ -1,5 +1,6 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -48,6 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomeActivity extends SuperCompatActivity {
 
@@ -88,6 +91,11 @@ public class HomeActivity extends SuperCompatActivity {
     private SettingsFragment settingsFragment;
 //    private AboutFragment aboutFragment;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -141,10 +149,8 @@ public class HomeActivity extends SuperCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        setSearchToolbar();
 
         headerList = new ArrayList<>();
         childModelsList = new ArrayList<>();
@@ -187,6 +193,7 @@ public class HomeActivity extends SuperCompatActivity {
 
         loadPersonalData(navigationView);
 
+        //todo remove this line on app launch
         dataStorage.saveString(Keys.MOBILE, "9159860007");
     }
 
@@ -195,19 +202,29 @@ public class HomeActivity extends SuperCompatActivity {
 
         CircularImageView imageView = view.findViewById(R.id.profile_image); //for setting dp
         TextView nameTv = view.findViewById(R.id.user_name); //for name
-        TextView emailTv = view.findViewById(R.id.user_email); //for email
+        ImageView editIv = view.findViewById(R.id.edit);
+
+        editIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openUpdateProfile();
+            }
+        });
 
         if (dataStorage.isDataAvailable(Keys.USER_DATA)) {
             Users users = gson.fromJson(dataStorage.getString(Keys.USER_DATA), Users.class);
             if (users != null) {
                 nameTv.setText(users.getName());
-                emailTv.setText(users.getEmail());
 
                 imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
                         ContextCompat.getDrawable(this, R.drawable.ic_man) :
                         ContextCompat.getDrawable(this, R.drawable.ic_girl));
             }
         }
+    }
+
+    private void openUpdateProfile(){
+        goTo(this, ProfileUpdatingActivity.class, false);
     }
 
     @Override
@@ -314,10 +331,10 @@ public class HomeActivity extends SuperCompatActivity {
                 case 4:
                     setAndShowFragment(Keys.FRAGMENT_SETTINGS);
                     break;
-                case 5:
+               /* case 5:
                     setAndShowFragment(Keys.FRAGMENT_ABOUT);
-                    break;
-                case 6:
+                    break;*/
+                case 5:
                     showSignoutAlert();
                     break;
             }
@@ -532,15 +549,6 @@ public class HomeActivity extends SuperCompatActivity {
         } else {
             backPressed = 0;
             onBackPressed();
-        }
-    }
-
-    private void whiteNotificationBar(View view) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int flags = view.getSystemUiVisibility();
-            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            view.setSystemUiVisibility(flags);
-            getWindow().setStatusBarColor(Color.WHITE);
         }
     }
 }

@@ -211,9 +211,9 @@
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="notification_material_background_media_default_color">#ff424242</color>
-    <color name="primaryColor">#2196F3</color>
-    <color name="primaryDarkColor">#1976D2</color>
-    <color name="primaryLightColor">#BBDEFB</color>
+    <color name="primaryColor">#1e88e5</color>
+    <color name="primaryDarkColor">#1261a0</color>
+    <color name="primaryLightColor">#90caf9</color>
     <color name="primaryTextColor">#FFFFFF</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
@@ -826,6 +826,7 @@
     <item name="action_menu_presenter" type="id"/>
     <item name="calligraphy_tag_id" type="id"/>
     <item name="ghost_view" type="id"/>
+    <item name="glide_custom_view_target_tag" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>
@@ -914,7 +915,7 @@
     <string name="btn_link_to_register">Register here</string>
     <string name="btn_login">Log In</string>
     <string name="btn_reset_password">Reset Password</string>
-    <string name="camera_permsn_hint">You will be able to upload and send details of carriage and goods with this permission. It was also used to upload images and videos for driver verification process.</string>
+    <string name="camera_permsn_hint">This allows you to open camera within app and take images and share them.</string>
     <string name="camera_title" translatable="false">CAMERA</string>
     <string name="cancel">Cancel</string>
     <string name="cannot_create_account">Some error occurred while processing, try again later!</string>
@@ -956,7 +957,6 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="connect_to_n">Connect to an active network and try again!</string>
     <string name="cont">Continue</string>
-    <string name="contact_permsn_hint">Contacts permission is to make emergency contacts within your app and you can call them at anytime during the trip. Standard call charges may apply as per your carrier.</string>
     <string name="contact_title" translatable="false">CONTACT</string>
     <string name="content_dev">Content Developer</string>
     <string name="create_a_circular">Create a circular</string>
@@ -1029,9 +1029,10 @@
     <string name="lbl_forgot_password">Fogot password?</string>
     <string name="loading">loading</string>
     <string name="loading_circular_updated_by_you">Loading circulars updated by you!</string>
+    <string name="loading_cirulars">Preparing latest circulars...</string>
+    <string name="loading_news_feed">Preparing your newsfeed...</string>
     <string name="loading_teams">Loading team datas...</string>
     <string name="loading_your_news">Loading news updated by you...</string>
-    <string name="location_permsn_hint">Location permission is to make you drive safely to reach customer and for navigation purpose.</string>
     <string name="location_title" translatable="false">LOCATION</string>
     <string name="log_out">Log out</string>
     <string name="log_out_hint">Are you sure, you want to log out?</string>
@@ -1063,6 +1064,7 @@
     <string name="news_will_be_shown_in_newsfeed">News will be shown in newsfeed</string>
     <string name="newsfeed">Newsfeed</string>
     <string name="next">Next</string>
+    <string name="no_circulars">Oops, no circulars have been published!</string>
     <string name="no_internet_title">No Internet!</string>
     <string name="no_internt_conn">Internet connection unavailable!</string>
     <string name="no_members_have_been_added_yet">No Members have been added yet!</string>
@@ -1070,6 +1072,7 @@
     <string name="number_of_members">Number of members to add:</string>
     <string name="ok">OK</string>
     <string name="one">1</string>
+    <string name="oops_no_new_news">Oops, no new news available!</string>
     <string name="open_camera">Open camera</string>
     <string name="others">Others</string>
     <string name="otp">Enter OTP here</string>
@@ -1085,7 +1088,7 @@
     <string name="permission_message">App needs permission to run properly!</string>
     <string name="permission_title">Permission Needed.</string>
     <string name="permissoin_denied_string">Permissions to access camera or gallery was not available, go to app settings and enable all permissions</string>
-    <string name="phone_permsn_hint">This permission is meant to add contacts to app and you can make a call in case of any emergency, it also allows you to make a call to customer for getting clear information about the trip.</string>
+    <string name="phone_permsn_hint">This permission is needed to make your interaction with the app flawless, by checking your internet status.</string>
     <string name="phone_title" translatable="false">PHONE</string>
     <string name="pick_from_gallery">Pick from gallery</string>
     <string name="position">Position</string>
@@ -1116,7 +1119,7 @@
     <string name="some_error_occurred">Some Error Occurred!</string>
     <string name="sports">Sports</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="storage_permsn_hint">This allows you to upload images and videos about carriage details and drivers identity information for verification purpose.</string>
+    <string name="storage_permsn_hint">This allows you to upload or save images and videos which you can view later or share with your friends.</string>
     <string name="storage_title" translatable="false">STORAGE</string>
     <string name="team_added_successfully">Team Info added successfully!</string>
     <string name="team_already_exist">Team info already exists!</string>

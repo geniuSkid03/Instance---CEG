@@ -157,6 +157,12 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
                 permissionHelper.askAllPermissions();
             }
         }
+
+        loadUserData();
+    }
+
+    private void loadUserData() {
+        //todo load user data by using mobile number and set it in views
     }
 
     @Override

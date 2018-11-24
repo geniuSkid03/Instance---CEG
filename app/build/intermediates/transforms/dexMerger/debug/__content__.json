@@ -1,1 +1,1 @@
-[{"name":"ebde4bd21572b090f843d6ef49546e39d951a5f3","index":0,"scopes":["PROJECT"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"main","index":1,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"externalLibs","index":2,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true}]
+[{"name":"main","index":0,"scopes":["MAIN_SPLIT","PROJECT","EXTERNAL_LIBRARIES","SUB_PROJECTS"],"types":["DEX"],"format":"DIRECTORY","present":true}]

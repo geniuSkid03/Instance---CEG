@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".appActivities.PosterViewActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/poster_image"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/poster_image"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="12dp"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/close_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:src="@drawable/ic_close_icon"
+            android:tint="@color/red" />
+
+        <ImageView
+            android:id="@+id/save_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:src="@drawable/ic_save_icon"
+            android:tint="@color/green" />
+
+    </LinearLayout>
+
+</RelativeLayout>

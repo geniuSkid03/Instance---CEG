@@ -32,6 +32,7 @@ public class Keys {
     public static final String USER_ID = "id";
     public static final Object TEAM_NAME = "tName";
     public static final String TEAM = "team";
+    public static final String POSTER_IMAGE = "poster_image";
 
     //table names
     public static String TABLE_USER = "Users";
