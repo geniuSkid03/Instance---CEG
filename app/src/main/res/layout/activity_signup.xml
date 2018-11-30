@@ -52,7 +52,8 @@
                         android:longClickable="false"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
+
                         android:textColorHint="@color/colorPrimary" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -74,7 +75,8 @@
                         android:imeOptions="actionUnspecified"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
+
                         android:textColorHint="@color/colorPrimary" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -109,6 +111,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/male"
+                            android:buttonTint="@color/colorPrimaryDark"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
@@ -116,6 +119,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:buttonTint="@color/colorPrimaryDark"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/female"
                             android:textColor="@color/colorPrimary" />
@@ -131,7 +135,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="2dp"
+                            android:layout_height="1dp"
                             android:layout_weight="1"
                             android:background="@color/app_grey" />
 
@@ -150,7 +154,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="2dp"
+                            android:layout_height="1dp"
                             android:layout_weight="1"
                             android:background="@color/app_grey" />
 

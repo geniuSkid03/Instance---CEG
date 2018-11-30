@@ -1,2 +1,2 @@
-# Referenced at E:\Github\Android Studio Projects\Instance---CEG\app\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:28
+# Referenced at G:\geniuS\Android\Android Studio Projects\Instance---CEG\app\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:28
 -keep class com.inspiregeniussquad.handstogether.appActivities.Instance { <init>(...); }

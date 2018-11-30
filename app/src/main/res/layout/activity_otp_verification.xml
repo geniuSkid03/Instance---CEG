@@ -95,8 +95,7 @@
                 android:padding="4dp"
                 android:text="@string/change_number"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:textStyle="italic" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -16,13 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appActivities.CommentsViewActivity;
 import com.inspiregeniussquad.handstogether.appActivities.NewsItemViewActivity;
 import com.inspiregeniussquad.handstogether.appActivities.PosterViewActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.NewsFeedAdapter;
@@ -40,7 +40,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
     private boolean isRefreshing;
 
-    private NewsFeedAdapter newsFeedAdapter;
+    private NewsFeedAdapter newsFeedAdapter, filteredFeedAdapter;
     private ArrayList<NewsFeedItems> newsFeedItemsArrayList;
 
     @Override
@@ -68,6 +68,22 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             public void onImageClicked(int position) {
                 onImageItemClicked(newsFeedItemsArrayList.get(position));
             }
+
+            @Override
+            public void onBookmarkClicked(int position) {
+                AppHelper.showToast(getContext(), "Bookmark clicked");
+            }
+
+            @Override
+            public void onLikeClicked(int position, View itemView) {
+                newsFeedAdapter.setPostAsLiked(position, itemView);
+                AppHelper.showToast(getContext(), "Like clicked");
+            }
+
+            @Override
+            public void onShareClicked(int position) {
+                AppHelper.showToast(getContext(), "Share clicked");
+            }
         });
     }
 
@@ -81,6 +97,18 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         searchView.setQueryHint(getString(R.string.search_event));
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                resetSearch();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -115,7 +143,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private void onCommentItemClicked(NewsFeedItems newsFeedItems) {
-
+        goTo(getContext(), CommentsViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
     }
 
     public void refreshNewsFeed() {
@@ -177,6 +205,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedRv.setAdapter(newsFeedAdapter);
         }
 
+        AppHelper.print("Items in list: " + newsFeedItemsArrayList.size());
+
         newsFeedRv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.INVISIBLE : View.VISIBLE);
         noNewsTv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.VISIBLE : View.INVISIBLE);
 
@@ -223,16 +253,25 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             }
         }
 
-        newsFeedAdapter = new NewsFeedAdapter(getActivity(), filteredNewsItem);
-        newsFeedAdapter.notifyDataSetChanged();
-        newsFeedRv.setAdapter(newsFeedAdapter);
+        filteredFeedAdapter = new NewsFeedAdapter(getActivity(), filteredNewsItem);
+        filteredFeedAdapter.notifyDataSetChanged();
+        newsFeedRv.setAdapter(filteredFeedAdapter);
 
         animateWithData(newsFeedRv);
+
+        showFilters();
 
         return false;
     }
 
+    private void showFilters() {
+
+    }
+
     private void resetSearch() {
+        if (filteredFeedAdapter != null && filteredFeedAdapter.getItemCount() != 0) {
+            filteredFeedAdapter.clear();
+        }
         refreshNewsFeed();
     }
 }

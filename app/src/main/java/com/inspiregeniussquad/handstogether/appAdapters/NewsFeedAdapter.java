@@ -1,23 +1,16 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
-import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
@@ -56,13 +49,34 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         return newsFeedItemsArrayList.size();
     }
 
+    public void clear() {
+        final int size = newsFeedItemsArrayList.size();
+        newsFeedItemsArrayList.clear();
+        notifyItemRangeRemoved(0, size);
+    }
+
+    public void setPostAsLiked(int position, View itemView) {
+        NewsFeedItems newsFeedItems = newsFeedItemsArrayList.get(position);
+        newsFeedItems.setLiked(true);
+
+        onBindViewHolder(itemView, position);
+    }
+
+    public void setPostAsUnliked(int position) {
+
+    }
+
     class NewsFeedView extends RecyclerView.ViewHolder {
 
         private CircularImageView logoCiv;
         private TextView nameTv, descTv, likeTv, cmntTv, readMoreTv;
-        private ImageView posterImgIv;
+        private ImageView posterImgIv, bookmarkIv, shareIv;
+        private LinearLayout likeLayout, commentLayout;
+
         private View itemView;
+
         private int position;
+
         private onViewClickedListener viewClickedListener;
         private NewsFeedItems newsFeedItems;
 
@@ -89,14 +103,42 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             likeTv = itemView.findViewById(R.id.likes);
             cmntTv = itemView.findViewById(R.id.comments);
             readMoreTv = itemView.findViewById(R.id.read_more);
+            commentLayout = itemView.findViewById(R.id.comment);
+            shareIv = itemView.findViewById(R.id.share);
+            bookmarkIv = itemView.findViewById(R.id.bookmark);
+            likeLayout = itemView.findViewById(R.id.like);
 
             nameTv.setText(newsFeedItems.geteName());
             descTv.setText(newsFeedItems.geteDesc());
             likeTv.setText(newsFeedItems.getLikes());
-            cmntTv.setOnClickListener(new View.OnClickListener() {
+            cmntTv.setText(newsFeedItems.getCommentCount());
+            likeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewClickedListener.onLikeClicked(position, itemView);
+                }
+            });
+            commentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     viewClickedListener.onCommentsClicked(position);
+                }
+            });
+            shareIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewClickedListener.onShareClicked(position);
+                }
+            });
+            bookmarkIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bookmarkIv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            viewClickedListener.onBookmarkClicked(position);
+                        }
+                    });
                 }
             });
             readMoreTv.setOnClickListener(new View.OnClickListener() {
@@ -112,15 +154,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                 }
             });
 
-//            Glide.with(context)
-//                    .load(newsFeedItems.getPstrUrl())
-//                    .into(new SimpleTarget<Drawable>() {
-//                        @Override
-//                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-//                            posterImgIv.setImageDrawable(resource);
-//                        }
-//                    });
-
             Picasso.get().load(newsFeedItems.getPstrUrl()).into(posterImgIv);
         }
     }
@@ -131,5 +164,11 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         void onCommentsClicked(int position);
 
         void onImageClicked(int position);
+
+        void onBookmarkClicked(int position);
+
+        void onLikeClicked(int position, View itemView);
+
+        void onShareClicked(int position);
     }
 }

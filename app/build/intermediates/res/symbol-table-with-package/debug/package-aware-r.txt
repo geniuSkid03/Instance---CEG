@@ -895,6 +895,8 @@ drawable ic_arrow_drop_down
 drawable ic_arrow_drop_up
 drawable ic_arrow_right
 drawable ic_arrow_up
+drawable ic_bookmark_done
+drawable ic_bookmark_icon
 drawable ic_calendar_icon
 drawable ic_camera_icon
 drawable ic_circular_icon
@@ -902,6 +904,7 @@ drawable ic_circular_selected
 drawable ic_circular_unselected
 drawable ic_close_icon
 drawable ic_clubs
+drawable ic_comment_bubble
 drawable ic_comments_icon
 drawable ic_correct_icon
 drawable ic_dashboard
@@ -912,6 +915,8 @@ drawable ic_event_desc
 drawable ic_event_name
 drawable ic_event_venue
 drawable ic_girl
+drawable ic_heart_icon
+drawable ic_heart_selected
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_like_icon
@@ -935,6 +940,7 @@ drawable ic_profile
 drawable ic_save_icon
 drawable ic_search
 drawable ic_settings
+drawable ic_share_post_icon
 drawable ic_sign_out
 drawable ic_star_icon
 drawable ic_sub_teams
@@ -1029,6 +1035,7 @@ id auto
 id barrier
 id beginning
 id blocking
+id bookmark
 id bottom
 id buttonPanel
 id calligraphy_tag_id
@@ -1057,6 +1064,7 @@ id collapsing_app_bar_layout
 id collapsing_tool_bar_image
 id collapsing_tool_bar_layout
 id collapsing_toolbar
+id comment
 id comments
 id container
 id contentPanel
@@ -1129,6 +1137,7 @@ id item_touch_helper_previous_elevation
 id largeLabel
 id left
 id light
+id like
 id likes
 id line1
 id line3
@@ -1247,6 +1256,7 @@ id select_dialog_listview
 id selected_child_view
 id selected_header_view
 id shadow_bg
+id share
 id shortcut
 id showCustom
 id showHome

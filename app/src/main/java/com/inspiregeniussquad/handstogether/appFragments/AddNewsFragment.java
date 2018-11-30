@@ -408,7 +408,8 @@ public class AddNewsFragment extends SuperFragment {
         newsFeedItems.setVidUrl(videoUrl);
         newsFeedItems.setPstrUrl(uploadedPosterUri.toString());
         newsFeedItems.setLikes("0");
-        newsFeedItems.setComments("");
+        newsFeedItems.setCommentCount("0");
+        //newsFeedItems.setComment("");
         newsFeedItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 
         return newsFeedItems;

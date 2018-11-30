@@ -3,11 +3,23 @@ package com.inspiregeniussquad.handstogether.appData;
 public class NewsFeedItems {
 
     private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
-    private String comments, likes;
+    private String likes;
     private String pDate;
+    private Comments comments;
+    private String commentCount;
+
+    private boolean isLiked;
 
     public NewsFeedItems() {
 
+    }
+
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(boolean liked) {
+        isLiked = liked;
     }
 
     public String getpDate() {
@@ -107,19 +119,27 @@ public class NewsFeedItems {
         this.likes = likes;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
     public String getPostedBy() {
         return postedBy;
     }
 
     public void setPostedBy(String postedBy) {
         this.postedBy = postedBy;
+    }
+
+    public Comments getComments() {
+        return comments;
+    }
+
+    public void setComments(Comments comments) {
+        this.comments = comments;
+    }
+
+    public String getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(String commentCount) {
+        this.commentCount = commentCount;
     }
 }

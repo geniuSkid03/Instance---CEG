@@ -1,10 +1,10 @@
-#Sat Nov 24 17:57:40 IST 2018
-path.2=classes3.dex
-path.1=classes2.dex
+#Fri Nov 30 12:06:07 IST 2018
+path.2=classes2.dex
+path.1=classes.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=E\:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.1=E\:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.0=E\:\\Github\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.2=G\:\\geniuS\\Android\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+base.1=G\:\\geniuS\\Android\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.0=G\:\\geniuS\\Android\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1

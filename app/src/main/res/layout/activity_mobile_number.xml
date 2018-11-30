@@ -76,6 +76,7 @@
                         android:minWidth="200dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textColorHint="@color/colorPrimary"
                         android:textSize="22sp" />
 
