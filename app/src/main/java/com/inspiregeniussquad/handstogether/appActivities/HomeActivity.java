@@ -2,8 +2,6 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -41,6 +39,8 @@ import com.inspiregeniussquad.handstogether.appFragments.SocialFragment;
 import com.inspiregeniussquad.handstogether.appFragments.SportsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.TechFragment;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
+import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
+import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NoSwipeViewPager;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -223,7 +223,7 @@ public class HomeActivity extends SuperCompatActivity {
         }
     }
 
-    private void openUpdateProfile(){
+    private void openUpdateProfile() {
         goTo(this, ProfileUpdatingActivity.class, false);
     }
 
@@ -531,6 +531,22 @@ public class HomeActivity extends SuperCompatActivity {
         super.onResume();
 
         performOnResumeOperations();
+
+        printFromRoom();
+    }
+
+    private void printFromRoom() {
+        AppDbs appDbs = AppDbs.getTeamDao(HomeActivity.this);
+        if (appDbs == null) return;
+
+        TeamData[] teamData = appDbs.teamDao().loadAll();
+
+        if (teamData == null) return;
+
+        for (TeamData data : teamData) {
+            AppHelper.print("Team name: " + data.getTeamName());
+            AppHelper.print("Team motto: " + data.getTeamMotto());
+        }
     }
 
 

@@ -25,7 +25,7 @@ public class NewsFeedItemsLayout extends RelativeLayout {
     }
 
     private void initViews(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.news_feed_item, this, true);
+        LayoutInflater.from(context).inflate(R.layout.news_feed_items_new, this, true);
         setClipToPadding(false);
     }
 

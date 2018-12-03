@@ -19,15 +19,15 @@ import java.lang.Override;
 public class SignupActivity_ViewBinding implements Unbinder {
   private SignupActivity target;
 
-  private View view2131296363;
+  private View view2131296365;
 
-  private View view2131296422;
+  private View view2131296425;
 
-  private View view2131296379;
+  private View view2131296381;
 
-  private View view2131296495;
+  private View view2131296500;
 
-  private View view2131296420;
+  private View view2131296423;
 
   @UiThread
   public SignupActivity_ViewBinding(SignupActivity target) {
@@ -41,7 +41,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.email, "field 'emailEd' and method 'onclicked'");
     target.emailEd = Utils.castView(view, R.id.email, "field 'emailEd'", TextInputEditText.class);
-    view2131296363 = view;
+    view2131296365 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.radioGrp = Utils.findRequiredViewAsType(source, R.id.radio_grp, "field 'radioGrp'", RadioGroup.class);
     view = Utils.findRequiredView(source, R.id.male_rb, "field 'maleRdBtn' and method 'onclicked'");
     target.maleRdBtn = Utils.castView(view, R.id.male_rb, "field 'maleRdBtn'", RadioButton.class);
-    view2131296422 = view;
+    view2131296425 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.female_rb, "field 'femaleRdBtn' and method 'onclicked'");
     target.femaleRdBtn = Utils.castView(view, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
-    view2131296379 = view;
+    view2131296381 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.register_me, "field 'registerMeBtn' and method 'onclicked'");
     target.registerMeBtn = Utils.castView(view, R.id.register_me, "field 'registerMeBtn'", AppCompatButton.class);
-    view2131296495 = view;
+    view2131296500 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.login_me, "field 'loginMeBtn' and method 'onclicked'");
     target.loginMeBtn = Utils.castView(view, R.id.login_me, "field 'loginMeBtn'", TextView.class);
-    view2131296420 = view;
+    view2131296423 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -103,15 +103,15 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.registerMeBtn = null;
     target.loginMeBtn = null;
 
-    view2131296363.setOnClickListener(null);
-    view2131296363 = null;
-    view2131296422.setOnClickListener(null);
-    view2131296422 = null;
-    view2131296379.setOnClickListener(null);
-    view2131296379 = null;
-    view2131296495.setOnClickListener(null);
-    view2131296495 = null;
-    view2131296420.setOnClickListener(null);
-    view2131296420 = null;
+    view2131296365.setOnClickListener(null);
+    view2131296365 = null;
+    view2131296425.setOnClickListener(null);
+    view2131296425 = null;
+    view2131296381.setOnClickListener(null);
+    view2131296381 = null;
+    view2131296500.setOnClickListener(null);
+    view2131296500 = null;
+    view2131296423.setOnClickListener(null);
+    view2131296423 = null;
   }
 }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Team {
 
     private String name, desc, motto;
-        private ArrayList<TeamMembers> teamMembers;
+    private ArrayList<TeamMembers> teamMembers;
     private String logoUri, membersCount;
     private String email, website, fbLink;
 
-    public Team(){
+    public Team() {
 
     }
 

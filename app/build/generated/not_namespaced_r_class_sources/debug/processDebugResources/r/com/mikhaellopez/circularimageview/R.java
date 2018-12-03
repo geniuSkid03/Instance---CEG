@@ -12,22 +12,28 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int civ_border = 0x7f03005a;
-        public static final int civ_border_color = 0x7f03005b;
-        public static final int civ_border_width = 0x7f03005c;
-        public static final int civ_shadow = 0x7f03005d;
-        public static final int civ_shadow_color = 0x7f03005e;
-        public static final int civ_shadow_radius = 0x7f03005f;
+        public static final int civ_border = 0x7f03005d;
+        public static final int civ_border_color = 0x7f03005e;
+        public static final int civ_border_width = 0x7f03005f;
+        public static final int civ_shadow = 0x7f030060;
+        public static final int civ_shadow_color = 0x7f030061;
+        public static final int civ_shadow_radius = 0x7f030062;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] CircularImageView = { 0x7f03005a, 0x7f03005b, 0x7f03005c, 0x7f03005d, 0x7f03005e, 0x7f03005f };
-        public static final int CircularImageView_civ_border = 0;
-        public static final int CircularImageView_civ_border_color = 1;
-        public static final int CircularImageView_civ_border_width = 2;
-        public static final int CircularImageView_civ_shadow = 3;
-        public static final int CircularImageView_civ_shadow_color = 4;
-        public static final int CircularImageView_civ_shadow_radius = 5;
+        public static final int[] CircularImageView = { 0x7f03003e, 0x7f030040, 0x7f030041, 0x7f03005d, 0x7f03005e, 0x7f03005f, 0x7f030060, 0x7f030061, 0x7f030062, 0x7f030156, 0x7f030157, 0x7f030158 };
+        public static final int CircularImageView_border = 0;
+        public static final int CircularImageView_border_color = 1;
+        public static final int CircularImageView_border_width = 2;
+        public static final int CircularImageView_civ_border = 3;
+        public static final int CircularImageView_civ_border_color = 4;
+        public static final int CircularImageView_civ_border_width = 5;
+        public static final int CircularImageView_civ_shadow = 6;
+        public static final int CircularImageView_civ_shadow_color = 7;
+        public static final int CircularImageView_civ_shadow_radius = 8;
+        public static final int CircularImageView_shadow = 9;
+        public static final int CircularImageView_shadow_color = 10;
+        public static final int CircularImageView_shadow_radius = 11;
     }
 }

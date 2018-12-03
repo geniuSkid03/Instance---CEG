@@ -5,6 +5,7 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.inspiregeniussquad.handstogether.R;
@@ -24,6 +25,7 @@ public class SplashActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     target.splashIv = Utils.findRequiredViewAsType(source, R.id.logo, "field 'splashIv'", ImageView.class);
+    target.progressBar = Utils.findRequiredViewAsType(source, R.id.progress_bar, "field 'progressBar'", ProgressBar.class);
   }
 
   @Override
@@ -34,5 +36,6 @@ public class SplashActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.splashIv = null;
+    target.progressBar = null;
   }
 }

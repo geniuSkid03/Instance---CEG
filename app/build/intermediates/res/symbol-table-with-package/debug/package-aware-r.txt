@@ -84,7 +84,10 @@ attr behavior_hideable
 attr behavior_overlapTop
 attr behavior_peekHeight
 attr behavior_skipCollapsed
+attr border
 attr borderWidth
+attr border_color
+attr border_width
 attr borderlessButtonStyle
 attr bottomSheetDialogTheme
 attr bottomSheetStyle
@@ -361,6 +364,9 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr shadow
+attr shadow_color
+attr shadow_radius
 attr showAsAction
 attr showDividers
 attr showText
@@ -548,7 +554,9 @@ color highlighted_text_material_dark
 color highlighted_text_material_light
 color hint_text_color
 color ic_launcher_background
+color icons_counter_color
 color layout_bg
+color like_icon_activated
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -939,6 +947,7 @@ drawable ic_position_icon
 drawable ic_profile
 drawable ic_save_icon
 drawable ic_search
+drawable ic_send_post
 drawable ic_settings
 drawable ic_share_post_icon
 drawable ic_sign_out
@@ -1036,6 +1045,7 @@ id barrier
 id beginning
 id blocking
 id bookmark
+id bookmark_container
 id bottom
 id buttonPanel
 id calligraphy_tag_id
@@ -1065,6 +1075,7 @@ id collapsing_tool_bar_image
 id collapsing_tool_bar_layout
 id collapsing_toolbar
 id comment
+id comment_container
 id comments
 id container
 id contentPanel
@@ -1138,6 +1149,7 @@ id largeLabel
 id left
 id light
 id like
+id like_container
 id likes
 id line1
 id line3
@@ -1213,9 +1225,11 @@ id permissions_icon
 id permissions_list
 id permissions_title
 id pin
+id post_card
 id posted_date_time
 id poster_image
 id profile_image
+id progress_bar
 id progress_circular
 id progress_horizontal
 id publish_circular
@@ -1257,6 +1271,7 @@ id selected_child_view
 id selected_header_view
 id shadow_bg
 id share
+id share_container
 id shortcut
 id showCustom
 id showHome
@@ -1434,6 +1449,7 @@ layout nav_header_navigation_drawer
 layout news_content_view
 layout news_edit_options
 layout news_feed_item
+layout news_feed_items_new
 layout no_internet_view
 layout notification_action
 layout notification_action_tombstone
@@ -2174,7 +2190,7 @@ styleable BottomNavigationView elevation itemBackground itemIconTint itemTextCol
 styleable BottomSheetBehavior_Layout behavior_hideable behavior_peekHeight behavior_skipCollapsed
 styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
-styleable CircularImageView civ_border civ_border_color civ_border_width civ_shadow civ_shadow_color civ_shadow_radius
+styleable CircularImageView border border_color border_width civ_border civ_border_color civ_border_width civ_shadow civ_shadow_color civ_shadow_radius shadow shadow_color shadow_radius
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha

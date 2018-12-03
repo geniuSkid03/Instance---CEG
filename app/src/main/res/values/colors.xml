@@ -30,5 +30,7 @@
     <color name="green">#1b5e20</color>
     <color name="red">#d50000</color>
 
+    <color name="like_icon_activated">#FF5252</color>
+    <color name="icons_counter_color">#828181</color>
 
 </resources>

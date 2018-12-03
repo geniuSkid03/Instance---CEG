@@ -47,7 +47,6 @@ import java.util.Objects;
 
 import butterknife.ButterKnife;
 import id.zelory.compressor.Compressor;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SuperCompatActivity extends AppCompatActivity {
 
@@ -224,9 +223,9 @@ public class SuperCompatActivity extends AppCompatActivity {
     //to show progress view
     protected void showProgress(String msg) {
         if (progressDialog != null && !isFinishing()) {
-                progressDialog.setMessage(msg);
-                progressDialog.setCancelable(false);
-                progressDialog.show();
+            progressDialog.setMessage(msg);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
         }
     }
 
@@ -295,13 +294,13 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     private void registerReceivers() {
-        if(connectionChangeReceiver != null && !connectionChangeReceiver.isRegistered()) {
+        if (connectionChangeReceiver != null && !connectionChangeReceiver.isRegistered()) {
             connectionChangeReceiver.register();
         }
     }
 
     private void unRegisterReceivers() {
-        if(connectionChangeReceiver != null && connectionChangeReceiver.isRegistered()) {
+        if (connectionChangeReceiver != null && connectionChangeReceiver.isRegistered()) {
             connectionChangeReceiver.unRegister();
         }
     }
@@ -364,7 +363,7 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     protected void checkDataAndOpen() {
-        if(dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
+        if (dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
             if (dataStorage.isDataAvailable(Keys.MOBILE)) {
                 if (dataStorage.isDataAvailable(Keys.IS_ONLINE)) {
                     if (dataStorage.getBoolean(Keys.IS_ONLINE)) {
@@ -404,7 +403,7 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     protected void showSimpleAlert(String msg, String btnText, final SimpleAlert simpleAlert) {
-        if(simpleAlertDialog != null) {
+        if (simpleAlertDialog != null) {
             simpleAlertDialog.setMessage(msg);
             simpleAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, btnText, new DialogInterface.OnClickListener() {
                 @Override
@@ -417,7 +416,7 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     protected void showOkCancelAlert(String msg, final OkCancelAlert okCancelAlert) {
-        if(okCancelAlertDialog != null) {
+        if (okCancelAlertDialog != null) {
             okCancelAlertDialog.setMessage(msg);
             okCancelAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
                 @Override
@@ -441,6 +440,7 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     public interface OkCancelAlert {
         void onOkClicked(DialogInterface dialogInterface, int which);
+
         void onCancelClicked(DialogInterface dialogInterface, int which);
     }
 
