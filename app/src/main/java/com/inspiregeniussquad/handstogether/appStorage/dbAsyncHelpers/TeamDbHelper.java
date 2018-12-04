@@ -23,6 +23,9 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
         this.action = action;
 
         appDbs = AppDbs.getTeamDao(context);
+        if(appDbs != null) {
+            appDbs.teamDao().deleteAllTeams();
+        }
     }
 
     public TeamDbHelper run() {

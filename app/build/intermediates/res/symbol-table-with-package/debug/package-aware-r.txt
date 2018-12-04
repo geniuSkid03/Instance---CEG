@@ -603,6 +603,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color transparent_black
 color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -853,7 +854,6 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
-drawable applogo
 drawable avd_hide_password
 drawable avd_show_password
 drawable border_line
@@ -879,16 +879,13 @@ drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable demoscreen
-drawable demosplash
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable download
 drawable expandable_group_indicator
-drawable five
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_about
@@ -905,6 +902,7 @@ drawable ic_arrow_right
 drawable ic_arrow_up
 drawable ic_bookmark_done
 drawable ic_bookmark_icon
+drawable ic_broken_image
 drawable ic_calendar_icon
 drawable ic_camera_icon
 drawable ic_circular_icon
@@ -928,6 +926,7 @@ drawable ic_heart_selected
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_like_icon
+drawable ic_loading_placeholder
 drawable ic_logo_icon
 drawable ic_man
 drawable ic_menu_camera
@@ -958,11 +957,6 @@ drawable ic_time_icon
 drawable ic_upcoming
 drawable ic_video
 drawable ic_visibility_icon
-drawable icon
-drawable informals
-drawable intra_vareity_sho
-drawable logo_spartanz
-drawable mime_performace
 drawable navigation_empty_icon
 drawable newsfeed_icon
 drawable notification_action_background
@@ -987,11 +981,9 @@ drawable ripple
 drawable rounded_btn_bg
 drawable shadow_bg
 drawable side_nav_bar
-drawable splash
 drawable tab_color_selector
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
-drawable twelve_years_ceg_spartans
 font base_font
 font custom_font
 id ALT
@@ -1119,6 +1111,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expandable_list
 id expanded_menu
+id extras
 id female_rb
 id fill
 id fill_horizontal
@@ -1140,6 +1133,7 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id img_loading_view
 id info
 id invisible
 id invisible_news
@@ -1199,6 +1193,7 @@ id navigation_header_container
 id nested_scrollview
 id never
 id news_feed_recycler_view
+id news_item_image
 id news_rgrb
 id next_btn
 id no_circular_view
@@ -1450,6 +1445,8 @@ layout news_content_view
 layout news_edit_options
 layout news_feed_item
 layout news_feed_items_new
+layout news_item_extras
+layout news_item_image
 layout no_internet_view
 layout notification_action
 layout notification_action_tombstone

@@ -532,22 +532,22 @@ public class HomeActivity extends SuperCompatActivity {
 
         performOnResumeOperations();
 
-        printFromRoom();
+        //printFromRoom();
     }
 
-    private void printFromRoom() {
-        AppDbs appDbs = AppDbs.getTeamDao(HomeActivity.this);
-        if (appDbs == null) return;
-
-        TeamData[] teamData = appDbs.teamDao().loadAll();
-
-        if (teamData == null) return;
-
-        for (TeamData data : teamData) {
-            AppHelper.print("Team name: " + data.getTeamName());
-            AppHelper.print("Team motto: " + data.getTeamMotto());
-        }
-    }
+//    private void printFromRoom() {
+//        AppDbs appDbs = AppDbs.getTeamDao(HomeActivity.this);
+//        if (appDbs == null) return;
+//
+//        TeamData[] teamData = appDbs.teamDao().loadAll();
+//
+//        if (teamData == null) return;
+//
+//        for (TeamData data : teamData) {
+//            AppHelper.print("Team name: " + data.getTeamName());
+//            AppHelper.print("Team motto: " + data.getTeamMotto());
+//        }
+//    }
 
 
     @Override

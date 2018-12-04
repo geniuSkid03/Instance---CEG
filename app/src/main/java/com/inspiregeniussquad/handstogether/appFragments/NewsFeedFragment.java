@@ -128,6 +128,11 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         newsFeedRv = view.findViewById(R.id.news_feed_recycler_view);
         noNewsTv = view.findViewById(R.id.no_news_view);
 
+        newsFeedRv.setHasFixedSize(true);
+        newsFeedRv.setItemViewCacheSize(20);
+        newsFeedRv.setDrawingCacheEnabled(true);
+        newsFeedRv.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         newsFeedRv.setLayoutManager(linearLayoutManager);
 

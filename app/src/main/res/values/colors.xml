@@ -33,4 +33,6 @@
     <color name="like_icon_activated">#FF5252</color>
     <color name="icons_counter_color">#828181</color>
 
+    <color name="transparent_black">#80000000</color>
+
 </resources>

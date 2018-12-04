@@ -1,6 +1,7 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,11 +14,15 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
-import com.inspiregeniussquad.handstogether.appUtils.TeamDataHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.utils.DiskCacheUtils;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFeedView> {
@@ -26,11 +31,18 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     private Context context;
     private onViewClickedListener viewClickedListener;
     private AppDbs appDbs;
+    private TeamData[] teamData;
+    private ImageLoader imageLoader;
+
 
     public NewsFeedAdapter(Context context, ArrayList<NewsFeedItems> newsFeedItemsArrayList) {
         this.context = context;
         this.newsFeedItemsArrayList = newsFeedItemsArrayList;
+
         appDbs = AppDbs.getTeamDao(context);
+        teamData = appDbs.teamDao().loadAll();
+
+        imageLoader = ImageLoader.getInstance();
     }
 
     public void setClickListener(onViewClickedListener viewClickedListener) {
@@ -67,15 +79,15 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 //        onBindViewHolder((View) itemView, position);
     }
 
-    public void setPostAsUnliked(int position) {
-
-    }
+//    public void setPostAsUnliked(int position) {
+//
+//    }
 
     class NewsFeedView extends RecyclerView.ViewHolder {
 
         private com.inspiregeniussquad.handstogether.appViews.CircularImageView logoCiv;
         private TextView nameTv, descTv, likeTv, cmntTv, readMoreTv;
-        private ImageView posterImgIv, bookmarkIv, shareIv, likeIv, commentIv;
+        private ImageView posterImgIv, bookmarkIv, shareIv, likeIv, commentIv, imgloadingIv;
         private LinearLayout likeLayout, commentLayout, shareLayout, bookmarkLayout;
 
         private View itemView;
@@ -103,6 +115,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         private void setUpView() {
             logoCiv = itemView.findViewById(R.id.logo);
             posterImgIv = itemView.findViewById(R.id.event_poster);
+            imgloadingIv = itemView.findViewById(R.id.img_loading_view);
+
             nameTv = itemView.findViewById(R.id.name);
             descTv = itemView.findViewById(R.id.desc);
             readMoreTv = itemView.findViewById(R.id.read_more);
@@ -162,12 +176,98 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                 }
             });
 
-            TeamData teamData = appDbs.teamDao().getTeamInfo(newsFeedItems.gettName());
-            if(teamData != null) {
-                Picasso.get().load(teamData.getTeamLogoUrl()).into(logoCiv);
+            File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
+            if (posterImage != null && posterImage.exists()) {
+                Picasso.get().load(posterImage).fit().into(posterImgIv, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        posterImgIv.setVisibility(View.VISIBLE);
+                        imgloadingIv.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        posterImgIv.setVisibility(View.GONE);
+                        imgloadingIv.setVisibility(View.VISIBLE);
+                    }
+                });
+            } else {
+                imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
+                    @Override
+                    public void onLoadingStarted(String imageUri, View view) {
+                        posterImgIv.setVisibility(View.GONE);
+                        imgloadingIv.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                        posterImgIv.setVisibility(View.GONE);
+                        imgloadingIv.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                        posterImgIv.setVisibility(View.VISIBLE);
+                        imgloadingIv.setVisibility(View.GONE);
+                        Picasso.get().load(imageUri).fit().into(posterImgIv);
+                    }
+
+                    @Override
+                    public void onLoadingCancelled(String imageUri, View view) {
+
+                    }
+                });
             }
 
-            Picasso.get().load(newsFeedItems.getPstrUrl()).into(posterImgIv);
+            if (appDbs != null) {
+                if (teamData != null) {
+                    for (TeamData team : teamData) {
+                        if (team.getTeamName().equalsIgnoreCase(newsFeedItems.gettName())) {
+                            final String logoUrl = team.getTeamLogoUrl();
+                            if (logoUrl != null) {
+                                File logoImage = DiskCacheUtils.findInCache(logoUrl, imageLoader.getDiskCache());
+
+                                if (logoImage != null && logoImage.exists()) {
+                                    Picasso.get().load(logoImage).fit().into(logoCiv, new Callback() {
+                                        @Override
+                                        public void onSuccess() {
+                                            logoCiv.setVisibility(View.VISIBLE);
+                                        }
+
+                                        @Override
+                                        public void onError(Exception e) {
+                                            logoCiv.setVisibility(View.GONE);
+                                        }
+                                    });
+                                } else {
+                                    imageLoader.loadImage(logoUrl, new ImageLoadingListener() {
+                                        @Override
+                                        public void onLoadingStarted(String imageUri, View view) {
+                                            logoCiv.setVisibility(View.GONE);
+                                        }
+
+                                        @Override
+                                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+                                        }
+
+                                        @Override
+                                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                                            Picasso.get().load(imageUri).fit().into(logoCiv);
+                                            logoCiv.setVisibility(View.VISIBLE);
+                                        }
+
+                                        @Override
+                                        public void onLoadingCancelled(String imageUri, View view) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

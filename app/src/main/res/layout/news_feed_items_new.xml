@@ -18,27 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/event_poster"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="8dp"
-                android:contentDescription="@null"
-                android:scaleType="fitXY" />
+            <include
+                android:id="@+id/news_item_image"
+                layout="@layout/news_item_image"/>
 
-            <com.inspiregeniussquad.handstogether.appViews.CircularImageView
-                android:id="@+id/logo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignTop="@+id/event_poster"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="160dp"
-                android:layout_marginEnd="16dp"
-                app:border="false"
-                android:elevation="6dp"
-                app:shadow="true"
-                android:src="@mipmap/ic_launcher"
-                app:shadow_radius="4dp" />
+            <include
+                android:id="@+id/extras"
+                layout="@layout/news_item_extras"
+                android:layout_marginTop="167dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/news_item_image"
+                android:layout_width="match_parent"/>
 
            <!-- <RelativeLayout
                 android:layout_above="@+id/desc"
@@ -66,42 +56,10 @@
 
             </RelativeLayout>-->
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/event_poster"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="-40dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="8dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/event_poster"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toStartOf="@+id/logo"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:padding="2sp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textSize="14sp" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/desc"
+                android:layout_below="@+id/extras"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="4dp"
@@ -194,7 +152,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingStart="4dp" />
+                        android:paddingStart="4dp"
+                        android:paddingEnd="0dp"/>
 
                 </LinearLayout>
 
@@ -203,7 +162,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/desc"
+                android:layout_below="@+id/extras"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center|end"
                 android:layout_marginTop="8dp"
