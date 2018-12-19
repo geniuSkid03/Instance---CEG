@@ -1,14 +1,18 @@
 package com.inspiregeniussquad.handstogether.appData;
 
+import android.net.Uri;
+
 public class NewsFeedItems {
 
+    private String nfId;
     private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
     private String likes;
     private String pDate;
     private Comments comments;
     private String commentCount;
+    private Uri posterUri;
 
-    private boolean isLiked;
+    private boolean isLiked, isBookmarked;
 
     public NewsFeedItems() {
 
@@ -141,5 +145,29 @@ public class NewsFeedItems {
 
     public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
+    }
+
+    public String getNfId() {
+        return nfId;
+    }
+
+    public void setNfId(String nfId) {
+        this.nfId = nfId;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        isBookmarked = bookmarked;
+    }
+
+    public Uri getPosterUri() {
+        return posterUri;
+    }
+
+    public void setPosterUri(Uri posterUri) {
+        this.posterUri = posterUri;
     }
 }

@@ -18,7 +18,6 @@ import java.util.Collections;
 
 public class PermissionHelper {
 
-
     private static final int REQ_CODE_FOR_PERMISSION = 1;
     public Activity activity;
 

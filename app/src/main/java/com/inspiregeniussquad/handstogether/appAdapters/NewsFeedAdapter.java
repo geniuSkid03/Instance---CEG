@@ -2,7 +2,9 @@ package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
+import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -34,15 +44,25 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     private TeamData[] teamData;
     private ImageLoader imageLoader;
 
+    private Users users;
 
-    public NewsFeedAdapter(Context context, ArrayList<NewsFeedItems> newsFeedItemsArrayList) {
+    private DatabaseReference userDatabaseReference, likePostsReference;
+    private ArrayList<String> likedPostsArrayList;
+
+    public NewsFeedAdapter(Context context, ArrayList<NewsFeedItems> newsFeedItemsArrayList, Users users) {
         this.context = context;
         this.newsFeedItemsArrayList = newsFeedItemsArrayList;
+        this.users = users;
 
         appDbs = AppDbs.getTeamDao(context);
         teamData = appDbs.teamDao().loadAll();
 
         imageLoader = ImageLoader.getInstance();
+
+        userDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
+        likePostsReference = userDatabaseReference.child(users.getMobile()).child(Keys.LIKED_POSTS);
+
+        likedPostsArrayList = new ArrayList<>();
     }
 
     public void setClickListener(onViewClickedListener viewClickedListener) {
@@ -59,6 +79,18 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     public void onBindViewHolder(@NonNull NewsFeedView newsFeedItem, int position) {
         newsFeedItem.setNewsFeed(newsFeedItemsArrayList.get(position));
         newsFeedItem.setPosition(position, viewClickedListener);
+
+        if (newsFeedItemsArrayList.get(position).isLiked()) {
+            newsFeedItem.likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
+        } else {
+            newsFeedItem.likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+        }
+
+        if (newsFeedItemsArrayList.get(position).isBookmarked()) {
+            newsFeedItem.bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_done));
+        } else {
+            newsFeedItem.bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));
+        }
     }
 
     @Override
@@ -72,16 +104,88 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         notifyItemRangeRemoved(0, size);
     }
 
-    public void setPostAsLiked(int position, View itemView) {
-        NewsFeedItems newsFeedItems = newsFeedItemsArrayList.get(position);
-        newsFeedItems.setLiked(true);
-
-//        onBindViewHolder((View) itemView, position);
+    public void setPostAsLiked(int position) {
+        if (newsFeedItemsArrayList.get(position).isLiked()) {
+            newsFeedItemsArrayList.get(position).setLiked(false);
+            updateToFirebaseAsDisLiked(newsFeedItemsArrayList.get(position));
+        } else {
+            newsFeedItemsArrayList.get(position).setLiked(true);
+            updateToFirebaseAsLiked(newsFeedItemsArrayList.get(position));
+        }
+        notifyItemChanged(position);
     }
 
-//    public void setPostAsUnliked(int position) {
-//
-//    }
+    public void setPostAsBookmarked(int position) {
+        if (newsFeedItemsArrayList.get(position).isBookmarked()) {
+            newsFeedItemsArrayList.get(position).setBookmarked(false);
+            updateToFirebaseAsDisLiked(newsFeedItemsArrayList.get(position));
+        } else {
+            newsFeedItemsArrayList.get(position).setBookmarked(true);
+            updateToFirebaseAsLiked(newsFeedItemsArrayList.get(position));
+        }
+        notifyItemChanged(position);
+    }
+
+    private void updateToFirebaseAsLiked(final NewsFeedItems newsFeedItems) {
+        likePostsReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                likedPostsArrayList.clear();
+
+                if(!dataSnapshot.exists()) {
+                    AppHelper.print("Like datasnapshot doesnt exists!");
+                    return;
+                }
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    AppHelper.print("Liked posts: "+ds.getValue(String.class));
+                    likedPostsArrayList.add(ds.getValue(String.class));
+                }
+
+                likedPostsArrayList.add(newsFeedItems.getNfId());
+
+                userDatabaseReference.child(users.getMobile()).child(Keys.LIKED_POSTS)
+                        .setValue(likedPostsArrayList);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        if(newsFeedItems.getNfId() != null) {
+//            String key = likePostsReference.getKey();
+//            Map<String, Object> map = new HashMap<>();
+//            map.put(key, newsFeedItems.getNfId());
+//            likePostsReference.updateChildren(map);
+//            AppHelper.print("Added to liked posts");
+//        } else {
+//            AppHelper.print("Cannot add to liked posts, newsfeed items id empty");
+//        }
+    }
+
+    private void updateToFirebaseAsDisLiked(NewsFeedItems newsFeedItems) {
+        if (newsFeedItems.getNfId() != null) {
+            likePostsReference.orderByKey().equalTo(newsFeedItems.getNfId())
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String key = dataSnapshot.getKey();
+                            dataSnapshot.getRef().removeValue();
+                            AppHelper.print("Disliked success!");
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            AppHelper.print("Database error while disliking: " + databaseError.getMessage());
+                        }
+                    });
+        } else {
+            AppHelper.print("Cannot dislike posts, news feed items id empty");
+        }
+    }
 
     class NewsFeedView extends RecyclerView.ViewHolder {
 
@@ -139,6 +243,36 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             likeTv.setText(newsFeedItems.getLikes());
             cmntTv.setText(newsFeedItems.getCommentCount());
 
+            if (users.getLikedPosts() != null) {
+                if (users.getLikedPosts().size() > 0) {
+                    for (int i = 0; i < users.getLikedPosts().size(); i++) {
+                        String likedPostId = users.getLikedPosts().get(i);
+                        if (likedPostId.equalsIgnoreCase(newsFeedItemsArrayList.get(i).getNfId())) {
+                            likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
+                        } else {
+                            likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+                        }
+                    }
+                } else {
+                    likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+                }
+            }
+
+            if (users.getBookmarkedPosts() != null) {
+                if (users.getBookmarkedPosts().size() > 0) {
+                    for (int i = 0; i < users.getBookmarkedPosts().size(); i++) {
+                        if (users.getBookmarkedPosts().get(i)
+                                .contains(newsFeedItemsArrayList.get(i).getNfId())) {
+                            bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_done));
+                        } else {
+                            bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));
+                        }
+                    }
+                } else {
+                    bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));
+                }
+            }
+
             likeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -154,7 +288,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             shareLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    viewClickedListener.onShareClicked(position);
+                    viewClickedListener.onShareClicked(position, posterImgIv);
                 }
             });
             bookmarkLayout.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +306,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             posterImgIv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    viewClickedListener.onImageClicked(position);
+                    viewClickedListener.onImageClicked(position, posterImgIv);
                 }
             });
 
@@ -210,6 +344,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                         posterImgIv.setVisibility(View.VISIBLE);
                         imgloadingIv.setVisibility(View.GONE);
                         Picasso.get().load(imageUri).fit().into(posterImgIv);
+                        newsFeedItems.setPosterUri(Uri.parse(imageUri));
                     }
 
                     @Override
@@ -255,6 +390,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                                         public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                                             Picasso.get().load(imageUri).fit().into(logoCiv);
                                             logoCiv.setVisibility(View.VISIBLE);
+
+                                            newsFeedItems.setPstrUrl(imageUri);
                                         }
 
                                         @Override
@@ -276,12 +413,12 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
         void onCommentsClicked(int position);
 
-        void onImageClicked(int position);
+        void onImageClicked(int position, ImageView posterImgIv);
 
         void onBookmarkClicked(int position);
 
         void onLikeClicked(int position, View itemView);
 
-        void onShareClicked(int position);
+        void onShareClicked(int position, ImageView posterImgIv);
     }
 }

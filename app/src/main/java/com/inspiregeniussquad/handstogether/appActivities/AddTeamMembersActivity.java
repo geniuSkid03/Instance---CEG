@@ -359,7 +359,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
         team.setTeamLogoUri(logoUri.toString());
 
-        teamDatabaseReference.child(Objects.requireNonNull(teamDatabaseReference.push().getKey())).setValue(team, new DatabaseReference.CompletionListener() {
+        teamDatabaseReference.child(team.getTeamName()).setValue(team,
+                new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                 cancelProgress();

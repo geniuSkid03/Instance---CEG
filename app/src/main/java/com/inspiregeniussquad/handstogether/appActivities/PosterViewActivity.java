@@ -1,6 +1,7 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.Manifest;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,14 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.ImageSaver;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.utils.DiskCacheUtils;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,7 +38,12 @@ public class PosterViewActivity extends SuperCompatActivity {
     @BindView(R.id.title)
     TextView posterTitleTv;
 
+    @BindView(R.id.image_placeholder)
+    ImageView loadingIv;
+
     private NewsFeedItems newsFeedItems;
+    private ImageLoader imageLoader;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +52,54 @@ public class PosterViewActivity extends SuperCompatActivity {
 
         if (getIntent().getExtras() != null) {
             newsFeedItems = gson.fromJson(getIntent().getStringExtra(Keys.NEWS_ITEM), NewsFeedItems.class);
-
-            posterTitleTv.setText(newsFeedItems.geteName());
-            Picasso.get().load(newsFeedItems.getPstrUrl()).into(posterIv);
         } else {
+            dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
             finish();
+        }
+
+        imageLoader = ImageLoader.getInstance();
+
+        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
+        if (posterImage != null && posterImage.exists()) {
+            Picasso.get().load(posterImage).fit().into(posterIv, new Callback() {
+                @Override
+                public void onSuccess() {
+                    posterIv.setVisibility(View.VISIBLE);
+                    loadingIv.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    posterIv.setVisibility(View.GONE);
+                    loadingIv.setVisibility(View.VISIBLE);
+                }
+            });
+        } else {
+            imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+                    posterIv.setVisibility(View.GONE);
+                    loadingIv.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                    posterIv.setVisibility(View.GONE);
+                    loadingIv.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    posterIv.setVisibility(View.VISIBLE);
+                    loadingIv.setVisibility(View.GONE);
+                    Picasso.get().load(imageUri).fit().into(posterIv);
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
         }
     }
 
@@ -54,7 +110,9 @@ public class PosterViewActivity extends SuperCompatActivity {
                 checkAndSaveImage();
                 break;
             case R.id.close_preview:
-                finish();
+//                finish();
+                dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
+                supportFinishAfterTransition();
                 break;
         }
     }
@@ -73,10 +131,12 @@ public class PosterViewActivity extends SuperCompatActivity {
     }
 
     private void proceedSaving() {
-//        new ImageSaver(this)
-//                .setDirectoryName(getString(R.string.app_name))
-//                .setFileName(newsFeedItems.geteName() + "_Poster.jpg")
-//                .save(((BitmapDrawable) posterIv.getDrawable()).getBitmap());
         showToast(this, getString(R.string.function_not_set));
+    }
+
+    @Override
+    public void onBackPressed() {
+        dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
+        supportFinishAfterTransition();
     }
 }

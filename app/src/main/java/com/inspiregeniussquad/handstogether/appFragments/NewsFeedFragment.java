@@ -1,7 +1,13 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +35,13 @@ import com.inspiregeniussquad.handstogether.appActivities.PosterViewActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.NewsFeedAdapter;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
+import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -43,6 +55,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     private NewsFeedAdapter newsFeedAdapter, filteredFeedAdapter;
     private ArrayList<NewsFeedItems> newsFeedItemsArrayList;
 
+    private Users currentUser;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +66,9 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         //news items initializations
         newsFeedItemsArrayList = new ArrayList<>();
 
-        newsFeedAdapter = new NewsFeedAdapter(getContext(), newsFeedItemsArrayList);
+        currentUser = gson.fromJson(dataStorage.getString(Keys.USER_DATA), Users.class);
+
+        newsFeedAdapter = new NewsFeedAdapter(getContext(), newsFeedItemsArrayList, currentUser);
         newsFeedAdapter.setClickListener(new NewsFeedAdapter.onViewClickedListener() {
             @Override
             public void onViewClicked(int position) {
@@ -65,24 +81,23 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             }
 
             @Override
-            public void onImageClicked(int position) {
-                onImageItemClicked(newsFeedItemsArrayList.get(position));
+            public void onImageClicked(int position, ImageView posterImgIv) {
+                onImageItemClicked(newsFeedItemsArrayList.get(position), posterImgIv);
             }
 
             @Override
             public void onBookmarkClicked(int position) {
-                AppHelper.showToast(getContext(), "Bookmark clicked");
+                newsFeedAdapter.setPostAsBookmarked(position);
             }
 
             @Override
             public void onLikeClicked(int position, View itemView) {
-                newsFeedAdapter.setPostAsLiked(position, itemView);
-                AppHelper.showToast(getContext(), "Like clicked");
+                newsFeedAdapter.setPostAsLiked(position);
             }
 
             @Override
-            public void onShareClicked(int position) {
-                AppHelper.showToast(getContext(), "Share clicked");
+            public void onShareClicked(int position, ImageView imageView) {
+                showSharingView(newsFeedItemsArrayList.get(position), imageView);
             }
         });
     }
@@ -101,7 +116,6 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 resetSearch();
@@ -124,7 +138,6 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private View initNewsFeedView(View view) {
-
         newsFeedRv = view.findViewById(R.id.news_feed_recycler_view);
         noNewsTv = view.findViewById(R.id.no_news_view);
 
@@ -143,8 +156,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         goTo(getActivity(), NewsItemViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItem));
     }
 
-    private void onImageItemClicked(NewsFeedItems newsFeedItems) {
-        goTo(getContext(), PosterViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+    private void onImageItemClicked(NewsFeedItems newsFeedItems, ImageView posterImgIv) {
+        openWithImageTransition(getContext(), PosterViewActivity.class, false, posterImgIv, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
     }
 
     private void onCommentItemClicked(NewsFeedItems newsFeedItems) {
@@ -152,6 +165,13 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     public void refreshNewsFeed() {
+        AppHelper.print("Refresh need: " + dataStorage.getBoolean(Keys.HOME_REFRESH_NEED));
+
+        if (!dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
+            AppHelper.print("Home refresh not needed");
+            return;
+        }
+
         showProgress(getString(R.string.loading));
 
         newsDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -186,6 +206,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             Map map = (Map) teamEntry.getValue();
 
             NewsFeedItems newsFeedItems = new NewsFeedItems();
+            newsFeedItems.setNfId((String) map.get("nfId"));
             newsFeedItems.settName((String) map.get("tName"));
             newsFeedItems.seteName((String) map.get("eName"));
             newsFeedItems.seteDesc((String) map.get("eDesc"));
@@ -197,6 +218,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedItems.setVidUrl((String) map.get("vidUrl"));
             newsFeedItems.setPstrUrl((String) map.get("pstrUrl"));
             newsFeedItems.setLikes((String) map.get("likes"));
+
+            AppHelper.print("NewsFeed items: " + newsFeedItems.getNfId());
 
             newsFeedItemsArrayList.add(newsFeedItems);
         }
@@ -258,7 +281,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             }
         }
 
-        filteredFeedAdapter = new NewsFeedAdapter(getActivity(), filteredNewsItem);
+        filteredFeedAdapter = new NewsFeedAdapter(getActivity(), filteredNewsItem, currentUser);
         filteredFeedAdapter.notifyDataSetChanged();
         newsFeedRv.setAdapter(filteredFeedAdapter);
 
@@ -278,5 +301,41 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             filteredFeedAdapter.clear();
         }
         refreshNewsFeed();
+    }
+
+    private void showSharingView(NewsFeedItems newsFeedItems, ImageView imageView) {
+
+//        imageView.buildDrawingCache();
+//        imageView.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+//                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+//        imageView.layout(0, 0, imageView.getMeasuredWidth(), imageView.getMeasuredHeight());
+//        Bitmap bitmap = imageView.getDrawingCache();
+
+        Bitmap bitmap = null;
+
+        if (bitmap != null) {
+            Intent shareIntent;
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + newsFeedItems.geteName() + ".png";
+            OutputStream out = null;
+            File file = new File(path);
+            try {
+                out = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+                out.flush();
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            path = file.getPath();
+            Uri bmpUri = Uri.parse("file://" + path);
+            shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check this event\n" + newsFeedItems.geteName());
+            shareIntent.setType("image/png");
+            startActivity(Intent.createChooser(shareIntent, "Share with"));
+        } else {
+            showToast(getString(R.string.share_failed));
+        }
     }
 }

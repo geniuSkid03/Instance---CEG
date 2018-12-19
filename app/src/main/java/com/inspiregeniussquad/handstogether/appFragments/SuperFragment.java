@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -147,6 +149,18 @@ public class SuperFragment extends Fragment {
         super.onDetach();
     }
 
+    //open activity with shared element transition
+    protected void openWithImageTransition(Context from, Class to, boolean close, ImageView imageView, String key, String value) {
+        Intent intent = new Intent(from, to);
+        intent.putExtra(key, value);
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(getActivity(), imageView, getString(R.string.image_transition));
+        startActivity(intent, options.toBundle());
+        if (close) {
+            getActivity().finish();
+        }
+    }
+
     //for starting activity with single intent values
     protected void goTo(Context from, Class to, boolean close, String key, String data) {
         if (!this.getClass().getSimpleName().equals(to.getClass().getSimpleName())) {
@@ -222,7 +236,7 @@ public class SuperFragment extends Fragment {
     }
 
     protected void showSimpleAlert(String msg, String btnText, final SimpleAlert simpleAlert) {
-        if(simpleAlertDialog != null) {
+        if (simpleAlertDialog != null) {
             simpleAlertDialog.setMessage(msg);
             simpleAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, btnText, new DialogInterface.OnClickListener() {
                 @Override

@@ -519,6 +519,11 @@ color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color color_1
+color color_2
+color color_3
+color color_4
+color color_5
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -916,6 +921,7 @@ drawable ic_correct_icon
 drawable ic_dashboard
 drawable ic_delete_icon
 drawable ic_edit_icon
+drawable ic_empty_icon
 drawable ic_event_date
 drawable ic_event_desc
 drawable ic_event_name
@@ -1133,6 +1139,7 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id image_placeholder
 id img_loading_view
 id info
 id invisible
@@ -1200,6 +1207,7 @@ id no_circular_view
 id no_members_view
 id no_news_updated
 id no_news_view
+id no_team_view
 id no_updated_circular
 id none
 id normal
@@ -1291,14 +1299,19 @@ id swipe_refresh_newsfeed
 id tabMode
 id tablayout
 id tag_transition_group
+id team_content
+id team_cv
 id team_desc
 id team_logo
 id team_logo2
+id team_logo_placeholder
+id team_logo_view
 id team_member_name
 id team_members_count
 id team_members_names_list
 id team_motto
 id team_name
+id team_recycler
 id team_spinner
 id team_spinner_container
 id team_update_content
@@ -1469,6 +1482,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout teams_list_item
 layout tool_bar_layout
 layout update_team_fragment
 layout updated_news_item
@@ -1641,6 +1655,7 @@ string hint_password
 string home
 string hrm
 string i_agree
+string image_transition
 string it_will_be_shown_in_circular_tab
 string lbl_forgot_password
 string loading
@@ -1728,6 +1743,7 @@ string search_event
 string search_menu_title
 string select_picture
 string settings
+string share_failed
 string sign_out
 string sms_permsn_hint
 string sms_title
@@ -1739,6 +1755,7 @@ string storage_permsn_hint
 string storage_title
 string team_added_successfully
 string team_already_exist
+string team_data_unavail
 string team_desc
 string team_logo
 string team_members_names

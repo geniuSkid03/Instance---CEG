@@ -195,6 +195,8 @@ public class HomeActivity extends SuperCompatActivity {
 
         //todo remove this line on app launch
         dataStorage.saveString(Keys.MOBILE, "9159860007");
+
+        dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, true);
     }
 
     private void loadPersonalData(NavigationView navigationView) {
@@ -496,7 +498,9 @@ public class HomeActivity extends SuperCompatActivity {
 
         if (currentVisibleFragment != null) {
             if (currentVisibleFragment instanceof HomeFragment) {
-                homeFragment.refreshHomeFragment();
+                if(dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
+                    homeFragment.refreshHomeFragment();
+                }
             }
         }
     }

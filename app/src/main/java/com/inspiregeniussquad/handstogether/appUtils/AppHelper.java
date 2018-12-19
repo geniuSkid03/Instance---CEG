@@ -10,12 +10,19 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,6 +31,9 @@ import java.util.Locale;
 import static android.content.Context.LOCATION_SERVICE;
 
 public class AppHelper {
+
+    private static final String TAG = "InstanceDebug";
+    private static final int THUMBNAIL_SIZE = 150;
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager
@@ -50,6 +60,10 @@ public class AppHelper {
         if (context != null && context.getResources() != null) {
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static void printLog(String info) {
+        Log.i(TAG, info);
     }
 
     public static String getCurrentTime() {
@@ -99,5 +113,37 @@ public class AppHelper {
             e.printStackTrace();
             return path;
         }
+    }
+
+    public static Bitmap getThumbnail(Context context, Uri uri) throws FileNotFoundException, IOException {
+        InputStream input = context.getContentResolver().openInputStream(uri);
+
+        BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();
+        onlyBoundsOptions.inJustDecodeBounds = true;
+        onlyBoundsOptions.inDither=true;//optional
+        onlyBoundsOptions.inPreferredConfig=Bitmap.Config.ARGB_8888;//optional
+        BitmapFactory.decodeStream(input, null, onlyBoundsOptions);
+        input.close();
+        if ((onlyBoundsOptions.outWidth == -1) || (onlyBoundsOptions.outHeight == -1))
+            return null;
+
+        int originalSize = (onlyBoundsOptions.outHeight > onlyBoundsOptions.outWidth) ? onlyBoundsOptions.outHeight : onlyBoundsOptions.outWidth;
+
+        double ratio = (originalSize > THUMBNAIL_SIZE) ? (originalSize / THUMBNAIL_SIZE) : 1.0;
+
+        BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
+        bitmapOptions.inSampleSize = getPowerOfTwoForSampleRatio(ratio);
+        bitmapOptions.inDither=true;//optional
+        bitmapOptions.inPreferredConfig=Bitmap.Config.ARGB_8888;//optional
+        input = context.getContentResolver().openInputStream(uri);
+        Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);
+        input.close();
+        return bitmap;
+    }
+
+    private static int getPowerOfTwoForSampleRatio(double ratio){
+        int k = Integer.highestOneBit((int)Math.floor(ratio));
+        if(k==0) return 1;
+        else return k;
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/transparent_black"
     tools:context=".appActivities.PosterViewActivity">
 
     <TextView
@@ -18,9 +19,18 @@
         android:id="@+id/poster_image"
         android:layout_width="match_parent"
         android:layout_height="230dp"
+        android:transitionName="@string/image_transition"
         android:layout_centerInParent="true"
         android:layout_margin="12dp"
         android:contentDescription="@null" />
+
+    <ImageView
+        android:contentDescription="@null"
+        android:id="@+id/image_placeholder"
+        android:layout_width="36dp"
+        android:src="@drawable/ic_loading_placeholder"
+        android:layout_centerInParent="true"
+        android:layout_height="36dp" />
 
     <LinearLayout
         android:id="@+id/footer"

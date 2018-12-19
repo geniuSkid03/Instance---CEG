@@ -76,7 +76,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle.Splash" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity"
             android:launchMode="singleTask"
@@ -112,7 +115,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.CommentsViewActivity" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.CommentsViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

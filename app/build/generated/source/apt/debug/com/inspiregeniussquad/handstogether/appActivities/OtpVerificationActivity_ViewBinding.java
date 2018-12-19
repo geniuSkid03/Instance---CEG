@@ -17,9 +17,9 @@ import java.lang.Override;
 public class OtpVerificationActivity_ViewBinding implements Unbinder {
   private OtpVerificationActivity target;
 
-  private View view2131296604;
+  private View view2131296611;
 
-  private View view2131296508;
+  private View view2131296510;
 
   private View view2131296318;
 
@@ -35,7 +35,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.verify_btn, "field 'verifyBtn' and method 'oNCLick'");
     target.verifyBtn = Utils.castView(view, R.id.verify_btn, "field 'verifyBtn'", AppCompatButton.class);
-    view2131296604 = view;
+    view2131296611 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.otpTimerTv = Utils.findRequiredViewAsType(source, R.id.otp_timer, "field 'otpTimerTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.rsend_otp_btn, "field 'resendOtpBtn' and method 'oNCLick'");
     target.resendOtpBtn = Utils.castView(view, R.id.rsend_otp_btn, "field 'resendOtpBtn'", AppCompatButton.class);
-    view2131296508 = view;
+    view2131296510 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,10 +77,10 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.resendOtpBtn = null;
     target.changeNumberTv = null;
 
-    view2131296604.setOnClickListener(null);
-    view2131296604 = null;
-    view2131296508.setOnClickListener(null);
-    view2131296508 = null;
+    view2131296611.setOnClickListener(null);
+    view2131296611 = null;
+    view2131296510.setOnClickListener(null);
+    view2131296510 = null;
     view2131296318.setOnClickListener(null);
     view2131296318 = null;
   }

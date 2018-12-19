@@ -189,9 +189,9 @@
     <string name="two">2</string>
     <string name="maximum_number_reached">Sorry, team members count reached, cannot add further!</string>
     <string name="members_count_not_matching">The member details you have entered is not equal to the number of members you have specified, do you want to continue?</string>
-    <string name="uploading_data">Preparing to upload, please wait...</string>
+    <string name="uploading_data">Preparing to upload, please wait…</string>
     <string name="upload_failed">Uploaded task failed</string>
-    <string name="registering_team_in_progress">Registering team...</string>
+    <string name="registering_team_in_progress">Registering team…</string>
     <string name="exit_without_addning_team">Team data insertion was not finished, do you want to go bacK?</string>
     <string name="event_name_empty">Enter event name!</string>
     <string name="event_desc_empty">Enter event description!</string>
@@ -200,7 +200,7 @@
     <string name="event_venue_empty">Enter event venue!@</string>
     <string name="event_poster_empty">Upload event poster image!</string>
     <string name="empty_news_visiblity">Choose news Visibility!</string>
-    <string name="updating_news">Updating news...</string>
+    <string name="updating_news">Updating news…</string>
     <string name="news_updated_success">News updated successfully!</string>
     <string name="content_dev">Content Developer</string>
     <string name="creative_head">Creative Head</string>
@@ -212,23 +212,26 @@
     <string name="logistics_manager">Logistics Manager</string>
     <string name="yt_manager">YT Manager</string>
     <string name="enter_desc">Enter Description</string>
-    <string name="loading_teams">Loading team datas...</string>
+    <string name="loading_teams">Loading team datas…</string>
     <string name="enter_title_circular">Provide Circular title!</string>
     <string name="enter_circular_desc">Provide circular description!</string>
     <string name="enter_circular_image">Provide circular Image!</string>
-    <string name="updating_circular">Publishing circular...</string>
+    <string name="updating_circular">Publishing circular…</string>
     <string name="cirular_updated_success">Cirular published successfully!</string>
     <string name="you_haven_t_updated_any_news">You haven\'t updated any news!</string>
-    <string name="loading_your_news">Loading news updated by you...</string>
+    <string name="loading_your_news">Loading news updated by you…</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
-    <string name="deleting_news">Deleting news item...</string>
+    <string name="deleting_news">Deleting news item…</string>
     <string name="updated_on">Updated on:</string>
     <string name="you_haven_t_updated_any_circulars">You haven\'t updated any circulars!</string>
     <string name="loading_circular_updated_by_you">Loading circulars updated by you!</string>
     <string name="oops_no_new_news">Oops, no new news available!</string>
-    <string name="loading_news_feed">Preparing your newsfeed...</string>
+    <string name="loading_news_feed">Preparing your newsfeed…</string>
     <string name="no_circulars">Oops, no circulars have been published!</string>
-    <string name="loading_cirulars">Preparing latest circulars...</string>
+    <string name="loading_cirulars">Preparing latest circulars…</string>
+    <string name="team_data_unavail">Team Data unavailable...</string>
+    <string name="image_transition">Image Transition</string>
+    <string name="share_failed">Sorry, unable to share this post!</string>
 
 </resources>

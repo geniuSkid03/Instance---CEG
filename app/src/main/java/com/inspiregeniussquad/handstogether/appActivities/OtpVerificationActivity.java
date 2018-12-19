@@ -19,6 +19,7 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
@@ -244,8 +245,8 @@ public class OtpVerificationActivity extends SuperCompatActivity {
         usersDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    retriveMobileFromDatabase((Map<String, Object>) dataSnapshot.getValue(), mobileNumber);
+                if (dataSnapshot.exists() && dataSnapshot.getValue() != null) {
+                    retriveMobileFromDatabase(dataSnapshot, mobileNumber);
                 } else {
                     //no user has registered, table was not created
                     //so allow him to signup
@@ -263,8 +264,10 @@ public class OtpVerificationActivity extends SuperCompatActivity {
         });
     }
 
-    private void retriveMobileFromDatabase(Map<String, Object> value, String mobileNumber) {
+    private void retriveMobileFromDatabase(DataSnapshot dataSnapshot, String mobileNumber) {
         ArrayList<String> phoneNumbers = new ArrayList<>();
+
+        Map<String, Object> value = (Map<String, Object>) dataSnapshot.getValue();
 
         for (Map.Entry<String, Object> entry : value.entrySet()) {
             Map usersMap = (Map) entry.getValue();
@@ -276,6 +279,24 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                         (String) usersMap.get(Keys.ATTR_EMAIL),
                         (String) usersMap.get(Keys.ATTR_MOBILE),
                         (String) usersMap.get(Keys.ATTR_GENDER));
+
+//                GenericTypeIndicator<ArrayList<String>> likeGenericTypeIndicator = new GenericTypeIndicator<ArrayList<String>>() {
+//                };
+//                ArrayList<String> userLikedPosts = dataSnapshot.getValue(likeGenericTypeIndicator);
+//
+//                GenericTypeIndicator<ArrayList<String>> commentIndicator = new GenericTypeIndicator<ArrayList<String>>() {
+//                };
+//                ArrayList<String> userCommentedPosts = dataSnapshot.getValue(commentIndicator);
+//
+//                GenericTypeIndicator<ArrayList<String>> bookmarkedIndicator = new GenericTypeIndicator<ArrayList<String>>() {
+//                };
+//                ArrayList<String> userBookmarkedPosts = dataSnapshot.getValue(bookmarkedIndicator);
+
+//                AppHelper.print("Liked posts count: "+userLikedPosts.size());
+
+//                users.setLikedPosts(userLikedPosts);
+//                users.setBookmarkedPosts(userBookmarkedPosts);
+//                users.setCommentedPosts(userCommentedPosts);
 
                 dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
             }

@@ -8,7 +8,6 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,18 +20,14 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
-import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -132,14 +127,25 @@ public class SignupActivity extends SuperCompatActivity {
             return;
         }
 
-        insertUserIntoDb(new Users(name, email, mobileNumber, gender));
+        ArrayList<String> likedPostArrayList = new ArrayList<>();
+        ArrayList<String> commentedPostArrayList = new ArrayList<>();
+        ArrayList<String> bookmarkedPostArrayList = new ArrayList<>();
+
+        likedPostArrayList.add("0");
+        commentedPostArrayList.add("0");
+        bookmarkedPostArrayList.add("0");
+
+        Users users = new Users(name, email, mobileNumber, gender,
+                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList);
+
+        insertUserIntoDb(users);
     }
 
     private void insertUserIntoDb(final Users users) {
-        usersDatabaseReference.child(usersDatabaseReference.push().getKey()).setValue(users, new DatabaseReference.CompletionListener() {
+        usersDatabaseReference.child(users.getMobile()).setValue(users, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                if(databaseError == null) {
+                if (databaseError == null) {
                     goToHome(users);
                 } else {
                     cancelProgress();
@@ -204,14 +210,17 @@ public class SignupActivity extends SuperCompatActivity {
 
         AppHelper.print("Result code: " + resultCode);
 
-        if (resultCode == RESULT_OK) {
-            if (requestCode == GMAIL_SIGNIN) {
-                AppHelper.print("OnActivityResult : gmail sign in");
-                //getting email data
-                GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                checkEmails(googleSignInResult);
+        if(resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case GMAIL_SIGNIN:
+                    AppHelper.print("OnActivityResult : gmail sign in");
+                    //getting email data
+                    GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    checkEmails(googleSignInResult);
+                    break;
             }
         }
+
     }
 
 

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
@@ -59,6 +60,7 @@ public class HomeFragment extends SuperFragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, true);
                 refreshHomeFragment();
             }
         });
@@ -147,7 +149,7 @@ public class HomeFragment extends SuperFragment {
                     public void run() {
                         swipeRefreshLayout.setRefreshing(false);
                     }
-                }, 3000);
+                }, 500);
             }
         }
 

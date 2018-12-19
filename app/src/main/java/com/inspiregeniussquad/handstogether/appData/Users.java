@@ -1,11 +1,29 @@
 package com.inspiregeniussquad.handstogether.appData;
 
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
+
+import java.util.ArrayList;
+
 public class Users {
 
-    private String StudentID, name, email, mobile, gender, imgUrl;
+    private String name, email, mobile, gender, imgUrl;
+    private ArrayList<String> likedPosts, commentedPosts, bookmarkedPosts;
 
     public Users() {
 
+    }
+
+    public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
+                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+        this.likedPosts = likedPosts;
+        this.commentedPosts = commentedPosts;
+        this.bookmarkedPosts = bookmarkedPosts;
+
+        AppHelper.print("Users Model: "+this.name+"\t"+this.email+"\t"+this.mobile+"\n\tthis.gender"+"\t"+this.commentedPosts+"\t"+this.bookmarkedPosts);
     }
 
     public Users(String name, String email, String mobile, String gender) {
@@ -16,9 +34,6 @@ public class Users {
         this.gender = gender;
     }
 
-    public String getStudentID() {
-        return StudentID;
-    }
 
     public String getName() {
         return name;
@@ -52,15 +67,35 @@ public class Users {
         this.gender = gender;
     }
 
-    public void setStudentID(String studentID) {
-        StudentID = studentID;
-    }
-
     public String getImgUrl() {
         return imgUrl;
     }
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public ArrayList<String> getLikedPosts() {
+        return likedPosts;
+    }
+
+    public void setLikedPosts(ArrayList<String> likedPosts) {
+        this.likedPosts = likedPosts;
+    }
+
+    public ArrayList<String> getCommentedPosts() {
+        return commentedPosts;
+    }
+
+    public void setCommentedPosts(ArrayList<String> commentedPosts) {
+        this.commentedPosts = commentedPosts;
+    }
+
+    public ArrayList<String> getBookmarkedPosts() {
+        return bookmarkedPosts;
+    }
+
+    public void setBookmarkedPosts(ArrayList<String> bookmarkedPosts) {
+        this.bookmarkedPosts = bookmarkedPosts;
     }
 }

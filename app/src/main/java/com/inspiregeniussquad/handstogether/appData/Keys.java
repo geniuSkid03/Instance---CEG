@@ -34,6 +34,8 @@ public class Keys {
     public static final String TEAM = "team";
     public static final String POSTER_IMAGE = "poster_image";
     public static final String DB_TEAM_DATA = "team_datas";
+    public static final String LIKED_POSTS = "likedPosts";
+    public static final String HOME_REFRESH_NEED = "is_home_refresh_needed";
 
     //table names
     public static String TABLE_USER = "Users";
