@@ -220,7 +220,6 @@
     <string name="cirular_updated_success">Cirular published successfully!</string>
     <string name="you_haven_t_updated_any_news">You haven\'t updated any news!</string>
     <string name="loading_your_news">Loading news updated by you…</string>
-    <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="deleting_news">Deleting news item…</string>
     <string name="updated_on">Updated on:</string>
@@ -233,5 +232,25 @@
     <string name="team_data_unavail">Team Data unavailable...</string>
     <string name="image_transition">Image Transition</string>
     <string name="share_failed">Sorry, unable to share this post!</string>
+    <string name="manage_admins">Manage Admins</string>
+    <string name="to_make_or_remove_admins">To make or remove admins</string>
+    <string name="instance_admins">Instance Admins</string>
+    <string name="enter_details">Enter Details:</string>
+    <string name="admin_mobile">Admin Mobile</string>
+    <string name="admin_name">Admin Name</string>
+    <string name="admin">Admin</string>
+    <string name="super_admin">Super Admin</string>
+    <string name="editor">Editor</string>
+    <string name="designation">Designation</string>
+    <string name="enter_mobile">Enter Mobile!</string>
+    <string name="admin_cannot_be_added">Information insufficient to add admin!</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="no_admins_available">No Admins Available</string>
+    <string name="adding_admin">Please wait, admin is being added!</string>
+    <string name="admin_added_successfully">Admin has been added successfully!</string>
+    <string name="unable_to_remove_admin">Unable to remove Admin, try again later!</string>
+    <string name="admin_removed">Admin removed successfully!</string>
+    <string name="processing">Processing...</string>
 
 </resources>

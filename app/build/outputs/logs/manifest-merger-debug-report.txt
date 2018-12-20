@@ -1,9 +1,20 @@
 -- Merging decision tree log ---
+provider#com.inspiregeniussquad.handstogether.appUtils.GenericFileProvider
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:111:9-119:20
+	android:grantUriPermissions
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:115:13-47
+	android:authorities
+		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:113:13-76
+	android:exported
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:114:13-37
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:112:13-57
 manifest
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\b702b32278a5052a0aaae02a23bb31cb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\29cfb818dde0e03fe4b04d8b12d5bca6\AndroidManifest.xml:17:1-22:12
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\dedb1678ed520b4961cf33460d13493b\AndroidManifest.xml:2:1-13:12
@@ -60,20 +71,20 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Genius\.gradle\caches\tra
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cc559a736ce4b040483cda11a5f25049\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\74692f710a9db1346fb9504dc3ef9936\AndroidManifest.xml:2:1-7:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65dff30a3a2b42be150c765f37340b10\AndroidManifest.xml:17:1-22:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
 	package
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-112:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-128:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:11-69
@@ -132,7 +143,7 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:16:22-66
 application
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:18:5-110:19
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:18:5-126:19
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\dedb1678ed520b4961cf33460d13493b\AndroidManifest.xml:11:5-20
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\dedb1678ed520b4961cf33460d13493b\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6a836675f5555678761f39d88d38a87d\AndroidManifest.xml:9:5-20
@@ -365,6 +376,16 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:109:13-56
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:106:13-63
+activity#com.inspiregeniussquad.handstogether.appActivities.ManageAdminsActivity
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:121:9-125:55
+	android:screenOrientation
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:124:13-49
+	android:launchMode
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:123:13-44
+	android:theme
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:125:13-52
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:122:13-63
 uses-sdk
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
@@ -491,6 +512,12 @@ INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidMani
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:116:13-118:58
+	android:resource
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:118:17-55
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:117:17-67
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:23:9-27:75
 	android:excludeFromRecents

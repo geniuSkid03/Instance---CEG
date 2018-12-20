@@ -21,11 +21,11 @@ public class Instance extends Application {
 
         Firebase.setAndroidContext(this);
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/base_font.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
+//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+//                .setDefaultFontPath("fonts/base_font.ttf")
+//                .setFontAttrId(R.attr.fontPath)
+//                .build()
+//        );
 
         DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
                 .resetViewBeforeLoading(true)

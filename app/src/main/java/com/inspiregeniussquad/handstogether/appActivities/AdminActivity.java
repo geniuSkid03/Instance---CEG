@@ -26,6 +26,9 @@ public class AdminActivity extends SuperCompatActivity {
     @BindView(R.id.manage_teams)
     CardView manageTeamsCv;
 
+    @BindView(R.id.admin_manage_card)
+    CardView manageAdminsCv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +54,7 @@ public class AdminActivity extends SuperCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick({R.id.add_circular, R.id.add_news, R.id.manage_teams})
+    @OnClick({R.id.add_circular, R.id.add_news, R.id.manage_teams, R.id.admin_manage_card})
     public void onClicked(View view) {
         switch (view.getId()) {
             case R.id.add_circular:
@@ -63,6 +66,10 @@ public class AdminActivity extends SuperCompatActivity {
             case R.id.manage_teams:
                 openActivity(2);
                 break;
+            case R.id.admin_manage_card:
+                openActivity(3);
+                break;
+
         }
     }
 
@@ -76,6 +83,9 @@ public class AdminActivity extends SuperCompatActivity {
                 break;
             case 2:
                 goTo(this, ManageTeamsActivity.class, false);
+                break;
+            case 3:
+                goTo(this, ManageAdminsActivity.class, false);
                 break;
         }
     }

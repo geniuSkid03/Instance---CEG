@@ -16,9 +16,9 @@ import java.lang.Override;
 public class PosterViewActivity_ViewBinding implements Unbinder {
   private PosterViewActivity target;
 
-  private View view2131296330;
+  private View view2131296338;
 
-  private View view2131296514;
+  private View view2131296529;
 
   @UiThread
   public PosterViewActivity_ViewBinding(PosterViewActivity target) {
@@ -33,7 +33,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.posterIv = Utils.findRequiredViewAsType(source, R.id.poster_image, "field 'posterIv'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.close_preview, "field 'closePreviewIv' and method 'onClicked'");
     target.closePreviewIv = Utils.castView(view, R.id.close_preview, "field 'closePreviewIv'", ImageView.class);
-    view2131296330 = view;
+    view2131296338 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -42,7 +42,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.save_preview, "field 'savePreviewIv' and method 'onClicked'");
     target.savePreviewIv = Utils.castView(view, R.id.save_preview, "field 'savePreviewIv'", ImageView.class);
-    view2131296514 = view;
+    view2131296529 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,9 +66,9 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.posterTitleTv = null;
     target.loadingIv = null;
 
-    view2131296330.setOnClickListener(null);
-    view2131296330 = null;
-    view2131296514.setOnClickListener(null);
-    view2131296514 = null;
+    view2131296338.setOnClickListener(null);
+    view2131296338 = null;
+    view2131296529.setOnClickListener(null);
+    view2131296529 = null;
   }
 }

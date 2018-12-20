@@ -107,6 +107,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <provider
             android:name=".appUtils.GenericFileProvider"
             android:authorities="${applicationId}.my.package.name.provider"
@@ -114,8 +115,14 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity
+            android:name=".appActivities.ManageAdminsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
     </application>
 
 </manifest>

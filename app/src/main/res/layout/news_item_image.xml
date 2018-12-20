@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:transitionName="@string/image_transition"
         android:layout_height="match_parent"
-        android:contentDescription="@null"
-        android:scaleType="fitXY" />
+        android:contentDescription="@null"/>
 
 </RelativeLayout>

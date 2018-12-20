@@ -53,7 +53,8 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected Gson gson = new Gson();
 
     public FirebaseAuth firebaseAuth;
-    public DatabaseReference parentDatabaseReference, childDatabaseReference, usersDatabaseReference, teamDatabaseReference;
+    public DatabaseReference parentDatabaseReference, childDatabaseReference,
+            usersDatabaseReference, teamDatabaseReference, adminDbReference;
     public StorageReference storageReference;
     public FirebaseStorage firebaseStorage;
 
@@ -100,6 +101,7 @@ public class SuperCompatActivity extends AppCompatActivity {
         parentDatabaseReference = FirebaseDatabase.getInstance().getReference();
         usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
         teamDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
+        adminDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_ADMIN);
 
         //fire base storage
         firebaseStorage = FirebaseStorage.getInstance();

@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="109" />
+                                                <entry key="scalingPercent" value="114" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -35,8 +35,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="1c3078" />
-                                      <entry key="foregroundImage" value="C:\Users\Genius\Desktop\Instance\Images\ic_app_icon.png" />
+                                      <entry key="backgroundColor" value="003b8e" />
+                                      <entry key="foregroundImage" value="C:\Users\Genius\Desktop\Instance\Images\logo.png" />
                                       <entry key="legacyIconShape" value="CIRCLE" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
@@ -69,7 +69,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/E:/Android/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_sentiment_neutral_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/E:/Android/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_more_vert_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -79,7 +79,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_empty_icon" />
+                            <entry key="outputName" value="ic_optins" />
                             <entry key="sourceFile" value="C:\Users\Genius" />
                           </map>
                         </option>

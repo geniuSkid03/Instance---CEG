@@ -291,8 +291,8 @@
 
         </android.support.v7.widget.CardView>
 
-        <!--<android.support.v7.widget.CardView
-            android:id="@+id/detach_vehicle_card"
+        <android.support.v7.widget.CardView
+            android:id="@+id/admin_manage_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -320,7 +320,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
-                        android:src="@drawable/ic_detach"
+                        android:src="@drawable/ic_profile"
                         android:tint="@color/colorPrimaryDark" />
 
                 </LinearLayout>
@@ -335,8 +335,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/regular"
-                        android:text="DETACH VEHICLE"
+                        android:text="@string/manage_admins"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -344,8 +343,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/regular"
-                        android:text="to detach vechicle from driver"
+                        android:text="@string/to_make_or_remove_admins"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="12sp" />
 
@@ -367,7 +365,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>-->
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 

@@ -19,9 +19,12 @@ anim fall_down_item_anim
 anim fall_down_layout_anim
 anim scale_down_animation
 anim scale_up_animatin
+anim slide_bottom_anim
 anim slide_in_anim
 anim slide_out_anim
+anim slide_up_anim
 animator design_appbar_state_list_animator
+animator logo_animator
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -859,11 +862,13 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable alert_button_bg
 drawable avd_hide_password
 drawable avd_show_password
 drawable border_line
 drawable button_text_bg
 drawable circular_icon
+drawable circular_view
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -947,6 +952,7 @@ drawable ic_news_icon
 drawable ic_newsfeed_selected
 drawable ic_newsfeed_unselected
 drawable ic_no_internet_icon
+drawable ic_optins
 drawable ic_others
 drawable ic_position_icon
 drawable ic_profile
@@ -1022,6 +1028,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_admin_fab
 id add_btn
 id add_circular
 id add_event_poster
@@ -1029,11 +1036,18 @@ id add_news
 id add_team_member
 id adjust_height
 id adjust_width
+id admin_desg_grp
+id admin_manage_card
+id admin_mobile
+id admin_name
 id admin_panel
+id admin_rb
+id admins_list
 id alertTitle
 id all
 id always
 id app_bar_layout
+id app_motto
 id app_name
 id appbar
 id appbar_layout_activity
@@ -1094,6 +1108,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id designation
 id dimensions
 id direct
 id disableHome
@@ -1101,6 +1116,7 @@ id drawer_layout
 id drop_down_view
 id edit
 id edit_query
+id editor_rb
 id email
 id end
 id end_padder
@@ -1146,6 +1162,7 @@ id invisible
 id invisible_news
 id italic
 id item_touch_helper_previous_elevation
+id ivIcon
 id largeLabel
 id left
 id light
@@ -1160,6 +1177,7 @@ id list_child_tag
 id list_header_icon
 id list_header_tag
 id list_item
+id llMainContents
 id load_circular_image
 id load_team_image
 id login_me
@@ -1187,6 +1205,7 @@ id minus_team_member
 id mob_num_verify
 id mob_number_view
 id mobile
+id more_options
 id multiply
 id name
 id nav_camera
@@ -1203,6 +1222,7 @@ id news_feed_recycler_view
 id news_item_image
 id news_rgrb
 id next_btn
+id no_admins
 id no_circular_view
 id no_members_view
 id no_news_updated
@@ -1232,7 +1252,6 @@ id post_card
 id posted_date_time
 id poster_image
 id profile_image
-id progress_bar
 id progress_circular
 id progress_horizontal
 id publish_circular
@@ -1242,12 +1261,14 @@ id radio_grp
 id read_more
 id refresh_updated_circular
 id register_me
+id remove
 id retry_btn
 id right
 id right_icon
 id right_side
 id rsend_otp_btn
 id save
+id save_admin
 id save_image_matrix
 id save_non_transition_alpha
 id save_preview
@@ -1295,6 +1316,7 @@ id start
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
+id super_admin_rb
 id swipe_refresh_newsfeed
 id tabMode
 id tablayout
@@ -1401,6 +1423,7 @@ layout activity_add_team_members
 layout activity_admin
 layout activity_comments_view
 layout activity_home
+layout activity_manage_admins
 layout activity_manage_circular
 layout activity_manage_news
 layout activity_manage_teams
@@ -1416,6 +1439,7 @@ layout activity_splash
 layout add_circular_fragment
 layout add_news_fragment
 layout add_team_fragment
+layout admin_item_view
 layout app_bar_home
 layout app_bar_navigation_drawer
 layout circular_item_view
@@ -1435,6 +1459,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_add_admin
 layout edit_news_fragment
 layout fragment_about
 layout fragment_achievements
@@ -1487,6 +1512,7 @@ layout tool_bar_layout
 layout update_team_fragment
 layout updated_news_item
 menu activity_navigation_drawer_drawer
+menu admin_options_menu
 menu home_search
 menu navigation_drawer
 menu ok_menu
@@ -1533,7 +1559,14 @@ string add_member
 string add_news
 string add_or_edit_team_information
 string add_team
+string adding_admin
+string admin
+string admin_added_successfully
+string admin_cannot_be_added
+string admin_mobile
+string admin_name
 string admin_panel
+string admin_removed
 string already_registered_login_here
 string app_name
 string app_photo
@@ -1601,8 +1634,10 @@ string default_members_count
 string default_web_client_id
 string delete
 string deleting_news
+string designation
 string dummy_text
 string edit
+string editor
 string email
 string empty
 string empty_news_visiblity
@@ -1610,7 +1645,9 @@ string end
 string enter_circular_desc
 string enter_circular_image
 string enter_desc
+string enter_details
 string enter_email
+string enter_mobile
 string enter_name
 string enter_name_and_position_of_members
 string enter_team_count
@@ -1656,6 +1693,7 @@ string home
 string hrm
 string i_agree
 string image_transition
+string instance_admins
 string it_will_be_shown_in_circular_tab
 string lbl_forgot_password
 string loading
@@ -1670,6 +1708,7 @@ string log_out_hint
 string login_again
 string logistics_manager
 string male
+string manage_admins
 string manage_circulars
 string manage_news
 string manage_team
@@ -1695,6 +1734,7 @@ string news_visibility
 string news_will_be_shown_in_newsfeed
 string newsfeed
 string next
+string no_admins_available
 string no_circulars
 string no_internet_title
 string no_internt_conn
@@ -1725,6 +1765,7 @@ string pick_from_gallery
 string position
 string president
 string press_again_to_exit
+string processing
 string production_deisgner
 string project_id
 string provide_team_logo
@@ -1733,6 +1774,7 @@ string read
 string read_more
 string registering_team_in_progress
 string registering_you
+string remove
 string requesting_otp
 string resend_otp
 string retry
@@ -1753,6 +1795,7 @@ string sports
 string status_bar_notification_info_overflow
 string storage_permsn_hint
 string storage_title
+string super_admin
 string team_added_successfully
 string team_already_exist
 string team_data_unavail
@@ -1764,8 +1807,10 @@ string team_name
 string tech
 string time
 string title_activity_navigation_drawer
+string to_make_or_remove_admins
 string tresurer
 string two
+string unable_to_remove_admin
 string update_news
 string update_profile
 string update_team
@@ -1969,6 +2014,7 @@ style ButtonBg
 style CardView
 style CardView_Dark
 style CardView_Light
+style DialogAnimation
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat
@@ -2249,3 +2295,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml provider_paths

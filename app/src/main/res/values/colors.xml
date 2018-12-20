@@ -11,11 +11,11 @@
 
     <color name="divider">#BDBDBD</color>
 
-    <color name="primaryColor">#1e88e5</color>
+    <color name="primaryColor">#1976d2</color>
     <color name="primaryLightColor">#6ab7ff</color>
-    <color name="primaryDarkColor">#005cb2</color>
+    <color name="primaryDarkColor">#004ba0</color>
 
-    <color name="accentColor">#03A9F4</color>
+    <color name="accentColor">#63a4ff</color>
 
     <color name="secondaryColor">#1e88e5</color>
     <color name="secondaryLightColor">#6ab7ff</color>

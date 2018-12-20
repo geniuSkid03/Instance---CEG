@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/llMainContents"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_details"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="3dp"
+                android:padding="4dp"/>
+
+            <EditText
+                android:id="@+id/admin_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:background="@drawable/border_line"
+                android:hint="@string/admin_mobile"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/admin_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:background="@drawable/border_line"
+                android:hint="@string/admin_name"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/designation"
+                android:layout_marginStart="3dp"
+                android:padding="4dp"/>
+
+            <RadioGroup
+                android:id="@+id/admin_desg_grp"
+                android:padding="4dp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/border_line"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/editor_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/editor"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/admin_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/admin"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/super_admin_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/super_admin"
+                    android:textColor="@color/colorPrimary" />
+
+            </RadioGroup>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/save_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:tint="@color/white"
+                app:rippleColor="@color/accentColor"
+                app:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/ic_correct_icon"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:elevation="4dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@null"
+            android:padding="8dp"
+            android:src="@drawable/circular_view" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_profile"
+            android:tint="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

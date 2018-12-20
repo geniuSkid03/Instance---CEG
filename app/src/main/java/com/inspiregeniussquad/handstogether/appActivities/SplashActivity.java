@@ -1,10 +1,17 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,8 +31,11 @@ public class SplashActivity extends SuperCompatActivity {
     @BindView(R.id.logo)
     ImageView splashIv;
 
-    @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
+   /* @BindView(R.id.progress_bar)
+    ProgressBar progressBar;*/
+
+    @BindView(R.id.app_motto)
+    TextView appMottoTv;
 
     private int i = 0;
 
@@ -39,6 +49,21 @@ public class SplashActivity extends SuperCompatActivity {
         teamDataArrayList = new ArrayList<>();
 
         retriveTeamDatas();
+        
+//        AnimatorSet set = (AnimatorSet) AnimatorInflater
+//                .loadAnimator(this, R.animator.logo_animator);
+//        set.setTarget(splashIv);
+//        set.start();
+
+        appMottoTv.setVisibility(View.VISIBLE);
+        TranslateAnimation animate = new TranslateAnimation(
+                0,                 // fromXDelta
+                0,                 // toXDelta
+                appMottoTv.getHeight(),  // fromYDelta
+                0);                // toYDelta
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        appMottoTv.startAnimation(animate);
     }
 
     public void retriveTeamDatas() {

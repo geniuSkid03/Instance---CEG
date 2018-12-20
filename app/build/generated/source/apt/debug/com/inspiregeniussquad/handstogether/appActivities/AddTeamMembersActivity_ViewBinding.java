@@ -20,7 +20,7 @@ import java.lang.Override;
 public class AddTeamMembersActivity_ViewBinding implements Unbinder {
   private AddTeamMembersActivity target;
 
-  private View view2131296286;
+  private View view2131296287;
 
   @UiThread
   public AddTeamMembersActivity_ViewBinding(AddTeamMembersActivity target) {
@@ -35,7 +35,7 @@ public class AddTeamMembersActivity_ViewBinding implements Unbinder {
     target.teamMembersLv = Utils.findRequiredViewAsType(source, R.id.team_members_names_list, "field 'teamMembersLv'", ListView.class);
     view = Utils.findRequiredView(source, R.id.add_btn, "field 'addMemberBtn' and method 'onClicked'");
     target.addMemberBtn = Utils.castView(view, R.id.add_btn, "field 'addMemberBtn'", AppCompatButton.class);
-    view2131296286 = view;
+    view2131296287 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class AddTeamMembersActivity_ViewBinding implements Unbinder {
     target.toolbar = null;
     target.membersCountDisplayTv = null;
 
-    view2131296286.setOnClickListener(null);
-    view2131296286 = null;
+    view2131296287.setOnClickListener(null);
+    view2131296287 = null;
   }
 }
