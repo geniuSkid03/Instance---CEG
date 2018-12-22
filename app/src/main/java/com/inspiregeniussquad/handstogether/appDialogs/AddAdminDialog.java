@@ -100,6 +100,13 @@ public class AddAdminDialog extends Dialog {
         setCancelable(true);
     }
 
+    public void clearValues() {
+        adminNameEd.setText("");
+        adminMobileEd.setText("");
+        desgntRgrp.clearCheck();
+        designation = 0;
+    }
+
     public interface AdminListener {
         void onOkClicked(Admin admin);
     }

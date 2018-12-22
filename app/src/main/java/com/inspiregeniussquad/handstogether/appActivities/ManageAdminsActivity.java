@@ -85,6 +85,7 @@ public class ManageAdminsActivity extends SuperCompatActivity {
             public void onClick(View view) {
                 if (addAdminDialog != null) {
                     if (!addAdminDialog.isShowing() && !isFinishing()) {
+                        addAdminDialog.clearValues();
                         addAdminDialog.show();
                     }
                 }

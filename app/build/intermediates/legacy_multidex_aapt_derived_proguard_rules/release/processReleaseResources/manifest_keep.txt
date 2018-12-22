@@ -1,2 +1,0 @@
-# Referenced at E:\Android Studio Projects\Instance---CEG\app\build\intermediates\merged_manifests\release\processReleaseManifest\merged\AndroidManifest.xml:28
--keep class com.inspiregeniussquad.handstogether.appActivities.Instance { <init>(...); }

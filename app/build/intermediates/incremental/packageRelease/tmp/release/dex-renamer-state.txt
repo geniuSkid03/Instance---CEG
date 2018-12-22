@@ -1,7 +1,0 @@
-#Mon Dec 17 21:55:56 IST 2018
-base.0=E\:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
-path.1=classes2.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
-base.1=E\:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
