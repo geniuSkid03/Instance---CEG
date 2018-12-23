@@ -136,7 +136,7 @@ public class SignupActivity extends SuperCompatActivity {
         bookmarkedPostArrayList.add("0");
 
         Users users = new Users(name, email, mobileNumber, gender,
-                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList);
+                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList, true);
 
         insertUserIntoDb(users);
     }
@@ -170,7 +170,7 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
 
         cancelProgress();
-        goTo(this, HomeActivity.class, true);
+        goTo(this, MainActivity.class, true);
     }
 
     private void setUpGoogle() {

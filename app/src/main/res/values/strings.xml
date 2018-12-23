@@ -180,7 +180,7 @@
     <string name="enter_name_and_position_of_members">Enter Name and Position of members:</string>
     <string name="add_member">Add Member</string>
     <string name="no_members_have_been_added_yet">No Members have been added yet!</string>
-    <string name="choose_position">Choose position of member!</string>
+    <string name="choose_position">Enter designation!</string>
     <string name="empty" />
     <string name="save">Save</string>
     <string name="number_of_members">Number of members to add:</string>
@@ -252,5 +252,17 @@
     <string name="unable_to_remove_admin">Unable to remove Admin, try again later!</string>
     <string name="admin_removed">Admin removed successfully!</string>
     <string name="processing">Processing...</string>
+    <string name="manage_clubs">Manage Clubs</string>
+    <string name="to_make_or_remove_clubs">To make or remove Clubs</string>
+    <string name="ceg_clubs_list">CEG Clubs</string>
+    <string name="name_of_club">Name of club</string>
+    <string name="choose_image">Choose Image:</string>
+    <string name="noclubs_available">No Clubs Available</string>
+    <string name="add_new_club">Add New Club</string>
+    <string name="club_name">Club\'s Name</string>
+    <string name="loading_clubs">Loading club\'s info...</string>
+    <string name="choose_clubs">Chooose club name!</string>
+    <string name="choose_club">Choose club</string>
+    <string name="member_position">Designation</string>
 
 </resources>

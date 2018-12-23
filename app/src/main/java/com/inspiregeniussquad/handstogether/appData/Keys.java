@@ -37,7 +37,11 @@ public class Keys {
     public static final String LIKED_POSTS = "likedPosts";
     public static final String HOME_REFRESH_NEED = "is_home_refresh_needed";
     public static final String TABLE_ADMIN = "Admin";
+    public static final String TABLE_CLUBS = "Clubs";
     public static final String ADMIN_INFO = "admin_info";
+    public static final String FRAGMENT_CLUBS = "FRAGMENT_CLUBS";
+    public static final String FRAGMENT_ADMIN = "FRAGMENT_ADMIN";
+    public static final String IS_ADMIN = "is_Admin";
 
     //table names
     public static String TABLE_USER = "Users";

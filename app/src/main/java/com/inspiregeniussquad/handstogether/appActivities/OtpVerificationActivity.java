@@ -324,7 +324,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     private void goToHome() {
         cancelProgress();
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
-        goTo(OtpVerificationActivity.this, HomeActivity.class, true);
+        goTo(OtpVerificationActivity.this, MainActivity.class, true);
     }
 
     private void showCountTimer() {

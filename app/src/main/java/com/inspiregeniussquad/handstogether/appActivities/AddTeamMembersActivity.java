@@ -54,8 +54,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
     @BindView(R.id.team_member_name)
     EditText teamMemberNameEd;
 
-    @BindView(R.id.member_position_spinner)
-    AppCompatSpinner teamMemberPositionSpinner;
+    @BindView(R.id.team_member_position)
+    EditText designationEd;
 
     @BindView(R.id.no_members_view)
     TextView noMembersTv;
@@ -71,7 +71,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
     private Uri uploadedLogoUri;
     private String memberName;
-    private int memberPosition, teamMembersCount;
+    private int teamMembersCount;
+    private String memberDesignation = "";
 
     private Team team;
 
@@ -97,10 +98,10 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
             teamMembersCount = Integer.parseInt(team.getTeamMembersCount());
         }
 
-        final String[] positionNames = {getString(R.string.choose), getString(R.string.president), getString(R.string.member), getString(R.string.vice_president), getString(R.string.content_dev),
-                getString(R.string.creative_head), getString(R.string.production_deisgner), getString(R.string.tresurer), getString(R.string.hrm),
-                getString(R.string.SEM), getString(R.string.dance_manager), getString(R.string.logistics_manager), getString(R.string.yt_manager)};
-        loadSpinner(positionNames);
+//        final String[] positionNames = {getString(R.string.choose), getString(R.string.president), getString(R.string.member), getString(R.string.vice_president), getString(R.string.content_dev),
+//                getString(R.string.creative_head), getString(R.string.production_deisgner), getString(R.string.tresurer), getString(R.string.hrm),
+//                getString(R.string.SEM), getString(R.string.dance_manager), getString(R.string.logistics_manager), getString(R.string.yt_manager)};
+//        loadSpinner(positionNames);
 
         teamMembersArrayList = new ArrayList<>();
 
@@ -156,13 +157,9 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         memberNameTv.setText(teamMembers.getTeamMemberName());
 
         TextView membersPositionTv = convertView.findViewById(R.id.mem_position);
-        membersPositionTv.setText(teamMembers.getTeamMemberPosition().equals(getString(R.string.one)) ?
-                getString(R.string.president) : teamMembers.getTeamMemberPosition().equals(getString(R.string.two)) ?
-                getString(R.string.member) : getString(R.string.vice_president));
+        membersPositionTv.setText(teamMembers.getTeamMemberPosition());
 
         AppHelper.print("Trying to create members list:\n " + teamMembers.getTeamMemberName() + "\t" + teamMembers.getTeamMemberPosition());
-
-
     }
 
     private void updateUi() {
@@ -203,33 +200,33 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         }
     }
 
-    private void loadSpinner(final String[] positionNames) {
-        ArrayAdapter positionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, positionNames);
-        positionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        teamMemberPositionSpinner.setAdapter(positionAdapter);
-
-        teamMemberPositionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                memberPosition = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                showSnack(getString(R.string.choose_position));
-            }
-        });
-    }
+//    private void loadSpinner(final String[] positionNames) {
+//        ArrayAdapter positionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, positionNames);
+//        positionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        teamMemberPositionSpinner.setAdapter(positionAdapter);
+//
+//        teamMemberPositionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                memberPosition = position;
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                showSnack(getString(R.string.choose_position));
+//            }
+//        });
+//    }
 
     private void checkAndAddMember() {
         memberName = teamMemberNameEd.getText().toString().trim();
-
         if (TextUtils.isEmpty(memberName)) {
             showSnack(getString(R.string.enter_name));
             return;
         }
 
-        if (memberPosition == 0) {
+        memberDesignation = designationEd.getText().toString().trim();
+        if (TextUtils.isEmpty(memberDesignation)) {
             showSnack(getString(R.string.choose_position));
             return;
         }
@@ -240,24 +237,24 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         }
 
         if (teamMembersArrayList.size() == 0) {
-            addToList(memberName, memberPosition);
+            addToList(memberName, memberDesignation);
         } else {
             for (TeamMembers teamMembers1 : new ArrayList<>(teamMembersArrayList)) {
                 if (teamMembers1.getTeamMemberName().equalsIgnoreCase(memberName)) {
                     showToast(this, getString(R.string.member_exist));
                     return;
                 } else {
-                    addToList(memberName, memberPosition);
+                    addToList(memberName, memberDesignation);
                     return;
                 }
             }
         }
     }
 
-    private void addToList(String memberName, int memberPosition) {
+    private void addToList(String memberName, String designation) {
         TeamMembers teamMembers = new TeamMembers();
         teamMembers.setTeamMemberName(memberName);
-        teamMembers.setTeamMemberPosition(String.valueOf(memberPosition));
+        teamMembers.setTeamMemberPosition(designation);
 
         teamMembersArrayList.add(teamMembers);
         teamMembersArrayAdapter.notifyDataSetChanged();
@@ -271,8 +268,7 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
         teamMemberNameEd.setText("");
         AddTeamMembersActivity.this.memberName = null;
-        AddTeamMembersActivity.this.memberPosition = 0;
-        teamMemberPositionSpinner.setSelection(0);
+        AddTeamMembersActivity.this.memberDesignation = "";
     }
 
     private void checkAndProceedInsertion() {
@@ -361,38 +357,38 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
         teamDatabaseReference.child(team.getTeamName()).setValue(team,
                 new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                cancelProgress();
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        cancelProgress();
 
-                if (databaseError == null) {
-                    showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                            goHome();
-                        }
-                    });
-                } else {
-                    AppHelper.print("Database error: " + databaseError.getMessage());
+                        if (databaseError == null) {
+                            showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
+                                @Override
+                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                    dialogInterface.dismiss();
+                                    goHome();
+                                }
+                            });
+                        } else {
+                            AppHelper.print("Database error: " + databaseError.getMessage());
 
-                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            goHome();
-                            dialogInterface.dismiss();
+                            showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
+                                @Override
+                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                    goHome();
+                                    dialogInterface.dismiss();
+                                }
+                            });
                         }
-                    });
-                }
-            }
-        });
+                    }
+                });
     }
 
     private void goHome() {
-        goTo(this, HomeActivity.class, true);
+        goTo(this, MainActivity.class, true);
     }
 
-    private void askAndGoBack(){
+    private void askAndGoBack() {
         showOkCancelAlert(getString(R.string.exit_without_addning_team), new OkCancelAlert() {
             @Override
             public void onOkClicked(DialogInterface dialogInterface, int which) {

@@ -56,14 +56,16 @@ public class AddAdminDialog extends Dialog {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 RadioButton radioButton = radioGroup.findViewById(checkedId);
 
-                if (radioButton.getText().equals(context.getString(R.string.super_admin))) {
-                    designation = 1;
-                } else if (radioButton.getText().equals(context.getString(R.string.admin))) {
-                    designation = 2;
-                } else if (radioButton.getText().equals(context.getString(R.string.editor))) {
-                    designation = 3;
-                } else {
-                    designation = 0;
+                if(radioButton != null) {
+                    if (radioButton.getText().equals(context.getString(R.string.super_admin))) {
+                        designation = 1;
+                    } else if (radioButton.getText().equals(context.getString(R.string.admin))) {
+                        designation = 2;
+                    } else if (radioButton.getText().equals(context.getString(R.string.editor))) {
+                        designation = 3;
+                    } else {
+                        designation = 0;
+                    }
                 }
             }
         });

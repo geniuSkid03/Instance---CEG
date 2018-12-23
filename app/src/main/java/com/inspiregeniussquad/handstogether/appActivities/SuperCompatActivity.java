@@ -54,7 +54,7 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     public FirebaseAuth firebaseAuth;
     public DatabaseReference parentDatabaseReference, childDatabaseReference,
-            usersDatabaseReference, teamDatabaseReference, adminDbReference;
+            usersDatabaseReference, teamDatabaseReference, adminDbReference, clubsDbRef;
     public StorageReference storageReference;
     public FirebaseStorage firebaseStorage;
 
@@ -102,6 +102,7 @@ public class SuperCompatActivity extends AppCompatActivity {
         usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
         teamDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
         adminDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_ADMIN);
+        clubsDbRef = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_CLUBS);
 
         //fire base storage
         firebaseStorage = FirebaseStorage.getInstance();
@@ -369,7 +370,7 @@ public class SuperCompatActivity extends AppCompatActivity {
             if (dataStorage.isDataAvailable(Keys.MOBILE)) {
                 if (dataStorage.isDataAvailable(Keys.IS_ONLINE)) {
                     if (dataStorage.getBoolean(Keys.IS_ONLINE)) {
-                        goTo(this, HomeActivity.class, true);
+                        goTo(this, MainActivity.class, true);
                     } else {
                         goToMobVerification();
                     }

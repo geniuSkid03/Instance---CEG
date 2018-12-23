@@ -243,7 +243,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             likeTv.setText(newsFeedItems.getLikes());
             cmntTv.setText(newsFeedItems.getCommentCount());
 
-            if (users.getLikedPosts() != null) {
+            if (users != null && users.getLikedPosts() != null) {
                 if (users.getLikedPosts().size() > 0) {
                     for (int i = 0; i < users.getLikedPosts().size(); i++) {
                         String likedPostId = users.getLikedPosts().get(i);
@@ -258,11 +258,10 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                 }
             }
 
-            if (users.getBookmarkedPosts() != null) {
+            if (users != null && users.getBookmarkedPosts() != null) {
                 if (users.getBookmarkedPosts().size() > 0) {
                     for (int i = 0; i < users.getBookmarkedPosts().size(); i++) {
-                        if (users.getBookmarkedPosts().get(i)
-                                .contains(newsFeedItemsArrayList.get(i).getNfId())) {
+                        if (users.getBookmarkedPosts().get(i).contains(newsFeedItemsArrayList.get(i).getNfId())) {
                             bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_done));
                         } else {
                             bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));

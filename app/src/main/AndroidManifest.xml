@@ -38,11 +38,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".appActivities.HomeActivity"
+            android:name=".appActivities.MainActivity"
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--
+             <activity
+             android:name=".appActivities.HomeActivity"
+             android:launchMode="singleTask"
+             android:noHistory="false"
+             android:screenOrientation="portrait"
+             android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
             android:name=".appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
@@ -123,6 +132,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name=".appActivities.ManageClubsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity android:name=".appActivities.AddClubsActivity"></activity>
     </application>
 
 </manifest>

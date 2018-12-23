@@ -8,18 +8,21 @@ public class Team {
     private ArrayList<TeamMembers> teamMembers;
     private String logoUri, membersCount;
     private String email, website, fbLink;
+    private String clubName;
 
     public Team() {
 
     }
 
-    public Team(String name, String motto, String desc, String logoUri, ArrayList<TeamMembers> teamMembers, String membersCount) {
+    public Team(String name, String motto, String desc, String logoUri,
+                ArrayList<TeamMembers> teamMembers, String membersCount, String clubName) {
         this.motto = motto;
         this.logoUri = logoUri;
         this.desc = desc;
         this.name = name;
         this.membersCount = membersCount;
         this.teamMembers = teamMembers;
+        this.clubName = clubName;
     }
 
     public String getTeamName() {
@@ -71,5 +74,14 @@ public class Team {
 
     public void setTeamLogoUri(String logoUri) {
         this.logoUri = logoUri;
+    }
+
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
     }
 }

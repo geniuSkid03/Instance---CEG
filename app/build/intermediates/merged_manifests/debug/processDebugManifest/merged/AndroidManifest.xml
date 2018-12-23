@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="27" />
+        android:targetSdkVersion="28" />
 
     <uses-permission
         android:name="android.permission.GET_ACCOUNTS"
@@ -28,6 +28,7 @@
     <application
         android:name="com.inspiregeniussquad.handstogether.appActivities.Instance"
         android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,6 +36,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.SplashActivity"
@@ -50,11 +52,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.HomeActivity"
+            android:name="com.inspiregeniussquad.handstogether.appActivities.MainActivity"
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--
+             <activity
+             android:name=".appActivities.HomeActivity"
+             android:launchMode="singleTask"
+             android:noHistory="false"
+             android:screenOrientation="portrait"
+             android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
             android:name="com.inspiregeniussquad.handstogether.appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
@@ -135,6 +146,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageClubsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.AddClubsActivity" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

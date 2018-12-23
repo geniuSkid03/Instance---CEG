@@ -250,45 +250,45 @@ public class SplashActivity extends SuperCompatActivity {
             public void run() {
                 checkDataAndOpen();
             }
-        }, 10000);
+        }, 2000);
     }
 
-    public static void slideToBottom(View view){
-        TranslateAnimation animate = new TranslateAnimation(0,0,0,view.getHeight());
-        animate.setDuration(2000);
-        animate.setFillAfter(true);
-        view.startAnimation(animate);
-        view.setVisibility(View.VISIBLE);
-    }
-
-    public static void slideToTop(final View view){
-
-//
-//        view.animate()
-//                .setDuration(3000)
-//                .alpha(0)
-//                .se
-//
-        TranslateAnimation animate = new TranslateAnimation(0,0,view.getHeight(),0);
-//        animate.setDuration(3000);
+//    public static void slideToBottom(View view){
+//        TranslateAnimation animate = new TranslateAnimation(0,0,0,view.getHeight());
+//        animate.setDuration(2000);
 //        animate.setFillAfter(true);
 //        view.startAnimation(animate);
 //        view.setVisibility(View.VISIBLE);
-
-        view.setAnimation(animate);
-        view.animate()
-                .setDuration(3000)
-                .translationY(view.getHeight())
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        super.onAnimationStart(animation);
-
-                        view.setVisibility(View.VISIBLE);
-                    }
-                });
-
-    }
+//    }
+//
+//    public static void slideToTop(final View view){
+//
+////
+////        view.animate()
+////                .setDuration(3000)
+////                .alpha(0)
+////                .se
+////
+//        TranslateAnimation animate = new TranslateAnimation(0,0,view.getHeight(),0);
+////        animate.setDuration(3000);
+////        animate.setFillAfter(true);
+////        view.startAnimation(animate);
+////        view.setVisibility(View.VISIBLE);
+//
+//        view.setAnimation(animate);
+//        view.animate()
+//                .setDuration(3000)
+//                .translationY(view.getHeight())
+//                .setListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationStart(Animator animation) {
+//                        super.onAnimationStart(animation);
+//
+//                        view.setVisibility(View.VISIBLE);
+//                    }
+//                });
+//
+//    }
 
     @Override
     protected void onResume() {

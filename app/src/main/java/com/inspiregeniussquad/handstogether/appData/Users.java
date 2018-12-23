@@ -8,13 +8,14 @@ public class Users {
 
     private String name, email, mobile, gender, imgUrl;
     private ArrayList<String> likedPosts, commentedPosts, bookmarkedPosts;
+    private boolean isAdmin;
 
     public Users() {
 
     }
 
     public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
-                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts) {
+                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, boolean isAdmin) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -22,6 +23,7 @@ public class Users {
         this.likedPosts = likedPosts;
         this.commentedPosts = commentedPosts;
         this.bookmarkedPosts = bookmarkedPosts;
+        this.isAdmin = isAdmin;
 
         AppHelper.print("Users Model: "+this.name+"\t"+this.email+"\t"+this.mobile+"\n\tthis.gender"+"\t"+this.commentedPosts+"\t"+this.bookmarkedPosts);
     }
@@ -97,5 +99,13 @@ public class Users {
 
     public void setBookmarkedPosts(ArrayList<String> bookmarkedPosts) {
         this.bookmarkedPosts = bookmarkedPosts;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
