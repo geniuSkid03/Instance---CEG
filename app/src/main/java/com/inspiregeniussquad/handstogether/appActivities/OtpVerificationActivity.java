@@ -8,6 +8,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +41,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     AppCompatButton verifyBtn;
 
     @BindView(R.id.otp)
-    TextInputEditText otpEd;
+    EditText otpEd;
 
     @BindView(R.id.otp_timer)
     TextView otpTimerTv;
@@ -187,7 +188,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                     public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(s, forceResendingToken);
                         cancelProgress();
-                        AppHelper.showToast(OtpVerificationActivity.this, "Code sent!");
+//                        AppHelper.showToast(OtpVerificationActivity.this, "Code sent!");
 
                         //saving this for requesting OTP again
                         verificationId = s;
@@ -278,26 +279,10 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                 Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
                         (String) usersMap.get(Keys.ATTR_EMAIL),
                         (String) usersMap.get(Keys.ATTR_MOBILE),
-                        (String) usersMap.get(Keys.ATTR_GENDER));
+                        (String) usersMap.get(Keys.ATTR_GENDER),
+                        (String) usersMap.get(Keys.IS_ADMIN));
 
-//                GenericTypeIndicator<ArrayList<String>> likeGenericTypeIndicator = new GenericTypeIndicator<ArrayList<String>>() {
-//                };
-//                ArrayList<String> userLikedPosts = dataSnapshot.getValue(likeGenericTypeIndicator);
-//
-//                GenericTypeIndicator<ArrayList<String>> commentIndicator = new GenericTypeIndicator<ArrayList<String>>() {
-//                };
-//                ArrayList<String> userCommentedPosts = dataSnapshot.getValue(commentIndicator);
-//
-//                GenericTypeIndicator<ArrayList<String>> bookmarkedIndicator = new GenericTypeIndicator<ArrayList<String>>() {
-//                };
-//                ArrayList<String> userBookmarkedPosts = dataSnapshot.getValue(bookmarkedIndicator);
-
-//                AppHelper.print("Liked posts count: "+userLikedPosts.size());
-
-//                users.setLikedPosts(userLikedPosts);
-//                users.setBookmarkedPosts(userBookmarkedPosts);
-//                users.setCommentedPosts(userCommentedPosts);
-
+                dataStorage.saveString(Keys.IS_ADMIN, users.getIsAdmin());
                 dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
             }
         }
@@ -324,6 +309,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     private void goToHome() {
         cancelProgress();
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
+        dataStorage.saveString(Keys.MOBILE, mobileNumber);
         goTo(OtpVerificationActivity.this, MainActivity.class, true);
     }
 

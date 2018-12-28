@@ -35,7 +35,7 @@ import java.util.Map;
 public class CircularFragment extends SuperFragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView circularRv;
-    private TextView noCircularTv;
+    private LinearLayout noCircularTv;
 
     private ArrayList<CircularDataItems> circularDataItemsArrayList;
     private CircularFeedAdapter circularFeedAdapter;

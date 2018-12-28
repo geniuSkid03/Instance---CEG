@@ -97,6 +97,13 @@ dependencies {
     //universal image loaded
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
+    //fb integration
+    implementation 'com.facebook.android:facebook-android-sdk:4.1.0'
+
+    //email crash report
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
 }
 
 apply plugin: 'com.google.gms.google-services'

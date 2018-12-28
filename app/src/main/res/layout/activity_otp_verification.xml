@@ -4,120 +4,200 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/verify_btn"
-        android:fillViewport="true"
-        android:fitsSystemWindows="true">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/mob_num_verify"
-                android:layout_width="166dp"
-                android:layout_height="146dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:contentDescription="@null"
-                android:src="@drawable/demoscreen" />
-
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16sp"
-                android:layout_marginEnd="16sp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="@string/wait_we_will_send_otp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp" />
+                android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16sp"
-                android:background="@drawable/border_line"
-                android:gravity="center"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp">
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="100dp"
+                    android:elevation="4dp"
+                    android:padding="8dp">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/otp"
+                    <ImageView
+                        android:id="@+id/ivIcon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/circular_view_white" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/png_mobile_icon" />
+
+                </RelativeLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="@string/otp"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimaryDark" />
 
-            <TextView
-                android:id="@+id/otp_timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="4dp"
-                android:text="@string/otp_timer"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center">
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/rsend_otp_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="8dp"
-                style="@style/ButtonBg"
-                android:text="@string/resend_otp"
-                android:layout_gravity="center"
-                android:visibility="gone" />
+                        <TextView
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="@string/otp_verify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/change_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:padding="4dp"
-                android:text="@string/change_number"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
+                    </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="17sp"
-                android:layout_marginEnd="16sp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="@string/we_will_try_to_auto_verify_if_not_entered_manually"
-                android:textColor="@color/colorPrimaryDark" />
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_weight="1">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/verify_btn"
-        style="@style/ButtonBg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/verify" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_above="@+id/verify_btn">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:minWidth="250dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enter_otp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="3dp"
+                            android:textSize="14sp"
+                            android:layout_marginTop="12dp"
+                            android:padding="4dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginEnd="4dp"
+                            android:gravity="center"
+                            android:id="@+id/otp"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:maxLength="10"
+                            android:background="@drawable/border_line"
+                            android:padding="8dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/change_num"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:layout_weight="1"
+                            android:text="@string/change_number"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/rsend_otp_btn"
+                            style="@style/ButtonBg"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/resend_otp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/otp_timer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/otp_timer"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/verify_btn"
+                    style="@style/ButtonBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/verify" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

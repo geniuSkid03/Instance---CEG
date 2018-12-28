@@ -8,10 +8,26 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -22,12 +38,19 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,10 +58,10 @@ import butterknife.OnClick;
 public class SignupActivity extends SuperCompatActivity {
 
     @BindView(R.id.email)
-    TextInputEditText emailEd;
+    EditText emailEd;
 
     @BindView(R.id.name)
-    TextInputEditText nameEd;
+    EditText nameEd;
 
     @BindView(R.id.radio_grp)
     RadioGroup radioGrp;
@@ -55,14 +78,26 @@ public class SignupActivity extends SuperCompatActivity {
     @BindView(R.id.login_me)
     TextView loginMeBtn;
 
+    @BindView(R.id.facebook_login)
+    ImageView fbLoginIv;
+
+    @BindView(R.id.google_login)
+    ImageView googleLoginIv;
+
     private static final int GMAIL_SIGNIN = 333;
     private GoogleApiClient googleApiClient;
-    private String mobileNumber, name, email, imgUrl;
+    private String mobileNumber, name, email, imgUrl, gender;
+
+    private CallbackManager mCallbackManager;
+    private AccessTokenTracker mTokenTracker;
+    private ProfileTracker mProfileTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         //getting mobile number
         if (getIntent().getExtras() != null) {
@@ -71,18 +106,21 @@ public class SignupActivity extends SuperCompatActivity {
 
         //setting up clients for email auto-retrival process
         setUpGoogle();
+
+        //setting up facebook integration
+        setUpFacebook();
     }
 
-    @OnClick({R.id.login_me, R.id.register_me, R.id.female_rb, R.id.male_rb, R.id.email})
+    @OnClick({R.id.login_me, R.id.register_me, R.id.female_rb, R.id.male_rb, R.id.facebook_login, R.id.google_login})
     public void onclicked(View view) {
         switch (view.getId()) {
             case R.id.login_me:
                 goTo(this, MobileNumberActivity.class, true);
                 break;
             case R.id.register_me:
-                String email = emailEd.getText().toString().trim();
-                String name = nameEd.getText().toString().trim();
-                String gender = maleRdBtn.isChecked() ? Keys.MALE : femaleRdBtn.isChecked() ? Keys.FEMALE : "";
+                email = emailEd.getText().toString().trim();
+                name = nameEd.getText().toString().trim();
+                gender = maleRdBtn.isChecked() ? Keys.MALE : femaleRdBtn.isChecked() ? Keys.FEMALE : "";
 
                 //function to validate and register user
                 checkAndRegister(email, name, gender);
@@ -95,12 +133,10 @@ public class SignupActivity extends SuperCompatActivity {
                 femaleRdBtn.setChecked(false);
                 maleRdBtn.setChecked(true);
                 break;
-            case R.id.email:
-                //clear views
-                emailEd.setText("");
-                nameEd.setText("");
-
-                //function to show email list
+            case R.id.facebook_login:
+                loginWithFb();
+                break;
+            case R.id.google_login:
                 getUserEmail();
                 break;
         }
@@ -127,6 +163,27 @@ public class SignupActivity extends SuperCompatActivity {
             return;
         }
 
+
+        if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
+
+            String admins = dataStorage.getString(Keys.ADMIN_INFO);
+            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
+            }.getType());
+
+            if (adminArrayList.size() != 0) {
+                if (adminArrayList.contains(mobileNumber)) {
+                    createUser("1");
+                } else {
+                    createUser("0");
+                }
+            } else {
+                createUser("0");
+            }
+
+        }
+    }
+
+    private void createUser(String isAdmin) {
         ArrayList<String> likedPostArrayList = new ArrayList<>();
         ArrayList<String> commentedPostArrayList = new ArrayList<>();
         ArrayList<String> bookmarkedPostArrayList = new ArrayList<>();
@@ -135,8 +192,8 @@ public class SignupActivity extends SuperCompatActivity {
         commentedPostArrayList.add("0");
         bookmarkedPostArrayList.add("0");
 
-        Users users = new Users(name, email, mobileNumber, gender,
-                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList, true);
+        Users users = new Users(name, email, mobileNumber, !TextUtils.isEmpty(gender) ? gender : getString(R.string.un_specified),
+                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList, isAdmin);
 
         insertUserIntoDb(users);
     }
@@ -155,6 +212,7 @@ public class SignupActivity extends SuperCompatActivity {
         });
     }
 
+    //todo save user image in firebase
     private void goToHome(Users users) {
         dataStorage.saveString(Keys.USER_NAME, users.getName());
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
@@ -166,11 +224,156 @@ public class SignupActivity extends SuperCompatActivity {
             users.setImgUrl(imgUrl);
         }
 
+        dataStorage.saveString(Keys.MOBILE, users.getMobile());
         dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
 
         cancelProgress();
+
         goTo(this, MainActivity.class, true);
+    }
+
+    private void setUpFacebook() {
+        // Facebook Initialization
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        //  create a callback manager to handle login responses
+        mCallbackManager = CallbackManager.Factory.create();
+
+        // set up Profile Tracker for Profile Change and Set up Token Tracker for Access Token Changes.
+        setupTokenTracker();
+        setupProfileTracker();
+
+        mTokenTracker.startTracking();
+        mProfileTracker.startTracking();
+    }
+
+    private void setupTokenTracker() {
+        mTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                //   Log.i(FACEBOOK, "Profile Access Token Change " + currentAccessToken);
+            }
+        };
+    }
+
+    private void setupProfileTracker() {
+        mProfileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                //   Log.i(FACEBOOK, "Profile Tracker profile changed" + currentProfile);
+                if (currentProfile != null) {
+                    //   Log.i(FACEBOOK, "Profile" + currentProfile);
+                    /*try {
+                        if(currentProfile.getProfilePictureUri(256, 256)!=null) {
+                            Uri uri=currentProfile.getProfilePictureUri(300, 300);
+                            Define.fb_picture=uri.toString();
+                            Log.i(FACEBOOK, "Profile Tracker FB Profile Picture" + Define.fb_picture);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }*/
+
+                }
+            }
+        };
+    }
+
+    private void loginWithFb() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                String fb_first_name = "", fb_last_name = "";
+                                try {
+                                    if (!object.getString("first_name").equals("")) {
+                                        fb_first_name = object.getString("first_name");
+                                        AppHelper.print("first_name: " + fb_first_name);
+                                    }
+                                    if (!object.getString("last_name").equals("")) {
+                                        fb_last_name = object.getString("last_name");
+                                        AppHelper.print("last_name: " + fb_last_name);
+                                    }
+
+                                    name = fb_first_name + fb_last_name;
+
+                                    if (!object.getString("email").equals("")) {
+                                        email = object.getString("email");
+                                        AppHelper.print("email: " + email);
+                                    }
+
+//                                    if (!object.getString("gender").equals("")) {
+//                                        gender = object.getString("gender");
+//                                        AppHelper.print("gender: " + gender);
+//                                    }
+
+                                    if (!object.getJSONObject("picture").getJSONObject("data").getString("url").equals("")) {
+                                        imgUrl = object.getJSONObject("picture").getJSONObject("data").getString("url");
+                                        AppHelper.print("PROFILE PIC" + imgUrl);
+                                    }
+
+                                    dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
+
+                                    checkForFbLogin(email, name);
+
+//                                    checkAndRegister(email, name, gender);
+
+                                } catch (JSONException e) {
+                                    AppHelper.print("Exception in logging with fib");
+                                }
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "first_name,last_name,name,email,gender,picture.width(256).height(256)");
+                graphRequest.setParameters(parameters);
+                graphRequest.executeAsync();
+
+            }
+
+            @Override
+            public void onCancel() {
+                showToast(SignupActivity.this, getString(R.string.fb_login_cancelled));
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                showToast(SignupActivity.this, getString(R.string.b_login_error));
+            }
+        });
+    }
+
+    private void checkForFbLogin(String email, String name) {
+        if(TextUtils.isEmpty(name)) {
+            showSnack(getString(R.string.name_not_found));
+            return;
+        }
+
+        if(TextUtils.isEmpty(email)) {
+            showSnack(getString(R.string.email_not_found));
+            return;
+        }
+
+        if(dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
+
+            String admins = dataStorage.getString(Keys.ADMIN_INFO);
+            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>(){}.getType());
+
+            if(adminArrayList.size() != 0) {
+                if(adminArrayList.contains(mobileNumber)){
+                    createUser("1");
+                } else {
+                    createUser("0");
+                }
+            } else {
+                createUser("0");
+            }
+
+        }
     }
 
     private void setUpGoogle() {
@@ -210,14 +413,15 @@ public class SignupActivity extends SuperCompatActivity {
 
         AppHelper.print("Result code: " + resultCode);
 
-        if(resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case GMAIL_SIGNIN:
-                    AppHelper.print("OnActivityResult : gmail sign in");
-                    //getting email data
-                    GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                    checkEmails(googleSignInResult);
-                    break;
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == GMAIL_SIGNIN) {
+                AppHelper.print("OnActivityResult : gmail sign in");
+                //getting email data
+                GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                checkEmails(googleSignInResult);
+            } else {
+                mCallbackManager.onActivityResult(requestCode, resultCode, data);
             }
         }
 
@@ -235,8 +439,8 @@ public class SignupActivity extends SuperCompatActivity {
                 email = googleSignInAccount.getEmail();
                 imgUrl = String.valueOf(googleSignInAccount.getPhotoUrl());
 
-                emailEd.setText(email);
-                nameEd.setText(name);
+                dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
+
                 AppHelper.print("Image Url: " + imgUrl);
             } else {
                 AppHelper.print("Can't get email id");

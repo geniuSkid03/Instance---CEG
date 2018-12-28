@@ -41,7 +41,9 @@ public class Keys {
     public static final String ADMIN_INFO = "admin_info";
     public static final String FRAGMENT_CLUBS = "FRAGMENT_CLUBS";
     public static final String FRAGMENT_ADMIN = "FRAGMENT_ADMIN";
-    public static final String IS_ADMIN = "is_Admin";
+    public static final String IS_ADMIN = "isAdmin";
+    public static final String USER_PROFILE = "user_profile_image";
+    public static final String ADMIN = "1";
 
     //table names
     public static String TABLE_USER = "Users";

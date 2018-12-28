@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
     android:animateLayoutChanges="true"
-    android:layout_centerInParent="true">
+    android:orientation="vertical"
+    android:id="@+id/root_view"
+    android:background="#ffffff"
+    android:weightSum="3">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:layout_above="@+id/splash_footer"
+        android:src="@drawable/splash_icon" />
+
+    <LinearLayout
+        android:id="@+id/splash_footer"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.inspiregeniussquad.handstogether.appViews.CircularImageView
-            android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_above="@+id/app_name"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="18dp"
-            android:contentDescription="@null"
-            android:src="@mipmap/ic_launcher" />
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
 
         <TextView
+            android:layout_margin="12dp"
             android:id="@+id/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="16dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
@@ -40,19 +45,15 @@
             android:id="@+id/app_motto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="42dp"
-            android:paddingLeft="10dp"
-            android:visibility="gone"
-            android:paddingTop="15dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
-            android:textSize="14sp"
-            android:text="Appreciate the moment"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/connect_yourself_with_ceg"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

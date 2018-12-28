@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="4dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="4dp"
+    app:cardUseCompatPadding="true"
     android:id="@+id/club_view_root"
-    android:layout_height="130dp">
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
 
     <com.inspiregeniussquad.handstogether.appViews.CircularImageView
         android:id="@+id/club_logo"
         android:src="@drawable/ic_clubs"
+        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
 
@@ -17,6 +26,9 @@
         android:layout_below="@+id/club_logo"
         android:text="@string/team_desc"
         android:padding="2dp"
+        android:layout_centerHorizontal="true"
         android:layout_height="match_parent" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

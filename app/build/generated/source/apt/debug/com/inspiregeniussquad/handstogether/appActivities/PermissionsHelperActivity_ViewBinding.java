@@ -16,7 +16,7 @@ import java.lang.Override;
 public class PermissionsHelperActivity_ViewBinding implements Unbinder {
   private PermissionsHelperActivity target;
 
-  private View view2131296361;
+  private View view2131296375;
 
   @UiThread
   public PermissionsHelperActivity_ViewBinding(PermissionsHelperActivity target) {
@@ -31,7 +31,7 @@ public class PermissionsHelperActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.continue_btn, "field 'continueBtn' and method 'onClicked'");
     target.continueBtn = Utils.castView(view, R.id.continue_btn, "field 'continueBtn'", AppCompatButton.class);
-    view2131296361 = view;
+    view2131296375 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class PermissionsHelperActivity_ViewBinding implements Unbinder {
     target.continueBtn = null;
     target.permissionLv = null;
 
-    view2131296361.setOnClickListener(null);
-    view2131296361 = null;
+    view2131296375.setOnClickListener(null);
+    view2131296375 = null;
   }
 }

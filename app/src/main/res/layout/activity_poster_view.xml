@@ -18,10 +18,12 @@
     <ImageView
         android:id="@+id/poster_image"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="match_parent"
         android:transitionName="@string/image_transition"
         android:layout_centerInParent="true"
         android:layout_margin="12dp"
+        android:scaleType="centerInside"
+        android:layout_above="@+id/footer"
         android:contentDescription="@null" />
 
     <ImageView
@@ -46,6 +48,7 @@
             android:clickable="true"
             android:contentDescription="@null"
             android:focusable="true"
+            android:visibility="gone"
             android:foreground="?android:attr/selectableItemBackground"
             android:padding="8dp"
             android:src="@drawable/ic_close_icon"

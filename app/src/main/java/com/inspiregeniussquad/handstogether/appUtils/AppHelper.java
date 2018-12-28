@@ -9,10 +9,13 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Debug;
 import android.provider.MediaStore;
+import android.util.Config;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.inspiregeniussquad.handstogether.BuildConfig;
 import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
 
 import java.io.BufferedInputStream;
@@ -58,6 +61,7 @@ public class AppHelper {
 
     public static void showToast(Context context, String message) {
         if (context != null && context.getResources() != null) {
+            if(BuildConfig.DEBUG)
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +64,7 @@ public class ClubsRecyclerAdapter extends RecyclerView.Adapter<ClubsRecyclerAdap
 
         private CircularImageView clubIconIv;
         private TextView clubsNameTv;
-        private RelativeLayout clubRootLayout;
+        private CardView clubRootLayout;
 
         ClubsItemViewHolder(View view) {
             super(view);

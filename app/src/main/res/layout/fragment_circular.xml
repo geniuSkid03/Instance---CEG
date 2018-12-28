@@ -12,15 +12,31 @@
         android:visibility="gone"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/no_circular_view"
-        android:layout_centerInParent="true"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="2dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="@string/no_circulars"
-        android:textSize="18sp" />
+        android:id="@+id/no_circular_view"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/nothing_emoji" />
+
+        <TextView
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/no_circulars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </RelativeLayout>

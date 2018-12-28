@@ -34,6 +34,7 @@
     <color name="icons_counter_color">#828181</color>
 
     <color name="transparent_black">#80000000</color>
+    <color name="transparent_white">#80FFFFFF</color>
 
     <color name="color_1">#2a6cc8</color>
     <color name="color_2">#7f70e6</color>

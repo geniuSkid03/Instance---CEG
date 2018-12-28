@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Config;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,12 +31,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
+import com.inspiregeniussquad.handstogether.BuildConfig;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appBroadcastReceivers.SignalReceiver;
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appInterfaces.Action;
+import com.inspiregeniussquad.handstogether.appUtils.AppExceptionHelper;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
 
@@ -91,13 +94,20 @@ public class SuperCompatActivity extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        if (BuildConfig.DEBUG) {
+            if (!(Thread.getDefaultUncaughtExceptionHandler() instanceof AppExceptionHelper)) {
+                Thread.setDefaultUncaughtExceptionHandler(
+                        new AppExceptionHelper(getFilesDir().getAbsolutePath()));
+            }
+        }
+
         //init fire base instance
         FirebaseApp.initializeApp(this);
 
         //fire base authentication
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //firebase database
+        //fire base database
         parentDatabaseReference = FirebaseDatabase.getInstance().getReference();
         usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
         teamDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
@@ -265,8 +275,8 @@ public class SuperCompatActivity extends AppCompatActivity {
             View snackBarView = snackbar.getView();
 
             //snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.red));  /*setting up action bar color*/
-            snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.white)); /*setting background color*/
-            ((TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text)).setTextColor(ContextCompat.getColor(this, R.color.black)); /*Setting text color*/
+            snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark)); /*setting background color*/
+            ((TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text)).setTextColor(ContextCompat.getColor(this, R.color.white)); /*Setting text color*/
 
             if (!isFinishing()) {
                 snackbar.show();
@@ -366,14 +376,13 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     protected void checkDataAndOpen() {
+
+        AppHelper.print("Is_Online: "+dataStorage.getBoolean(Keys.IS_ONLINE));
+
         if (dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
             if (dataStorage.isDataAvailable(Keys.MOBILE)) {
-                if (dataStorage.isDataAvailable(Keys.IS_ONLINE)) {
-                    if (dataStorage.getBoolean(Keys.IS_ONLINE)) {
-                        goTo(this, MainActivity.class, true);
-                    } else {
-                        goToMobVerification();
-                    }
+                if (dataStorage.getBoolean(Keys.IS_ONLINE)) {
+                    goTo(this, MainActivity.class, true);
                 } else {
                     goToMobVerification();
                 }

@@ -13,7 +13,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appActivities.AdminActivity;
 import com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity;
 
-public class SettingsFragment extends SuperFragment {
+public class  SettingsFragment extends SuperFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

@@ -11,10 +11,10 @@ INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidMani
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:121:13-57
 manifest
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\b702b32278a5052a0aaae02a23bb31cb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:17:1-24:12
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\dedb1678ed520b4961cf33460d13493b\AndroidManifest.xml:2:1-13:12
@@ -24,6 +24,7 @@ MERGED from [android.arch.persistence.room:runtime:1.1.1] C:\Users\Genius\.gradl
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\fe8359d50eec4e5b50b910a73a820f7d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f603d2b69b4532a8d06c38bc319f6aff\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\8e970950de85409ba73b7baeec638684\AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.android:facebook-android-sdk:4.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.1.0.aar\93715b6731871807e8373ab0f49aef8d\AndroidManifest.xml:21:1-30:12
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.5.aar\d741bba622c4646d1465f7239b394887\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\7f66b422d6b60bf156ef626bb5231489\AndroidManifest.xml:15:1-25:12
@@ -73,33 +74,33 @@ MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Genius\.gradle\ca
 MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\41a5c6099ef81b449235d43829264fef\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:customview:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\3f39e66d8b3c6de4bcb1a15cddc17485\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\075b17caa69a26cbea0c62be00a1f8e9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b96d3deef26e1548bb0267f94a6f3125\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ca219b1c108401eebe0ccba1b2a77d49\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\e1487821b057aab63dc1907e6661fee1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\d7a7bd86ccd3240345df1e23a0ec7160\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8fff87d64f6b41a8862e3637a57e5d2e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:17:1-25:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\623ff9b2fe6dc93f3641cfbb7b51c23b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\d85da623b3778baf10538a9662f02280\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\21755561e92ad57aeafc3053dc85d528\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\f4ef372c8a78ddcff9581efe85eece40\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\74692f710a9db1346fb9504dc3ef9936\AndroidManifest.xml:2:1-7:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
 	package
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-143:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-157:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:11-69
@@ -158,7 +159,7 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:16:22-66
 application
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:18:5-141:19
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:18:5-155:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:22:5-20
 MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\calligraphy-2.2.0.aar\dedb1678ed520b4961cf33460d13493b\AndroidManifest.xml:11:5-20
@@ -167,6 +168,8 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ge
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\6a836675f5555678761f39d88d38a87d\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\8e970950de85409ba73b7baeec638684\AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\8e970950de85409ba73b7baeec638684\AndroidManifest.xml:10:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.1.0.aar\93715b6731871807e8373ab0f49aef8d\AndroidManifest.xml:28:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.1.0.aar\93715b6731871807e8373ab0f49aef8d\AndroidManifest.xml:28:5-20
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.5.aar\d741bba622c4646d1465f7239b394887\AndroidManifest.xml:23:5-40:19
@@ -420,9 +423,31 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:136:13-62
 activity#com.inspiregeniussquad.handstogether.appActivities.AddClubsActivity
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:140:9-77
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:140:9-144:55
+	android:screenOrientation
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:143:13-49
+	android:launchMode
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:142:13-44
+	android:theme
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:144:13-52
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:140:19-65
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:141:13-59
+activity#com.facebook.FacebookActivity
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:145:9-149:75
+	android:label
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:148:13-45
+	android:configChanges
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:147:13-96
+	android:theme
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:149:13-72
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:146:13-57
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:151:9-153:54
+	android:value
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:153:13-52
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:152:13-58
 uses-sdk
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
@@ -445,6 +470,8 @@ MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Geniu
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f603d2b69b4532a8d06c38bc319f6aff\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\8e970950de85409ba73b7baeec638684\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\8e970950de85409ba73b7baeec638684\AndroidManifest.xml:6:5-8:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.1.0.aar\93715b6731871807e8373ab0f49aef8d\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.1.0.aar\93715b6731871807e8373ab0f49aef8d\AndroidManifest.xml:24:5-26:41
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\1cc08bdb6391e8346d40fba2a89d1c2a\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.5.aar\d741bba622c4646d1465f7239b394887\AndroidManifest.xml:21:5-44
@@ -543,22 +570,22 @@ MERGED from [com.android.support:customview:28.0.0] C:\Users\Genius\.gradle\cach
 MERGED from [com.android.support:customview:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\3f39e66d8b3c6de4bcb1a15cddc17485\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\075b17caa69a26cbea0c62be00a1f8e9\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\075b17caa69a26cbea0c62be00a1f8e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b96d3deef26e1548bb0267f94a6f3125\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b96d3deef26e1548bb0267f94a6f3125\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ca219b1c108401eebe0ccba1b2a77d49\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\ca219b1c108401eebe0ccba1b2a77d49\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\e1487821b057aab63dc1907e6661fee1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\e1487821b057aab63dc1907e6661fee1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\d7a7bd86ccd3240345df1e23a0ec7160\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\d7a7bd86ccd3240345df1e23a0ec7160\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\2a9843c25b1a0fb8d7145f317db1cd47\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\f6286df259126096f401d423daa918f1\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8fff87d64f6b41a8862e3637a57e5d2e\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8fff87d64f6b41a8862e3637a57e5d2e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1cc3795c853133211dbcd55626c6bb06\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\623ff9b2fe6dc93f3641cfbb7b51c23b\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\623ff9b2fe6dc93f3641cfbb7b51c23b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\d85da623b3778baf10538a9662f02280\AndroidManifest.xml:20:5-44

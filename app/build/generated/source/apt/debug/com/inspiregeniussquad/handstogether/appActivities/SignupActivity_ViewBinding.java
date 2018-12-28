@@ -3,9 +3,10 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,15 +20,17 @@ import java.lang.Override;
 public class SignupActivity_ViewBinding implements Unbinder {
   private SignupActivity target;
 
-  private View view2131296385;
+  private View view2131296471;
 
-  private View view2131296452;
+  private View view2131296417;
 
-  private View view2131296401;
+  private View view2131296559;
 
-  private View view2131296535;
+  private View view2131296469;
 
-  private View view2131296450;
+  private View view2131296416;
+
+  private View view2131296428;
 
   @UiThread
   public SignupActivity_ViewBinding(SignupActivity target) {
@@ -39,20 +42,12 @@ public class SignupActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     View view;
-    view = Utils.findRequiredView(source, R.id.email, "field 'emailEd' and method 'onclicked'");
-    target.emailEd = Utils.castView(view, R.id.email, "field 'emailEd'", TextInputEditText.class);
-    view2131296385 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onclicked(p0);
-      }
-    });
-    target.nameEd = Utils.findRequiredViewAsType(source, R.id.name, "field 'nameEd'", TextInputEditText.class);
+    target.emailEd = Utils.findRequiredViewAsType(source, R.id.email, "field 'emailEd'", EditText.class);
+    target.nameEd = Utils.findRequiredViewAsType(source, R.id.name, "field 'nameEd'", EditText.class);
     target.radioGrp = Utils.findRequiredViewAsType(source, R.id.radio_grp, "field 'radioGrp'", RadioGroup.class);
     view = Utils.findRequiredView(source, R.id.male_rb, "field 'maleRdBtn' and method 'onclicked'");
     target.maleRdBtn = Utils.castView(view, R.id.male_rb, "field 'maleRdBtn'", RadioButton.class);
-    view2131296452 = view;
+    view2131296471 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +56,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.female_rb, "field 'femaleRdBtn' and method 'onclicked'");
     target.femaleRdBtn = Utils.castView(view, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
-    view2131296401 = view;
+    view2131296417 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +65,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.register_me, "field 'registerMeBtn' and method 'onclicked'");
     target.registerMeBtn = Utils.castView(view, R.id.register_me, "field 'registerMeBtn'", AppCompatButton.class);
-    view2131296535 = view;
+    view2131296559 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +74,25 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.login_me, "field 'loginMeBtn' and method 'onclicked'");
     target.loginMeBtn = Utils.castView(view, R.id.login_me, "field 'loginMeBtn'", TextView.class);
-    view2131296450 = view;
+    view2131296469 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onclicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.facebook_login, "field 'fbLoginIv' and method 'onclicked'");
+    target.fbLoginIv = Utils.castView(view, R.id.facebook_login, "field 'fbLoginIv'", ImageView.class);
+    view2131296416 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onclicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.google_login, "field 'googleLoginIv' and method 'onclicked'");
+    target.googleLoginIv = Utils.castView(view, R.id.google_login, "field 'googleLoginIv'", ImageView.class);
+    view2131296428 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -102,16 +115,20 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = null;
     target.registerMeBtn = null;
     target.loginMeBtn = null;
+    target.fbLoginIv = null;
+    target.googleLoginIv = null;
 
-    view2131296385.setOnClickListener(null);
-    view2131296385 = null;
-    view2131296452.setOnClickListener(null);
-    view2131296452 = null;
-    view2131296401.setOnClickListener(null);
-    view2131296401 = null;
-    view2131296535.setOnClickListener(null);
-    view2131296535 = null;
-    view2131296450.setOnClickListener(null);
-    view2131296450 = null;
+    view2131296471.setOnClickListener(null);
+    view2131296471 = null;
+    view2131296417.setOnClickListener(null);
+    view2131296417 = null;
+    view2131296559.setOnClickListener(null);
+    view2131296559 = null;
+    view2131296469.setOnClickListener(null);
+    view2131296469 = null;
+    view2131296416.setOnClickListener(null);
+    view2131296416 = null;
+    view2131296428.setOnClickListener(null);
+    view2131296428 = null;
   }
 }

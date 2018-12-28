@@ -152,6 +152,7 @@ public class AddClubsActivity extends SuperCompatActivity {
                         AppHelper.print("Image uploaded but uri null");
                     }
                 } else {
+                    AppHelper.print("Task failed: "+task.getException() );
                     cancelProgress();
                     showInfoAlert(getString(R.string.upload_failed));
                 }

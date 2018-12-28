@@ -118,6 +118,11 @@ public class MainActivity extends SuperCompatActivity {
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setTitle(null);
+        }
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -125,8 +130,6 @@ public class MainActivity extends SuperCompatActivity {
         toggle.syncState();
 
         myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
-
-        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
 
         //to load fragments for navigation drawers
         loadFragments(savedInstanceState);
@@ -158,6 +161,7 @@ public class MainActivity extends SuperCompatActivity {
 
         loadPersonalData();
 
+        dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, true);
     }
 
@@ -202,7 +206,7 @@ public class MainActivity extends SuperCompatActivity {
             }
         });
 
-        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
             adminFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
                 @Override
                 public void refreshFragments() {
@@ -215,7 +219,7 @@ public class MainActivity extends SuperCompatActivity {
         myPagerAdapter.addFragment(Keys.FRAGMENT_HOME, homeFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_CLUBS, clubsFragment);
 
-        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
             myPagerAdapter.addFragment(Keys.FRAGMENT_ADMIN, adminFragment);
         }
 
@@ -240,10 +244,12 @@ public class MainActivity extends SuperCompatActivity {
                 nameTv.setText(users.getName());
 
                 imageView.setBackground(users.getGender().equalsIgnoreCase(Keys.MALE) ?
-                        ContextCompat.getDrawable(this, R.drawable.ic_man) :
-                        ContextCompat.getDrawable(this, R.drawable.ic_girl));
+                        ContextCompat.getDrawable(this, R.drawable.ic_man) : users.getGender().equalsIgnoreCase(Keys.FEMALE) ?
+                        ContextCompat.getDrawable(this, R.drawable.ic_girl) : ContextCompat.getDrawable(this, R.drawable.gender_unspecified));
             }
         }
+
+        AppHelper.print("IsAdmin: "+dataStorage.getString(Keys.IS_ADMIN));
     }
 
     private void openUpdateProfile() {
@@ -262,7 +268,7 @@ public class MainActivity extends SuperCompatActivity {
         navMenuArrayList.add(new NavMenu(getString(R.string.home), R.drawable.ic_dashboard, R.drawable.ic_dashboard_unselected));
         navMenuArrayList.add(new NavMenu(getString(R.string.clubs), R.drawable.ic_clubs, R.drawable.ic_clubs_unselected));
 
-        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
             navMenuArrayList.add(new NavMenu(getString(R.string.admin_panel), R.drawable.ic_admin_panel, R.drawable.ic_admin_panel_unselected));
         }
 
@@ -289,7 +295,7 @@ public class MainActivity extends SuperCompatActivity {
     }
 
     private void onNavItemClicked(int position) {
-        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
             switch (position) {
                 case 0:
                     setAndShowFragment(Keys.FRAGMENT_HOME);
@@ -354,7 +360,7 @@ public class MainActivity extends SuperCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dataStorage.removeAllData();
-                goTo(MainActivity.this, MobileNumberActivity.class, true);
+                goTo(MainActivity.this, SplashActivity.class, true);
             }
         });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -416,6 +422,11 @@ public class MainActivity extends SuperCompatActivity {
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             closeNavMenu();
+            return;
+        }
+
+        if(noSwipeViewPager.getCurrentItem() > 0) {
+            setAndShowFragment(Keys.FRAGMENT_HOME);
             return;
         }
 

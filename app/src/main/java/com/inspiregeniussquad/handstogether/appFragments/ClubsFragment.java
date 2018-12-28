@@ -63,7 +63,7 @@ public class ClubsFragment extends SuperFragment {
         clubsRecyclerAdapter = new ClubsRecyclerAdapter(getContext(), clubsArrayList, new ClubsRecyclerAdapter.ClubClickListener() {
             @Override
             public void onClicked(int position) {
-
+                showToast("Clicked: "+position);
             }
         });
 
@@ -77,7 +77,15 @@ public class ClubsFragment extends SuperFragment {
     }
 
     public void refreshClubsFragment() {
+        if(clubsArrayList.isEmpty()) {
+            clubsArrayList.add(new Clubs("Club one", "https://firebasestorage.googleapis.com/v0/b/wefive-50838.appspot.com/o/TeamLogo%2FCar%20Mech_Logo?alt=media&token=b9736aab-2902-4230-acfa-20cb74a192ca"));
+            clubsArrayList.add(new Clubs("Club Two", "https://firebasestorage.googleapis.com/v0/b/wefive-50838.appspot.com/o/TeamLogo%2FCar%20Mech_Logo?alt=media&token=b9736aab-2902-4230-acfa-20cb74a192ca"));
+            clubsArrayList.add(new Clubs("Club Three", "https://firebasestorage.googleapis.com/v0/b/wefive-50838.appspot.com/o/TeamLogo%2FCar%20Mech_Logo?alt=media&token=b9736aab-2902-4230-acfa-20cb74a192ca"));
+            clubsArrayList.add(new Clubs("Club Four", "https://firebasestorage.googleapis.com/v0/b/wefive-50838.appspot.com/o/TeamLogo%2FCar%20Mech_Logo?alt=media&token=b9736aab-2902-4230-acfa-20cb74a192ca"));
+            clubsArrayList.add(new Clubs("Club Five", "https://firebasestorage.googleapis.com/v0/b/wefive-50838.appspot.com/o/TeamLogo%2FCar%20Mech_Logo?alt=media&token=b9736aab-2902-4230-acfa-20cb74a192ca"));
+        }
 
+        clubsRv.setAdapter(clubsRecyclerAdapter);
     }
 
 

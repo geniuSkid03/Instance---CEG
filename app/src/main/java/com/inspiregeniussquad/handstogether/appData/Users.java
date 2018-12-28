@@ -8,14 +8,14 @@ public class Users {
 
     private String name, email, mobile, gender, imgUrl;
     private ArrayList<String> likedPosts, commentedPosts, bookmarkedPosts;
-    private boolean isAdmin;
+    private String isAdmin; // 0 - false, 1 - true
 
     public Users() {
 
     }
 
     public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
-                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, boolean isAdmin) {
+                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, String isAdmin) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -36,6 +36,14 @@ public class Users {
         this.gender = gender;
     }
 
+    public Users(String name, String email, String mobile, String gender, String isAdmin) {
+//        this.StudentID = StudentID;
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+        this.isAdmin = isAdmin;
+    }
 
     public String getName() {
         return name;
@@ -101,11 +109,12 @@ public class Users {
         this.bookmarkedPosts = bookmarkedPosts;
     }
 
-    public boolean isAdmin() {
+
+    public String getIsAdmin() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -48,7 +49,7 @@ import java.util.Map;
 public class NewsFeedFragment extends SuperFragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView newsFeedRv;
-    private TextView noNewsTv;
+    private LinearLayout noNewsTv;
 
     private boolean isRefreshing;
 

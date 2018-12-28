@@ -3,7 +3,11 @@ package com.inspiregeniussquad.handstogether.appActivities;
 import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +15,7 @@ import android.widget.TextView;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.ImageSaver;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -20,6 +25,9 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -131,7 +139,42 @@ public class PosterViewActivity extends SuperCompatActivity {
     }
 
     private void proceedSaving() {
-        showToast(this, getString(R.string.function_not_set));
+        posterIv.setDrawingCacheEnabled(true);
+        Bitmap bitmap = posterIv.getDrawingCache();
+
+        File file = new File(Environment.getExternalStorageDirectory()
+                + File.separator + getString(R.string.app_name) + File.separator + getString(R.string.posters));
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        String ImgFile = newsFeedItems.geteName() + "_" + new Date().getTime() + ".jpg";
+        File toWriteFile = new File(file, ImgFile);
+
+        if (toWriteFile.exists()) {
+            toWriteFile.delete();
+        }
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(toWriteFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.close();
+            showToast(PosterViewActivity.this, "Poster saved to: " + toWriteFile.getAbsolutePath());
+            refreshGallery(toWriteFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void refreshGallery(File toWriteFile) {
+        MediaScannerConnection.scanFile(this,
+                new String[]{toWriteFile.toString()}, null,
+                new MediaScannerConnection.OnScanCompletedListener() {
+                    public void onScanCompleted(String path, Uri uri) {
+                        AppHelper.print("ExternalStorage Scanned " + path);
+                        AppHelper.print("ExternalStorage -> uri=" + uri);
+                    }
+                });
     }
 
     @Override
