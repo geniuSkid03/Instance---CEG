@@ -288,5 +288,9 @@
     <string name="name_not_found">Name not found!</string>
     <string name="email_not_found">Email not found!</string>
     <string name="un_specified">UnSpecified</string>
+    <string name="google_sign_failed">Google sign in failed!</string>
+    <string name="gmail_sign_in_failed">Gmail sign in failed!</string>
+    <string name="oops_no_bookmarks">You haven\'t made any bookmarks yet!</string>
+    <string name="bookmsrks">Bookmarks</string>
 
 </resources>

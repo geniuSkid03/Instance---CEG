@@ -43,7 +43,8 @@ public class SuperFragment extends Fragment {
 
     protected StorageReference teamLogoStorageReference;
     protected UploadTask uploadTask;
-    protected DatabaseReference teamDbReference, newsDbReference, circularDbReference, clubDbReference;
+    protected DatabaseReference teamDbReference, newsDbReference, circularDbReference,
+            clubDbReference, bookmarksReference;
 
     protected ProgressDialog progressDialog;
     protected AlertDialog simpleAlertDialog, infoAlert;

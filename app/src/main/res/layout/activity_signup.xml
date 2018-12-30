@@ -78,6 +78,7 @@
                                 android:layout_marginStart="4dp"
                                 android:layout_marginEnd="4dp"
                                 android:layout_marginBottom="6dp"
+                                android:textSize="20sp"
                                 android:background="@drawable/border_line"
                                 android:gravity="center"
                                 android:inputType="textCapWords"
@@ -110,6 +111,7 @@
                                 android:layout_marginBottom="6dp"
                                 android:background="@drawable/border_line"
                                 android:gravity="center"
+                                android:textSize="20sp"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
                                 android:padding="8dp" />

@@ -64,7 +64,7 @@ public class SplashActivity extends SuperCompatActivity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash);
 
@@ -80,7 +80,8 @@ public class SplashActivity extends SuperCompatActivity {
         adminDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
+                    AppHelper.print("loading admin data");
                     parseUserInfo(dataSnapshot);
                 } else {
                     retriveTeamDatas();
@@ -90,16 +91,14 @@ public class SplashActivity extends SuperCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 AppHelper.print("User info not loaded");
-                AppHelper.print("Db Error: "+databaseError.getMessage());
+                AppHelper.print("Db Error: " + databaseError.getMessage());
             }
         });
     }
 
-    private ArrayList<Admin> adminsArraylist;
-
     private void parseUserInfo(DataSnapshot dataSnapshot) {
 
-        adminsArraylist = new ArrayList<>();
+        ArrayList<Admin> adminsArraylist = new ArrayList<>();
 
         Map<String, Admin> teamDataMap = (Map<String, Admin>) dataSnapshot.getValue();
 
@@ -113,33 +112,25 @@ public class SplashActivity extends SuperCompatActivity {
             Admin admin = new Admin((String) map.get("name"), (String) map.get("mobile"),
                     (String) map.get("position"));
 
-            AppHelper.print("Name: "+admin.getName());
+            AppHelper.print("Name: " + admin.getName());
+            AppHelper.print("Mobile: " + admin.getMobile());
 
             adminsArraylist.add(admin);
         }
 
         dataStorage.saveString(Keys.ADMIN_INFO, gson.toJson(adminsArraylist));
 
-        retriveTeamDatas();
+        AppHelper.print("Admin info available: " + dataStorage.isDataAvailable(Keys.ADMIN_INFO));
 
-//        animateText(appNameTv, true);
-//
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                animateText(appMottoTv, true);
-//            }
-//        }, 1000);
-    }
 
-    private void animateText(TextView view, boolean show) {
-        if(show) {
-            view.animate().translationY(view.getHeight())
-                    .setInterpolator(new AccelerateInterpolator(1));
-        } else {
-            view.animate().translationY(0).setInterpolator
-                    (new DecelerateInterpolator(1)).start();
+        for (int i=0; i<adminsArraylist.size(); i++) {
+            if (dataStorage.getString(Keys.MOBILE).equals(adminsArraylist.get(i).getMobile())) {
+                AppHelper.print("Mobile matched as admin");
+                dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+            }
         }
+
+        retriveTeamDatas();
     }
 
     public void retriveTeamDatas() {
@@ -166,14 +157,12 @@ public class SplashActivity extends SuperCompatActivity {
     private void retriveDataFromDb(DataSnapshot dataSnapshot) {
         Map<String, TeamData> teamDataMap = (Map<String, TeamData>) dataSnapshot.getValue();
 
-//        teamDatabase.teamDao.deleteAllTeams();
         teamDataArrayList.clear();
 
         for (Map.Entry<String, TeamData> teamDataEntry : teamDataMap.entrySet()) {
             Map map = (Map) teamDataEntry.getValue();
 
             TeamData teamData = new TeamData();
-//            teamData.setTeamId(i);
 
             teamData.setTeamName((String) map.get("teamName"));
             teamData.setTeamMotto((String) map.get("teamMotto"));
@@ -221,47 +210,56 @@ public class SplashActivity extends SuperCompatActivity {
         }, 2000);
     }
 
-    private void animateView(final TextView textView) {
-        textView.animate()
-                .translationY(0)
-                .alpha(0.0f)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        textView.setVisibility(View.VISIBLE);
-                    }
-                });
-    }
-
-    public void animateViewFromBottomToTop(final View view){
-
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-
-            @Override
-            public void onGlobalLayout() {
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                final int TRANSLATION_Y = view.getHeight();
-                view.setTranslationY(TRANSLATION_Y);
-                view.setVisibility(View.GONE);
-                view.animate()
-                        .translationYBy(-TRANSLATION_Y)
-                        .setDuration(500)
-                        .setStartDelay(200)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationStart(final Animator animation) {
-                                view.setVisibility(View.VISIBLE);
-
-                                Toast.makeText(SplashActivity.this, "Anomation started", Toast.LENGTH_SHORT).show();
-
-                            }
-                        })
-                        .start();
-            }
-        });
-    }
+//    private void animateText(TextView view, boolean show) {
+//        if(show) {
+//            view.animate().translationY(view.getHeight())
+//                    .setInterpolator(new AccelerateInterpolator(1));
+//        } else {
+//            view.animate().translationY(0).setInterpolator
+//                    (new DecelerateInterpolator(1)).start();
+//        }
+//    }
+//    private void animateView(final TextView textView) {
+//        textView.animate()
+//                .translationY(0)
+//                .alpha(0.0f)
+//                .setListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        super.onAnimationEnd(animation);
+//                        textView.setVisibility(View.VISIBLE);
+//                    }
+//                });
+//    }
+//
+//    public void animateViewFromBottomToTop(final View view){
+//
+//        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//
+//            @Override
+//            public void onGlobalLayout() {
+//                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+//
+//                final int TRANSLATION_Y = view.getHeight();
+//                view.setTranslationY(TRANSLATION_Y);
+//                view.setVisibility(View.GONE);
+//                view.animate()
+//                        .translationYBy(-TRANSLATION_Y)
+//                        .setDuration(500)
+//                        .setStartDelay(200)
+//                        .setListener(new AnimatorListenerAdapter() {
+//                            @Override
+//                            public void onAnimationStart(final Animator animation) {
+//                                view.setVisibility(View.VISIBLE);
+//
+//                                Toast.makeText(SplashActivity.this, "Anomation started", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        })
+//                        .start();
+//            }
+//        });
+//    }
 
 //    public static void slideToBottom(View view){
 //        TranslateAnimation animate = new TranslateAnimation(0,0,0,view.getHeight());
@@ -324,10 +322,4 @@ public class SplashActivity extends SuperCompatActivity {
 //                });
 //
 //    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
 }

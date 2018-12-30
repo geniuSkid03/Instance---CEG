@@ -32,6 +32,7 @@ import com.inspiregeniussquad.handstogether.appData.NavMenu;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appFragments.AboutFragment;
 import com.inspiregeniussquad.handstogether.appFragments.AdminFragment;
+import com.inspiregeniussquad.handstogether.appFragments.BookmarksFragment;
 import com.inspiregeniussquad.handstogether.appFragments.ClubsFragment;
 import com.inspiregeniussquad.handstogether.appFragments.HomeFragment;
 import com.inspiregeniussquad.handstogether.appFragments.SettingsFragment;
@@ -79,6 +80,7 @@ public class MainActivity extends SuperCompatActivity {
     private ClubsFragment clubsFragment;
     private SettingsFragment settingsFragment;
     private AdminFragment adminFragment;
+    private BookmarksFragment bookmarksFragment;
     private AboutFragment aboutFragment;
 
     private NavMenuAdapter navMenuAdapter;
@@ -109,6 +111,10 @@ public class MainActivity extends SuperCompatActivity {
         if (clubsFragment != null && clubsFragment.isAdded()) {
             fragmentManager.putFragment(outState, Keys.FRAGMENT_CLUBS, clubsFragment);
         }
+
+        if (bookmarksFragment != null) {
+            fragmentManager.putFragment(outState, Keys.FRAGMENT_BOOKMARKS, bookmarksFragment);
+        }
     }
 
     @Override
@@ -118,7 +124,7 @@ public class MainActivity extends SuperCompatActivity {
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setTitle(null);
@@ -174,6 +180,7 @@ public class MainActivity extends SuperCompatActivity {
             adminFragment = (AdminFragment) fragmentManager.getFragment(bundle, Keys.FRAGMENT_ADMIN);
             settingsFragment = (SettingsFragment) fragmentManager.getFragment(bundle, Keys.FRAGMENT_SETTINGS);
             aboutFragment = (AboutFragment) fragmentManager.getFragment(bundle, Keys.FRAGMENT_ABOUT);
+            bookmarksFragment = (BookmarksFragment) fragmentManager.getFragment(bundle, Keys.FRAGMENT_BOOKMARKS);
         }
 
         if (homeFragment == null) {
@@ -192,6 +199,10 @@ public class MainActivity extends SuperCompatActivity {
             aboutFragment = new AboutFragment();
         }
 
+        if (bookmarksFragment == null) {
+            bookmarksFragment = new BookmarksFragment();
+        }
+
         homeFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
             @Override
             public void refreshFragments() {
@@ -206,7 +217,14 @@ public class MainActivity extends SuperCompatActivity {
             }
         });
 
-        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
+        bookmarksFragment.setFragmentInterfaceListener(new FragmentInterfaceListener() {
+            @Override
+            public void refreshFragments() {
+                bookmarksFragment.refreshBookmarks();
+            }
+        });
+
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             adminFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
                 @Override
                 public void refreshFragments() {
@@ -219,15 +237,15 @@ public class MainActivity extends SuperCompatActivity {
         myPagerAdapter.addFragment(Keys.FRAGMENT_HOME, homeFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_CLUBS, clubsFragment);
 
-        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             myPagerAdapter.addFragment(Keys.FRAGMENT_ADMIN, adminFragment);
         }
-
+        myPagerAdapter.addFragment(Keys.FRAGMENT_BOOKMARKS, bookmarksFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_SETTINGS, settingsFragment);
         myPagerAdapter.addFragment(Keys.FRAGMENT_ABOUT, aboutFragment);
 
         noSwipeViewPager.setAdapter(myPagerAdapter);
-        noSwipeViewPager.setOffscreenPageLimit(4);
+        noSwipeViewPager.setOffscreenPageLimit(5);
     }
 
     private void loadPersonalData() {
@@ -249,7 +267,7 @@ public class MainActivity extends SuperCompatActivity {
             }
         }
 
-        AppHelper.print("IsAdmin: "+dataStorage.getString(Keys.IS_ADMIN));
+        AppHelper.print("IsAdmin: " + dataStorage.getBoolean(Keys.IS_ADMIN));
     }
 
     private void openUpdateProfile() {
@@ -268,10 +286,11 @@ public class MainActivity extends SuperCompatActivity {
         navMenuArrayList.add(new NavMenu(getString(R.string.home), R.drawable.ic_dashboard, R.drawable.ic_dashboard_unselected));
         navMenuArrayList.add(new NavMenu(getString(R.string.clubs), R.drawable.ic_clubs, R.drawable.ic_clubs_unselected));
 
-        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             navMenuArrayList.add(new NavMenu(getString(R.string.admin_panel), R.drawable.ic_admin_panel, R.drawable.ic_admin_panel_unselected));
         }
 
+        navMenuArrayList.add(new NavMenu(getString(R.string.bookmsrks), R.drawable.ic_bookmark_done, R.drawable.ic_bookmark_icon));
         navMenuArrayList.add(new NavMenu(getString(R.string.settings), R.drawable.ic_settings, R.drawable.ic_settings_unselected));
         navMenuArrayList.add(new NavMenu(getString(R.string.about), R.drawable.ic_about, R.drawable.ic_about_unselected));
         navMenuArrayList.add(new NavMenu(getString(R.string.sign_out), R.drawable.ic_sign_out, R.drawable.ic_sign_out_unselected));
@@ -295,7 +314,7 @@ public class MainActivity extends SuperCompatActivity {
     }
 
     private void onNavItemClicked(int position) {
-        if (dataStorage.getString(Keys.IS_ADMIN).equalsIgnoreCase(Keys.ADMIN)) {
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             switch (position) {
                 case 0:
                     setAndShowFragment(Keys.FRAGMENT_HOME);
@@ -307,12 +326,15 @@ public class MainActivity extends SuperCompatActivity {
                     setAndShowFragment(Keys.FRAGMENT_ADMIN);
                     break;
                 case 3:
-                    setAndShowFragment(Keys.FRAGMENT_SETTINGS);
+                    setAndShowFragment(Keys.FRAGMENT_BOOKMARKS);
                     break;
                 case 4:
-                    setAndShowFragment(Keys.FRAGMENT_ABOUT);
+                    setAndShowFragment(Keys.FRAGMENT_SETTINGS);
                     break;
                 case 5:
+                    setAndShowFragment(Keys.FRAGMENT_ABOUT);
+                    break;
+                case 6:
                     showSignoutAlert();
                     break;
             }
@@ -325,12 +347,15 @@ public class MainActivity extends SuperCompatActivity {
                     setAndShowFragment(Keys.FRAGMENT_CLUBS);
                     break;
                 case 2:
-                    setAndShowFragment(Keys.FRAGMENT_SETTINGS);
+                    setAndShowFragment(Keys.FRAGMENT_BOOKMARKS);
                     break;
                 case 3:
-                    setAndShowFragment(Keys.FRAGMENT_ABOUT);
+                    setAndShowFragment(Keys.FRAGMENT_SETTINGS);
                     break;
                 case 4:
+                    setAndShowFragment(Keys.FRAGMENT_ABOUT);
+                    break;
+                case 5:
                     showSignoutAlert();
                     break;
             }
@@ -425,7 +450,7 @@ public class MainActivity extends SuperCompatActivity {
             return;
         }
 
-        if(noSwipeViewPager.getCurrentItem() > 0) {
+        if (noSwipeViewPager.getCurrentItem() > 0) {
             setAndShowFragment(Keys.FRAGMENT_HOME);
             return;
         }

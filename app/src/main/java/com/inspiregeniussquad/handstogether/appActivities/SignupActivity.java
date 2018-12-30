@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -48,7 +46,6 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -86,7 +83,7 @@ public class SignupActivity extends SuperCompatActivity {
 
     private static final int GMAIL_SIGNIN = 333;
     private GoogleApiClient googleApiClient;
-    private String mobileNumber, name, email, imgUrl, gender;
+    private String mobileNumber, name, email, gender;
 
     private CallbackManager mCallbackManager;
     private AccessTokenTracker mTokenTracker;
@@ -123,7 +120,7 @@ public class SignupActivity extends SuperCompatActivity {
                 gender = maleRdBtn.isChecked() ? Keys.MALE : femaleRdBtn.isChecked() ? Keys.FEMALE : "";
 
                 //function to validate and register user
-                checkAndRegister(email, name, gender);
+                checkAndRegister(email, name, gender, 1);
                 break;
             case R.id.female_rb:
                 maleRdBtn.setChecked(false);
@@ -142,7 +139,14 @@ public class SignupActivity extends SuperCompatActivity {
         }
     }
 
-    private void checkAndRegister(String email, String name, String gender) {
+    /*
+     *  1- direct sign up (name, email, gender)
+     *  2- fb sign up (name, email, img)
+     *  3- google sign up (name, email, img)
+     *
+     * */
+
+    private void checkAndRegister(String email, String name, String gender, int signUpMethod) {
         showProgress(getString(R.string.registering_you));
 
         if (TextUtils.isEmpty(email)) {
@@ -157,33 +161,46 @@ public class SignupActivity extends SuperCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(gender)) {
-            cancelProgress();
-            showToast(SignupActivity.this, getString(R.string.choose_gender));
-            return;
+        if (signUpMethod == 1) {
+            if (TextUtils.isEmpty(gender)) {
+                cancelProgress();
+                showToast(SignupActivity.this, getString(R.string.choose_gender));
+                return;
+            }
         }
 
+        AppHelper.print("Sign up method: " + signUpMethod);
+        AppHelper.print("Name: " + name);
+        AppHelper.print("Email: " + email);
+        AppHelper.print("Mobile: " + mobileNumber);
+//        AppHelper.print("profile: "+profileImg);
 
         if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
-
             String admins = dataStorage.getString(Keys.ADMIN_INFO);
             ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
             }.getType());
 
-            if (adminArrayList.size() != 0) {
-                if (adminArrayList.contains(mobileNumber)) {
-                    createUser("1");
-                } else {
-                    createUser("0");
+            if(adminArrayList != null && adminArrayList.size() > 0) {
+                for (Admin admin : adminArrayList) {
+                    AppHelper.print("Admin mobile numbers: " + admin.getMobile());
+
+                    if (admin.getMobile().equals(mobileNumber)) {
+                        createUser("1");
+                        return;
+                    } else {
+                        createUser("0");
+                        return;
+                    }
                 }
             } else {
                 createUser("0");
             }
-
         }
     }
 
     private void createUser(String isAdmin) {
+        AppHelper.print("Creating user as: "+isAdmin);
+
         ArrayList<String> likedPostArrayList = new ArrayList<>();
         ArrayList<String> commentedPostArrayList = new ArrayList<>();
         ArrayList<String> bookmarkedPostArrayList = new ArrayList<>();
@@ -194,9 +211,64 @@ public class SignupActivity extends SuperCompatActivity {
 
         Users users = new Users(name, email, mobileNumber, !TextUtils.isEmpty(gender) ? gender : getString(R.string.un_specified),
                 likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList, isAdmin);
-
+//        if(!TextUtils.isEmpty(imgUrl)) {
+//            uploadUserImage(users);
+//        } else {
+//        }
         insertUserIntoDb(users);
     }
+
+//    private void uploadUserImage(final Users users) {
+//        String imgName = users.getName()+"_img";
+//        showProgress(getString(R.string.uploading_data));
+//
+//        File file = new File(users.getImgUrl());
+//
+//        Uri imgUri = Uri.fromFile(file);
+//
+//        AppHelper.print("Image Uri: "+imgUri);
+//
+//        final StorageReference storageRef = storageReference.child(Keys.USER_PROF + imgName);
+//
+//        uploadTask = storageRef.putFile(imgUri);
+//
+//        Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+//            @Override
+//            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                if (!task.isSuccessful()) {
+//                    showInfoAlert(getString(R.string.upload_failed));
+//                    AppHelper.print("Task unsuccessful!");
+//                    throw task.getException();
+//                }
+//                cancelProgress();
+//
+//                return storageRef.getDownloadUrl();
+//            }
+//        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Uri> task) {
+//                if (task.isSuccessful()) {
+//                    cancelProgress();
+//
+//                    if (task.getResult() != null) {
+//                        String photoStringLink = task.getResult().toString();
+//                        AppHelper.print("Uploaded logo Uri " + photoStringLink);
+//
+//                        users.setImgUrl(photoStringLink);
+//
+//                        insertUserIntoDb(users);
+//
+//                    } else {
+//                        cancelProgress();
+//                        AppHelper.print("Image uploaded but uri null");
+//                    }
+//                } else {
+//                    cancelProgress();
+//                    showInfoAlert(getString(R.string.upload_failed));
+//                }
+//            }
+//        });
+//    }
 
     private void insertUserIntoDb(final Users users) {
         usersDatabaseReference.child(users.getMobile()).setValue(users, new DatabaseReference.CompletionListener() {
@@ -218,11 +290,11 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
         dataStorage.saveString(Keys.USER_EMAIL, users.getEmail());
         dataStorage.saveString(Keys.USER_GENDER, users.getGender());
-        dataStorage.saveString(Keys.PROFILE_IMAGE, imgUrl);
-
-        if (!TextUtils.isEmpty(imgUrl)) {
-            users.setImgUrl(imgUrl);
-        }
+//        dataStorage.saveString(Keys.PROFILE_IMAGE, imgUrl);
+//
+//        if (!TextUtils.isEmpty(imgUrl)) {
+//            users.setImgUrl(imgUrl);
+//        }
 
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
         dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
@@ -312,16 +384,14 @@ public class SignupActivity extends SuperCompatActivity {
 //                                        AppHelper.print("gender: " + gender);
 //                                    }
 
-                                    if (!object.getJSONObject("picture").getJSONObject("data").getString("url").equals("")) {
-                                        imgUrl = object.getJSONObject("picture").getJSONObject("data").getString("url");
-                                        AppHelper.print("PROFILE PIC" + imgUrl);
-                                    }
+//                                    if (!object.getJSONObject("picture").getJSONObject("data").getString("url").equals("")) {
+//                                        imgUrl = object.getJSONObject("picture").getJSONObject("data").getString("url");
+//                                        AppHelper.print("PROFILE PIC" + imgUrl);
+//                                    }
 
-                                    dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
+//                                    dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
 
-                                    checkForFbLogin(email, name);
-
-//                                    checkAndRegister(email, name, gender);
+                                    checkAndRegister(email, name, "", 2);
 
                                 } catch (JSONException e) {
                                     AppHelper.print("Exception in logging with fib");
@@ -345,35 +415,6 @@ public class SignupActivity extends SuperCompatActivity {
                 showToast(SignupActivity.this, getString(R.string.b_login_error));
             }
         });
-    }
-
-    private void checkForFbLogin(String email, String name) {
-        if(TextUtils.isEmpty(name)) {
-            showSnack(getString(R.string.name_not_found));
-            return;
-        }
-
-        if(TextUtils.isEmpty(email)) {
-            showSnack(getString(R.string.email_not_found));
-            return;
-        }
-
-        if(dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
-
-            String admins = dataStorage.getString(Keys.ADMIN_INFO);
-            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>(){}.getType());
-
-            if(adminArrayList.size() != 0) {
-                if(adminArrayList.contains(mobileNumber)){
-                    createUser("1");
-                } else {
-                    createUser("0");
-                }
-            } else {
-                createUser("0");
-            }
-
-        }
     }
 
     private void setUpGoogle() {
@@ -414,12 +455,15 @@ public class SignupActivity extends SuperCompatActivity {
         AppHelper.print("Result code: " + resultCode);
 
         if (resultCode == RESULT_OK) {
-
             if (requestCode == GMAIL_SIGNIN) {
                 AppHelper.print("OnActivityResult : gmail sign in");
                 //getting email data
-                GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                checkEmails(googleSignInResult);
+                if (data != null) {
+                    GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    checkEmails(googleSignInResult);
+                } else {
+                    showSnack(getString(R.string.gmail_sign_in_failed));
+                }
             } else {
                 mCallbackManager.onActivityResult(requestCode, resultCode, data);
             }
@@ -437,12 +481,12 @@ public class SignupActivity extends SuperCompatActivity {
             if (googleSignInAccount != null) {
                 name = googleSignInAccount.getDisplayName();
                 email = googleSignInAccount.getEmail();
-                imgUrl = String.valueOf(googleSignInAccount.getPhotoUrl());
 
-                dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
+                AppHelper.print("Gmail sign in: " + name+"\t"+email);
 
-                AppHelper.print("Image Url: " + imgUrl);
+                checkAndRegister(email, name, getString(R.string.un_specified), 3);
             } else {
+                showSnack(getString(R.string.google_sign_failed));
                 AppHelper.print("Can't get email id");
             }
 

@@ -1,7 +1,9 @@
 package com.inspiregeniussquad.handstogether.appUtils;
 
 import android.annotation.TargetApi;
+import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -9,6 +11,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+
+import java.io.File;
 
 public class ImageHelper {
     /**
@@ -153,4 +157,40 @@ public class ImageHelper {
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
+
+    public static Uri getImageContentUri(Context context, File imageFile) {
+        String filePath = imageFile.getAbsolutePath();
+        Cursor cursor = context.getContentResolver().query(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                new String[] { MediaStore.Images.Media._ID },
+                MediaStore.Images.Media.DATA + "=? ",
+                new String[] { filePath }, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndex(MediaStore.MediaColumns._ID));
+            cursor.close();
+            return Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "" + id);
+        } else {
+            if (imageFile.exists()) {
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Images.Media.DATA, filePath);
+                return context.getContentResolver().insert(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            } else {
+                return null;
+            }
+        }
+    }
+
+//    public static Uri getUri(ContentResolver cr, String path){
+//        Uri mediaUri = MediaStore.Files.getContentUri(VOLUME_NAME);
+//        Cursor ca = cr.query(mediaUri, new String[] { MediaStore.MediaColumns._ID }, MediaStore.MediaColumns.DATA + "=?", new String[] {path}, null);
+//        if (ca != null && ca.moveToFirst()) {
+//            int id = ca.getInt(ca.getColumnIndex(MediaStore.MediaColumns._ID));
+//            ca.close();
+//            return  MediaStore.Files.getContentUri(VOLUME_NAME,id);
+//        }
+//        ca.close();
+//        return null;
+//    }
+
 }

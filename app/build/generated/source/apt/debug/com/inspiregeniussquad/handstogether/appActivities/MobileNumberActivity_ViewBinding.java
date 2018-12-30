@@ -16,7 +16,7 @@ import java.lang.Override;
 public class MobileNumberActivity_ViewBinding implements Unbinder {
   private MobileNumberActivity target;
 
-  private View view2131296375;
+  private View view2131296376;
 
   @UiThread
   public MobileNumberActivity_ViewBinding(MobileNumberActivity target) {
@@ -31,7 +31,7 @@ public class MobileNumberActivity_ViewBinding implements Unbinder {
     target.inputMobile = Utils.findRequiredViewAsType(source, R.id.mobile, "field 'inputMobile'", EditText.class);
     view = Utils.findRequiredView(source, R.id.continue_btn, "field 'continueBtn' and method 'onClick'");
     target.continueBtn = Utils.castView(view, R.id.continue_btn, "field 'continueBtn'", AppCompatButton.class);
-    view2131296375 = view;
+    view2131296376 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class MobileNumberActivity_ViewBinding implements Unbinder {
     target.inputMobile = null;
     target.continueBtn = null;
 
-    view2131296375.setOnClickListener(null);
-    view2131296375 = null;
+    view2131296376.setOnClickListener(null);
+    view2131296376 = null;
   }
 }

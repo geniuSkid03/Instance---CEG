@@ -100,31 +100,31 @@ public final class R {
         private id() {}
 
         public static final int automatic = 0x7f090039;
-        public static final int bottom = 0x7f09003f;
-        public static final int box_count = 0x7f090040;
-        public static final int button = 0x7f090041;
-        public static final int center = 0x7f090047;
-        public static final int com_facebook_body_frame = 0x7f090067;
-        public static final int com_facebook_button_xout = 0x7f090068;
-        public static final int com_facebook_fragment_container = 0x7f090069;
-        public static final int com_facebook_login_activity_progress_bar = 0x7f09006a;
-        public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f09006b;
-        public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f09006c;
-        public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f09006d;
-        public static final int display_always = 0x7f09008b;
-        public static final int inline = 0x7f0900bc;
-        public static final int large = 0x7f0900c3;
-        public static final int left = 0x7f0900c5;
-        public static final int messenger_send_button = 0x7f0900e8;
-        public static final int never_display = 0x7f0900fd;
-        public static final int normal = 0x7f09010c;
-        public static final int open_graph = 0x7f090111;
-        public static final int page = 0x7f090116;
-        public static final int right = 0x7f090132;
-        public static final int small = 0x7f09015b;
-        public static final int standard = 0x7f09016a;
-        public static final int top = 0x7f090197;
-        public static final int unknown = 0x7f0901a1;
+        public static final int bottom = 0x7f090040;
+        public static final int box_count = 0x7f090041;
+        public static final int button = 0x7f090042;
+        public static final int center = 0x7f090048;
+        public static final int com_facebook_body_frame = 0x7f090068;
+        public static final int com_facebook_button_xout = 0x7f090069;
+        public static final int com_facebook_fragment_container = 0x7f09006a;
+        public static final int com_facebook_login_activity_progress_bar = 0x7f09006b;
+        public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f09006c;
+        public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f09006d;
+        public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f09006e;
+        public static final int display_always = 0x7f09008c;
+        public static final int inline = 0x7f0900bd;
+        public static final int large = 0x7f0900c4;
+        public static final int left = 0x7f0900c6;
+        public static final int messenger_send_button = 0x7f0900e9;
+        public static final int never_display = 0x7f0900fe;
+        public static final int normal = 0x7f09010e;
+        public static final int open_graph = 0x7f090113;
+        public static final int page = 0x7f090118;
+        public static final int right = 0x7f090134;
+        public static final int small = 0x7f09015d;
+        public static final int standard = 0x7f09016c;
+        public static final int top = 0x7f090199;
+        public static final int unknown = 0x7f0901a3;
     }
     public static final class layout {
         private layout() {}
@@ -132,33 +132,33 @@ public final class R {
         public static final int com_facebook_activity_layout = 0x7f0c0038;
         public static final int com_facebook_login_fragment = 0x7f0c0039;
         public static final int com_facebook_tooltip_bubble = 0x7f0c003a;
-        public static final int messenger_button_send_blue_large = 0x7f0c0060;
-        public static final int messenger_button_send_blue_round = 0x7f0c0061;
-        public static final int messenger_button_send_blue_small = 0x7f0c0062;
-        public static final int messenger_button_send_white_large = 0x7f0c0063;
-        public static final int messenger_button_send_white_round = 0x7f0c0064;
-        public static final int messenger_button_send_white_small = 0x7f0c0065;
+        public static final int messenger_button_send_blue_large = 0x7f0c0061;
+        public static final int messenger_button_send_blue_round = 0x7f0c0062;
+        public static final int messenger_button_send_blue_small = 0x7f0c0063;
+        public static final int messenger_button_send_white_large = 0x7f0c0064;
+        public static final int messenger_button_send_white_round = 0x7f0c0065;
+        public static final int messenger_button_send_white_small = 0x7f0c0066;
     }
     public static final class string {
         private string() {}
 
-        public static final int com_facebook_image_download_unknown_error = 0x7f0f0063;
-        public static final int com_facebook_internet_permission_error_message = 0x7f0f0064;
-        public static final int com_facebook_internet_permission_error_title = 0x7f0f0065;
-        public static final int com_facebook_like_button_liked = 0x7f0f0066;
-        public static final int com_facebook_like_button_not_liked = 0x7f0f0067;
-        public static final int com_facebook_loading = 0x7f0f0068;
-        public static final int com_facebook_loginview_cancel_action = 0x7f0f0069;
-        public static final int com_facebook_loginview_log_in_button = 0x7f0f006a;
-        public static final int com_facebook_loginview_log_in_button_long = 0x7f0f006b;
-        public static final int com_facebook_loginview_log_out_action = 0x7f0f006c;
-        public static final int com_facebook_loginview_log_out_button = 0x7f0f006d;
-        public static final int com_facebook_loginview_logged_in_as = 0x7f0f006e;
-        public static final int com_facebook_loginview_logged_in_using_facebook = 0x7f0f006f;
-        public static final int com_facebook_send_button_text = 0x7f0f0070;
-        public static final int com_facebook_share_button_text = 0x7f0f0071;
-        public static final int com_facebook_tooltip_default = 0x7f0f0072;
-        public static final int messenger_send_button_text = 0x7f0f00f7;
+        public static final int com_facebook_image_download_unknown_error = 0x7f0f0064;
+        public static final int com_facebook_internet_permission_error_message = 0x7f0f0065;
+        public static final int com_facebook_internet_permission_error_title = 0x7f0f0066;
+        public static final int com_facebook_like_button_liked = 0x7f0f0067;
+        public static final int com_facebook_like_button_not_liked = 0x7f0f0068;
+        public static final int com_facebook_loading = 0x7f0f0069;
+        public static final int com_facebook_loginview_cancel_action = 0x7f0f006a;
+        public static final int com_facebook_loginview_log_in_button = 0x7f0f006b;
+        public static final int com_facebook_loginview_log_in_button_long = 0x7f0f006c;
+        public static final int com_facebook_loginview_log_out_action = 0x7f0f006d;
+        public static final int com_facebook_loginview_log_out_button = 0x7f0f006e;
+        public static final int com_facebook_loginview_logged_in_as = 0x7f0f006f;
+        public static final int com_facebook_loginview_logged_in_using_facebook = 0x7f0f0070;
+        public static final int com_facebook_send_button_text = 0x7f0f0071;
+        public static final int com_facebook_share_button_text = 0x7f0f0072;
+        public static final int com_facebook_tooltip_default = 0x7f0f0073;
+        public static final int messenger_send_button_text = 0x7f0f00fa;
     }
     public static final class style {
         private style() {}

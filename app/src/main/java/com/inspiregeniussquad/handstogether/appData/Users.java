@@ -15,6 +15,21 @@ public class Users {
     }
 
     public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
+                 ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, String isAdmin, String imgUrl) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+        this.likedPosts = likedPosts;
+        this.commentedPosts = commentedPosts;
+        this.bookmarkedPosts = bookmarkedPosts;
+        this.isAdmin = isAdmin;
+        this.imgUrl = imgUrl;
+
+        AppHelper.print("Users Model: "+this.name+"\t"+this.email+"\t"+this.mobile+"\n\tthis.gender"+"\t"+this.commentedPosts+"\t"+this.bookmarkedPosts);
+    }
+
+    public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
                  ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, String isAdmin) {
         this.name = name;
         this.email = email;

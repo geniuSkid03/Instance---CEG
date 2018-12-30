@@ -22,11 +22,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
@@ -128,7 +131,7 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                     public void onCodeAutoRetrievalTimeOut(String s) {
                         cancelProgress();
                         //showSnackBar(getString(R.string.verification_failed), 1);
-                        AppHelper.print("Verification Code auto retrivcal timeout: " + s);
+                        AppHelper.print("Verification Code auto retrival timeout: " + s);
                     }
 
                     @Override
@@ -268,37 +271,50 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     private void retriveMobileFromDatabase(DataSnapshot dataSnapshot, String mobileNumber) {
         ArrayList<String> phoneNumbers = new ArrayList<>();
 
-        Map<String, Object> value = (Map<String, Object>) dataSnapshot.getValue();
+        Map<String, Users> value = (Map<String, Users>) dataSnapshot.getValue();
 
-        for (Map.Entry<String, Object> entry : value.entrySet()) {
+        for (Map.Entry<String, Users> entry : value.entrySet()) {
             Map usersMap = (Map) entry.getValue();
             phoneNumbers.add((String) usersMap.get(Keys.ATTR_MOBILE));
 
             //trying to load profile of user, if mobile number found
-            if(((String) usersMap.get(Keys.ATTR_MOBILE)).equalsIgnoreCase(mobileNumber)) {
-                Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
-                        (String) usersMap.get(Keys.ATTR_EMAIL),
-                        (String) usersMap.get(Keys.ATTR_MOBILE),
-                        (String) usersMap.get(Keys.ATTR_GENDER),
-                        (String) usersMap.get(Keys.IS_ADMIN));
 
-                dataStorage.saveString(Keys.IS_ADMIN, users.getIsAdmin());
-                dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
+            for (String phone : phoneNumbers) {
+                if (phone.equals(mobileNumber)) {
+                    Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
+                            (String) usersMap.get(Keys.ATTR_EMAIL),
+                            (String) usersMap.get(Keys.ATTR_MOBILE),
+                            (String) usersMap.get(Keys.ATTR_GENDER),
+                            (String) usersMap.get(Keys.IS_ADMIN));
+
+                    if (!users.getIsAdmin().equals(Keys.NOT_ADMIN)) {
+                        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                    }
+
+                    dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
+
+                    goToHome();
+
+                    return;
+                }
             }
         }
 
-        if (phoneNumbers.size() != 0) {
-            if (phoneNumbers.contains(mobileNumber)) {
-                //user already registered load profile and go home
-                goToHome();
-            } else {
-                //user not registered
-                goToSignUp();
-            }
-        } else {
-            //user not registered
-            goToSignUp();
-        }
+        goToSignUp();
+
+
+//        if (phoneNumbers.size() != 0) {
+//            if (phoneNumbers.contains(mobileNumber)) {
+//                //user already registered load profile and go home
+//                goToHome();
+//            } else {
+//                //user not registered
+//                goToSignUp();
+//            }
+//        } else {
+//            //user not registered
+//            goToSignUp();
+//        }
     }
 
     private void goToSignUp() {
@@ -307,10 +323,26 @@ public class OtpVerificationActivity extends SuperCompatActivity {
     }
 
     private void goToHome() {
+
+        if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
+            String adminInfo = dataStorage.getString(Keys.ADMIN_INFO);
+
+            ArrayList<Admin> adminArrayList = gson.fromJson(adminInfo, new TypeToken<ArrayList<Admin>>() {
+            }.getType());
+
+            if (adminArrayList.size() > 0) {
+                for (Admin admin : adminArrayList) {
+                    if (admin.getMobile().equalsIgnoreCase(mobileNumber)) {
+                        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                    }
+                }
+            }
+        }
+
         cancelProgress();
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveString(Keys.MOBILE, mobileNumber);
-        goTo(OtpVerificationActivity.this, MainActivity.class, true);
+        goTo(this, MainActivity.class, true);
     }
 
     private void showCountTimer() {

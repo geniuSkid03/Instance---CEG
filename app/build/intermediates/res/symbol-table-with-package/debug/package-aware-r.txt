@@ -1367,6 +1367,7 @@ id beginning
 id blocking
 id bookmark
 id bookmark_container
+id bookmark_recycler
 id bottom
 id box_count
 id button
@@ -1563,6 +1564,7 @@ id news_item_image
 id news_rgrb
 id next_btn
 id no_admins
+id no_bookmark_view
 id no_circular_view
 id no_clubs
 id no_comments_tv
@@ -1845,6 +1847,7 @@ layout edit_news_fragment
 layout fragment_about
 layout fragment_achievements
 layout fragment_admin
+layout fragment_bookmarks
 layout fragment_circular
 layout fragment_clubs
 layout fragment_culturals
@@ -1976,6 +1979,7 @@ string app_name
 string app_photo
 string appbar_scrolling_view_behavior
 string b_login_error
+string bookmsrks
 string bottom_sheet_behavior
 string btn_back
 string btn_forgot_password
@@ -2115,10 +2119,12 @@ string function_not_set
 string gcm_defaultSenderId
 string gender
 string general
+string gmail_sign_in_failed
 string google_api_key
 string google_app_id
 string google_conn_failed
 string google_crash_reporting_api_key
+string google_sign_failed
 string google_storage_bucket
 string hello_admin
 string hello_blank_fragment
@@ -2192,6 +2198,7 @@ string nothing_emoji
 string number_of_members
 string ok
 string one
+string oops_no_bookmarks
 string oops_no_new_news
 string open_camera
 string or

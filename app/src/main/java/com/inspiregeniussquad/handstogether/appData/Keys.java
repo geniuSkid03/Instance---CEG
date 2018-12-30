@@ -44,6 +44,10 @@ public class Keys {
     public static final String IS_ADMIN = "isAdmin";
     public static final String USER_PROFILE = "user_profile_image";
     public static final String ADMIN = "1";
+    public static final String USER_PROF = "Users";
+    public static final String ADMIN_VALUE = "admin_value";
+    public static final String NOT_ADMIN = "normal_user";
+    public static final String FRAGMENT_BOOKMARKS = "fragment_bookmarks";
 
     //table names
     public static String TABLE_USER = "Users";
