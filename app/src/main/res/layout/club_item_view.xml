@@ -6,29 +6,38 @@
     app:cardElevation="4dp"
     app:cardCornerRadius="4dp"
     app:cardUseCompatPadding="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:id="@+id/club_view_root"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="4dp"
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="210dp">
 
-    <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+    <ImageView
         android:id="@+id/club_logo"
-        android:src="@drawable/ic_clubs"
-        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher"
+        android:gravity="center"
+        android:padding="4dp"
+        android:contentDescription="@null"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="165dp" />
 
     <TextView
         android:id="@+id/club_name_"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_below="@+id/club_logo"
         android:text="@string/team_desc"
-        android:padding="2dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="match_parent" />
+        android:padding="1dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_height="35dp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

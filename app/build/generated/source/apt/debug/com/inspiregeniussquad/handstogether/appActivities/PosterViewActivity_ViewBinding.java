@@ -5,11 +5,11 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import com.inspiregeniussquad.handstogether.R;
+import com.wang.avi.AVLoadingIndicatorView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -18,7 +18,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
 
   private View view2131296344;
 
-  private View view2131296574;
+  private View view2131296589;
 
   @UiThread
   public PosterViewActivity_ViewBinding(PosterViewActivity target) {
@@ -42,15 +42,14 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.save_preview, "field 'savePreviewIv' and method 'onClicked'");
     target.savePreviewIv = Utils.castView(view, R.id.save_preview, "field 'savePreviewIv'", ImageView.class);
-    view2131296574 = view;
+    view2131296589 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onClicked(p0);
       }
     });
-    target.posterTitleTv = Utils.findRequiredViewAsType(source, R.id.title, "field 'posterTitleTv'", TextView.class);
-    target.loadingIv = Utils.findRequiredViewAsType(source, R.id.image_placeholder, "field 'loadingIv'", ImageView.class);
+    target.loadingIv = Utils.findRequiredViewAsType(source, R.id.image_placeholder, "field 'loadingIv'", AVLoadingIndicatorView.class);
   }
 
   @Override
@@ -63,12 +62,11 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.posterIv = null;
     target.closePreviewIv = null;
     target.savePreviewIv = null;
-    target.posterTitleTv = null;
     target.loadingIv = null;
 
     view2131296344.setOnClickListener(null);
     view2131296344 = null;
-    view2131296574.setOnClickListener(null);
-    view2131296574 = null;
+    view2131296589.setOnClickListener(null);
+    view2131296589 = null;
   }
 }

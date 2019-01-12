@@ -80,7 +80,7 @@ public class AddNewsFragment extends SuperFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        teamDataHelper = new TeamDataHelper(getActivity());
+//        teamDataHelper = new TeamDataHelper(getActivity());
     }
 
     @Override
@@ -345,7 +345,11 @@ public class AddNewsFragment extends SuperFragment {
 
         NewsFeedItems newsFeedItems = getNewsFeedItems(uploadedPosterUri);
 
-        newsDbReference.child(newsDbReference.push().getKey()).setValue(newsFeedItems, new DatabaseReference.CompletionListener() {
+        String id = newsDbReference.push().getKey();
+
+        newsFeedItems.setNfId(id);
+
+        newsDbReference.child(id).setValue(newsFeedItems, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                 cancelProgress();
@@ -397,7 +401,7 @@ public class AddNewsFragment extends SuperFragment {
 
         NewsFeedItems newsFeedItems = new NewsFeedItems();
 
-        newsFeedItems.settName(teamDataHelper.getTeamName(teamId));
+//        newsFeedItems.settName(teamDataHelper.getTeamName(teamId));
         newsFeedItems.seteName(eventName);
         newsFeedItems.seteDesc(eventDesc);
         newsFeedItems.seteDate(eventDate);
@@ -407,8 +411,9 @@ public class AddNewsFragment extends SuperFragment {
         newsFeedItems.seteVenue(venueName);
         newsFeedItems.setVidUrl(videoUrl);
         newsFeedItems.setPstrUrl(uploadedPosterUri.toString());
-        newsFeedItems.setLikes("0");
-        newsFeedItems.setCommentCount("0");
+        newsFeedItems.setLikesCount(0);
+        newsFeedItems.setCommentCount(0);
+//        newsFeedItems.setNfId(eventName+"_"+postedDate);
         //newsFeedItems.setComment("");
         newsFeedItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 

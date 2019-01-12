@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/clubs_recycler"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_clubs_view"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/nothing_emoji" />
+
+        <TextView
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/oops_no_clubs_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/club_loading_view"
+        app:indicatorColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        style="@style/AVLoadingIndicatorView.Small"
+        app:indicatorName="BallPulseSyncIndicator"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

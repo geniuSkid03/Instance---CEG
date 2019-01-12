@@ -48,6 +48,10 @@ public class Keys {
     public static final String ADMIN_VALUE = "admin_value";
     public static final String NOT_ADMIN = "normal_user";
     public static final String FRAGMENT_BOOKMARKS = "fragment_bookmarks";
+    public static final String URL_PRIVACY = "https://sites.google.com/view/cegspartanz-privacy-policy/your-page-title";
+    public static final String URL_TERMS = "https://sites.google.com/view/cegspartanz-privacy-policy/your-page-title";
+
+    public static final int ANIMATION_DURATION = 300;
 
     //table names
     public static String TABLE_USER = "Users";

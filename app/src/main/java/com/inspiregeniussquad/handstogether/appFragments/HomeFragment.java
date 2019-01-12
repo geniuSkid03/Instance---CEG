@@ -1,7 +1,5 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
-import android.content.Context;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,7 +21,6 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomeFragment extends SuperFragment {
 

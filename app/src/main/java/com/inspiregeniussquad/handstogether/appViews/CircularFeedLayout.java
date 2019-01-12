@@ -25,7 +25,7 @@ public class CircularFeedLayout extends RelativeLayout {
     }
 
     private void setUpView(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.circular_item_view, this, true);
+        LayoutInflater.from(context).inflate(R.layout.circular_item_view_new, this, true);
         setClipToPadding(false);
     }
 }

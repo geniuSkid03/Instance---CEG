@@ -53,9 +53,12 @@ dependencies {
 
     //fire base support dependencies
     implementation 'com.firebase:firebase-client-android:2.5.2'
-    implementation 'com.google.firebase:firebase-core:16.0.5'
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-storage:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
 
     //page loading indicator view
     implementation 'com.wang.avi:library:2.1.3'
@@ -69,25 +72,12 @@ dependencies {
     //image compression
     implementation 'id.zelory:compressor:2.1.0'
 
-    //font changing
-    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
-
-    //firebase storage
-    implementation 'com.google.firebase:firebase-storage:16.0.5'
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
-
-    //firebase job dispatcher
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
-
     //multidex application
     implementation 'com.android.support:multidex:1.0.3'
 
     //image loading dependency
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
-
-    //font change
-    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
 
     //room db
     implementation 'android.arch.persistence.room:runtime:1.1.1'
@@ -97,7 +87,7 @@ dependencies {
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
     //fb integration
-    implementation 'com.facebook.android:facebook-android-sdk:4.1.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.17.0'
 
     //email crash report
     implementation files('libs/activation.jar')

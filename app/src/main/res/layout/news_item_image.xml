@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/img_loading_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:contentDescription="@null"
+        app:indicatorColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/ic_loading_placeholder"/>
+        android:visibility="visible"
+        style="@style/AVLoadingIndicatorView.Small"
+        app:indicatorName="BallPulseSyncIndicator"
+        android:layout_height="wrap_content" />
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
         android:id="@+id/event_poster"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:layout_width="match_parent"
         android:transitionName="@string/image_transition"
         android:layout_height="match_parent"

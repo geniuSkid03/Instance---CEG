@@ -64,10 +64,10 @@ public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapte
         }
 
         private void setView(CircularDataItems circularDataItems) {
-            titleTv = itemView.findViewById(R.id.title);
-            dateTimeTv = itemView.findViewById(R.id.posted_date_time);
-            descTv = itemView.findViewById(R.id.circular_desc);
-            circularImgIv = itemView.findViewById(R.id.circular_image);
+            titleTv = itemView.findViewById(R.id.name);
+            dateTimeTv = itemView.findViewById(R.id.read_more);
+            descTv = itemView.findViewById(R.id.desc);
+            circularImgIv = itemView.findViewById(R.id.event_poster);
 
             titleTv.setText(circularDataItems.getcTitle());
             dateTimeTv.setText(String.format("%s  %s", circularDataItems.getpDate(), circularDataItems.getpTime()));

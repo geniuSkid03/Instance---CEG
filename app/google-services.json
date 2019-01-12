@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "165859413607-s40hiq5e9o8so5hk47l3dv3eg2bjl7oj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inspiregeniussquad.handstogether",
+            "certificate_hash": "40e1cf11dde654a7edda32bbf2acc6f912c7a221"
+          }
+        },
+        {
           "client_id": "165859413607-kv774rtngss6fluq8qq68k77rvmbm6dq.apps.googleusercontent.com",
           "client_type": 3
         }

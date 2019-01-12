@@ -32,7 +32,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textSize="22sp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -45,6 +49,7 @@
         android:clickable="true"
         android:contentDescription="@null"
         android:focusable="true"
+        android:tint="@color/white"
         android:foreground="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_edit_icon" />
 

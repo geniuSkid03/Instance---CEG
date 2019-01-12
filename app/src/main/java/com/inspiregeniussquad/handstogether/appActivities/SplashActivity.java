@@ -1,29 +1,15 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.transition.TransitionManager;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.TranslateAnimation;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,7 +41,7 @@ public class SplashActivity extends SuperCompatActivity {
     TextView appNameTv;
 
     @BindView(R.id.root_view)
-    RelativeLayout rootView;
+    LinearLayout rootView;
 
     private ArrayList<TeamData> teamDataArrayList;
 
@@ -114,6 +100,7 @@ public class SplashActivity extends SuperCompatActivity {
 
             AppHelper.print("Name: " + admin.getName());
             AppHelper.print("Mobile: " + admin.getMobile());
+            AppHelper.print("Position: " + admin.getPosition());
 
             adminsArraylist.add(admin);
         }
@@ -122,10 +109,8 @@ public class SplashActivity extends SuperCompatActivity {
 
         AppHelper.print("Admin info available: " + dataStorage.isDataAvailable(Keys.ADMIN_INFO));
 
-
-        for (int i=0; i<adminsArraylist.size(); i++) {
-            if (dataStorage.getString(Keys.MOBILE).equals(adminsArraylist.get(i).getMobile())) {
-                AppHelper.print("Mobile matched as admin");
+        for(Admin admin : adminsArraylist) {
+            if(admin.getMobile().equalsIgnoreCase(dataStorage.getString(Keys.MOBILE))) {
                 dataStorage.saveBoolean(Keys.IS_ADMIN, true);
             }
         }

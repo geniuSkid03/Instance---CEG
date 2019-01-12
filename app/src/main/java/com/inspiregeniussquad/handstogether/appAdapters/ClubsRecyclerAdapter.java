@@ -2,19 +2,17 @@ package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
-import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -62,7 +60,7 @@ public class ClubsRecyclerAdapter extends RecyclerView.Adapter<ClubsRecyclerAdap
 
     class ClubsItemViewHolder extends RecyclerView.ViewHolder {
 
-        private CircularImageView clubIconIv;
+        private ImageView clubIconIv;
         private TextView clubsNameTv;
         private CardView clubRootLayout;
 

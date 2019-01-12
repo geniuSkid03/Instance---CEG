@@ -9,13 +9,15 @@ public class Users {
     private String name, email, mobile, gender, imgUrl;
     private ArrayList<String> likedPosts, commentedPosts, bookmarkedPosts;
     private String isAdmin; // 0 - false, 1 - true
+    private String userId;
 
     public Users() {
 
     }
 
-    public Users(String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
+    public Users(String userId, String name, String email, String mobile, String gender, ArrayList<String> likedPosts,
                  ArrayList<String> commentedPosts, ArrayList<String> bookmarkedPosts, String isAdmin, String imgUrl) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -58,6 +60,14 @@ public class Users {
         this.mobile = mobile;
         this.gender = gender;
         this.isAdmin = isAdmin;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {

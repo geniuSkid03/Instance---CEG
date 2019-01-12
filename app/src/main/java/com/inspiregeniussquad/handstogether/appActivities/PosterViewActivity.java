@@ -2,27 +2,24 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.Manifest;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.inspiregeniussquad.handstogether.appUtils.ImageSaver;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.utils.DiskCacheUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,11 +40,8 @@ public class PosterViewActivity extends SuperCompatActivity {
     @BindView(R.id.save_preview)
     ImageView savePreviewIv;
 
-    @BindView(R.id.title)
-    TextView posterTitleTv;
-
     @BindView(R.id.image_placeholder)
-    ImageView loadingIv;
+    AVLoadingIndicatorView loadingIv;
 
     private NewsFeedItems newsFeedItems;
     private ImageLoader imageLoader;
@@ -73,6 +67,7 @@ public class PosterViewActivity extends SuperCompatActivity {
                 @Override
                 public void onSuccess() {
                     posterIv.setVisibility(View.VISIBLE);
+                    loadingIv.hide();
                     loadingIv.setVisibility(View.GONE);
                 }
 
@@ -80,6 +75,7 @@ public class PosterViewActivity extends SuperCompatActivity {
                 public void onError(Exception e) {
                     posterIv.setVisibility(View.GONE);
                     loadingIv.setVisibility(View.VISIBLE);
+                    loadingIv.show();
                 }
             });
         } else {
@@ -88,6 +84,7 @@ public class PosterViewActivity extends SuperCompatActivity {
                 public void onLoadingStarted(String imageUri, View view) {
                     posterIv.setVisibility(View.GONE);
                     loadingIv.setVisibility(View.VISIBLE);
+                    loadingIv.show();
                 }
 
                 @Override
@@ -100,6 +97,7 @@ public class PosterViewActivity extends SuperCompatActivity {
                 public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                     posterIv.setVisibility(View.VISIBLE);
                     loadingIv.setVisibility(View.GONE);
+                    loadingIv.hide();
                     Picasso.get().load(imageUri).fit().into(posterIv);
                 }
 

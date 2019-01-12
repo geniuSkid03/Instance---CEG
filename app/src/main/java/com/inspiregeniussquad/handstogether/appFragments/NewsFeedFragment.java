@@ -3,11 +3,9 @@ package com.inspiregeniussquad.handstogether.appFragments;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,10 +22,12 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appActivities.CommentsViewActivity;
@@ -41,7 +41,6 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Map;
@@ -89,11 +88,20 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             @Override
             public void onBookmarkClicked(int position) {
                 newsFeedAdapter.setPostAsBookmarked(position);
+                updateBookmarkToFirebase(newsFeedItemsArrayList.get(position).isBookmarked());
             }
 
             @Override
-            public void onLikeClicked(int position, View itemView) {
+            public void onLikeClicked(int position, boolean isLiked) {
                 newsFeedAdapter.setPostAsLiked(position);
+
+                if (!isLiked) {
+                    updateAsLiked(position);
+                } else {
+                    removeLiked(position);
+                }
+
+
             }
 
             @Override
@@ -102,6 +110,100 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             }
         });
     }
+
+    private void updateAsLiked(int position) {
+        String postId = newsFeedItemsArrayList.get(position).getNfId();
+
+        //updating likes count in news item
+        DatabaseReference likesCountReference = newsDbReference
+                .child(newsFeedItemsArrayList.get(position).getNfId())
+                .child("likesCount");
+        likesCountReference.runTransaction(new Transaction.Handler() {
+            @NonNull
+            @Override
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+
+                Integer currentValue = mutableData.getValue(Integer.class);
+                if (currentValue == null) {
+                    mutableData.setValue(1);
+                } else {
+                    mutableData.setValue(currentValue + 1);
+                }
+
+
+                return Transaction.success(mutableData);
+            }
+
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {
+
+            }
+        });
+
+        //updating liked post to user profile
+        DatabaseReference userDbRef = usersDbReference.child(dataStorage.getString(Keys.USER_ID))
+                .child("likedPosts");
+        userDbRef.child(postId).setValue(postId);
+
+        //updating news liked users
+        DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers");
+        String userId = dataStorage.getString(Keys.USER_ID);
+        postRef.child(userId).setValue(userId);
+    }
+
+    private void removeLiked(int position) {
+        String postId = newsFeedItemsArrayList.get(position).getNfId();
+
+        //removing like count in news item
+        DatabaseReference likesCountReference = newsDbReference
+                .child(newsFeedItemsArrayList.get(position).getNfId())
+                .child("likesCount");
+        likesCountReference.runTransaction(new Transaction.Handler() {
+            @NonNull
+            @Override
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                Long currentValue = mutableData.getValue(Long.class);
+                if (currentValue == null) {
+                    mutableData.setValue(0);
+                } else {
+                    mutableData.setValue(currentValue - 1);
+                }
+
+
+                return Transaction.success(mutableData);
+            }
+
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {
+
+            }
+        });
+
+        String userId = dataStorage.getString(Keys.USER_ID);
+
+        //removing like from user profile
+        usersDbReference.child(userId).child("likedPosts").child(postId).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                AppHelper.print("Like removed in user profile");
+            }
+        });
+
+        //removing liked user in news item
+        DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers").child(userId);
+        postRef.removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                AppHelper.print("Like removed in news item");
+            }
+        });
+    }
+
+    private void updateBookmarkToFirebase(boolean bookmarked) {
+        showToast("" + bookmarked);
+
+    }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -136,6 +238,10 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         super.onViewCreated(view, savedInstanceState);
 
         newsFeedRv.setAdapter(newsFeedAdapter);
+
+        if (!newsFeedAdapter.hasObservers()) {
+            newsFeedAdapter.setHasStableIds(true);
+        }
     }
 
     private View initNewsFeedView(View view) {
@@ -204,6 +310,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         newsFeedItemsArrayList.clear();
 
         for (Map.Entry<String, NewsFeedItems> teamEntry : newsFeedItemsMap.entrySet()) {
+
             Map map = (Map) teamEntry.getValue();
 
             NewsFeedItems newsFeedItems = new NewsFeedItems();
@@ -218,9 +325,17 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedItems.seteVenue((String) map.get("eVenue"));
             newsFeedItems.setVidUrl((String) map.get("vidUrl"));
             newsFeedItems.setPstrUrl((String) map.get("pstrUrl"));
-            newsFeedItems.setLikes((String) map.get("likes"));
+            newsFeedItems.setLikesCount((long) map.get("likesCount"));
+            newsFeedItems.setCommentCount((long) map.get("commentCount"));
 
-            AppHelper.print("NewsFeed items: " + newsFeedItems.getNfId());
+            if(dataSnapshot.child("likedUsers").exists()) {
+                for(DataSnapshot likedUsers : dataSnapshot.child("likedUsers").getChildren()) {
+                    String likedUsersKey = likedUsers.getKey();
+                    AppHelper.print("Liked users: "+likedUsersKey);
+                }
+            } else {
+                AppHelper.print("Liked users doesnt exist");
+            }
 
             newsFeedItemsArrayList.add(newsFeedItems);
         }

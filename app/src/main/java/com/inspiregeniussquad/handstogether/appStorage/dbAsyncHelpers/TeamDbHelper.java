@@ -8,14 +8,23 @@ import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
+public class TeamDbHelper extends AsyncTask<Void, Integer, TeamData[]> {
 
     private Action action;
     private ArrayList<TeamData> teamDataArrayList;
     private Context context;
     private AppDbs appDbs;
 
+    private RetrivalAction retrivalAction;
+    private boolean isRetrival;
+
+    public TeamDbHelper(Context context, boolean isRetrival, RetrivalAction retrivalAction) {
+        this.isRetrival = isRetrival;
+        this.retrivalAction = retrivalAction;
+        appDbs = AppDbs.getTeamDao(context);
+    }
 
     public TeamDbHelper(Context context, ArrayList<TeamData> teamDataArrayList, Action action) {
         this.context = context;
@@ -40,6 +49,12 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
         if (action != null) {
             action.onStart();
         }
+
+        if(isRetrival) {
+            if(retrivalAction != null) {
+                retrivalAction.onStart();
+            }
+        }
     }
 
     @Override
@@ -53,9 +68,16 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected TeamData[] doInBackground(Void... voids) {
         try {
             if (appDbs != null) {
+
+                if(isRetrival) {
+                    if(retrivalAction != null) {
+                        retrivalAction.onEnd(new ArrayList<>(Arrays.asList(appDbs.teamDao().loadAll())));
+                    }
+                    return appDbs.teamDao().loadAll();
+                }
 
                 if(teamDataArrayList.size() != 0) {
                     for (int i=0; i<teamDataArrayList.size(); i++) {
@@ -73,7 +95,7 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
+    protected void onPostExecute(TeamData[] aVoid) {
         super.onPostExecute(aVoid);
 
         if (action != null) {
@@ -87,5 +109,10 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, Void> {
         void onUpdate(int progress);
 
         void onEnd();
+    }
+
+    public interface RetrivalAction {
+        void onStart();
+        void onEnd(ArrayList<TeamData> teamDataArrayList);
     }
 }

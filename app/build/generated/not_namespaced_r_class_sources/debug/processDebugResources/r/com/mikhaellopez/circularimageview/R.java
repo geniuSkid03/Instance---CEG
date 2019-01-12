@@ -22,7 +22,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] CircularImageView = { 0x7f03003f, 0x7f030041, 0x7f030042, 0x7f03007f, 0x7f030080, 0x7f030081, 0x7f030082, 0x7f030083, 0x7f030084, 0x7f0301b2, 0x7f0301b3, 0x7f0301b4 };
+        public static final int[] CircularImageView = { 0x7f03003f, 0x7f030041, 0x7f030042, 0x7f03007f, 0x7f030080, 0x7f030081, 0x7f030082, 0x7f030083, 0x7f030084, 0x7f0301b1, 0x7f0301b2, 0x7f0301b3 };
         public static final int CircularImageView_border = 0;
         public static final int CircularImageView_border_color = 1;
         public static final int CircularImageView_border_width = 2;

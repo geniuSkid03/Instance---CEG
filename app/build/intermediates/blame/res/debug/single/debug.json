@@ -105,7 +105,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
@@ -133,7 +133,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_button_background.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\com_facebook_button_background.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
@@ -142,6 +142,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_send_post.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_send_post.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_button_icon.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_icon.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\animator_design_fab_hide_motion_spec.xml.flat",
@@ -177,11 +181,11 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
@@ -437,11 +441,11 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_hide_password.xml.flat",
@@ -453,7 +457,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\messenger_button_send_round_shadow.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_admin_panel.png.flat",
@@ -532,6 +536,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_circular_item_view_new.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\circular_item_view_new.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_arrow_drop_up.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_arrow_drop_up.png"
     },
@@ -573,7 +581,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -589,7 +597,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\messenger_bubble_large_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\messenger_bubble_large_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -601,7 +609,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_button_like_icon_selected.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout-v26_abc_screen_toolbar.xml.flat",
@@ -688,8 +696,20 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_unselected.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\com_facebook_button_icon_blue.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_com_facebook_button_text_color.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\color\\com_facebook_button_text_color.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_permission_sms.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\permission_sms.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_send_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_add_team_members.xml.flat",
@@ -741,7 +761,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_sub_teams.png.flat",
@@ -817,7 +837,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\com_facebook_button_like_icon_selected.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shadow_bg.xml.flat",
@@ -897,7 +917,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\messenger_bubble_small_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\messenger_bubble_small_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
@@ -945,7 +965,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_white_small.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_white_small.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_white_small.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_video.png.flat",
@@ -973,7 +993,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_button_login_silver_background.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\com_facebook_button_login_silver_background.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_login_silver_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_video.png.flat",
@@ -1002,10 +1022,6 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_send_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -1041,7 +1057,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\messenger_bubble_small_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_permission_sms.png.flat",
@@ -1085,7 +1101,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_blue_large.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_blue_large.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_blue_large.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_search.png.flat",
@@ -1116,12 +1132,16 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\animator\\mtrl_fab_show_motion_spec.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_bottom_nav_colored_item_tint.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\color\\mtrl_bottom_nav_colored_item_tint.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_icon_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_search.png.flat",
@@ -1148,16 +1168,12 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_button_icon.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_no_internet_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_no_internet_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_blue_small.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_blue_small.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_blue_small.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
@@ -1185,7 +1201,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_track_material.xml.flat",
@@ -1213,7 +1229,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_in_bottom.xml.flat",
@@ -1284,6 +1300,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_sub_teams.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_button_icon_blue.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_event_name.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_event_name.png"
     },
@@ -1297,7 +1317,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\messenger_bubble_large_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_about.png.flat",
@@ -1321,7 +1341,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\messenger_button_send_round_shadow.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_bottom_navigation_item_background.xml.flat",
@@ -1369,7 +1389,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_button_like_background.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\com_facebook_button_like_background.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_like_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
@@ -1437,7 +1457,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_light.xml.flat",
@@ -1572,6 +1592,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\anim\\abc_popup_enter.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_auth_dialog_background.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_auth_dialog_background.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_sub_teams.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_sub_teams.png"
     },
@@ -1598,10 +1622,6 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_comments_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_comments_icon.png"
-    },
-    {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_button_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_settings_unselected.xml.flat",
@@ -1713,7 +1733,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\messenger_bubble_large_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\messenger_bubble_large_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_admin_panel_unselected.png.flat",
@@ -1757,7 +1777,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_share.xml.flat",
@@ -1770,10 +1790,6 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21_mtrl_linear_out_slow_in.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\interpolator-v21\\mtrl_linear_out_slow_in.xml"
-    },
-    {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_send_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_loading_placeholder.png.flat",
@@ -1941,7 +1957,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_newsfeed_unselected.png.flat",
@@ -1965,7 +1981,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\messenger_button_send_round_shadow.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_scale_up_animatin.xml.flat",
@@ -2028,6 +2044,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d7a7bd86ccd3240345df1e23a0ec7160\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_send_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_button_send_icon_blue.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_video.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_video.png"
     },
@@ -2049,7 +2069,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_permission_contact.xml.flat",
@@ -2065,7 +2085,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_close.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_close.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_close.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
@@ -2094,6 +2114,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_upcoming.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_upcoming.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_send_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_settings.png.flat",
@@ -2233,7 +2257,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_close.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_close.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_close.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_item_two.xml.flat",
@@ -2273,7 +2297,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_button_send_background.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\com_facebook_button_send_background.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_send_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_profile.png.flat",
@@ -2346,6 +2370,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_auth_dialog_cancel_background.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_edit_icon.png.flat",
@@ -2424,10 +2452,6 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\color\\mtrl_bottom_nav_item_tint.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_button_icon.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-mdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
     },
@@ -2474,6 +2498,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_visibility_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_visibility_icon.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_send_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -2545,7 +2573,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\messenger_bubble_large_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\messenger_bubble_large_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -2593,7 +2621,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_newsfeed_selected.png.flat",
@@ -2609,7 +2637,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_white_large.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_white_large.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_white_large.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
@@ -2617,7 +2645,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_messenger_button_white_bg_round.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\messenger_button_white_bg_round.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\messenger_button_white_bg_round.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_name_icon.png.flat",
@@ -2645,7 +2673,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_holo_dark.xml.flat",
@@ -2665,7 +2693,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_permission_camera.png.flat",
@@ -2673,7 +2701,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_save_icon.png.flat",
@@ -2722,6 +2750,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_broken_image.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_broken_image.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_auth_dialog_header_background.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_auth_dialog_header_background.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -2784,6 +2816,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon_blue.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_text.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\layout\\design_layout_tab_text.xml"
     },
@@ -2793,7 +2829,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_about.png.flat",
@@ -2825,7 +2861,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\messenger_bubble_large_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_anim.xml.flat",
@@ -2896,6 +2932,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_send_icon.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_smart_device_dialog_fragment.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\com_facebook_smart_device_dialog_fragment.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_switch_thumb_material.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable\\abc_switch_thumb_material.xml"
     },
@@ -2949,7 +2989,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_messenger_button_white_bg_selector.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\messenger_button_white_bg_selector.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\messenger_button_white_bg_selector.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -2968,6 +3008,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_account.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_send_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_button_send_icon_white.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
@@ -2977,15 +3021,19 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\messenger_bubble_large_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\com_facebook_button_icon_white.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\messenger_bubble_small_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\messenger_bubble_small_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_newsfeed_unselected.png.flat",
@@ -2997,7 +3045,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_profile_picture_blank_portrait.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_profile_picture_blank_portrait.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_profile_picture_blank_portrait.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
@@ -3046,10 +3094,6 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_delete_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_delete_icon.png"
-    },
-    {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\com_facebook_button_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_add_icon.xml.flat",
@@ -3173,7 +3217,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_white_round.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_white_round.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_white_round.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -3449,7 +3493,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\messenger_bubble_small_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_settings.xml.flat",
@@ -3494,6 +3538,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\drawable-hdpi-v4\\design_ic_visibility.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_instance_text_bbg.webp.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable-xxhdpi\\instance_text_bbg.webp"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_permission_phone.png.flat",
@@ -3577,7 +3625,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_blue_round.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\messenger_button_send_blue_round.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_blue_round.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -3640,6 +3688,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_circular_selected.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_instance_text_t.webp.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable-xxhdpi\\instance_text_t.webp"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_team_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_team_icon.png"
     },
@@ -3668,8 +3720,12 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_arrow_right.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_icon_white.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_close.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_close.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_close.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\menu_activity_navigation_drawer_drawer.xml.flat",
@@ -3685,7 +3741,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_topnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_calendar_icon.png.flat",
@@ -3829,7 +3885,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_activity_layout.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\com_facebook_activity_layout.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\com_facebook_activity_layout.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\menu_admin_options_menu.xml.flat",
@@ -3861,7 +3917,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_circular_icon.png.flat",
@@ -3921,7 +3977,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_add_image.png.flat",
@@ -3949,7 +4005,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\messenger_bubble_small_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\messenger_bubble_small_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_visibility_icon.png.flat",
@@ -4069,7 +4125,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_login_fragment.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\com_facebook_login_fragment.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\com_facebook_login_fragment.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
@@ -4169,7 +4225,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\messenger_bubble_small_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\messenger_bubble_small_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_show_password.xml.flat",
@@ -4224,10 +4280,6 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_calendar_icon.png"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_send_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\com_facebook_button_send_icon.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_add_image.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_add_image.png"
     },
@@ -4238,6 +4290,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_icon_blue.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_button_icon_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_camera_icon.png.flat",
@@ -4277,15 +4333,15 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\messenger_bubble_small_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_switch_track.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\color\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_send_icon.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_button_send_icon.png"
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_send_button_icon.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_send_button_icon.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -4360,8 +4416,16 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_down.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_instance_text_wbg.webp.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable-xxhdpi\\instance_text_wbg.webp"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_com_facebook_button_send_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -4409,7 +4473,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_messenger_button_blue_bg_selector.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\messenger_button_blue_bg_selector.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\messenger_button_blue_bg_selector.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_calendar_icon.xml.flat",
@@ -4474,6 +4538,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_com_facebook_favicon_blue.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_favicon_blue.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_newsfeed_selected.png.flat",
@@ -4553,7 +4621,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\messenger_bubble_large_blue.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_time_icon.png.flat",
@@ -4573,11 +4641,11 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xxhdpi-v4\\messenger_bubble_small_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xxhdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -4602,6 +4670,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_comment_bubble.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_comment_bubble.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_com_facebook_send_button_text_color.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\color\\com_facebook_send_button_text_color.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ripple.xml.flat",
@@ -4657,7 +4729,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_xout.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -4676,16 +4748,20 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\list_child.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_device_auth_dialog_fragment.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\com_facebook_device_auth_dialog_fragment.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_heart_selected.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_heart_selected.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_background.9.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_news_edit_options.xml.flat",
@@ -4708,6 +4784,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_web_view.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\web_view.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_arrow_right.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_arrow_right.png"
     },
@@ -4725,7 +4805,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\messenger_bubble_large_white.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\messenger_bubble_large_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_snackbar_background.xml.flat",
@@ -4841,7 +4921,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_profile_picture_blank_square.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-mdpi-v4\\com_facebook_profile_picture_blank_square.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_profile_picture_blank_square.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
@@ -4884,6 +4964,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\permission_sms.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-mdpi-v4\\com_facebook_button_icon_white.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_others.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_others.png"
     },
@@ -4893,7 +4977,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_tooltip_bubble.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\layout\\com_facebook_tooltip_bubble.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\com_facebook_tooltip_bubble.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -5001,11 +5085,15 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-xhdpi-v4\\com_facebook_button_like_icon_selected.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_empty_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_empty_icon.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-xhdpi-v4\\com_facebook_button_icon_white.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_sign_out_unselected.png.flat",
@@ -5053,7 +5141,7 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_messenger_button_blue_bg_round.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable\\messenger_button_blue_bg_round.xml"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\messenger_button_blue_bg_round.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_search.png.flat",
@@ -5113,6 +5201,6 @@
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.1.0.aar\\93715b6731871807e8373ab0f49aef8d\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
     }
 ]

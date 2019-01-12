@@ -3,36 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent_black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#61000000"
     tools:context=".appActivities.PosterViewActivity">
 
-    <TextView
-        android:id="@+id/title"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/poster_image"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp" />
-
-    <ImageView
-        android:id="@+id/poster_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:transitionName="@string/image_transition"
         android:layout_centerInParent="true"
-        android:layout_margin="12dp"
-        android:scaleType="centerInside"
-        android:layout_above="@+id/footer"
-        android:contentDescription="@null" />
+        android:orientation="vertical">
 
-    <ImageView
-        android:contentDescription="@null"
+        <ImageView
+            android:id="@+id/poster_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="@string/image_transition"
+            android:layout_margin="12dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@null" />
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/image_placeholder"
-        android:layout_width="36dp"
-        android:src="@drawable/ic_loading_placeholder"
+        app:indicatorColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_height="36dp" />
+        android:visibility="visible"
+        style="@style/AVLoadingIndicatorView.Small"
+        app:indicatorName="BallPulseSyncIndicator"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/footer"
@@ -65,7 +65,7 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:padding="8dp"
             android:src="@drawable/ic_save_icon"
-            android:tint="@color/green" />
+            android:tint="@color/white" />
 
     </LinearLayout>
 

@@ -1,16 +1,17 @@
 package com.inspiregeniussquad.handstogether.appData;
 
-import android.net.Uri;
+import java.util.ArrayList;
 
 public class NewsFeedItems {
 
     private String nfId;
     private String tName, eName, eDesc, eDate, eTime, pTime, vName, vidUrl, pstrUrl, eVenue, postedBy;
-    private String likes;
     private String pDate;
     private Comments comments;
-    private String commentCount;
-    private Uri posterUri;
+    private String posterUri;
+    private ArrayList<String> likedUsers;
+
+    private long likesCount, commentCount;
 
     private boolean isLiked, isBookmarked;
 
@@ -115,14 +116,6 @@ public class NewsFeedItems {
         this.eVenue = eVenue;
     }
 
-    public String getLikes() {
-        return likes;
-    }
-
-    public void setLikes(String likes) {
-        this.likes = likes;
-    }
-
     public String getPostedBy() {
         return postedBy;
     }
@@ -137,14 +130,6 @@ public class NewsFeedItems {
 
     public void setComments(Comments comments) {
         this.comments = comments;
-    }
-
-    public String getCommentCount() {
-        return commentCount;
-    }
-
-    public void setCommentCount(String commentCount) {
-        this.commentCount = commentCount;
     }
 
     public String getNfId() {
@@ -163,11 +148,35 @@ public class NewsFeedItems {
         isBookmarked = bookmarked;
     }
 
-    public Uri getPosterUri() {
+    public String getPosterUri() {
         return posterUri;
     }
 
-    public void setPosterUri(Uri posterUri) {
+    public void setPosterUri(String posterUri) {
         this.posterUri = posterUri;
+    }
+
+    public long getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(long likesCount) {
+        this.likesCount = likesCount;
+    }
+
+    public long getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(long commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public ArrayList<String> getLikedUsers() {
+        return likedUsers;
+    }
+
+    public void setLikedUsers(ArrayList<String> likedUsers) {
+        this.likedUsers = likedUsers;
     }
 }

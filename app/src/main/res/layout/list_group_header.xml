@@ -20,12 +20,15 @@
         android:padding="16dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="center|start"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/list_header_icon"
             android:layout_width="16dp"
-            android:layout_height="19dp"
+            android:layout_height="22dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
             android:layout_gravity="center"
             android:contentDescription="@null"
             android:src="@mipmap/ic_launcher" />
@@ -36,6 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingEnd="0dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
             android:paddingStart="16dp"
             android:text="@string/app_name" />
 

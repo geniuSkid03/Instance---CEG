@@ -5,7 +5,7 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
@@ -28,7 +28,7 @@ public class SplashActivity_ViewBinding implements Unbinder {
     target.splashIv = Utils.findRequiredViewAsType(source, R.id.logo, "field 'splashIv'", ImageView.class);
     target.appMottoTv = Utils.findRequiredViewAsType(source, R.id.app_motto, "field 'appMottoTv'", TextView.class);
     target.appNameTv = Utils.findRequiredViewAsType(source, R.id.app_name, "field 'appNameTv'", TextView.class);
-    target.rootView = Utils.findRequiredViewAsType(source, R.id.root_view, "field 'rootView'", RelativeLayout.class);
+    target.rootView = Utils.findRequiredViewAsType(source, R.id.root_view, "field 'rootView'", LinearLayout.class);
   }
 
   @Override

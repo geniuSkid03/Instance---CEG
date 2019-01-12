@@ -1,9 +1,8 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -15,7 +14,13 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.utils.DiskCacheUtils;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import butterknife.BindView;
 
@@ -27,11 +32,14 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     @BindView(R.id.app_bar_layout)
     AppBarLayout appBarLayout;
 
-    @BindView(R.id.collapsing_toolbar)
-    CollapsingToolbarLayout collapsingToolbarLayout;
+   /* @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsingToolbarLayout;*/
 
-    @BindView(R.id.event_poster)
-    ImageView posterIv;
+    /*@BindView(R.id.event_poster)
+    ImageView posterIv;*/
+
+    @BindView(R.id.event_poster_1)
+    ImageView posterIv1;
 
     @BindView(R.id.nested_scrollview)
     NestedScrollView nestedScrollView;
@@ -48,13 +56,17 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     @BindView(R.id.time)
     TextView timeTv;
 
-    @BindView(R.id.team_logo)
+   /* @BindView(R.id.team_logo)
     CircularImageView teamLogoIv;
 
     @BindView(R.id.team_logo2)
-    CircularImageView teamLogo2Iv;
+    CircularImageView teamLogo2Iv;*/
 
     private NewsFeedItems toShowNewsItem;
+    private ImageLoader imageLoader;
+
+      /*  private ArrayList<TeamData> teamDataArrayList;
+    private String teamLogoUrl;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +88,17 @@ public class NewsItemViewActivity extends SuperCompatActivity {
             finish();
         }
 
+        imageLoader = ImageLoader.getInstance();
+
+
         if (toShowNewsItem != null) {
             getSupportActionBar().setTitle(toShowNewsItem.geteName());
-            //todo show ui for news item view
-//            updateUi(toShowNewsItem);
+            updateUi(toShowNewsItem);
         } else {
             AppHelper.print("To Show Item empty");
         }
 
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+        /*appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 
             boolean isShow = false;
             int scrollRange = -1;
@@ -102,10 +116,10 @@ public class NewsItemViewActivity extends SuperCompatActivity {
                     hideContentImg();
                 }
             }
-        });
+        });*/
     }
 
-    private void showContentImg() {
+   /* private void showContentImg() {
         teamLogoIv.startAnimation(scaleDownAnim);
         teamLogoIv.setVisibility(View.INVISIBLE);
 
@@ -119,32 +133,95 @@ public class NewsItemViewActivity extends SuperCompatActivity {
 
         teamLogo2Iv.startAnimation(scaleDownAnim);
         teamLogo2Iv.setVisibility(View.INVISIBLE);
-    }
+    }*/
 
-//    private void updateUi(NewsFeedItems toShowNewsItem) {
-//        infoDescTv.setText(toShowNewsItem.getEventDesc());
-//        titleTv.setText(toShowNewsItem.getTitle());
-//        dateTv.setText(toShowNewsItem.getPostedDate());
-//        timeTv.setText(toShowNewsItem.getPostedTime());
-//
-//        teamLogoIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
-//        teamLogo2Iv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.logo_spartanz));
-//
-//        switch (toShowNewsItem.getId()) {
-//            case 0:
-//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.informals));
-//                break;
-//            case 1:
-//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.intra_vareity_sho));
-//                break;
-//            case 2:
-//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.twelve_years_ceg_spartans));
-//                break;
-//            case 3:
-//                posterIv.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.mime_performace));
-//                break;
-//        }
-//    }
+
+    private void updateUi(final NewsFeedItems newsFeedItems) {
+        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
+        if (posterImage != null && posterImage.exists()) {
+//            Picasso.get().load(posterImage).fit().into(posterIv);
+            Picasso.get().load(posterImage).fit().into(posterIv1);
+        } else {
+            imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//                    Picasso.get().load(imageUri).fit().into(posterIv);
+                    Picasso.get().load(imageUri).fit().into(posterIv1);
+                    newsFeedItems.setPosterUri(imageUri);
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
+        }
+
+        infoDescTv.setText(newsFeedItems.geteDesc());
+        titleTv.setText(newsFeedItems.geteName());
+        dateTv.setText(newsFeedItems.geteDate());
+        timeTv.setText(newsFeedItems.geteTime());
+
+       /* new TeamDbHelper(this, true, new TeamDbHelper.RetrivalAction(){
+
+            @Override
+            public void onStart() {
+                showProgress(getString(R.string.loading));
+            }
+
+            @Override
+            public void onEnd(ArrayList<TeamData> teamDataArrayList) {
+                NewsItemViewActivity.this.teamDataArrayList = teamDataArrayList;
+                cancelProgress();
+            }
+        });
+
+        if(teamDataArrayList != null && teamDataArrayList.size() > 0) {
+            for(TeamData teamData : teamDataArrayList) {
+
+                AppHelper.print("Team name: "+teamData.getTeamName());
+
+                if(teamData.getTeamName().equalsIgnoreCase(newsFeedItems.gettName())) {
+                    teamLogoUrl = teamData.getTeamLogoUrl();
+                }
+            }
+        }
+
+        imageLoader.loadImage(newsFeedItems.getPosterUri(), new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+
+                Picasso.get().load(imageUri).into(teamLogoIv);
+                Picasso.get().load(imageUri).into(teamLogo2Iv);
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

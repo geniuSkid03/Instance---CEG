@@ -173,33 +173,6 @@ public class SignupActivity extends SuperCompatActivity {
         AppHelper.print("Name: " + name);
         AppHelper.print("Email: " + email);
         AppHelper.print("Mobile: " + mobileNumber);
-//        AppHelper.print("profile: "+profileImg);
-
-        if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
-            String admins = dataStorage.getString(Keys.ADMIN_INFO);
-            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
-            }.getType());
-
-            if(adminArrayList != null && adminArrayList.size() > 0) {
-                for (Admin admin : adminArrayList) {
-                    AppHelper.print("Admin mobile numbers: " + admin.getMobile());
-
-                    if (admin.getMobile().equals(mobileNumber)) {
-                        createUser("1");
-                        return;
-                    } else {
-                        createUser("0");
-                        return;
-                    }
-                }
-            } else {
-                createUser("0");
-            }
-        }
-    }
-
-    private void createUser(String isAdmin) {
-        AppHelper.print("Creating user as: "+isAdmin);
 
         ArrayList<String> likedPostArrayList = new ArrayList<>();
         ArrayList<String> commentedPostArrayList = new ArrayList<>();
@@ -209,14 +182,33 @@ public class SignupActivity extends SuperCompatActivity {
         commentedPostArrayList.add("0");
         bookmarkedPostArrayList.add("0");
 
-        Users users = new Users(name, email, mobileNumber, !TextUtils.isEmpty(gender) ? gender : getString(R.string.un_specified),
-                likedPostArrayList, commentedPostArrayList, bookmarkedPostArrayList, isAdmin);
-//        if(!TextUtils.isEmpty(imgUrl)) {
-//            uploadUserImage(users);
-//        } else {
-//        }
+        Users users = new Users();
+
+        users.setName(name);
+        users.setEmail(email);
+        users.setMobile(mobileNumber);
+        users.setGender(!TextUtils.isEmpty(gender) ? gender : getString(R.string.un_specified));
+        users.setLikedPosts(likedPostArrayList);
+        users.setCommentedPosts(commentedPostArrayList);
+        users.setBookmarkedPosts(bookmarkedPostArrayList);
+
+        if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
+            String admins = dataStorage.getString(Keys.ADMIN_INFO);
+            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
+            }.getType());
+
+            for (Admin admin : adminArrayList) {
+                if (admin.getMobile().equalsIgnoreCase(mobileNumber)) {
+                    users.setIsAdmin(admin.getPosition());
+                } else {
+                    users.setIsAdmin("0");
+                }
+            }
+        }
+
         insertUserIntoDb(users);
     }
+
 
 //    private void uploadUserImage(final Users users) {
 //        String imgName = users.getName()+"_img";
@@ -271,7 +263,11 @@ public class SignupActivity extends SuperCompatActivity {
 //    }
 
     private void insertUserIntoDb(final Users users) {
-        usersDatabaseReference.child(users.getMobile()).setValue(users, new DatabaseReference.CompletionListener() {
+        String userId = usersDatabaseReference.push().getKey();
+
+        users.setUserId(userId);
+
+        usersDatabaseReference.child(userId).setValue(users, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                 if (databaseError == null) {
@@ -290,15 +286,13 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
         dataStorage.saveString(Keys.USER_EMAIL, users.getEmail());
         dataStorage.saveString(Keys.USER_GENDER, users.getGender());
-//        dataStorage.saveString(Keys.PROFILE_IMAGE, imgUrl);
-//
-//        if (!TextUtils.isEmpty(imgUrl)) {
-//            users.setImgUrl(imgUrl);
-//        }
-
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
         dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
+        dataStorage.saveString(Keys.USER_ID, users.getUserId());
+        dataStorage.saveString(Keys.ADMIN_VALUE, users.getIsAdmin());
+
+        dataStorage.saveBoolean(Keys.IS_ADMIN, !users.getIsAdmin().equals("0"));
 
         cancelProgress();
 

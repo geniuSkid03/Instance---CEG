@@ -7,19 +7,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.inspiregeniussquad.handstogether.R;
-import com.inspiregeniussquad.handstogether.appActivities.AdminActivity;
-import com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity;
+import com.inspiregeniussquad.handstogether.appData.Keys;
+import com.inspiregeniussquad.handstogether.appDialogs.AppDialog;
 
-public class  SettingsFragment extends SuperFragment {
+public class SettingsFragment extends SuperFragment {
+
+    private RelativeLayout faqLayout, termsAndCondsLayout, privacyLayout;
+    private Switch nightModeSwitch;
+    private TextView appVersionTv, rateUsTv, reportIssueTv;
+
+    private AppDialog appDialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
+
+        appDialog = new AppDialog(getContext());
     }
 
     @Override
@@ -37,37 +48,61 @@ public class  SettingsFragment extends SuperFragment {
 
     private View initView(View view) {
 
-        LinearLayout updateProfileLayout = view.findViewById(R.id.update_profile);
-        LinearLayout adminPanelLayout = view.findViewById(R.id.admin_panel);
+        faqLayout = view.findViewById(R.id.faq);
+        privacyLayout = view.findViewById(R.id.privacy);
+        termsAndCondsLayout = view.findViewById(R.id.terms);
+        appVersionTv = view.findViewById(R.id.version_value);
+        rateUsTv = view.findViewById(R.id.rate_app);
+        reportIssueTv = view.findViewById(R.id.report_issue);
+
+        nightModeSwitch = view.findViewById(R.id.night_mode_toggle);
+        nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                ((MainActivity) Objects.requireNonNull(getActivity())).changeTheme(isChecked);
+                showToast("Function not set");
+            }
+        });
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.update_profile:
-                        openActivity(0);
-                        break;
-                    case R.id.admin_panel:
-                        openActivity(1);
-                        break;
-                }
+                doFunctionsForClick(v);
             }
         };
 
-        updateProfileLayout.setOnClickListener(clickListener);
-        adminPanelLayout.setOnClickListener(clickListener);
+        faqLayout.setOnClickListener(clickListener);
+        privacyLayout.setOnClickListener(clickListener);
+        termsAndCondsLayout.setOnClickListener(clickListener);
+        reportIssueTv.setOnClickListener(clickListener);
+        rateUsTv.setOnClickListener(clickListener);
 
         return view;
     }
 
-    private void openActivity(int key) {
-        switch (key) {
-            case 0:
-                goTo(getActivity(), ProfileUpdatingActivity.class, false);
+    private void doFunctionsForClick(View view) {
+        switch (view.getId()) {
+            case R.id.faq:
+                showToast("Faq clicked");
                 break;
-            case 1:
-                goTo(getActivity(), AdminActivity.class, false);
+            case R.id.privacy:
+                if (appDialog != null && !appDialog.isShowing() && !isRemoving()) {
+                    appDialog.loadUrl(Keys.URL_PRIVACY);
+                }
                 break;
+            case R.id.terms:
+                if (appDialog != null && !appDialog.isShowing() && !isRemoving()) {
+                    appDialog.loadUrl(Keys.URL_TERMS);
+                }
+                break;
+            case R.id.rate_app:
+                showToast("Rate us clicked");
+                break;
+            case R.id.report_issue:
+                showToast("Report Superclicked");
+                break;
+
         }
     }
+
 }

@@ -16,13 +16,13 @@ import java.lang.Override;
 public class AdminActivity_ViewBinding implements Unbinder {
   private AdminActivity target;
 
-  private View view2131296291;
+  private View view2131296290;
 
-  private View view2131296288;
+  private View view2131296287;
 
-  private View view2131296478;
+  private View view2131296487;
 
-  private View view2131296296;
+  private View view2131296295;
 
   @UiThread
   public AdminActivity_ViewBinding(AdminActivity target) {
@@ -37,7 +37,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     target.toolbar = Utils.findRequiredViewAsType(source, R.id.toolbar, "field 'toolbar'", Toolbar.class);
     view = Utils.findRequiredView(source, R.id.add_news, "field 'newsCv' and method 'onClicked'");
     target.newsCv = Utils.castView(view, R.id.add_news, "field 'newsCv'", CardView.class);
-    view2131296291 = view;
+    view2131296290 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.add_circular, "field 'circularCv' and method 'onClicked'");
     target.circularCv = Utils.castView(view, R.id.add_circular, "field 'circularCv'", CardView.class);
-    view2131296288 = view;
+    view2131296287 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.manage_teams, "field 'manageTeamsCv' and method 'onClicked'");
     target.manageTeamsCv = Utils.castView(view, R.id.manage_teams, "field 'manageTeamsCv'", CardView.class);
-    view2131296478 = view;
+    view2131296487 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.admin_manage_card, "field 'manageAdminsCv' and method 'onClicked'");
     target.manageAdminsCv = Utils.castView(view, R.id.admin_manage_card, "field 'manageAdminsCv'", CardView.class);
-    view2131296296 = view;
+    view2131296295 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -86,13 +86,13 @@ public class AdminActivity_ViewBinding implements Unbinder {
     target.manageTeamsCv = null;
     target.manageAdminsCv = null;
 
-    view2131296291.setOnClickListener(null);
-    view2131296291 = null;
-    view2131296288.setOnClickListener(null);
-    view2131296288 = null;
-    view2131296478.setOnClickListener(null);
-    view2131296478 = null;
-    view2131296296.setOnClickListener(null);
-    view2131296296 = null;
+    view2131296290.setOnClickListener(null);
+    view2131296290 = null;
+    view2131296287.setOnClickListener(null);
+    view2131296287 = null;
+    view2131296487.setOnClickListener(null);
+    view2131296487 = null;
+    view2131296295.setOnClickListener(null);
+    view2131296295 = null;
   }
 }

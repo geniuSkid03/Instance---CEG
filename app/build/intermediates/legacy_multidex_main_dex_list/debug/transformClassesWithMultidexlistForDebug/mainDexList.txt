@@ -324,7 +324,7 @@ com/google/android/gms/internal/firebase_auth/zzv.class
 com/google/android/gms/internal/firebase_auth/zzw.class
 com/google/android/gms/internal/firebase_auth/zzy.class
 com/google/android/gms/internal/firebase_auth/zzz.class
-com/google/android/gms/internal/measurement/zzsx.class
+com/google/android/gms/internal/measurement/zzsi.class
 com/google/android/gms/stats/CodePackage.class
 com/google/firebase/annotations/PublicApi.class
 com/google/firebase/auth/ActionCodeResult$ActionDataKey.class
@@ -339,6 +339,7 @@ com/google/firebase/database/annotations/NotNull.class
 com/google/firebase/database/annotations/Nullable.class
 com/google/firebase/iid/MessagingChannel.class
 com/google/firebase/iid/zzaz.class
+com/google/firebase/messaging/RemoteMessage$MessagePriority.class
 com/google/firebase/storage/StorageException$ErrorCode.class
 com/google/gson/annotations/Expose.class
 com/google/gson/annotations/JsonAdapter.class

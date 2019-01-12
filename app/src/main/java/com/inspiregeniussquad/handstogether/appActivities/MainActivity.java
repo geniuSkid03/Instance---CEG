@@ -1,10 +1,12 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -12,11 +14,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,7 +26,6 @@ import android.widget.TextView;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.MyPagerAdapter;
 import com.inspiregeniussquad.handstogether.appAdapters.NavMenuAdapter;
-import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NavMenu;
 import com.inspiregeniussquad.handstogether.appData.Users;
@@ -129,6 +128,7 @@ public class MainActivity extends SuperCompatActivity {
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setTitle(null);
         }
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -464,6 +464,20 @@ public class MainActivity extends SuperCompatActivity {
             backPressed = 0;
             onBackPressed();
         }
+    }
+
+    public void changeTheme(boolean isChecked) {
+        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putBoolean(PREF_DARK_THEME, isChecked);
+        editor.apply();
+
+        TaskStackBuilder.create(this).addNextIntent(new Intent(this, MainActivity.class)).addNextIntent(getIntent())
+                .startActivities();
+
+//        Intent intent = getIntent();
+//        finish();
+//
+//        startActivity(intent);
     }
 
 }

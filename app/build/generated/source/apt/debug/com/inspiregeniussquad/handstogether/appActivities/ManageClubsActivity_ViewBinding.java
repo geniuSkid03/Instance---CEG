@@ -18,7 +18,7 @@ import java.lang.Override;
 public class ManageClubsActivity_ViewBinding implements Unbinder {
   private ManageClubsActivity target;
 
-  private View view2131296289;
+  private View view2131296288;
 
   @UiThread
   public ManageClubsActivity_ViewBinding(ManageClubsActivity target) {
@@ -35,7 +35,7 @@ public class ManageClubsActivity_ViewBinding implements Unbinder {
     target.noClubsTv = Utils.findRequiredViewAsType(source, R.id.no_clubs, "field 'noClubsTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.add_clubs_fab, "field 'addClubFab' and method 'onclicked'");
     target.addClubFab = Utils.castView(view, R.id.add_clubs_fab, "field 'addClubFab'", FloatingActionButton.class);
-    view2131296289 = view;
+    view2131296288 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class ManageClubsActivity_ViewBinding implements Unbinder {
     target.noClubsTv = null;
     target.addClubFab = null;
 
-    view2131296289.setOnClickListener(null);
-    view2131296289 = null;
+    view2131296288.setOnClickListener(null);
+    view2131296288 = null;
   }
 }

@@ -4,7 +4,6 @@ package com.inspiregeniussquad.handstogether.appActivities;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.inspiregeniussquad.handstogether.R;
-import com.mikhaellopez.circularimageview.CircularImageView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -31,15 +29,12 @@ public class NewsItemViewActivity_ViewBinding implements Unbinder {
 
     target.toolbar = Utils.findRequiredViewAsType(source, R.id.toolbar, "field 'toolbar'", Toolbar.class);
     target.appBarLayout = Utils.findRequiredViewAsType(source, R.id.app_bar_layout, "field 'appBarLayout'", AppBarLayout.class);
-    target.collapsingToolbarLayout = Utils.findRequiredViewAsType(source, R.id.collapsing_toolbar, "field 'collapsingToolbarLayout'", CollapsingToolbarLayout.class);
-    target.posterIv = Utils.findRequiredViewAsType(source, R.id.event_poster, "field 'posterIv'", ImageView.class);
+    target.posterIv1 = Utils.findRequiredViewAsType(source, R.id.event_poster_1, "field 'posterIv1'", ImageView.class);
     target.nestedScrollView = Utils.findRequiredViewAsType(source, R.id.nested_scrollview, "field 'nestedScrollView'", NestedScrollView.class);
     target.infoDescTv = Utils.findRequiredViewAsType(source, R.id.desc_view, "field 'infoDescTv'", TextView.class);
     target.titleTv = Utils.findRequiredViewAsType(source, R.id.title, "field 'titleTv'", TextView.class);
     target.dateTv = Utils.findRequiredViewAsType(source, R.id.date, "field 'dateTv'", TextView.class);
     target.timeTv = Utils.findRequiredViewAsType(source, R.id.time, "field 'timeTv'", TextView.class);
-    target.teamLogoIv = Utils.findRequiredViewAsType(source, R.id.team_logo, "field 'teamLogoIv'", CircularImageView.class);
-    target.teamLogo2Iv = Utils.findRequiredViewAsType(source, R.id.team_logo2, "field 'teamLogo2Iv'", CircularImageView.class);
   }
 
   @Override
@@ -51,14 +46,11 @@ public class NewsItemViewActivity_ViewBinding implements Unbinder {
 
     target.toolbar = null;
     target.appBarLayout = null;
-    target.collapsingToolbarLayout = null;
-    target.posterIv = null;
+    target.posterIv1 = null;
     target.nestedScrollView = null;
     target.infoDescTv = null;
     target.titleTv = null;
     target.dateTv = null;
     target.timeTv = null;
-    target.teamLogoIv = null;
-    target.teamLogo2Iv = null;
   }
 }

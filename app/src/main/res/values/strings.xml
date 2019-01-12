@@ -275,7 +275,7 @@
     <string name="enter_name_">Enter Name:</string>
     <string name="welcome_back">Welcome, back</string>
     <string name="signUp_hnt">SignUp</string>
-    <string name="use_social_login">Login using:</string>
+    <string name="use_social_login">Login using</string>
     <string name="or">Or</string>
     <string name="b_login_error">ERROR while logging in with facebook!</string>
     <string name="fb_login_cancelled">Facebook login cancelled!</string>
@@ -292,5 +292,14 @@
     <string name="gmail_sign_in_failed">Gmail sign in failed!</string>
     <string name="oops_no_bookmarks">You haven\'t made any bookmarks yet!</string>
     <string name="bookmsrks">Bookmarks</string>
+    <string name="oops_no_clubs_found">No Clubs found!</string>
+    <string name="enable_night_mode">Enable Night Mode</string>
+    <string name="support">Support</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms">Terms And Conditions</string>
+    <string name="faq">F.A.Q.</string>
+    <string name="report_problem">Report an issue</string>
+    <string name="rate_us">Rate us</string>
+    <string name="storage_link" />
 
 </resources>
