@@ -79,7 +79,7 @@ public class TeaminfoActivity extends SuperCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teaminfo);
+        setContentView(R.layout.activity_teaminfo);+
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
