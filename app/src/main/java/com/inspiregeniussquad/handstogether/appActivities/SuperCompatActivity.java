@@ -56,7 +56,8 @@ public class SuperCompatActivity extends AppCompatActivity {
 
     public FirebaseAuth firebaseAuth;
     public DatabaseReference parentDatabaseReference, childDatabaseReference,
-            usersDatabaseReference, teamDatabaseReference, adminDbReference, clubsDbRef;
+            usersDatabaseReference, teamDatabaseReference, adminDbReference, clubsDbRef,
+            membersDbReference;
     public StorageReference storageReference;
     public FirebaseStorage firebaseStorage;
 
@@ -126,6 +127,7 @@ public class SuperCompatActivity extends AppCompatActivity {
         teamDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_TEAM);
         adminDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_ADMIN);
         clubsDbRef = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_CLUBS);
+        membersDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_MEMBERS);
 
         //fire base storage
         firebaseStorage = FirebaseStorage.getInstance();

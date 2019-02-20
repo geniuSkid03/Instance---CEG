@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
@@ -18,10 +17,10 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appUtils.ImageHelper;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -181,7 +180,7 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
 
         if(resultCode == RESULT_OK) {
             if(requestCode == OPEN_CAMERA) {
-                Picasso.get().load(userImgUri).into(userProfileIv);
+                Glide.with(this).load(userImgUri).into(userProfileIv);
 
                 userImagePath = getImagePath(userImgUri);
             } else if (requestCode == CHOOSE_IMAGE) {
@@ -189,7 +188,7 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
 
                 userImagePath = ImageHelper.getPath(this, userImgUri);
 
-                Picasso.get().load(userImgUri).into(userProfileIv);
+                Glide.with(this).load(userImgUri).into(userProfileIv);
             }
         }
     }

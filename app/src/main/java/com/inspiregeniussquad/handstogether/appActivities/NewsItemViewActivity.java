@@ -1,26 +1,19 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.nostra13.universalimageloader.utils.DiskCacheUtils;
-import com.squareup.picasso.Picasso;
-
-import java.io.File;
 
 import butterknife.BindView;
 
@@ -137,35 +130,38 @@ public class NewsItemViewActivity extends SuperCompatActivity {
 
 
     private void updateUi(final NewsFeedItems newsFeedItems) {
-        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
-        if (posterImage != null && posterImage.exists()) {
-//            Picasso.get().load(posterImage).fit().into(posterIv);
-            Picasso.get().load(posterImage).fit().into(posterIv1);
-        } else {
-            imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
-                @Override
-                public void onLoadingStarted(String imageUri, View view) {
 
-                }
+        Glide.with(this).load(newsFeedItems.getPstrUrl()).into(posterIv1);
 
-                @Override
-                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                }
-
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-//                    Picasso.get().load(imageUri).fit().into(posterIv);
-                    Picasso.get().load(imageUri).fit().into(posterIv1);
-                    newsFeedItems.setPosterUri(imageUri);
-                }
-
-                @Override
-                public void onLoadingCancelled(String imageUri, View view) {
-
-                }
-            });
-        }
+//        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
+//        if (posterImage != null && posterImage.exists()) {
+////            Picasso.get().load(posterImage).fit().into(posterIv);
+//            Picasso.get().load(posterImage).fit().into(posterIv1);
+//        } else {
+//            imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
+//                @Override
+//                public void onLoadingStarted(String imageUri, View view) {
+//
+//                }
+//
+//                @Override
+//                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//
+//                }
+//
+//                @Override
+//                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+////                    Picasso.get().load(imageUri).fit().into(posterIv);
+//                    Picasso.get().load(imageUri).fit().into(posterIv1);
+//                    newsFeedItems.setPosterUri(imageUri);
+//                }
+//
+//                @Override
+//                public void onLoadingCancelled(String imageUri, View view) {
+//
+//                }
+//            });
+//        }
 
         infoDescTv.setText(newsFeedItems.geteDesc());
         titleTv.setText(newsFeedItems.geteName());

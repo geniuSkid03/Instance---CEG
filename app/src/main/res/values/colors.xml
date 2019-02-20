@@ -12,8 +12,8 @@
     <color name="divider">#BDBDBD</color>
 
     <color name="primaryColor">#1976d2</color>
-    <color name="primaryLightColor">#6ab7ff</color>
-    <color name="primaryDarkColor">#004ba0</color>
+    <color name="primaryLightColor">#64b5f6</color>
+    <color name="primaryDarkColor">#0d47a1</color>
 
     <color name="accentColor">#63a4ff</color>
 
@@ -41,5 +41,6 @@
     <color name="color_3">#f1a2e7</color>
     <color name="color_4">#f7e597</color>
     <color name="color_5">#f0958b</color>
+    <color name="loading_view_grey">#bdbdbd</color>
 
 </resources>

@@ -8,18 +8,21 @@
     tools:context=".appActivities.PosterViewActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:layout_above="@+id/footer"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
+        <com.inspiregeniussquad.handstogether.appViews.ZoomImageView
             android:id="@+id/poster_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:transitionName="@string/image_transition"
             android:layout_margin="12dp"
-            android:scaleType="centerInside"
             android:contentDescription="@null" />
 
     </LinearLayout>

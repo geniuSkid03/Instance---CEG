@@ -23,6 +23,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,10 +51,11 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     private RecyclerView newsFeedRv;
     private LinearLayout noNewsTv;
 
-    private boolean isRefreshing;
+    private boolean isRefreshing = false;
 
     private NewsFeedAdapter newsFeedAdapter, filteredFeedAdapter;
     private ArrayList<NewsFeedItems> newsFeedItemsArrayList;
+    private ShimmerFrameLayout newsLoadingView;
 
     private Users currentUser;
 
@@ -248,6 +250,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         newsFeedRv = view.findViewById(R.id.news_feed_recycler_view);
         noNewsTv = view.findViewById(R.id.no_news_view);
 
+        newsLoadingView = view.findViewById(R.id.shimmer_view_container);
+
         newsFeedRv.setHasFixedSize(true);
         newsFeedRv.setItemViewCacheSize(20);
         newsFeedRv.setDrawingCacheEnabled(true);
@@ -264,7 +268,9 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private void onImageItemClicked(NewsFeedItems newsFeedItems, ImageView posterImgIv) {
-        openWithImageTransition(getContext(), PosterViewActivity.class, false, posterImgIv, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+        goTo(getContext(), PosterViewActivity.class, false,  Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+
+//        openWithImageTransition(getContext(), PosterViewActivity.class, false, posterImgIv, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
     }
 
     private void onCommentItemClicked(NewsFeedItems newsFeedItems) {
@@ -277,26 +283,34 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         if (!dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
             AppHelper.print("Home refresh not needed");
             return;
+        } else {
+            dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
         }
 
-        showProgress(getString(R.string.loading));
+        if(isRefreshing) {
+            AppHelper.print("Already refreshing");
+            return;
+        }
+
+        isRefreshing = true;
+
+        showLoading();
+//        showProgress(getString(R.string.loading));
 
         newsDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    AppHelper.print("News exists and trying to retrive!");
+                    AppHelper.print("News exists and trying to retrieve!");
                     retriveDataFromDb(dataSnapshot);
                 } else {
                     AppHelper.print("No news found!");
-                    cancelProgress();
                     updateUi();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                cancelProgress();
                 updateUi();
                 AppHelper.print("Db Error while loading news feed: " + databaseError);
                 showToast(getString(R.string.db_error));
@@ -344,6 +358,10 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private void updateUi() {
+        hideLoading();
+
+        isRefreshing = false;
+
         if (newsFeedItemsArrayList.size() != 0) {
             newsFeedAdapter.notifyDataSetChanged();
             newsFeedRv.setAdapter(newsFeedAdapter);
@@ -354,9 +372,21 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         newsFeedRv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.INVISIBLE : View.VISIBLE);
         noNewsTv.setVisibility(newsFeedItemsArrayList.size() == 0 ? View.VISIBLE : View.INVISIBLE);
 
-        cancelProgress();
-
         animateWithData(newsFeedRv);
+    }
+
+    private void showLoading(){
+        newsFeedRv.setVisibility(View.GONE);
+        noNewsTv.setVisibility(View.GONE);
+
+        newsLoadingView.setVisibility(View.VISIBLE);
+        newsLoadingView.startShimmer();
+    }
+
+    private void hideLoading() {
+
+        newsLoadingView.setVisibility(View.GONE);
+        newsLoadingView.stopShimmer();
     }
 
     private void animateWithData(RecyclerView recyclerView) {

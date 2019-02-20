@@ -4,64 +4,65 @@ import java.util.ArrayList;
 
 public class Team {
 
-    private String name, desc, motto;
-    private ArrayList<TeamMembers> teamMembers;
-    private String logoUri, membersCount;
-    private String email, website, fbLink;
-    private String clubName;
+   private String tName, tMotto, tLogo, tMemCount, tDesc, tId;
+   private ArrayList<TeamMembers> teamMembers;
+   private String tClubId, tClubName;
+   private String tFounded, tMemId;
 
-    public Team() {
+   public Team() {
 
+   }
+
+    public Team(String tName, String tMotto, String tLogo, String tMemCount,
+                String tDesc, String tId, String tClubId, String tClubName) {
+        this.tName = tName;
+        this.tMotto = tMotto;
+        this.tLogo = tLogo;
+        this.tMemCount = tMemCount;
+        this.tDesc = tDesc;
+        this.tId = tId;
+        this.tClubId = tClubId;
+        this.tClubName = tClubName;
     }
 
-    public Team(String name, String motto, String desc, String logoUri,
-                ArrayList<TeamMembers> teamMembers, String membersCount, String clubName) {
-        this.motto = motto;
-        this.logoUri = logoUri;
-        this.desc = desc;
-        this.name = name;
-        this.membersCount = membersCount;
-        this.teamMembers = teamMembers;
-        this.clubName = clubName;
+    public String gettName() {
+        return tName;
     }
 
-    public String getTeamName() {
-        return name;
+    public void settName(String tName) {
+        this.tName = tName;
     }
 
-
-    public String getTeamDesc() {
-        return desc;
+    public String gettMotto() {
+        return tMotto;
     }
 
-
-    public String getTeamMotto() {
-        return motto;
+    public void settMotto(String tMotto) {
+        this.tMotto = tMotto;
     }
 
-
-    public String getTeamLogoUri() {
-        return logoUri;
+    public String gettLogo() {
+        return tLogo;
     }
 
-    public void setTeamName(String name) {
-        this.name = name;
+    public void settLogo(String tLogo) {
+        this.tLogo = tLogo;
     }
 
-    public void setTeamDesc(String desc) {
-        this.desc = desc;
+    public String gettMemCount() {
+        return tMemCount;
     }
 
-    public void setTeamMotto(String motto) {
-        this.motto = motto;
+    public void settMemCount(String tMemCount) {
+        this.tMemCount = tMemCount;
     }
 
-    public String getTeamMembersCount() {
-        return membersCount;
+    public String gettDesc() {
+        return tDesc;
     }
 
-    public void setTeamMembersCount(String membersCount) {
-        this.membersCount = membersCount;
+    public void settDesc(String tDesc) {
+        this.tDesc = tDesc;
     }
 
     public ArrayList<TeamMembers> getTeamMembers() {
@@ -72,16 +73,43 @@ public class Team {
         this.teamMembers = teamMembers;
     }
 
-    public void setTeamLogoUri(String logoUri) {
-        this.logoUri = logoUri;
+    public String gettClubId() {
+        return tClubId;
     }
 
-
-    public String getClubName() {
-        return clubName;
+    public void settClubId(String tClubId) {
+        this.tClubId = tClubId;
     }
 
-    public void setClubName(String clubName) {
-        this.clubName = clubName;
+    public String gettClubName() {
+        return tClubName;
+    }
+
+    public void settClubName(String tClubName) {
+        this.tClubName = tClubName;
+    }
+
+    public String gettId() {
+        return tId;
+    }
+
+    public void settId(String tId) {
+        this.tId = tId;
+    }
+
+    public String gettFounded() {
+        return tFounded;
+    }
+
+    public void settFounded(String tFounded) {
+        this.tFounded = tFounded;
+    }
+
+    public String gettMemId() {
+        return tMemId;
+    }
+
+    public void settMemId(String tMemId) {
+        this.tMemId = tMemId;
     }
 }

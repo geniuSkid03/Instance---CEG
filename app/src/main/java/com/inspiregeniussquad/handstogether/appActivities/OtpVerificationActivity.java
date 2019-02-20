@@ -4,7 +4,6 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,7 +19,6 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
@@ -29,7 +27,6 @@ import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
@@ -278,7 +275,6 @@ public class OtpVerificationActivity extends SuperCompatActivity {
             phoneNumbers.add((String) usersMap.get(Keys.ATTR_MOBILE));
 
             //trying to load profile of user, if mobile number found
-
             for (String phone : phoneNumbers) {
                 if (phone.equals(mobileNumber)) {
                     Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),

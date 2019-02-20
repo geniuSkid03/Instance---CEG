@@ -11,10 +11,10 @@ INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidMani
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:125:13-57
 manifest
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\b702b32278a5052a0aaae02a23bb31cb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:17:1-24:12
 MERGED from [com.facebook.android:facebook-android-sdk:4.17.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.17.0.aar\a17147629a74e2305db014d35a95c388\AndroidManifest.xml:21:1-40:12
@@ -57,10 +57,9 @@ MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Genius\.gradle\caches\t
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-jobdispatcher-0.8.5.aar\e2a8f428fe1c13157b592fb5c23c73db\AndroidManifest.xml:17:1-42:12
 MERGED from [com.wang.avi:library:2.1.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\c74da95e8e2de3cd0a9f16c4edf17266\AndroidManifest.xml:2:1-11:12
 MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\4b69517cd6289d1a65d9ca2f56e575b3\AndroidManifest.xml:2:1-15:12
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:2:1-14:12
 MERGED from [id.zelory:compressor:2.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\f7e962e050cddcbf04173d73f9452ae3\AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.shimmer:shimmer:0.4.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\shimmer-0.4.0.aar\ce353acce25a602dff767af829a24d1d\AndroidManifest.xml:2:1-7:12
 MERGED from [com.android.support:transition:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\969efd613f66c43f60bf343c465430fe\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\e1041fb64952f70e66150cb830836dec\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.8.0.aar\d302005af662eaeae78a828414600a12\AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.persistence:db-framework:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.1.aar\1c89713bed00d587cbf038fc0b8b4c8a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.persistence:db:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\db-1.1.1.aar\cf9f1fbb4719b17d0472b438a48d2b19\AndroidManifest.xml:17:1-22:12
@@ -88,22 +87,22 @@ MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Genius\.gradle\ca
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\21755561e92ad57aeafc3053dc85d528\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\f4ef372c8a78ddcff9581efe85eece40\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\74692f710a9db1346fb9504dc3ef9936\AndroidManifest.xml:2:1-7:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
-INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
+INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
 	package
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:4:5-51
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-182:12
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:1-181:12
 		INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:2:11-69
@@ -162,7 +161,7 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:17:22-66
 application
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:19:5-180:19
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:19:5-179:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\ec0e4f862efbb9627179bf671e9aecbf\AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:4.17.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.17.0.aar\a17147629a74e2305db014d35a95c388\AndroidManifest.xml:28:5-38:19
@@ -213,8 +212,6 @@ MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Genius\.gradle\
 MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-jobdispatcher-0.8.5.aar\e2a8f428fe1c13157b592fb5c23c73db\AndroidManifest.xml:26:5-40:19
 MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\4b69517cd6289d1a65d9ca2f56e575b3\AndroidManifest.xml:11:5-13:38
 MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\4b69517cd6289d1a65d9ca2f56e575b3\AndroidManifest.xml:11:5-13:38
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:7:5-12:19
 MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.8.0.aar\d302005af662eaeae78a828414600a12\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.8.0.aar\d302005af662eaeae78a828414600a12\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:customtabs:25.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\customtabs-25.0.0.aar\7709e33165d9f19ba383c319a58b4868\AndroidManifest.xml:22:5-20
@@ -443,7 +440,7 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:145:13-59
 activity#com.facebook.FacebookActivity
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:149:9-152:47
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:149:9-152:48
 MERGED from [com.facebook.android:facebook-android-sdk:4.17.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.17.0.aar\a17147629a74e2305db014d35a95c388\AndroidManifest.xml:29:9-32:66
 MERGED from [com.facebook.android:facebook-android-sdk:4.17.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.17.0.aar\a17147629a74e2305db014d35a95c388\AndroidManifest.xml:29:9-32:66
 	android:label
@@ -461,39 +458,47 @@ ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifes
 	android:name
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:155:13-58
 service#com.inspiregeniussquad.handstogether.appFcm.AppFcmService
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:158:9-163:19
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:158:9-162:19
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:159:13-49
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:158:18-54
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:160:13-162:29
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:159:13-161:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:161:17-78
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:160:17-78
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:161:25-75
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:160:25-75
 meta-data#com.google.firebase.messaging.default_notification_icon
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:165:9-167:50
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:164:9-166:54
 	android:resource
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:167:9-47
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:166:13-51
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:166:13-83
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:165:13-83
 meta-data#com.google.firebase.messaging.default_notification_color
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:169:9-171:53
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:167:9-169:53
 	android:resource
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:171:13-50
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:169:13-50
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:170:13-84
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:168:13-84
 meta-data#firebase_messaging_auto_init_enabled
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:170:9-172:37
+	android:value
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:172:13-34
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:171:13-64
+meta-data#firebase_analytics_collection_enabled
 ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:173:9-175:37
 	android:value
 		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:175:13-34
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:174:13-64
-meta-data#firebase_analytics_collection_enabled
-ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:176:9-178:37
-	android:value
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:178:13-34
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:174:13-65
+activity#com.inspiregeniussquad.handstogether.appActivities.TeamsActivity
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:177:9-65
 	android:name
-		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:177:13-65
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:177:19-62
+activity#com.inspiregeniussquad.handstogether.appActivities.TeaminfoActivity
+ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:178:9-77
+	android:name
+		ADDED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml:178:19-65
 uses-sdk
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Android Studio Projects\Instance---CEG\app\src\main\AndroidManifest.xml
@@ -582,14 +587,12 @@ MERGED from [com.wang.avi:library:2.1.3] C:\Users\Genius\.gradle\caches\transfor
 MERGED from [com.wang.avi:library:2.1.3] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\c74da95e8e2de3cd0a9f16c4edf17266\AndroidManifest.xml:7:5-9:41
 MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\4b69517cd6289d1a65d9ca2f56e575b3\AndroidManifest.xml:7:5-9:41
 MERGED from [com.mikhaellopez:circularimageview:3.0.2] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\circularimageview-3.0.2.aar\4b69517cd6289d1a65d9ca2f56e575b3\AndroidManifest.xml:7:5-9:41
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:5:5-44
 MERGED from [id.zelory:compressor:2.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\f7e962e050cddcbf04173d73f9452ae3\AndroidManifest.xml:8:5-10:41
 MERGED from [id.zelory:compressor:2.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\compressor-2.1.0.aar\f7e962e050cddcbf04173d73f9452ae3\AndroidManifest.xml:8:5-10:41
+MERGED from [com.facebook.shimmer:shimmer:0.4.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\shimmer-0.4.0.aar\ce353acce25a602dff767af829a24d1d\AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.shimmer:shimmer:0.4.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\shimmer-0.4.0.aar\ce353acce25a602dff767af829a24d1d\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\969efd613f66c43f60bf343c465430fe\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\969efd613f66c43f60bf343c465430fe\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\e1041fb64952f70e66150cb830836dec\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\e1041fb64952f70e66150cb830836dec\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.8.0.aar\d302005af662eaeae78a828414600a12\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.8.0.aar\d302005af662eaeae78a828414600a12\AndroidManifest.xml:5:5-7:41
 MERGED from [android.arch.persistence:db-framework:1.1.1] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.1.aar\1c89713bed00d587cbf038fc0b8b4c8a\AndroidManifest.xml:20:5-44
@@ -882,11 +885,3 @@ action#com.google.android.gms.gcm.ACTION_TASK_READY
 ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-jobdispatcher-0.8.5.aar\e2a8f428fe1c13157b592fb5c23c73db\AndroidManifest.xml:37:17-87
 	android:name
 		ADDED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\firebase-jobdispatcher-0.8.5.aar\e2a8f428fe1c13157b592fb5c23c73db\AndroidManifest.xml:37:25-84
-provider#com.squareup.picasso.PicassoProvider
-ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:8:9-11:40
-	android:authorities
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:10:13-72
-	android:exported
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:11:13-37
-	android:name
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\Genius\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\36b6d1a7f96004471ae8ed08cb335d07\AndroidManifest.xml:9:13-64

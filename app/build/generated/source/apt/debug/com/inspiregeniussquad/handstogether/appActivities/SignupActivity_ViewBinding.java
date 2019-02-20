@@ -20,17 +20,17 @@ import java.lang.Override;
 public class SignupActivity_ViewBinding implements Unbinder {
   private SignupActivity target;
 
-  private View view2131296481;
+  private View view2131296489;
 
-  private View view2131296427;
+  private View view2131296433;
 
-  private View view2131296575;
+  private View view2131296592;
 
-  private View view2131296479;
+  private View view2131296487;
 
-  private View view2131296425;
+  private View view2131296431;
 
-  private View view2131296438;
+  private View view2131296444;
 
   @UiThread
   public SignupActivity_ViewBinding(SignupActivity target) {
@@ -47,7 +47,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.radioGrp = Utils.findRequiredViewAsType(source, R.id.radio_grp, "field 'radioGrp'", RadioGroup.class);
     view = Utils.findRequiredView(source, R.id.male_rb, "field 'maleRdBtn' and method 'onclicked'");
     target.maleRdBtn = Utils.castView(view, R.id.male_rb, "field 'maleRdBtn'", RadioButton.class);
-    view2131296481 = view;
+    view2131296489 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.female_rb, "field 'femaleRdBtn' and method 'onclicked'");
     target.femaleRdBtn = Utils.castView(view, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
-    view2131296427 = view;
+    view2131296433 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.register_me, "field 'registerMeBtn' and method 'onclicked'");
     target.registerMeBtn = Utils.castView(view, R.id.register_me, "field 'registerMeBtn'", AppCompatButton.class);
-    view2131296575 = view;
+    view2131296592 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.login_me, "field 'loginMeBtn' and method 'onclicked'");
     target.loginMeBtn = Utils.castView(view, R.id.login_me, "field 'loginMeBtn'", TextView.class);
-    view2131296479 = view;
+    view2131296487 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -83,7 +83,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.facebook_login, "field 'fbLoginIv' and method 'onclicked'");
     target.fbLoginIv = Utils.castView(view, R.id.facebook_login, "field 'fbLoginIv'", ImageView.class);
-    view2131296425 = view;
+    view2131296431 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,7 +92,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.google_login, "field 'googleLoginIv' and method 'onclicked'");
     target.googleLoginIv = Utils.castView(view, R.id.google_login, "field 'googleLoginIv'", ImageView.class);
-    view2131296438 = view;
+    view2131296444 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -118,17 +118,17 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.fbLoginIv = null;
     target.googleLoginIv = null;
 
-    view2131296481.setOnClickListener(null);
-    view2131296481 = null;
-    view2131296427.setOnClickListener(null);
-    view2131296427 = null;
-    view2131296575.setOnClickListener(null);
-    view2131296575 = null;
-    view2131296479.setOnClickListener(null);
-    view2131296479 = null;
-    view2131296425.setOnClickListener(null);
-    view2131296425 = null;
-    view2131296438.setOnClickListener(null);
-    view2131296438 = null;
+    view2131296489.setOnClickListener(null);
+    view2131296489 = null;
+    view2131296433.setOnClickListener(null);
+    view2131296433 = null;
+    view2131296592.setOnClickListener(null);
+    view2131296592 = null;
+    view2131296487.setOnClickListener(null);
+    view2131296487 = null;
+    view2131296431.setOnClickListener(null);
+    view2131296431 = null;
+    view2131296444.setOnClickListener(null);
+    view2131296444 = null;
   }
 }

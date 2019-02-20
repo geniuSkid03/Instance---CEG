@@ -67,7 +67,7 @@
     <string name="requesting_otp">Requesting Otp…</string>
     <string name="verifying_otp">Verifying otp…</string>
     <string name="registering_you">Registering your account…</string>
-    <string name="some_error_occurred">Some Error Occurred!</string>
+    <string name="some_error_occurred">Some Error Occurred, try again later!</string>
     <string name="no_internet_title">No Internet!</string>
     <string name="connect_to_n">Connect to an active network and try again!</string>
     <string name="retry">Retry</string>
@@ -264,7 +264,7 @@
     <string name="add_new_club">Add New Club</string>
     <string name="club_name">Club\'s Name</string>
     <string name="loading_clubs">Loading club\'s info...</string>
-    <string name="choose_clubs">Chooose club name!</string>
+    <string name="choose_clubs">Choose club!</string>
     <string name="choose_club">Choose club</string>
     <string name="member_position">Designation</string>
     <string name="enter_otp">Enter Otp</string>
@@ -301,5 +301,13 @@
     <string name="report_problem">Report an issue</string>
     <string name="rate_us">Rate us</string>
     <string name="storage_link" />
+    <string name="oops_no_teams_found">Oops, no teams found!</string>
+    <string name="club_added_successfully">Club information has been added successfully!</string>
+    <string name="updating_club_info">Updating club informations...</string>
+    <string name="uploading_image">Uploading image...</string>
+    <string name="members">Members</string>
+    <string name="posts">Posts</string>
+    <string name="team_founded">Team Founded Year</string>
+    <string name="enter_founded_year">Enter team founded year!</string>
 
 </resources>

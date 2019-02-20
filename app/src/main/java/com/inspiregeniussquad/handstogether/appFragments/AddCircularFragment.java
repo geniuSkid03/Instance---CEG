@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,9 +30,6 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.squareup.picasso.Picasso;
-
-import java.util.Calendar;
 
 public class AddCircularFragment extends SuperFragment {
 
@@ -112,7 +110,7 @@ public class AddCircularFragment extends SuperFragment {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), circularImgUri);
                     if (bitmap != null) {
-                        Picasso.get().load(circularImgUri).into(circularIv);
+                        Glide.with(getContext()).load(circularImgUri).into(circularIv);
                     } else {
                         AppHelper.showToast(getActivity(), "Image bitmap null");
                     }

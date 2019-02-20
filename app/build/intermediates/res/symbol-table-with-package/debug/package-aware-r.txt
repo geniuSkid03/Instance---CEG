@@ -471,6 +471,26 @@ attr selectableItemBackgroundBorderless
 attr shadow
 attr shadow_color
 attr shadow_radius
+attr shimmer_auto_start
+attr shimmer_base_alpha
+attr shimmer_base_color
+attr shimmer_clip_to_children
+attr shimmer_colored
+attr shimmer_direction
+attr shimmer_dropoff
+attr shimmer_duration
+attr shimmer_fixed_height
+attr shimmer_fixed_width
+attr shimmer_height_ratio
+attr shimmer_highlight_alpha
+attr shimmer_highlight_color
+attr shimmer_intensity
+attr shimmer_repeat_count
+attr shimmer_repeat_delay
+attr shimmer_repeat_mode
+attr shimmer_shape
+attr shimmer_tilt
+attr shimmer_width_ratio
 attr showAsAction
 attr showDividers
 attr showMotionSpec
@@ -725,6 +745,7 @@ color ic_launcher_background
 color icons_counter_color
 color layout_bg
 color like_icon_activated
+color loading_view_grey
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1227,6 +1248,7 @@ drawable ic_correct_icon
 drawable ic_dashboard
 drawable ic_dashboard_unselected
 drawable ic_delete_icon
+drawable ic_dummy_image
 drawable ic_edit_icon
 drawable ic_empty_icon
 drawable ic_event_date
@@ -1293,6 +1315,7 @@ drawable messenger_button_white_bg_round
 drawable messenger_button_white_bg_selector
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
+drawable nav_menu_selected
 drawable navigation_empty_icon
 drawable newsfeed_icon
 drawable notification_action_background
@@ -1321,6 +1344,7 @@ drawable shadow_bg
 drawable side_nav_bar
 drawable splash_icon
 drawable tab_color_selector
+drawable test_img1
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 font base_font
@@ -1389,6 +1413,8 @@ id bookmark
 id bookmark_container
 id bookmark_recycler
 id bottom
+id bottom_layout
+id bottom_to_top
 id box_count
 id button
 id buttonPanel
@@ -1422,6 +1448,7 @@ id club_logo
 id club_name
 id club_name_
 id club_name_spinner
+id club_name_text
 id club_view_root
 id clubs_list
 id clubs_recycler
@@ -1457,11 +1484,14 @@ id coordinator
 id custom
 id customPanel
 id dark
+id dashboard
+id dashboard_
 id date
 id decor_content_parent
 id default_activity_button
 id delete
 id desc
+id desc_
 id desc_view
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -1533,12 +1563,14 @@ id labeled
 id large
 id largeLabel
 id left
+id left_to_right
 id light
 id like
 id like_container
 id likes
 id line1
 id line3
+id linear
 id listMode
 id list_child_icon
 id list_child_tag
@@ -1565,12 +1597,20 @@ id mem_name
 id mem_position
 id member_image
 id member_info_view
+id member_iv
+id member_name
+id member_pos
+id members_card
+id members_card_
 id members_count_display
 id message
 id messenger_send_button
 id middle
 id mini
 id minus_team_member
+id mm
+id mmm
+id mmmm
 id mobile
 id more_options
 id mtrl_child_content_container
@@ -1639,6 +1679,7 @@ id progress_circular
 id progress_horizontal
 id publish_circular
 id publish_news
+id radial
 id radio
 id radio_grp
 id rate_app
@@ -1647,10 +1688,13 @@ id refresh_updated_circular
 id register_me
 id remove
 id report_issue
+id restart
 id retry_btn
+id reverse
 id right
 id right_icon
 id right_side
+id right_to_left
 id root_view
 id rsend_otp_btn
 id save
@@ -1685,6 +1729,7 @@ id selected_image
 id shadow_bg
 id share
 id share_container
+id shimmer_view_container
 id shortcut
 id showCustom
 id showHome
@@ -1718,22 +1763,31 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id team_content
-id team_cv
+id team_content_view
 id team_desc
+id team_founded
+id team_item_view
+id team_loading_view
+id team_log_iv
 id team_logo
 id team_logo2
-id team_logo_placeholder
 id team_logo_view
 id team_member_name
 id team_member_position
 id team_members_count
 id team_members_names_list
+id team_members_rv
 id team_motto
 id team_name
+id team_posts
+id team_posts_count
+id team_posts_rv
 id team_recycler
+id team_scroll_view
 id team_spinner
 id team_spinner_container
 id team_update_content
+id teams_list_rv
 id terms
 id text
 id text2
@@ -1752,6 +1806,7 @@ id title_template
 id toolbar
 id top
 id topPanel
+id top_to_bottom
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1851,6 +1906,8 @@ layout activity_poster_view
 layout activity_profile_updation
 layout activity_signup
 layout activity_splash
+layout activity_team_view
+layout activity_teaminfo
 layout add_circular_fragment
 layout add_news_fragment
 layout add_team_fragment
@@ -1944,6 +2001,8 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout team_members_view
+layout teams_item_layout
 layout teams_list_item
 layout tool_bar_layout
 layout update_team_fragment
@@ -2054,6 +2113,7 @@ string circular_image
 string circular_name
 string circular_visiblity
 string cirular_updated_success
+string club_added_successfully
 string club_name
 string clubs
 string collpasing_tool_bar_image
@@ -2132,6 +2192,7 @@ string enter_circular_image
 string enter_desc
 string enter_details
 string enter_email
+string enter_founded_year
 string enter_mobile
 string enter_mobile_number
 string enter_name
@@ -2217,6 +2278,7 @@ string member
 string member_exist
 string member_name
 string member_position
+string members
 string members_count
 string members_count_not_matching
 string messenger_send_button_text
@@ -2255,6 +2317,7 @@ string one
 string oops_no_bookmarks
 string oops_no_clubs_found
 string oops_no_new_news
+string oops_no_teams_found
 string open_camera
 string or
 string otP
@@ -2278,6 +2341,7 @@ string phone_title
 string pick_from_gallery
 string position
 string posters
+string posts
 string president
 string press_again_to_exit
 string privacy_policy
@@ -2322,6 +2386,7 @@ string team_added_successfully
 string team_already_exist
 string team_data_unavail
 string team_desc
+string team_founded
 string team_logo
 string team_members_names
 string team_motto
@@ -2341,9 +2406,11 @@ string update_profile
 string update_team
 string updated_on
 string updating_circular
+string updating_club_info
 string updating_news
 string upload_failed
 string uploading_data
+string uploading_image
 string use_social_login
 string validating_info
 string verify
@@ -2968,6 +3035,7 @@ styleable RecyclerView android_orientation android_descendantFocusability fastSc
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
+styleable ShimmerFrameLayout shimmer_auto_start shimmer_base_alpha shimmer_base_color shimmer_clip_to_children shimmer_colored shimmer_direction shimmer_dropoff shimmer_duration shimmer_fixed_height shimmer_fixed_width shimmer_height_ratio shimmer_highlight_alpha shimmer_highlight_color shimmer_intensity shimmer_repeat_count shimmer_repeat_delay shimmer_repeat_mode shimmer_shape shimmer_tilt shimmer_width_ratio
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth

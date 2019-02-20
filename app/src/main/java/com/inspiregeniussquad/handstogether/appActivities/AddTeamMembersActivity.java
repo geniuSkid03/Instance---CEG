@@ -7,20 +7,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,11 +33,9 @@ import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appData.TeamMembers;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -94,8 +91,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         }
 
         if (team != null) {
-            membersCountDisplayTv.setText(String.format(Locale.getDefault(), "%s %s", getString(R.string.number_of_members), team.getTeamMembersCount()));
-            teamMembersCount = Integer.parseInt(team.getTeamMembersCount());
+            membersCountDisplayTv.setText(String.format(Locale.getDefault(), "%s %s", getString(R.string.number_of_members), team.gettMemCount()));
+            teamMembersCount = Integer.parseInt(team.gettMemCount());
         }
 
 //        final String[] positionNames = {getString(R.string.choose), getString(R.string.president), getString(R.string.member), getString(R.string.vice_president), getString(R.string.content_dev),
@@ -151,7 +148,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         }
 
         CircularImageView circularImageView = convertView.findViewById(R.id.member_image);
-        Picasso.get().load(Uri.parse(team.getTeamLogoUri())).into(circularImageView);
+
+        Glide.with(convertView).load(team.gettLogo()).into(circularImageView);
 
         TextView memberNameTv = convertView.findViewById(R.id.mem_name);
         memberNameTv.setText(teamMembers.getTeamMemberName());
@@ -166,8 +164,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         teamMembersLv.setVisibility(teamMembersArrayList.size() != 0 ? View.VISIBLE : View.GONE);
         noMembersTv.setVisibility(teamMembersArrayList.size() == 0 ? View.VISIBLE : View.GONE);
 
-        if (team.getTeamMembersCount() != null) {
-            membersCountDisplayTv.setText(String.format(Locale.getDefault(), "%s %d", getString(R.string.number_of_members), Integer.valueOf(team.getTeamMembersCount()) - teamMembersArrayList.size()));
+        if (team.gettMemCount() != null) {
+            membersCountDisplayTv.setText(String.format(Locale.getDefault(), "%s %d", getString(R.string.number_of_members), Integer.valueOf(team.gettMemCount()) - teamMembersArrayList.size()));
             membersCountDisplayTv.setVisibility(View.VISIBLE);
         }
     }
@@ -302,10 +300,10 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
 
     private void insertIntoDb() {
 
-        team.setTeamMembers(teamMembersArrayList);
+//        team.setTeamMembers(teamMembersArrayList);
 
-        Uri teamLogoUri = Uri.parse(team.getTeamLogoUri());
-        String teamLogoName = team.getTeamName() + "_Logo";
+        Uri teamLogoUri = Uri.parse(team.gettLogo());
+        String teamLogoName = team.gettName() + "_Logo";
 
         showProgress(getString(R.string.uploading_data));
 
@@ -353,23 +351,23 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
     private void onImageUploaded(Uri logoUri) {
         showProgress(getString(R.string.registering_team_in_progress));
 
-        team.setTeamLogoUri(logoUri.toString());
+        team.settLogo(logoUri.toString());
 
-        teamDatabaseReference.child(team.getTeamName()).setValue(team,
+        String teamId = teamDatabaseReference.push().getKey();
+        final String teamMembersId = membersDbReference.push().getKey();
+
+        team.settId(teamId);
+        team.settMemId(teamMembersId);
+
+        teamDatabaseReference.child(teamId).setValue(team,
                 new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        cancelProgress();
-
-                        if (databaseError == null) {
-                            showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
-                                @Override
-                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                                    dialogInterface.dismiss();
-                                    goHome();
-                                }
-                            });
+                        if(databaseError == null) {
+                            insertTeamMembers(teamMembersId);
                         } else {
+                            cancelProgress();
+
                             AppHelper.print("Database error: " + databaseError.getMessage());
 
                             showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
@@ -382,6 +380,36 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void insertTeamMembers(String teamMembersId) {
+
+        membersDbReference.child(teamMembersId).setValue(teamMembersArrayList, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                cancelProgress();
+
+                if(databaseError == null) {
+                    showSimpleAlert(getString(R.string.team_added_successfully), getString(R.string.ok), new SimpleAlert() {
+                        @Override
+                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                            dialogInterface.dismiss();
+                            goHome();
+                        }
+                    });
+                } else {
+                    AppHelper.print("Database error: " + databaseError.getMessage());
+
+                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
+                        @Override
+                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                            goHome();
+                            dialogInterface.dismiss();
+                        }
+                    });
+                }
+            }
+        });
     }
 
     private void goHome() {

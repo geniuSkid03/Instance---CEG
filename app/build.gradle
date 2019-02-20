@@ -67,7 +67,8 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:3.0.2'
 
     //image loading helper dependency
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     //image compression
     implementation 'id.zelory:compressor:2.1.0'
@@ -93,6 +94,9 @@ dependencies {
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
+
+    //shimmer loading view
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

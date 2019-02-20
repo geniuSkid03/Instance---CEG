@@ -37,6 +37,15 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <
+
+    </LinearLayout>
+
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/club_loading_view"
         app:indicatorColor="@color/colorPrimaryDark"

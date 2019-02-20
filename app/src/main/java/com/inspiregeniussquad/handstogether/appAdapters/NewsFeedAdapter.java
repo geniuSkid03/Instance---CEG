@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.inspiregeniussquad.handstogether.R;
@@ -27,14 +27,8 @@ import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.nostra13.universalimageloader.utils.DiskCacheUtils;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -332,54 +326,56 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                 }
             });
 
-            File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
-            if (posterImage != null && posterImage.exists()) {
-                Picasso.get().load(posterImage).fit().into(posterImgIv, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        posterImgIv.setVisibility(View.VISIBLE);
-                        imgloadingIv.hide();
-                        imgloadingIv.setVisibility(View.GONE);
-                    }
+            Glide.with(context).load(newsFeedItems.getPstrUrl()).into(posterImgIv);
 
-                    @Override
-                    public void onError(Exception e) {
-                        posterImgIv.setVisibility(View.GONE);
-                        imgloadingIv.setVisibility(View.VISIBLE);
-                        imgloadingIv.show();
-                    }
-                });
-            } else {
-                imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
-                    @Override
-                    public void onLoadingStarted(String imageUri, View view) {
-                        posterImgIv.setVisibility(View.GONE);
-                        imgloadingIv.setVisibility(View.VISIBLE);
-                        imgloadingIv.show();
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                        posterImgIv.setVisibility(View.GONE);
-                        imgloadingIv.show();
-                        imgloadingIv.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                        posterImgIv.setVisibility(View.VISIBLE);
-                        imgloadingIv.setVisibility(View.GONE);
-                        imgloadingIv.hide();
-                        Picasso.get().load(imageUri).fit().into(posterImgIv);
-                        newsFeedItems.setPosterUri(imageUri);
-                    }
-
-                    @Override
-                    public void onLoadingCancelled(String imageUri, View view) {
-
-                    }
-                });
-            }
+//            File posterImage = DiskCacheUtils.findInCache(, imageLoader.getDiskCache());
+//            if (posterImage != null && posterImage.exists()) {
+//                Picasso.get().load(posterImage).fit().into(posterImgIv, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        posterImgIv.setVisibility(View.VISIBLE);
+//                        imgloadingIv.hide();
+//                        imgloadingIv.setVisibility(View.GONE);
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception e) {
+//                        posterImgIv.setVisibility(View.GONE);
+//                        imgloadingIv.setVisibility(View.VISIBLE);
+//                        imgloadingIv.show();
+//                    }
+//                });
+//            } else {
+//                imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
+//                    @Override
+//                    public void onLoadingStarted(String imageUri, View view) {
+//                        posterImgIv.setVisibility(View.GONE);
+//                        imgloadingIv.setVisibility(View.VISIBLE);
+//                        imgloadingIv.show();
+//                    }
+//
+//                    @Override
+//                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//                        posterImgIv.setVisibility(View.GONE);
+//                        imgloadingIv.show();
+//                        imgloadingIv.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//                        posterImgIv.setVisibility(View.VISIBLE);
+//                        imgloadingIv.setVisibility(View.GONE);
+//                        imgloadingIv.hide();
+//                        Picasso.get().load(imageUri).fit().into(posterImgIv);
+//                        newsFeedItems.setPosterUri(imageUri);
+//                    }
+//
+//                    @Override
+//                    public void onLoadingCancelled(String imageUri, View view) {
+//
+//                    }
+//                });
+//            }
 
             if (appDbs != null) {
                 if (teamData != null) {
@@ -387,46 +383,49 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
                         if (team.getTeamName().equalsIgnoreCase(newsFeedItems.gettName())) {
                             final String logoUrl = team.getTeamLogoUrl();
                             if (logoUrl != null) {
-                                File logoImage = DiskCacheUtils.findInCache(logoUrl, imageLoader.getDiskCache());
 
-                                if (logoImage != null && logoImage.exists()) {
-                                    Picasso.get().load(logoImage).fit().into(logoCiv, new Callback() {
-                                        @Override
-                                        public void onSuccess() {
-                                            logoCiv.setVisibility(View.VISIBLE);
-                                        }
+                                Glide.with(context).load(logoUrl).into(logoCiv);
 
-                                        @Override
-                                        public void onError(Exception e) {
-                                            logoCiv.setVisibility(View.GONE);
-                                        }
-                                    });
-                                } else {
-                                    imageLoader.loadImage(logoUrl, new ImageLoadingListener() {
-                                        @Override
-                                        public void onLoadingStarted(String imageUri, View view) {
-                                            logoCiv.setVisibility(View.GONE);
-                                        }
-
-                                        @Override
-                                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                                        }
-
-                                        @Override
-                                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                                            Picasso.get().load(imageUri).fit().into(logoCiv);
-                                            logoCiv.setVisibility(View.VISIBLE);
-
-                                            newsFeedItems.setPstrUrl(imageUri);
-                                        }
-
-                                        @Override
-                                        public void onLoadingCancelled(String imageUri, View view) {
-
-                                        }
-                                    });
-                                }
+//                                File logoImage = DiskCacheUtils.findInCache(logoUrl, imageLoader.getDiskCache());
+//
+//                                if (logoImage != null && logoImage.exists()) {
+//                                    Picasso.get().load(logoImage).fit().into(logoCiv, new Callback() {
+//                                        @Override
+//                                        public void onSuccess() {
+//                                            logoCiv.setVisibility(View.VISIBLE);
+//                                        }
+//
+//                                        @Override
+//                                        public void onError(Exception e) {
+//                                            logoCiv.setVisibility(View.GONE);
+//                                        }
+//                                    });
+//                                } else {
+//                                    imageLoader.loadImage(logoUrl, new ImageLoadingListener() {
+//                                        @Override
+//                                        public void onLoadingStarted(String imageUri, View view) {
+//                                            logoCiv.setVisibility(View.GONE);
+//                                        }
+//
+//                                        @Override
+//                                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//
+//                                        }
+//
+//                                        @Override
+//                                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//                                            Picasso.get().load(imageUri).fit().into(logoCiv);
+//                                            logoCiv.setVisibility(View.VISIBLE);
+//
+//                                            newsFeedItems.setPstrUrl(imageUri);
+//                                        }
+//
+//                                        @Override
+//                                        public void onLoadingCancelled(String imageUri, View view) {
+//
+//                                        }
+//                                    });
+//                                }
                             }
                         }
                     }

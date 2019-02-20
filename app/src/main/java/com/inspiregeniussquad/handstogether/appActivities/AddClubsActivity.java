@@ -2,7 +2,6 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +15,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,10 +27,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.inspiregeniussquad.handstogether.appUtils.ImageHelper;
-import com.squareup.picasso.Picasso;
 
-import butterknife.BindInt;
 import butterknife.BindView;
 
 public class AddClubsActivity extends SuperCompatActivity {
@@ -66,7 +63,6 @@ public class AddClubsActivity extends SuperCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-
 
         saveFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +112,7 @@ public class AddClubsActivity extends SuperCompatActivity {
     private void updateClubsToDB(final Clubs clubs) {
         String clubsImgName = clubs.getClubsName() + "_icon";
 
-        showProgress(getString(R.string.uploading_data));
+        showProgress(getString(R.string.uploading_image));
 
         final StorageReference storageRef = storageReference.child("ClubsIcon/" + clubsImgName);
 
@@ -152,7 +148,7 @@ public class AddClubsActivity extends SuperCompatActivity {
                         AppHelper.print("Image uploaded but uri null");
                     }
                 } else {
-                    AppHelper.print("Task failed: "+task.getException() );
+                    AppHelper.print("Task failed: " + task.getException());
                     cancelProgress();
                     showInfoAlert(getString(R.string.upload_failed));
                 }
@@ -161,36 +157,51 @@ public class AddClubsActivity extends SuperCompatActivity {
     }
 
     private void onImageUploaded(Uri uploadedImg, Clubs clubs) {
-        showProgress(getString(R.string.updating_news));
+        showProgress(getString(R.string.updating_club_info));
 
-        Clubs clubs1 = new Clubs(clubs.getClubsName(), String.valueOf(uploadedImg));
+        String clubId = clubsDbRef.push().getKey();
 
-        clubsDbRef.child(clubsDbRef.push().getKey()).setValue(clubs1, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                cancelProgress();
+        if (clubId != null) {
+            Clubs clubs1 = new Clubs(clubs.getClubsName(), String.valueOf(uploadedImg));
+            clubs1.setClubsId(clubId);
 
-                if (databaseError == null) {
-                    showSimpleAlert(getString(R.string.news_updated_success), getString(R.string.ok),
-                            new SimpleAlert() {
-                                @Override
-                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                                    dialogInterface.dismiss();
-                                }
-                            });
-                } else {
-                    AppHelper.print("Database error: " + databaseError.getMessage());
+            clubsDbRef.child(clubId).setValue(clubs1, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                    cancelProgress();
 
-                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok),
-                            new SimpleAlert() {
-                                @Override
-                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                                    dialogInterface.dismiss();
-                                }
-                            });
+                    if (databaseError == null) {
+                        showSimpleAlert(getString(R.string.club_added_successfully), getString(R.string.ok),
+                                new SimpleAlert() {
+                                    @Override
+                                    public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                        dialogInterface.dismiss();
+                                        clearUi();
+                                    }
+                                });
+                    } else {
+                        AppHelper.print("Database error: " + databaseError.getMessage());
+
+                        showSimpleAlert(getString(R.string.db_error), getString(R.string.ok),
+                                new SimpleAlert() {
+                                    @Override
+                                    public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                        dialogInterface.dismiss();
+                                        clearUi();
+                                    }
+                                });
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            showToast(this, getString(R.string.some_error_occurred));
+            AppHelper.print("Club id null, cannot insert value");
+        }
+    }
+
+    private void clearUi() {
+        clubIv.setImageResource(0);
+        clubNameEd.setText("");
     }
 
     @Override
@@ -199,9 +210,9 @@ public class AddClubsActivity extends SuperCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if (requestCode == 100) {
-                if(data != null) {
+                if (data != null) {
                     clubImg = String.valueOf(data.getData());
-                    Picasso.get().load(data.getData()).into(clubIv);
+                    Glide.with(this).load(data.getData()).into(clubIv);
                 }
             }
         }

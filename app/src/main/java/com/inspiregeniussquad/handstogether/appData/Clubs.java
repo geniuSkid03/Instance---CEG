@@ -4,6 +4,11 @@ public class Clubs {
 
     private String clubsName;
     private String clubsImgUrl;
+    private String clubsId;
+
+    public Clubs() {
+
+    }
 
     public Clubs(String clubsName, String clubsImgUrl) {
         this.clubsImgUrl = clubsImgUrl;
@@ -24,5 +29,13 @@ public class Clubs {
 
     public void setClubsImgUrl(String clubsImgUrl) {
         this.clubsImgUrl = clubsImgUrl;
+    }
+
+    public String getClubsId() {
+        return clubsId;
+    }
+
+    public void setClubsId(String clubsId) {
+        this.clubsId = clubsId;
     }
 }

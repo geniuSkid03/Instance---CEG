@@ -17,14 +17,13 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.CircularFeedAdapter;
-import com.inspiregeniussquad.handstogether.appAdapters.NewsFeedAdapter;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
@@ -39,6 +38,8 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
 
     private ArrayList<CircularDataItems> circularDataItemsArrayList;
     private CircularFeedAdapter circularFeedAdapter;
+    private ShimmerFrameLayout newsLoadingView;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,9 +77,9 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private View initView(View view) {
-
         circularRv = view.findViewById(R.id.circular_recycler_view);
         noCircularTv = view.findViewById(R.id.no_circular_view);
+        newsLoadingView = view.findViewById(R.id.shimmer_view_container);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         circularRv.setLayoutManager(linearLayoutManager);
@@ -87,7 +88,8 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     public void refreshCirculars() {
-        showProgress(getString(R.string.loading));
+//        showProgress(getString(R.string.loading));
+        showLoadingView();
 
         circularDbReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -97,14 +99,12 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
                     retriveDataFromDb(dataSnapshot);
                 } else {
                     AppHelper.print("No news found!");
-                    cancelProgress();
                     updateUi();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                cancelProgress();
                 updateUi();
                 AppHelper.print("Db Error while loading news feed: " + databaseError);
                 showToast(getString(R.string.db_error));
@@ -135,6 +135,8 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
     }
 
     private void updateUi() {
+        hideLoading();
+
         if (circularDataItemsArrayList.size() != 0) {
             circularFeedAdapter.notifyDataSetChanged();
             circularRv.setAdapter(circularFeedAdapter);
@@ -143,9 +145,20 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
         circularRv.setVisibility(circularDataItemsArrayList.size() == 0 ? View.INVISIBLE : View.VISIBLE);
         noCircularTv.setVisibility(circularDataItemsArrayList.size() == 0 ? View.VISIBLE : View.INVISIBLE);
 
-        cancelProgress();
-
         animateWithData(circularRv);
+    }
+
+    private void showLoadingView() {
+        circularRv.setVisibility(View.GONE);
+        noCircularTv.setVisibility(View.GONE);
+
+        newsLoadingView.setVisibility(View.VISIBLE);
+        newsLoadingView.startShimmer();
+    }
+
+    private void hideLoading() {
+        newsLoadingView.setVisibility(View.GONE);
+        newsLoadingView.stopShimmer();
     }
 
     private void animateWithData(RecyclerView recyclerView) {

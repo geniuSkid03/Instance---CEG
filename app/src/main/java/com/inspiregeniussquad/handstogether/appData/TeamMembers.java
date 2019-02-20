@@ -8,6 +8,11 @@ public class TeamMembers {
 
     }
 
+    public TeamMembers(String teamMemberName, String teamMemberPosition) {
+        this.teamMemberName = teamMemberName;
+        this.teamMemberPosition = teamMemberPosition;
+    }
+
     public String getTeamMemberName() {
         return teamMemberName;
     }

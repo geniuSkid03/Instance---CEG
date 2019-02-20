@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appViews.CircularFeedLayout;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapter.CircularFeedView> {
@@ -73,7 +72,7 @@ public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapte
             dateTimeTv.setText(String.format("%s  %s", circularDataItems.getpDate(), circularDataItems.getpTime()));
             descTv.setText(circularDataItems.getcDesc());
 
-            Picasso.get().load(circularDataItems.getCircularImgPath()).into(circularImgIv);
+            Glide.with(context).load(circularDataItems.getCircularImgPath()).into(circularImgIv);
         }
     }
 }

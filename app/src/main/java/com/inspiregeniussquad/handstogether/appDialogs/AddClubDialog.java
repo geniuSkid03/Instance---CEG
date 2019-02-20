@@ -12,11 +12,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
-import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -98,7 +98,7 @@ public class AddClubDialog extends Dialog {
     public void setImageUrl(String path) {
         if (path != null && clubImageIv != null) {
             clubImgUrl = path;
-            Picasso.get().load(path).into(clubImageIv);
+            Glide.with(activity).load(path).into(clubImageIv);
         }
     }
 

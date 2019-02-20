@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -17,7 +16,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,7 +39,6 @@ import com.inspiregeniussquad.handstogether.appViews.NoSwipeViewPager;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -203,26 +200,26 @@ public class MainActivity extends SuperCompatActivity {
             bookmarksFragment = new BookmarksFragment();
         }
 
-        homeFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
-            @Override
-            public void refreshFragments() {
-                homeFragment.refreshHomeFragment();
-            }
-        });
+//        homeFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
+//            @Override
+//            public void refreshFragments() {
+//                homeFragment.refreshHomeFragment();
+//            }
+//        });
 
-        clubsFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
-            @Override
-            public void refreshFragments() {
-                clubsFragment.refreshClubsFragment();
-            }
-        });
+//        clubsFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
+//            @Override
+//            public void refreshFragments() {
+//                clubsFragment.refreshClubsFragment();
+//            }
+//        });
 
-        bookmarksFragment.setFragmentInterfaceListener(new FragmentInterfaceListener() {
-            @Override
-            public void refreshFragments() {
-                bookmarksFragment.refreshBookmarks();
-            }
-        });
+//        bookmarksFragment.setFragmentInterfaceListener(new FragmentInterfaceListener() {
+//            @Override
+//            public void refreshFragments() {
+//                bookmarksFragment.refreshBookmarks();
+//            }
+//        });
 
         if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             adminFragment.setFragmentRefreshListener(new FragmentInterfaceListener() {
@@ -272,12 +269,6 @@ public class MainActivity extends SuperCompatActivity {
 
     private void openUpdateProfile() {
         goTo(this, ProfileUpdatingActivity.class, false);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-        return true;
     }
 
     private void setUpNavigationMenus() {
@@ -363,10 +354,18 @@ public class MainActivity extends SuperCompatActivity {
     }
 
     private void setAndShowFragment(String fragmentToShow) {
-        int fragmentId = myPagerAdapter.getFragment(fragmentToShow);
+        final int fragmentId = myPagerAdapter.getFragment(fragmentToShow);
         noSwipeViewPager.setCurrentItem(fragmentId, false);
         closeNavMenu();
         AppHelper.print("Setting fragment as: " + fragmentToShow);
+
+        //refreshing fragments after a second
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                refreshFragments(fragmentId);
+            }
+        }, 500);
     }
 
     private void closeNavMenu() {
@@ -399,41 +398,63 @@ public class MainActivity extends SuperCompatActivity {
         }
     }
 
-    private void refreshFragments() {
-        Fragment currentVisibleFragment = getCurrentVisibleFragment();
-
-        if (currentVisibleFragment != null) {
-            if (currentVisibleFragment instanceof HomeFragment) {
-                if (dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
-                    homeFragment.refreshHomeFragment();
-                }
+    private void refreshFragments(int fragmentId) {
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+            switch (fragmentId) {
+                case 0:
+                    if(dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
+                        if (homeFragment != null)
+                            homeFragment.refreshHomeFragment();
+                    }
+                    break;
+                case 1:
+                    if (clubsFragment != null)
+                        clubsFragment.refreshClubsFragment();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    if (bookmarksFragment != null)
+                        bookmarksFragment.refreshBookmarks();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    showSignoutAlert();
+                    break;
+            }
+        } else {
+            switch (fragmentId) {
+                case 0:
+                    if (homeFragment != null)
+                        homeFragment.refreshHomeFragment();
+                    break;
+                case 1:
+                    if (clubsFragment != null)
+                        clubsFragment.refreshClubsFragment();
+                    break;
+                case 2:
+                    if (bookmarksFragment != null)
+                        bookmarksFragment.refreshBookmarks();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    showSignoutAlert();
+                    break;
             }
         }
-    }
-
-    private Fragment getCurrentVisibleFragment() {
-        FragmentManager fragmentManager = MainActivity.this.getSupportFragmentManager();
-        List<Fragment> fragments = fragmentManager.getFragments();
-        for (Fragment fragment : fragments) {
-            if (fragment != null && fragment.getUserVisibleHint())
-                return fragment;
-        }
-        return null;
     }
 
     private void performOnResumeOperations() {
-        dataStorage.saveBoolean(Keys.IS_ONLINE, true);
-
-        //default fragment
-        setAndShowFragment(Keys.FRAGMENT_HOME);
-
-        //refreshing fragments after a second
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refreshFragments();
-            }
-        }, 1000);
+        if (noSwipeViewPager != null) {
+            setAndShowFragment(getFragmentForId(noSwipeViewPager.getCurrentItem()));
+            AppHelper.print("Current item: " + getFragmentForId(noSwipeViewPager.getCurrentItem()));
+        }
     }
 
     @Override
@@ -464,6 +485,54 @@ public class MainActivity extends SuperCompatActivity {
             backPressed = 0;
             onBackPressed();
         }
+    }
+
+    private String getFragmentForId(int id) {
+        String name = "";
+
+        if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
+            switch (id) {
+                case 0:
+                    name = Keys.FRAGMENT_HOME;
+                    break;
+                case 1:
+                    name = Keys.FRAGMENT_CLUBS;
+                    break;
+                case 2:
+                    name = Keys.FRAGMENT_ADMIN;
+                    break;
+                case 3:
+                    name = Keys.FRAGMENT_BOOKMARKS;
+                    break;
+                case 4:
+                    name = Keys.FRAGMENT_SETTINGS;
+                    break;
+                case 5:
+                    name = Keys.FRAGMENT_ABOUT;
+                    break;
+            }
+        } else {
+            switch (id) {
+                case 0:
+                    name = Keys.FRAGMENT_HOME;
+                    break;
+                case 1:
+                    name = Keys.FRAGMENT_CLUBS;
+                    break;
+                case 2:
+                    name = Keys.FRAGMENT_BOOKMARKS;
+                    break;
+                case 3:
+                    name = Keys.FRAGMENT_SETTINGS;
+                    break;
+                case 4:
+                    name = Keys.FRAGMENT_ABOUT;
+                    break;
+            }
+
+
+        }
+        return name;
     }
 
     public void changeTheme(boolean isChecked) {

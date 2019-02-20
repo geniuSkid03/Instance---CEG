@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_dashboard_unselected.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_dashboard_unselected.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_event_venue.png.flat",
@@ -34,6 +34,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_circular_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_circular_icon.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_test_img1.jpg.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable-xxhdpi\\test_img1.jpg"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_team_icon.png.flat",
@@ -284,12 +288,12 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\color\\mtrl_chip_background_color.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\95fe27d6325475e0780c5edfc9bdeee0\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_send_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_send_icon.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\95fe27d6325475e0780c5edfc9bdeee0\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_newsfeed_unselected.xml.flat",
@@ -488,24 +492,24 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_updated_news_item.xml.flat",
-        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\updated_news_item.xml"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_updated_news_item.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\updated_news_item.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_permission_phone.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\permission_phone.png"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_position_icon.png.flat",
-        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_position_icon.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_position_icon.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_position_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_save_icon.png.flat",
@@ -528,12 +532,12 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\menu\\home_search.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_account_icon.png.flat",
-        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_account_icon.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_account_icon.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_account_icon.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_circular_item_view_new.xml.flat",
@@ -996,6 +1000,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_button_login_silver_background.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_dummy_image.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_video.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_video.png"
     },
@@ -1112,6 +1120,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_event_venue.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_teams_item_layout.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\teams_item_layout.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_account.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_account.png"
     },
@@ -1122,6 +1134,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_dummy_image.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_checked_circle.xml.flat",
@@ -1292,6 +1308,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-16.0.1.aar\\1cc08bdb6391e8346d40fba2a89d1c2a\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_dummy_image.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_dummy_image.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
@@ -1432,6 +1452,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable-v21\\ic_menu_send.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_team_members_view.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\team_members_view.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-mdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
@@ -1510,6 +1534,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_fall_down_layout_anim.xml.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\anim\\fall_down_layout_anim.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_team_view.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\activity_team_view.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
@@ -1634,6 +1662,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_event_date.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_event_date.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_teaminfo.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\activity_teaminfo.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_disabled.xml.flat",
@@ -2040,6 +2072,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dummy_image.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d7a7bd86ccd3240345df1e23a0ec7160\\res\\layout-v21\\notification_template_icon_group.xml"
     },
@@ -2254,6 +2290,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_correct_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_correct_icon.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_dummy_image.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_close.png.flat",
@@ -3000,6 +3040,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_nav_menu_selected.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\drawable\\nav_menu_selected.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_empty_icon.xml.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_empty_icon.xml"
     },
@@ -3066,6 +3110,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21_mtrl_fast_out_linear_in.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\interpolator-v21\\mtrl_fast_out_linear_in.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_dummy_image.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_like_icon.png.flat",
@@ -3338,6 +3386,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_arrow_back.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_arrow_back.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_dummy_image.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_dummy_image.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_girl.xml.flat",

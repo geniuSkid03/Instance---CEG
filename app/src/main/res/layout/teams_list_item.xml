@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:id="@+id/team_cv"
+    android:id="@+id/team_item_view"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="2dp"
     app:cardElevation="4dp"
@@ -13,37 +13,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:padding="4dp">
 
         <RelativeLayout
             android:id="@+id/team_logo_view"
-            android:layout_width="75dp"
-            android:layout_height="75dp">
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
 
             <com.inspiregeniussquad.handstogether.appViews.CircularImageView
                 android:id="@+id/team_logo"
-                android:layout_width="75dp"
-                android:visibility="gone"
-                android:layout_height="75dp"
+                android:layout_width="match_parent"
+                android:visibility="visible"
+                android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+            <!--<com.inspiregeniussquad.handstogether.appViews.CircularImageView
                 android:id="@+id/team_logo_placeholder"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_margin="16dp"
                 android:visibility="visible"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/ic_loading_placeholder" />
+                android:src="@drawable/ic_loading_placeholder" />-->
 
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/team_content"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_toStartOf="@+id/right_icon"
             android:layout_toEndOf="@+id/team_logo_view"
@@ -70,7 +70,7 @@
         <ImageView
             android:id="@+id/right_icon"
             android:layout_width="wrap_content"
-            android:layout_height="75dp"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="6dp"
             android:contentDescription="@null"

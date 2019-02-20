@@ -1,5 +1,6 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -41,17 +42,19 @@ public class NavMenuAdapter extends RecyclerView.Adapter<NavMenuAdapter.Navigati
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NavigationViewHolder navigationViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull NavigationViewHolder navigationViewHolder, @SuppressLint("RecyclerView") final int i) {
         navigationViewHolder.menuTitleTv.setText(navigationItemArrayList.get(i).getMenuTitle());
 
         if (selectedPosition == i) {
             navigationViewHolder.menuIconIv.setImageResource(navigationItemArrayList.get(i).getSelectedIcon());
-            navigationViewHolder.menuTitleTv.setTextColor(ContextCompat.getColor(context, R.color.primaryDarkColor));
-            navigationViewHolder.selectedView.setVisibility(View.VISIBLE);
+            navigationViewHolder.menuIconIv.setColorFilter(ContextCompat.getColor(context, R.color.white));
+            navigationViewHolder.menuTitleTv.setTextColor(ContextCompat.getColor(context, R.color.white));
+            navigationViewHolder.selectedView.setBackgroundColor(ContextCompat.getColor(context, R.color.secondaryDarkColor));
         } else {
             navigationViewHolder.menuIconIv.setImageResource(navigationItemArrayList.get(i).getUnSelectedIcon());
+            navigationViewHolder.menuIconIv.setColorFilter(ContextCompat.getColor(context, R.color.app_grey));
             navigationViewHolder.menuTitleTv.setTextColor(ContextCompat.getColor(context, R.color.app_grey));
-            navigationViewHolder.selectedView.setVisibility(View.INVISIBLE);
+            navigationViewHolder.selectedView.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
         }
 
         navigationViewHolder.navMenuLyt.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,7 @@ public class NavMenuAdapter extends RecyclerView.Adapter<NavMenuAdapter.Navigati
 
         private TextView menuTitleTv;
         private ImageView menuIconIv;
-        private View selectedView;
+        private LinearLayout selectedView;
         private LinearLayout navMenuLyt;
 
         NavigationViewHolder(View itemView) {

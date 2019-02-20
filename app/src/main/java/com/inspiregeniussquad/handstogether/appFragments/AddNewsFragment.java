@@ -5,10 +5,8 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
@@ -28,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,7 +42,6 @@ import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.TeamDataHelper;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -280,12 +278,18 @@ public class AddNewsFragment extends SuperFragment {
                 eventPoster = data.getData();
 
                 try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), eventPoster);
-                    if (bitmap != null) {
-                        Picasso.get().load(eventPoster).into(posterIv);
+                    if(eventPoster != null) {
+                        Glide.with(getContext()).load(eventPoster).into(posterIv);
                     } else {
-                        AppHelper.showToast(getActivity(), "Image bitmap null");
+                        AppHelper.showToast(getActivity(), "Image null");
                     }
+//
+//                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), eventPoster);
+//                    if (bitmap != null) {
+//                        Picasso.get().load(eventPoster).into(posterIv);
+//                    } else {
+//                        AppHelper.showToast(getActivity(), "Image bitmap null");
+//                    }
                 } catch (Exception e) {
                     AppHelper.showToast(getActivity(), "Exception in parsing image");
                 }
@@ -453,10 +457,10 @@ public class AddNewsFragment extends SuperFragment {
 
             Team team = new Team();
 
-            team.setTeamName((String) map.get("teamName"));
-            team.setTeamLogoUri((String) map.get("teamLogoUri"));
+            team.settName((String) map.get("teamName"));
+            team.settLogo((String) map.get("teamLogoUri"));
 
-            AppHelper.print("Team data: " + team.getTeamName() + "\t" + team.getTeamLogoUri());
+            AppHelper.print("Team data: " + team.gettName() + "\t" + team.gettLogo());
 
             teamArrayList.add(team);
         }
@@ -473,7 +477,7 @@ public class AddNewsFragment extends SuperFragment {
         String teamNameArray[] = new String[teamArrayList.size()];
 
         for (int i = 0; i < teamArrayList.size(); i++) {
-            teamNameArray[i] = teamArrayList.get(i).getTeamName();
+            teamNameArray[i] = teamArrayList.get(i).gettName();
         }
 
         ArrayAdapter<String> spinnerArrayAdapter =

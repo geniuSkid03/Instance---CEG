@@ -1,5 +1,6 @@
 package com.inspiregeniussquad.handstogether.appStorage.dbAsyncHelpers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -14,6 +15,7 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, TeamData[]> {
 
     private Action action;
     private ArrayList<TeamData> teamDataArrayList;
+    @SuppressLint("StaticFieldLeak")
     private Context context;
     private AppDbs appDbs;
 
@@ -84,7 +86,7 @@ public class TeamDbHelper extends AsyncTask<Void, Integer, TeamData[]> {
                         appDbs.teamDao().insert(teamDataArrayList.get(i));
                     }
                 }
-//                appDbs.teamDao().insertAll(teamDataArrayList);
+
             } else {
                 AppHelper.print("Team db null");
             }

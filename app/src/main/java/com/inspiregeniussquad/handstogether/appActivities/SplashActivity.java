@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Admin;
+import com.inspiregeniussquad.handstogether.appData.Clubs;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import com.inspiregeniussquad.handstogether.appStorage.dbAsyncHelpers.TeamDbHelper;
@@ -44,6 +45,7 @@ public class SplashActivity extends SuperCompatActivity {
     LinearLayout rootView;
 
     private ArrayList<TeamData> teamDataArrayList;
+    private ArrayList<Clubs> clubsArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class SplashActivity extends SuperCompatActivity {
         setContentView(R.layout.activity_splash);
 
         teamDataArrayList = new ArrayList<>();
+        clubsArrayList = new ArrayList<>();
 
         retrieveUserInfo();
 
@@ -70,7 +73,7 @@ public class SplashActivity extends SuperCompatActivity {
                     AppHelper.print("loading admin data");
                     parseUserInfo(dataSnapshot);
                 } else {
-                    retriveTeamDatas();
+                    retrieveClubInfo();
                 }
             }
 
@@ -80,6 +83,52 @@ public class SplashActivity extends SuperCompatActivity {
                 AppHelper.print("Db Error: " + databaseError.getMessage());
             }
         });
+    }
+
+    private void retrieveClubInfo() {
+        clubsDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    AppHelper.print("Clubs data exists and trying to retrieve!");
+                    retriveClubFromDb(dataSnapshot);
+                } else {
+                    AppHelper.print("No Clubs data found!");
+                    retriveTeamDatas();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                AppHelper.print("Error in retrieving club informations");
+                retriveTeamDatas();
+            }
+        });
+    }
+
+    private void retriveClubFromDb(DataSnapshot dataSnapshot) {
+        Map<String, Clubs> teamDataMap = (Map<String, Clubs>) dataSnapshot.getValue();
+
+        clubsArrayList.clear();
+
+        for (Map.Entry<String, Clubs> teamDataEntry : teamDataMap.entrySet()) {
+            Map map = (Map) teamDataEntry.getValue();
+
+            Clubs clubs = new Clubs();
+            clubs.setClubsId((String) map.get("clubsId"));
+            clubs.setClubsName((String) map.get("clubName"));
+            clubs.setClubsImgUrl((String) map.get("clubsImgUrl"));
+
+            clubsArrayList.add(clubs);
+
+            AppHelper.print("Retrived Clubs info: " + clubs.getClubsId() + "\t" + clubs.getClubsName() + "\t" + clubs.getClubsImgUrl());
+        }
+
+        insertClubsIntoDb(clubsArrayList);
+    }
+
+    private void insertClubsIntoDb(ArrayList<Clubs> clubsArrayList) {
+
     }
 
     private void parseUserInfo(DataSnapshot dataSnapshot) {
@@ -109,8 +158,8 @@ public class SplashActivity extends SuperCompatActivity {
 
         AppHelper.print("Admin info available: " + dataStorage.isDataAvailable(Keys.ADMIN_INFO));
 
-        for(Admin admin : adminsArraylist) {
-            if(admin.getMobile().equalsIgnoreCase(dataStorage.getString(Keys.MOBILE))) {
+        for (Admin admin : adminsArraylist) {
+            if (admin.getMobile().equalsIgnoreCase(dataStorage.getString(Keys.MOBILE))) {
                 dataStorage.saveBoolean(Keys.IS_ADMIN, true);
             }
         }

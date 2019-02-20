@@ -1,28 +1,20 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.nostra13.universalimageloader.utils.DiskCacheUtils;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.TeamsList> {
@@ -69,9 +61,9 @@ public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.Team
         TeamsList(View itemView) {
             super(itemView);
 
-            teamCv = itemView.findViewById(R.id.team_cv);
+            teamCv = itemView.findViewById(R.id.team_item_view);
             teamLogoIv = itemView.findViewById(R.id.team_logo);
-            logoPlaceHolderIv = itemView.findViewById(R.id.team_logo_placeholder);
+//            logoPlaceHolderIv = itemView.findViewById(R.id.team_logo_placeholder);
             teamNameTv = itemView.findViewById(R.id.team_name);
             teamMottoTv = itemView.findViewById(R.id.team_motto);
 
@@ -79,48 +71,52 @@ public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.Team
 
         void setTeams(final Team teams) {
 
-            File logoImage = DiskCacheUtils.findInCache(teams.getTeamLogoUri(), imageLoader.getDiskCache());
-            if(logoImage != null && logoImage.exists()) {
-                Picasso.get().load(logoImage).fit().into(teamLogoIv, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        logoPlaceHolderIv.setVisibility(View.GONE);
-                        teamLogoIv.setVisibility(View.VISIBLE);
-                    }
+            Glide.with(context).load(teams.gettLogo()).into(teamLogoIv);
+//
+//            File logoImage = DiskCacheUtils.findInCache(teams.getTeamLogoUri(), imageLoader.getDiskCache());
+//            if(logoImage != null && logoImage.exists()) {
+//                Picasso.get().load(logoImage).fit().into(teamLogoIv, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        logoPlaceHolderIv.setVisibility(View.GONE);
+//                        teamLogoIv.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception e) {
+//
+//                    }
+//                });
+//            } else {
+//                imageLoader.loadImage(teams.getTeamLogoUri(), new ImageLoadingListener() {
+//                    @Override
+//                    public void onLoadingStarted(String imageUri, View view) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//                        logoPlaceHolderIv.setVisibility(View.GONE);
+//                        teamLogoIv.setVisibility(View.VISIBLE);
+//                        Picasso.get().load(imageUri).fit().into(teamLogoIv);
+//                    }
+//
+//                    @Override
+//                    public void onLoadingCancelled(String imageUri, View view) {
+//
+//                    }
+//                });
+//            }
 
-                    @Override
-                    public void onError(Exception e) {
+            teamNameTv.setText(teams.gettName());
+            teamMottoTv.setText(teams.gettMotto());
 
-                    }
-                });
-            } else {
-                imageLoader.loadImage(teams.getTeamLogoUri(), new ImageLoadingListener() {
-                    @Override
-                    public void onLoadingStarted(String imageUri, View view) {
-
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                        logoPlaceHolderIv.setVisibility(View.GONE);
-                        teamLogoIv.setVisibility(View.VISIBLE);
-                        Picasso.get().load(imageUri).fit().into(teamLogoIv);
-                    }
-
-                    @Override
-                    public void onLoadingCancelled(String imageUri, View view) {
-
-                    }
-                });
-            }
-
-            teamNameTv.setText(teams.getTeamName());
-            teamMottoTv.setText(teams.getTeamMotto());
+            Glide.with(context).load(teams.gettLogo()).into(teamLogoIv);
 
             teamCv.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -21,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -30,9 +29,6 @@ import com.inspiregeniussquad.handstogether.appData.Clubs;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -43,7 +39,7 @@ public class AddTeamFragment extends SuperFragment {
     private AppCompatButton addTeamBtn;
     private ImageView teamLogoIv;
     private ImageButton imgLoadBtn, reduceTeamMemberBtn, addTeamMemberBtn;
-    private EditText teamNameEd, teamMottoEd, teamMembersCountEd, teamDescEd;
+    private EditText teamNameEd, teamMottoEd, teamMembersCountEd, teamDescEd, teamFoundedEd;
     private Spinner clubNameSpinner;
 
     private Uri teamImgUri, finalTeamImgUri;
@@ -51,7 +47,7 @@ public class AddTeamFragment extends SuperFragment {
     private static final int CHOOSE_FILE = 101;
     private static final int OPEN_CAMERA = 100;
 
-    private String teamName, teamMotto, teamMembersCount, teamDesc;
+    private String teamName, teamMotto, teamMembersCount, teamDesc, teamFoundedYear;
     private int membersCount = 10;
 
     @Override
@@ -71,6 +67,7 @@ public class AddTeamFragment extends SuperFragment {
         addTeamMemberBtn = view.findViewById(R.id.minus_team_member);
         reduceTeamMemberBtn = view.findViewById(R.id.add_team_member);
         clubNameSpinner = view.findViewById(R.id.club_name_spinner);
+        teamFoundedEd = view.findViewById(R.id.team_founded);
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -140,7 +137,7 @@ public class AddTeamFragment extends SuperFragment {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), teamImgUri);
                     if (bitmap != null) {
-                        Picasso.get().load(teamImgUri).into(teamLogoIv);
+                        Glide.with(getContext()).load(teamImgUri).into(teamLogoIv);
                     } else {
                         AppHelper.showToast(getActivity(), "Image bitmap null");
                     }
@@ -159,12 +156,23 @@ public class AddTeamFragment extends SuperFragment {
     }
 
     private void getAllTeamMembers() {
-        Team team = new Team(teamName, teamMotto, teamDesc, teamImgUri.toString(), null, teamMembersCount, clubName);
+
+        Team team = new Team();
+        team.settName(teamName);
+        team.settMotto(teamMotto);
+        team.settDesc(teamDesc);
+        team.settLogo(teamImgUri.toString());
+        team.settClubId(clubId);
+        team.settClubName(clubName);
+        team.settMemCount(teamMembersCount);
+        team.settFounded(teamFoundedYear);
+        team.setTeamMembers(null);
+
         goTo(getActivity(), AddTeamMembersActivity.class, true, Keys.TEAM, gson.toJson(team));
     }
 
     private boolean isAllDataAvailable() {
-        if (TextUtils.isEmpty(clubName) || clubName.equalsIgnoreCase(getString(R.string.choose_club))) {
+        if (TextUtils.isEmpty(clubName) || clubName.equalsIgnoreCase(getString(R.string.choose_club)) || clubId.equals("")) {
             showToast(getString(R.string.choose_clubs));
             return false;
         }
@@ -198,6 +206,13 @@ public class AddTeamFragment extends SuperFragment {
             showToast(getString(R.string.enter_team_count));
             return false;
         }
+
+        teamFoundedYear = teamFoundedEd.getText().toString().trim();
+        if(!TextUtils.isEmpty(teamFoundedYear)) {
+            showToast(getString(R.string.enter_founded_year));
+            return false;
+        }
+
         return true;
     }
 
@@ -239,6 +254,8 @@ public class AddTeamFragment extends SuperFragment {
             Map map = (Map) teamEntry.getValue();
 
             Clubs clubs = new Clubs((String) map.get("clubsName"), (String) map.get("clubsImgUrl"));
+            clubs.setClubsId((String) map.get("clubsId"));
+
             clubsArrayList.add(clubs);
         }
 
@@ -250,9 +267,9 @@ public class AddTeamFragment extends SuperFragment {
         }
     }
 
-    private String clubName = "";
+    private String clubName = "", clubId="";
 
-    private void loadWithSpinner(ArrayList<Clubs> clubsArrayList) {
+    private void loadWithSpinner(final ArrayList<Clubs> clubsArrayList) {
         final String teamNameArray[] = new String[clubsArrayList.size()];
 
         for (int i = 0; i < clubsArrayList.size(); i++) {
@@ -269,7 +286,10 @@ public class AddTeamFragment extends SuperFragment {
         clubNameSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                clubName = teamNameArray[position];
+                clubName = clubsArrayList.get(position).getClubsName();
+                clubId = clubsArrayList.get(position).getClubsId();
+
+                AppHelper.print("chosen: "+clubId+"\t"+clubName);
             }
 
             @Override

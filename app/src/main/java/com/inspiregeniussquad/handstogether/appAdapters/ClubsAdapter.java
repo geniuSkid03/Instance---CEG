@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -49,7 +49,9 @@ public class ClubsAdapter extends BaseAdapter {
         }
 
         ((TextView) convertView.findViewById(R.id.club_name)).setText(clubsArrayList.get(position).getClubsName());
-        Picasso.get().load(clubsArrayList.get(position).getClubsImgUrl()).into(((ImageView) convertView.findViewById(R.id.club_icon)));
+
+        Glide.with(context).load(clubsArrayList.get(position).getClubsImgUrl())
+                .into(((ImageView) convertView.findViewById(R.id.club_icon)));
 
         return convertView;
     }

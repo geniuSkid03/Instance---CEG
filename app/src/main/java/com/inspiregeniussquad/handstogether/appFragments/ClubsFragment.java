@@ -20,8 +20,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appActivities.TeamsActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.ClubsRecyclerAdapter;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -46,13 +48,6 @@ public class ClubsFragment extends SuperFragment {
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
-
-        clubsRecyclerAdapter = new ClubsRecyclerAdapter(getContext(), clubsArrayList, new ClubsRecyclerAdapter.ClubClickListener() {
-            @Override
-            public void onClicked(int position) {
-
-            }
-        });
     }
 
     @Override
@@ -84,7 +79,7 @@ public class ClubsFragment extends SuperFragment {
         clubsRecyclerAdapter = new ClubsRecyclerAdapter(getContext(), clubsArrayList, new ClubsRecyclerAdapter.ClubClickListener() {
             @Override
             public void onClicked(int position) {
-                showToast("Teams under this club will be shown in future");
+                goTo(getContext(), TeamsActivity.class, false, Keys.CLUBS_ID, gson.toJson(clubsArrayList.get(position)));
             }
         });
 
@@ -116,7 +111,8 @@ public class ClubsFragment extends SuperFragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                AppHelper.print("Database error: "+databaseError);
+                updateUi();
             }
         });
     }
@@ -130,6 +126,7 @@ public class ClubsFragment extends SuperFragment {
             Map map = (Map) teamEntry.getValue();
 
             Clubs clubs = new Clubs((String) map.get("clubsName"), (String) map.get("clubsImgUrl"));
+            clubs.setClubsId((String) map.get("clubsId"));
             clubsArrayList.add(clubs);
         }
 

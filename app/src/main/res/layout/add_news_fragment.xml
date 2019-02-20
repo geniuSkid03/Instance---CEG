@@ -362,12 +362,12 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="150dp">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/event_poster"
                                 android:layout_width="match_parent"
-                                android:layout_height="150dp"
+                                android:layout_height="wrap_content"
                                 android:contentDescription="@null"
                                 android:scaleType="fitXY" />
 
