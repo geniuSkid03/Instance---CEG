@@ -7,6 +7,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
@@ -17,16 +18,16 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class TeaminfoActivity_ViewBinding implements Unbinder {
-  private TeaminfoActivity target;
+public class TeamInfoActivity_ViewBinding implements Unbinder {
+  private TeamInfoActivity target;
 
   @UiThread
-  public TeaminfoActivity_ViewBinding(TeaminfoActivity target) {
+  public TeamInfoActivity_ViewBinding(TeamInfoActivity target) {
     this(target, target.getWindow().getDecorView());
   }
 
   @UiThread
-  public TeaminfoActivity_ViewBinding(TeaminfoActivity target, View source) {
+  public TeamInfoActivity_ViewBinding(TeamInfoActivity target, View source) {
     this.target = target;
 
     target.teamNestedScrollView = Utils.findRequiredViewAsType(source, R.id.team_scroll_view, "field 'teamNestedScrollView'", NestedScrollView.class);
@@ -42,15 +43,17 @@ public class TeaminfoActivity_ViewBinding implements Unbinder {
     target.descCv = Utils.findRequiredViewAsType(source, R.id.desc, "field 'descCv'", CardView.class);
     target.teamDescTv = Utils.findRequiredViewAsType(source, R.id.team_desc, "field 'teamDescTv'", TextView.class);
     target.membersCv = Utils.findRequiredViewAsType(source, R.id.members_card, "field 'membersCv'", CardView.class);
-    target.teamMembersRv = Utils.findRequiredViewAsType(source, R.id.team_posts_rv, "field 'teamMembersRv'", RecyclerView.class);
+    target.teamMembersRv = Utils.findRequiredViewAsType(source, R.id.team_members_rv, "field 'teamMembersRv'", RecyclerView.class);
     target.teamPostsCv = Utils.findRequiredViewAsType(source, R.id.team_posts, "field 'teamPostsCv'", CardView.class);
-    target.teamPostsRv = Utils.findRequiredViewAsType(source, R.id.team_members_rv, "field 'teamPostsRv'", RecyclerView.class);
+    target.teamPostsRv = Utils.findRequiredViewAsType(source, R.id.team_posts_rv, "field 'teamPostsRv'", RecyclerView.class);
+    target.teamMemberLoadingView = Utils.findRequiredViewAsType(source, R.id.team_member_loading_view, "field 'teamMemberLoadingView'", ShimmerFrameLayout.class);
+    target.noTeamMemberAvailLayout = Utils.findRequiredViewAsType(source, R.id.no_team_mem_view, "field 'noTeamMemberAvailLayout'", LinearLayout.class);
   }
 
   @Override
   @CallSuper
   public void unbind() {
-    TeaminfoActivity target = this.target;
+    TeamInfoActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
@@ -70,5 +73,7 @@ public class TeaminfoActivity_ViewBinding implements Unbinder {
     target.teamMembersRv = null;
     target.teamPostsCv = null;
     target.teamPostsRv = null;
+    target.teamMemberLoadingView = null;
+    target.noTeamMemberAvailLayout = null;
   }
 }

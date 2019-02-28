@@ -3,8 +3,8 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
-import android.widget.ImageView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -17,9 +17,7 @@ import java.lang.Override;
 public class PosterViewActivity_ViewBinding implements Unbinder {
   private PosterViewActivity target;
 
-  private View view2131296346;
-
-  private View view2131296609;
+  private View view2131296612;
 
   @UiThread
   public PosterViewActivity_ViewBinding(PosterViewActivity target) {
@@ -32,25 +30,16 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
 
     View view;
     target.posterIv = Utils.findRequiredViewAsType(source, R.id.poster_image, "field 'posterIv'", ZoomImageView.class);
-    view = Utils.findRequiredView(source, R.id.close_preview, "field 'closePreviewIv' and method 'onClicked'");
-    target.closePreviewIv = Utils.castView(view, R.id.close_preview, "field 'closePreviewIv'", ImageView.class);
-    view2131296346 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClicked(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.save_preview, "field 'savePreviewIv' and method 'onClicked'");
-    target.savePreviewIv = Utils.castView(view, R.id.save_preview, "field 'savePreviewIv'", ImageView.class);
-    view2131296609 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClicked(p0);
-      }
-    });
     target.loadingIv = Utils.findRequiredViewAsType(source, R.id.image_placeholder, "field 'loadingIv'", AVLoadingIndicatorView.class);
+    view = Utils.findRequiredView(source, R.id.save_fab, "field 'savePreviewIv' and method 'onClicked'");
+    target.savePreviewIv = Utils.castView(view, R.id.save_fab, "field 'savePreviewIv'", FloatingActionButton.class);
+    view2131296612 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onClicked(p0);
+      }
+    });
   }
 
   @Override
@@ -61,13 +50,10 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.posterIv = null;
-    target.closePreviewIv = null;
-    target.savePreviewIv = null;
     target.loadingIv = null;
+    target.savePreviewIv = null;
 
-    view2131296346.setOnClickListener(null);
-    view2131296346 = null;
-    view2131296609.setOnClickListener(null);
-    view2131296609 = null;
+    view2131296612.setOnClickListener(null);
+    view2131296612 = null;
   }
 }

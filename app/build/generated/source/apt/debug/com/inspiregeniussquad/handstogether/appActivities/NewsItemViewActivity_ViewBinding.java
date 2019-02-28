@@ -12,6 +12,7 @@ import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -35,6 +36,7 @@ public class NewsItemViewActivity_ViewBinding implements Unbinder {
     target.titleTv = Utils.findRequiredViewAsType(source, R.id.title, "field 'titleTv'", TextView.class);
     target.dateTv = Utils.findRequiredViewAsType(source, R.id.date, "field 'dateTv'", TextView.class);
     target.timeTv = Utils.findRequiredViewAsType(source, R.id.time, "field 'timeTv'", TextView.class);
+    target.teamLogo2Iv = Utils.findRequiredViewAsType(source, R.id.team_logo2, "field 'teamLogo2Iv'", CircularImageView.class);
   }
 
   @Override
@@ -52,5 +54,6 @@ public class NewsItemViewActivity_ViewBinding implements Unbinder {
     target.titleTv = null;
     target.dateTv = null;
     target.timeTv = null;
+    target.teamLogo2Iv = null;
   }
 }

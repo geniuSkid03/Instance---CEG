@@ -208,8 +208,11 @@ public class AddTeamFragment extends SuperFragment {
         }
 
         teamFoundedYear = teamFoundedEd.getText().toString().trim();
-        if(!TextUtils.isEmpty(teamFoundedYear)) {
+        if(TextUtils.isEmpty(teamFoundedYear)) {
             showToast(getString(R.string.enter_founded_year));
+            return false;
+        } else if (teamFoundedYear.length() != 4) {
+            showToast(getString(R.string.enter_valid_year));
             return false;
         }
 

@@ -34,8 +34,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Admin;
@@ -182,7 +185,16 @@ public class SignupActivity extends SuperCompatActivity {
         commentedPostArrayList.add("0");
         bookmarkedPostArrayList.add("0");
 
-        Users users = new Users();
+        final Users users = new Users();
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String token = instanceIdResult.getToken();
+                AppHelper.print("FCM TOKEN: "+token);
+                users.setFcmToken(token);
+            }
+        });
 
         users.setName(name);
         users.setEmail(email);
@@ -292,7 +304,8 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveString(Keys.USER_ID, users.getUserId());
         dataStorage.saveString(Keys.ADMIN_VALUE, users.getIsAdmin());
 
-        dataStorage.saveBoolean(Keys.IS_ADMIN, !users.getIsAdmin().equals("0"));
+        //todo check and change
+        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
 
         cancelProgress();
 
@@ -393,10 +406,9 @@ public class SignupActivity extends SuperCompatActivity {
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "first_name,last_name,name,email,gender,picture.width(256).height(256)");
+                parameters.putString("fields", "first_name, last_name, name, email");
                 graphRequest.setParameters(parameters);
                 graphRequest.executeAsync();
-
             }
 
             @Override
@@ -476,7 +488,7 @@ public class SignupActivity extends SuperCompatActivity {
                 name = googleSignInAccount.getDisplayName();
                 email = googleSignInAccount.getEmail();
 
-                AppHelper.print("Gmail sign in: " + name+"\t"+email);
+                AppHelper.print("Gmail sign in: " + name + "\t" + email);
 
                 checkAndRegister(email, name, getString(R.string.un_specified), 3);
             } else {

@@ -5,12 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -36,14 +38,17 @@ public class PosterViewActivity extends SuperCompatActivity {
     @BindView(R.id.poster_image)
     ZoomImageView posterIv;
 
-    @BindView(R.id.close_preview)
+  /*  @BindView(R.id.close_preview)
     ImageView closePreviewIv;
 
     @BindView(R.id.save_preview)
-    ImageView savePreviewIv;
+    ImageView savePreviewIv;*/
 
     @BindView(R.id.image_placeholder)
     AVLoadingIndicatorView loadingIv;
+
+    @BindView(R.id.save_fab)
+    FloatingActionButton savePreviewIv;
 
     private NewsFeedItems newsFeedItems;
     private ImageLoader imageLoader;
@@ -52,13 +57,19 @@ public class PosterViewActivity extends SuperCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
         setContentView(R.layout.activity_poster_view);
 
         if (getIntent().getExtras() != null) {
             newsFeedItems = gson.fromJson(getIntent().getStringExtra(Keys.NEWS_ITEM), NewsFeedItems.class);
         } else {
             dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
-            finish();
+            supportFinishAfterTransition();
         }
 
         imageLoader = ImageLoader.getInstance();
@@ -131,17 +142,17 @@ public class PosterViewActivity extends SuperCompatActivity {
 //        }
     }
 
-    @OnClick({R.id.save_preview, R.id.close_preview})
+    @OnClick({R.id.save_fab/*, R.id.close_preview*/})
     public void onClicked(View view) {
         switch (view.getId()) {
-            case R.id.save_preview:
+            case R.id.save_fab:
                 checkAndSaveImage();
                 break;
-            case R.id.close_preview:
-//                finish();
-                dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
-                supportFinishAfterTransition();
-                break;
+//            case R.id.close_preview:
+////                finish();
+//                dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
+//                supportFinishAfterTransition();
+//                break;
         }
     }
 

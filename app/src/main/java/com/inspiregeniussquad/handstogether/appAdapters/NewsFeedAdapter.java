@@ -316,7 +316,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             readMoreTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    viewClickedListener.onViewClicked(position);
+                    viewClickedListener.onViewClicked(position, posterImgIv, logoCiv);
                 }
             });
             posterImgIv.setOnClickListener(new View.OnClickListener() {
@@ -327,6 +327,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             });
 
             Glide.with(context).load(newsFeedItems.getPstrUrl()).into(posterImgIv);
+            Glide.with(context).load(newsFeedItems.gettLogo()).into(logoCiv);
 
 //            File posterImage = DiskCacheUtils.findInCache(, imageLoader.getDiskCache());
 //            if (posterImage != null && posterImage.exists()) {
@@ -377,14 +378,14 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 //                });
 //            }
 
-            if (appDbs != null) {
+         /*   if (appDbs != null) {
                 if (teamData != null) {
                     for (TeamData team : teamData) {
                         if (team.getTeamName().equalsIgnoreCase(newsFeedItems.gettName())) {
                             final String logoUrl = team.getTeamLogoUrl();
                             if (logoUrl != null) {
 
-                                Glide.with(context).load(logoUrl).into(logoCiv);
+                                Glide.with(context).load(logoUrl).into(logoCiv);*/
 
 //                                File logoImage = DiskCacheUtils.findInCache(logoUrl, imageLoader.getDiskCache());
 //
@@ -426,11 +427,11 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 //                                        }
 //                                    });
 //                                }
-                            }
+                         /*   }
                         }
                     }
                 }
-            }
+            }*/
         }
     }
 
@@ -439,7 +440,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     }
 
     public interface onViewClickedListener {
-        void onViewClicked(int position);
+        void onViewClicked(int position, ImageView oneIv, ImageView twoIv);
 
         void onCommentsClicked(int position);
 

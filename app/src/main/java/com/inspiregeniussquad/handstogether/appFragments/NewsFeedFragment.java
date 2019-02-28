@@ -73,8 +73,8 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         newsFeedAdapter = new NewsFeedAdapter(getContext(), newsFeedItemsArrayList, currentUser);
         newsFeedAdapter.setClickListener(new NewsFeedAdapter.onViewClickedListener() {
             @Override
-            public void onViewClicked(int position) {
-                onNewsItemClicked(newsFeedItemsArrayList.get(position));
+            public void onViewClicked(int position, ImageView viewOne, ImageView viewTwo) {
+                onNewsItemClicked(newsFeedItemsArrayList.get(position), viewOne, viewTwo);
             }
 
             @Override
@@ -263,14 +263,19 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         return view;
     }
 
-    private void onNewsItemClicked(NewsFeedItems newsFeedItem) {
+    private void onNewsItemClicked(NewsFeedItems newsFeedItem, ImageView imageOne, ImageView imageTwo) {
+//        openWithMultipleImageTransition(getContext(), NewsItemViewActivity.class, false,
+//                imageOne, imageTwo,  Keys.NEWS_ITEM, gson.toJson(newsFeedItem));
+
+//        openWithImageTransition(getContext(), NewsItemViewActivity.class, false, imageOne,
+//                Keys.NEWS_ITEM, gson.toJson(newsFeedItem));
+
         goTo(getActivity(), NewsItemViewActivity.class, false, Keys.NEWS_ITEM, gson.toJson(newsFeedItem));
     }
 
     private void onImageItemClicked(NewsFeedItems newsFeedItems, ImageView posterImgIv) {
-        goTo(getContext(), PosterViewActivity.class, false,  Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
-
-//        openWithImageTransition(getContext(), PosterViewActivity.class, false, posterImgIv, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+//        goTo(getContext(), PosterViewActivity.class, false,  Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
+        openWithImageTransition(getContext(), PosterViewActivity.class, false, posterImgIv, Keys.NEWS_ITEM, gson.toJson(newsFeedItems));
     }
 
     private void onCommentItemClicked(NewsFeedItems newsFeedItems) {
@@ -341,6 +346,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedItems.setPstrUrl((String) map.get("pstrUrl"));
             newsFeedItems.setLikesCount((long) map.get("likesCount"));
             newsFeedItems.setCommentCount((long) map.get("commentCount"));
+            newsFeedItems.settLogo((String) map.get("tLogo"));
 
             if(dataSnapshot.child("likedUsers").exists()) {
                 for(DataSnapshot likedUsers : dataSnapshot.child("likedUsers").getChildren()) {

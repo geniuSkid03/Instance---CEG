@@ -54,6 +54,7 @@ public class Keys {
     public static final int ANIMATION_DURATION = 300;
     public static final String CLUBS_ID = "clubs";
     public static final String TABLE_MEMBERS = "TeamMembers";
+    public static final String TABLE_COMMENTS = "Comments";
 
     //table names
     public static String TABLE_USER = "Users";

@@ -36,6 +36,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -265,6 +266,8 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
         updateUi();
 
         teamMemberNameEd.setText("");
+        designationEd.setText("");
+
         AddTeamMembersActivity.this.memberName = null;
         AddTeamMembersActivity.this.memberDesignation = "";
     }
@@ -299,7 +302,6 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
     }
 
     private void insertIntoDb() {
-
 //        team.setTeamMembers(teamMembersArrayList);
 
         Uri teamLogoUri = Uri.parse(team.gettLogo());
@@ -317,7 +319,7 @@ public class AddTeamMembersActivity extends SuperCompatActivity {
                 if (!task.isSuccessful()) {
                     showInfoAlert(getString(R.string.upload_failed));
                     AppHelper.print("Task unsuccessful!");
-                    throw task.getException();
+                    throw Objects.requireNonNull(task.getException());
                 }
                 cancelProgress();
 

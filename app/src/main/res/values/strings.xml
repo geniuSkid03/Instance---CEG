@@ -303,11 +303,17 @@
     <string name="storage_link" />
     <string name="oops_no_teams_found">Oops, no teams found!</string>
     <string name="club_added_successfully">Club information has been added successfully!</string>
-    <string name="updating_club_info">Updating club informations...</string>
-    <string name="uploading_image">Uploading image...</string>
-    <string name="members">Members</string>
-    <string name="posts">Posts</string>
+    <string name="updating_club_info">Updating club information…</string>
+    <string name="uploading_image">Uploading image…</string>
     <string name="team_founded">Team Founded Year</string>
     <string name="enter_founded_year">Enter team founded year!</string>
+    <string name="enter_valid_year">Enter valid year!</string>
+    <string name="members">Members</string>
+    <string name="posts">Posts</string>
+    <string name="founded">Founded</string>
+    <string name="team_members_not_found">Team Members not found!</string>
+    <string name="enter_your_comment">Enter your comment</string>
+    <string name="comments">Comments:</string>
+    <string name="default_notification_channel_id">Instance_Notification</string>
 
 </resources>

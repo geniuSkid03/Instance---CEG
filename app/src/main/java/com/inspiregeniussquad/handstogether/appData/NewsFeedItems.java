@@ -10,6 +10,7 @@ public class NewsFeedItems {
     private Comments comments;
     private String posterUri;
     private ArrayList<String> likedUsers;
+    private String tLogo;
 
     private long likesCount, commentCount;
 
@@ -178,5 +179,14 @@ public class NewsFeedItems {
 
     public void setLikedUsers(ArrayList<String> likedUsers) {
         this.likedUsers = likedUsers;
+    }
+
+
+    public String gettLogo() {
+        return tLogo;
+    }
+
+    public void settLogo(String tLogo) {
+        this.tLogo = tLogo;
     }
 }

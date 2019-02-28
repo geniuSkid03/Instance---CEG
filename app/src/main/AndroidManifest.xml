@@ -6,15 +6,18 @@
     <uses-permission
         android:name="android.permission.GET_ACCOUNTS"
         android:maxSdkVersion="22" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />-->
 
     <application
         android:name=".appActivities.Instance"
@@ -28,6 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
+
         <activity
             android:name=".appActivities.SplashActivity"
             android:label="@string/app_name"
@@ -41,6 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".appActivities.MainActivity"
             android:launchMode="singleTask"
@@ -48,14 +53,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--
-             <activity
+        <!-- <activity
              android:name=".appActivities.HomeActivity"
              android:launchMode="singleTask"
              android:noHistory="false"
              android:screenOrientation="portrait"
-             android:theme="@style/AppTheme.NoActionBar" />
-        -->
+             android:theme="@style/AppTheme.NoActionBar" />-->
+
         <activity
             android:name=".appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
@@ -118,8 +122,7 @@
         <activity
             android:name=".appActivities.CommentsViewActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait" />
 
         <provider
             android:name=".appUtils.GenericFileProvider"
@@ -174,8 +177,18 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
 
-        <activity android:name=".appActivities.TeamsActivity" />
-        <activity android:name=".appActivities.TeaminfoActivity"></activity>
+        <activity
+            android:name=".appActivities.TeamsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".appActivities.TeamInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
     </application>
 
 </manifest>

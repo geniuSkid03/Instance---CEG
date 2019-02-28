@@ -2,18 +2,18 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class Comments {
 
-    private String cName, cDate, cTime, cmnt, cImg;
+    private String cName, cDate, cTime, cmnt, cImg, cGender;
 
     public Comments(){
 
     }
 
-    public Comments(String cName, String cDate, String cTime, String cmnt, String cImg) {
+    public Comments(String cName, String cDate, String cTime, String cmnt, String cGender) {
         this.cName = cName;
         this.cDate = cDate;
         this.cTime = cTime;
         this.cmnt = cmnt;
-        this.cImg = cImg;
+        this.cGender = cGender;
     }
 
     public String getcName() {
@@ -54,5 +54,13 @@ public class Comments {
 
     public void setcImg(String cImg) {
         this.cImg = cImg;
+    }
+
+    public String getcGender() {
+        return cGender;
+    }
+
+    public void setcGender(String cGender) {
+        this.cGender = cGender;
     }
 }

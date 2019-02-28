@@ -2,48 +2,55 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/team_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/team_scroll_view"
     android:fillViewport="true"
     android:scrollbars="none"
-    tools:context=".appActivities.TeaminfoActivity">
+    tools:context=".appActivities.TeamInfoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary" />
 
         <RelativeLayout
             android:id="@+id/team_content_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:visibility="visible"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:visibility="visible">
 
             <!--<RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@color/colorPrimary">-->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_toStartOf="@+id/team_log_iv"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_toStartOf="@+id/team_log_iv"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="24dp"
+
+                    android:layout_marginTop="24dp"
+                    android:gravity="center|start"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/team_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
                         android:lines="1"
                         android:maxLines="1"
                         android:textColor="@color/white"
@@ -54,7 +61,6 @@
                         android:id="@+id/team_motto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:lines="2"
                         android:maxLines="2"
                         android:textColor="@color/white"
@@ -63,17 +69,19 @@
 
                 </LinearLayout>
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/team_log_iv"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="24dp"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/white"
-                    app:civ_border_width="1dp"
-                    tools:src="@drawable/ic_dummy_image" />
+            </LinearLayout>
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/team_log_iv"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:civ_border="true"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
+                tools:src="@drawable/ic_dummy_image" />
 
             <!--</RelativeLayout>-->
 
@@ -105,7 +113,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="2dp"
-                            tools:text="Founded" />
+                            android:text="@string/founded" />
 
                         <TextView
                             android:id="@+id/team_founded"
@@ -119,6 +127,12 @@
 
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -131,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="2dp"
-                            tools:text="Members" />
+                            android:text="@string/members" />
 
                         <TextView
                             android:id="@+id/team_members_count"
@@ -145,6 +159,12 @@
 
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -157,7 +177,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="2dp"
-                            tools:text="Posts" />
+                            android:text="@string/posts" />
 
                         <TextView
                             android:id="@+id/team_posts_count"
@@ -167,7 +187,7 @@
                             android:padding="2dp"
                             android:textColor="@color/black"
                             android:textSize="16sp"
-                            tools:text="73" />
+                            android:text="-" />
 
                     </LinearLayout>
 
@@ -199,10 +219,10 @@
                         android:layout_marginBottom="6dp">
 
                         <ImageView
-                            android:contentDescription="@null"
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:layout_marginEnd="10dp"
+                            android:contentDescription="@null"
                             android:src="@drawable/ic_event_desc"
                             android:tint="@color/hint_text_color" />
 
@@ -253,11 +273,11 @@
                         android:layout_marginBottom="6dp">
 
                         <ImageView
-                            android:contentDescription="@null"
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:layout_marginEnd="10dp"
-                            android:src="@drawable/ic_newsfeed_unselected"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_team_icon"
                             android:tint="@color/hint_text_color" />
 
                         <TextView
@@ -272,11 +292,118 @@
 
                     </LinearLayout>
 
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/team_member_loading_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="4dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:gravity="center"
+                                        android:background="@color/loading_view_grey"
+                                        android:textSize="42sp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@color/loading_view_grey"
+                                        android:textSize="16sp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:background="@color/loading_view_grey"/>
+
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="4dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:gravity="center"
+                                        android:background="@color/loading_view_grey"
+                                        android:textSize="42sp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@color/loading_view_grey"
+                                        android:textSize="16sp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:background="@color/loading_view_grey"/>
+
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/team_members_rv"
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="120dp"
+                        android:visibility="gone"
                         android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:visibility="gone"
+                        android:id="@+id/no_team_mem_view"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/team_members_not_found"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -291,6 +418,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="6dp"
+                android:visibility="gone"
                 app:cardElevation="6dp">
 
                 <LinearLayout
@@ -352,8 +480,8 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="110dp"
                     android:layout_marginEnd="24dp"
-                    app:cardCornerRadius="6dp"
                     app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="6dp"
                     app:cardElevation="6dp">
 
                     <LinearLayout
@@ -365,25 +493,25 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginEnd="4dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/loading_view_grey"
                                 android:gravity="center"
-                                android:padding="2dp"
-                                android:background="@color/loading_view_grey"/>
+                                android:padding="2dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="2dp"
                                 android:layout_marginTop="4dp"
                                 android:background="@color/loading_view_grey"
+                                android:gravity="center"
+                                android:padding="2dp"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -392,25 +520,25 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginEnd="4dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/loading_view_grey"
                                 android:gravity="center"
-                                android:padding="2dp"
-                                android:background="@color/loading_view_grey"/>
+                                android:padding="2dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="2dp"
                                 android:layout_marginTop="4dp"
                                 android:background="@color/loading_view_grey"
+                                android:gravity="center"
+                                android:padding="2dp"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -419,25 +547,25 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginEnd="4dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/loading_view_grey"
                                 android:gravity="center"
-                                android:padding="2dp"
-                                android:background="@color/loading_view_grey"/>
+                                android:padding="2dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="2dp"
                                 android:layout_marginTop="4dp"
                                 android:background="@color/loading_view_grey"
+                                android:gravity="center"
+                                android:padding="2dp"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -482,8 +610,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:textSize="12sp"
                                 android:background="@color/loading_view_grey"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -491,10 +619,10 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:background="@color/loading_view_grey"
                             android:minHeight="40dp"
-                            android:background="@color/loading_view_grey"/>
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -526,7 +654,7 @@
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginEnd="10dp"
-                                android:background="@color/loading_view_grey"/>
+                                android:background="@color/loading_view_grey" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -542,8 +670,8 @@
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minHeight="40dp"
-                            android:background="@color/loading_view_grey"/>
+                            android:background="@color/loading_view_grey"
+                            android:minHeight="40dp" />
 
                     </LinearLayout>
 

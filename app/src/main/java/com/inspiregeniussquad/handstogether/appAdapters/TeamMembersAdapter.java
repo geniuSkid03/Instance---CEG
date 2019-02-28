@@ -1,6 +1,7 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.TeamMembers;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TeamMembersAdapter extends RecyclerView.Adapter<TeamMembersAdapter.TeamMem> {
 
@@ -57,6 +59,10 @@ public class TeamMembersAdapter extends RecyclerView.Adapter<TeamMembersAdapter.
             memberPosition.setText(teamMembers.getTeamMemberPosition());
             memberName.setText(teamMembers.getTeamMemberName());
             memberIv.setText(teamMembers.getTeamMemberName().substring(0, 1));
+
+            Random random = new Random();
+            int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+            memberIv.setBackgroundColor(color);
         }
     }
 }

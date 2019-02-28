@@ -50,13 +50,13 @@ public class TeamsActivity extends SuperCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_view);
 
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
-        if(getIntent() != null) {
+        if (getIntent() != null) {
             clubs = gson.fromJson(getIntent().getStringExtra(Keys.CLUBS_ID), Clubs.class);
         }
 
@@ -64,11 +64,11 @@ public class TeamsActivity extends SuperCompatActivity {
 
         teamsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        if(clubs != null) {
+        if (clubs != null) {
             showLoading();
             getTeamsInClub(clubs.getClubsId());
 
-            AppHelper.print("ClubInfo: "+clubs.getClubsId()+"\t"+clubs.getClubsName());
+            AppHelper.print("ClubInfo: " + clubs.getClubsId() + "\t" + clubs.getClubsName());
 
             clubNameTv.setText(clubs.getClubsName());
         }
@@ -90,7 +90,7 @@ public class TeamsActivity extends SuperCompatActivity {
         teamDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
                     AppHelper.print("Team data exists, trying to retrive!");
                     getTeamData(dataSnapshot, clubId);
                 } else {
@@ -109,7 +109,7 @@ public class TeamsActivity extends SuperCompatActivity {
     private void getTeamData(DataSnapshot dataSnapshot, String clubId) {
         Map<String, Team> teamMap = (Map<String, Team>) dataSnapshot.getValue();
 
-        if(teamMap != null) {
+        if (teamMap != null) {
             for (Map.Entry<String, Team> teamEntry : teamMap.entrySet()) {
                 Map map = (Map) teamEntry.getValue();
 
@@ -117,9 +117,10 @@ public class TeamsActivity extends SuperCompatActivity {
                         (String) map.get("tLogo"), (String) map.get("tMemCount"),
                         (String) map.get("tDesc"), (String) map.get("tId"),
                         (String) map.get("tClubId"), (String) map.get("tClubName"));
+                team.settFounded((String) map.get("tFounded"));
+                team.settMemId((String) map.get("tMemId"));
 
                 if (team.gettClubId().equals(clubId)) {
-                    AppHelper.print("Team name: " + team.gettName());
                     teamArrayList.add(team);
                 }
             }
@@ -127,12 +128,12 @@ public class TeamsActivity extends SuperCompatActivity {
             AppHelper.print("Team data not found!");
         }
 
-        if(teamArrayList != null && teamArrayList.size() > 0) {
+        if (teamArrayList != null && teamArrayList.size() > 0) {
             teamsItemAdapter = new TeamsItemAdapter(TeamsActivity.this, teamArrayList, new TeamsItemAdapter.TeamClickListener() {
                 @Override
                 public void onClicked(Team team) {
 
-                    goTo(TeamsActivity.this, TeaminfoActivity.class, false, Keys.TEAM, gson.toJson(team));
+                    goTo(TeamsActivity.this, TeamInfoActivity.class, false, Keys.TEAM, gson.toJson(team));
                 }
             });
             teamsRv.setAdapter(teamsItemAdapter);

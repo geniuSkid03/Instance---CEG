@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.PermissionsAdapter;
 import com.inspiregeniussquad.handstogether.appData.Keys;
-import com.inspiregeniussquad.handstogether.appUtils.PermissionHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,7 +24,7 @@ public class PermissionsHelperActivity extends SuperCompatActivity {
     ListView permissionLv;
 
     protected String[] requiredPermissions = { Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS,
+//            Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS,
             Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -36,17 +35,17 @@ public class PermissionsHelperActivity extends SuperCompatActivity {
         setContentView(R.layout.activity_permissions_helper);
 
         int[] permissionIcons = {R.drawable.permission_phone,
-                R.drawable.permission_sms,
+//                R.drawable.permission_sms,
                 R.drawable.permission_storage,
                 R.drawable.permission_camera};
 
         String[] permissionsTitle = {getString(R.string.phone_title),
-                getString(R.string.sms_title),
+//                getString(R.string.sms_title),
                 getString(R.string.storage_title),
                 getString(R.string.camera_title)};
 
         String[] permissionHint = {getString(R.string.phone_permsn_hint),
-                getString(R.string.sms_permsn_hint),
+//                getString(R.string.sms_permsn_hint),
                 getString(R.string.storage_permsn_hint),
                 getString(R.string.camera_permsn_hint)};
 

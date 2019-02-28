@@ -1,9 +1,10 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.view.Window;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,7 +20,6 @@ import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
-import com.inspiregeniussquad.handstogether.appStorage.dbAsyncHelpers.TeamDbHelper;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
 import java.util.ArrayList;
@@ -44,6 +44,9 @@ public class SplashActivity extends SuperCompatActivity {
     @BindView(R.id.root_view)
     LinearLayout rootView;
 
+    @BindView(R.id.splash_footer)
+    LinearLayout splashFooterLayout;
+
     private ArrayList<TeamData> teamDataArrayList;
     private ArrayList<Clubs> clubsArrayList;
 
@@ -51,18 +54,58 @@ public class SplashActivity extends SuperCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
         setContentView(R.layout.activity_splash);
 
         teamDataArrayList = new ArrayList<>();
         clubsArrayList = new ArrayList<>();
 
-        retrieveUserInfo();
+        makeAnimations();
+    }
 
-        Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse_anim);
+    private void makeAnimations() {
+//        splashIv.setVisibility(View.VISIBLE);
+//        slideDown(splashIv, this);
+
+        Animation pulse = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.pulse_anim);
         splashIv.startAnimation(pulse);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                splashFooterLayout.setVisibility(View.VISIBLE);
+                slideUpView(splashFooterLayout, SplashActivity.this);
+                retrieveUserInfo();
+            }
+        }, 1000);
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                appNameTv.setVisibility(View.VISIBLE);
+//                slideUpView(appNameTv, SplashActivity.this);
+//
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        appNameTv.setLayoutParams(new LinearLayout
+//                                .LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+//
+//                        appMottoTv.setVisibility(View.VISIBLE);
+//                        slideUpView(appMottoTv, SplashActivity.this);
+//
+//
+//                    }
+//                }, 1500);
+//            }
+//        }, 1000);
     }
 
     private void retrieveUserInfo() {
@@ -73,7 +116,7 @@ public class SplashActivity extends SuperCompatActivity {
                     AppHelper.print("loading admin data");
                     parseUserInfo(dataSnapshot);
                 } else {
-                    retrieveClubInfo();
+                    onDataRetrived();
                 }
             }
 
@@ -85,26 +128,26 @@ public class SplashActivity extends SuperCompatActivity {
         });
     }
 
-    private void retrieveClubInfo() {
-        clubsDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    AppHelper.print("Clubs data exists and trying to retrieve!");
-                    retriveClubFromDb(dataSnapshot);
-                } else {
-                    AppHelper.print("No Clubs data found!");
-                    retriveTeamDatas();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                AppHelper.print("Error in retrieving club informations");
-                retriveTeamDatas();
-            }
-        });
-    }
+//    private void retrieveClubInfo() {
+//        clubsDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    AppHelper.print("Clubs data exists and trying to retrieve!");
+//                    retriveClubFromDb(dataSnapshot);
+//                } else {
+//                    AppHelper.print("No Clubs data found!");
+//                    retriveTeamDatas();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                AppHelper.print("Error in retrieving club informations");
+//                retriveTeamDatas();
+//            }
+//        });
+//    }
 
     private void retriveClubFromDb(DataSnapshot dataSnapshot) {
         Map<String, Clubs> teamDataMap = (Map<String, Clubs>) dataSnapshot.getValue();
@@ -164,75 +207,75 @@ public class SplashActivity extends SuperCompatActivity {
             }
         }
 
-        retriveTeamDatas();
+        onDataRetrived();
     }
 
-    public void retriveTeamDatas() {
-        teamDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    AppHelper.print("Team data exists and trying to retrive!");
-                    retriveDataFromDb(dataSnapshot);
-                } else {
-                    AppHelper.print("No team data found!");
-                    onDataRetrived();
-                }
-            }
+//    public void retriveTeamDatas() {
+//        teamDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    AppHelper.print("Team data exists and trying to retrive!");
+//                    retriveDataFromDb(dataSnapshot);
+//                } else {
+//                    AppHelper.print("No team data found!");
+//                    onDataRetrived();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                AppHelper.print("Error in retriving team data!");
+//                onDataRetrived();
+//            }
+//        });
+//    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                AppHelper.print("Error in retriving team data!");
-                onDataRetrived();
-            }
-        });
-    }
-
-    private void retriveDataFromDb(DataSnapshot dataSnapshot) {
-        Map<String, TeamData> teamDataMap = (Map<String, TeamData>) dataSnapshot.getValue();
-
-        teamDataArrayList.clear();
-
-        for (Map.Entry<String, TeamData> teamDataEntry : teamDataMap.entrySet()) {
-            Map map = (Map) teamDataEntry.getValue();
-
-            TeamData teamData = new TeamData();
-
-            teamData.setTeamName((String) map.get("teamName"));
-            teamData.setTeamMotto((String) map.get("teamMotto"));
-            teamData.setTeamLogoUrl((String) map.get("teamLogoUri"));
-
-            teamDataArrayList.add(teamData);
-
-            AppHelper.print("Retrived team info: " + teamData.getTeamName() + "\t" + teamData.getTeamMotto() + "\t" + teamData.getTeamLogoUrl());
-        }
-
-        insertIntoDb(teamDataArrayList);
-    }
-
-    private void insertIntoDb(final ArrayList<TeamData> teamDataArrayList) {
-
-        new TeamDbHelper(SplashActivity.this, teamDataArrayList, new TeamDbHelper.Action() {
-
-            @Override
-            public void onStart() {
-                AppHelper.print("Starting to insert team datas");
-//                progressBar.setIndeterminate(false);
-            }
-
-            @Override
-            public void onUpdate(int progress) {
-                AppHelper.print("team datas update in progress: " + progress);
-//                progressBar.setProgress(progress);
-            }
-
-            @Override
-            public void onEnd() {
-                AppHelper.print("team datas update completed");
-                onDataRetrived();
-            }
-        }).run();
-    }
+//    private void retriveDataFromDb(DataSnapshot dataSnapshot) {
+//        Map<String, TeamData> teamDataMap = (Map<String, TeamData>) dataSnapshot.getValue();
+//
+//        teamDataArrayList.clear();
+//
+//        for (Map.Entry<String, TeamData> teamDataEntry : teamDataMap.entrySet()) {
+//            Map map = (Map) teamDataEntry.getValue();
+//
+//            TeamData teamData = new TeamData();
+//
+//            teamData.setTeamName((String) map.get("teamName"));
+//            teamData.setTeamMotto((String) map.get("teamMotto"));
+//            teamData.setTeamLogoUrl((String) map.get("teamLogoUri"));
+//
+//            teamDataArrayList.add(teamData);
+//
+//            AppHelper.print("Retrived team info: " + teamData.getTeamName() + "\t" + teamData.getTeamMotto() + "\t" + teamData.getTeamLogoUrl());
+//        }
+//
+//        insertIntoDb(teamDataArrayList);
+//    }
+//
+//    private void insertIntoDb(final ArrayList<TeamData> teamDataArrayList) {
+//
+//        new TeamDbHelper(SplashActivity.this, teamDataArrayList, new TeamDbHelper.Action() {
+//
+//            @Override
+//            public void onStart() {
+//                AppHelper.print("Starting to insert team datas");
+////                progressBar.setIndeterminate(false);
+//            }
+//
+//            @Override
+//            public void onUpdate(int progress) {
+//                AppHelper.print("team datas update in progress: " + progress);
+////                progressBar.setProgress(progress);
+//            }
+//
+//            @Override
+//            public void onEnd() {
+//                AppHelper.print("team datas update completed");
+//                onDataRetrived();
+//            }
+//        }).run();
+//    }
 
     public void onDataRetrived() {
         new Handler().postDelayed(new Runnable() {

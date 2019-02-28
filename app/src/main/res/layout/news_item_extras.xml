@@ -24,6 +24,7 @@
         android:layout_marginEnd="24dp"
         android:elevation="6dp"
         app:border="false"
+        android:transitionName="@string/image_transition"
         app:shadow="true"
         app:shadow_radius="4dp" />
 

@@ -1,5 +1,7 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,16 +11,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +62,7 @@ public class SuperCompatActivity extends AppCompatActivity {
     public FirebaseAuth firebaseAuth;
     public DatabaseReference parentDatabaseReference, childDatabaseReference,
             usersDatabaseReference, teamDatabaseReference, adminDbReference, clubsDbRef,
-            membersDbReference;
+            membersDbReference, commentsDbReference;
     public StorageReference storageReference;
     public FirebaseStorage firebaseStorage;
 
@@ -128,6 +133,7 @@ public class SuperCompatActivity extends AppCompatActivity {
         adminDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_ADMIN);
         clubsDbRef = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_CLUBS);
         membersDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_MEMBERS);
+        commentsDbReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_COMMENTS);
 
         //fire base storage
         firebaseStorage = FirebaseStorage.getInstance();
@@ -173,6 +179,14 @@ public class SuperCompatActivity extends AppCompatActivity {
     private void loadAllAnims() {
         scaleDownAnim = AnimationUtils.loadAnimation(this, R.anim.scale_down_animation);
         scaleUpAnim = AnimationUtils.loadAnimation(this, R.anim.scale_up_animatin);
+    }
+
+    public void slideUpView(View view, Context context) {
+        view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_up_anim));
+    }
+
+    public void slideDown(View view, Context context) {
+        view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_down_anim));
     }
 
     protected StorageReference getStorageReference() {
@@ -261,6 +275,35 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected void cancelProgress() {
         if (progressDialog.isShowing() && progressDialog != null) {
             progressDialog.dismiss();
+        }
+    }
+
+    //open activity with shared element transition
+    protected void openWithImageTransition(Context from, Class to, boolean close, ImageView imageView, String key, String value) {
+        Intent intent = new Intent(from, to);
+        intent.putExtra(key, value);
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(this, imageView, getString(R.string.image_transition));
+        startActivity(intent, options.toBundle());
+        if (close) {
+            this.finish();
+        }
+    }
+
+    protected void openWithMultipleImageTransition(Context from, Class to, boolean close, ImageView viewOne, ImageView viewTwo, String key, String value) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Pair viewOnePair = Pair.create(viewOne, viewOne.getTransitionName());
+            Pair viewTwoPair = Pair.create(viewTwo, viewTwo.getTransitionName());
+            ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) from, viewOnePair, viewTwoPair);
+            Intent intent = new Intent(from, to);
+            intent.putExtra(key, value);
+            startActivity(intent, activityOptions.toBundle());
+            if(close) {
+                finish();
+            }
+
+        } else {
+            goTo(from, to, close, key, value);
         }
     }
 

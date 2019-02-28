@@ -63,6 +63,8 @@ public class AddNewsFragment extends SuperFragment {
     private Uri eventPoster, uploadedPosterUri;
     private boolean isNewsVisible, isFirstCompleted = false;
     private int teamId = -1;
+    private String tName = "";
+    private String tLogo="";
 
     private TeamDataHelper teamDataHelper;
 
@@ -405,8 +407,9 @@ public class AddNewsFragment extends SuperFragment {
 
         NewsFeedItems newsFeedItems = new NewsFeedItems();
 
-//        newsFeedItems.settName(teamDataHelper.getTeamName(teamId));
         newsFeedItems.seteName(eventName);
+        newsFeedItems.settName(tName);
+        newsFeedItems.settLogo(tLogo);
         newsFeedItems.seteDesc(eventDesc);
         newsFeedItems.seteDate(eventDate);
         newsFeedItems.seteTime(eventTime);
@@ -417,7 +420,7 @@ public class AddNewsFragment extends SuperFragment {
         newsFeedItems.setPstrUrl(uploadedPosterUri.toString());
         newsFeedItems.setLikesCount(0);
         newsFeedItems.setCommentCount(0);
-//        newsFeedItems.setNfId(eventName+"_"+postedDate);
+        newsFeedItems.setNfId(eventName+"_"+postedDate);
         //newsFeedItems.setComment("");
         newsFeedItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
 
@@ -457,8 +460,9 @@ public class AddNewsFragment extends SuperFragment {
 
             Team team = new Team();
 
-            team.settName((String) map.get("teamName"));
-            team.settLogo((String) map.get("teamLogoUri"));
+            team.settName((String) map.get("tName"));
+            team.settLogo((String) map.get("tLogo"));
+            team.settId((String) map.get("tId"));
 
             AppHelper.print("Team data: " + team.gettName() + "\t" + team.gettLogo());
 
@@ -473,8 +477,8 @@ public class AddNewsFragment extends SuperFragment {
         }
     }
 
-    private void loadWithSpinner(ArrayList<Team> teamArrayList) {
-        String teamNameArray[] = new String[teamArrayList.size()];
+    private void loadWithSpinner(final ArrayList<Team> teamArrayList) {
+        final String teamNameArray[] = new String[teamArrayList.size()];
 
         for (int i = 0; i < teamArrayList.size(); i++) {
             teamNameArray[i] = teamArrayList.get(i).gettName();
@@ -491,6 +495,8 @@ public class AddNewsFragment extends SuperFragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 teamId = position;
+                tName = teamNameArray[position];
+                tLogo = teamArrayList.get(position).gettLogo();
             }
 
             @Override

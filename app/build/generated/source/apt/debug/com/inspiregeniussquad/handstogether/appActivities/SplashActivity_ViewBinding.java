@@ -29,6 +29,7 @@ public class SplashActivity_ViewBinding implements Unbinder {
     target.appMottoTv = Utils.findRequiredViewAsType(source, R.id.app_motto, "field 'appMottoTv'", TextView.class);
     target.appNameTv = Utils.findRequiredViewAsType(source, R.id.app_name, "field 'appNameTv'", TextView.class);
     target.rootView = Utils.findRequiredViewAsType(source, R.id.root_view, "field 'rootView'", LinearLayout.class);
+    target.splashFooterLayout = Utils.findRequiredViewAsType(source, R.id.splash_footer, "field 'splashFooterLayout'", LinearLayout.class);
   }
 
   @Override
@@ -42,5 +43,6 @@ public class SplashActivity_ViewBinding implements Unbinder {
     target.appMottoTv = null;
     target.appNameTv = null;
     target.rootView = null;
+    target.splashFooterLayout = null;
   }
 }

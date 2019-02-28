@@ -109,11 +109,12 @@
                         android:layout_height="90dp"
                         android:gravity="center">
 
-                        <com.mikhaellopez.circularimageview.CircularImageView
+                        <com.inspiregeniussquad.handstogether.appViews.CircularImageView
                             android:id="@+id/team_logo2"
                             android:layout_width="60dp"
+                            app:border_width="1dp"
+                            app:border_color="@color/app_grey"
                             android:layout_height="60dp"
-                            android:visibility="invisible"
                             android:contentDescription="@null" />
 
                     </LinearLayout>

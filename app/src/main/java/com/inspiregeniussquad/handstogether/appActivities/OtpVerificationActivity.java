@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
@@ -20,6 +21,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Admin;
@@ -272,27 +275,30 @@ public class OtpVerificationActivity extends SuperCompatActivity {
 
         for (Map.Entry<String, Users> entry : value.entrySet()) {
             Map usersMap = (Map) entry.getValue();
-            phoneNumbers.add((String) usersMap.get(Keys.ATTR_MOBILE));
 
-            //trying to load profile of user, if mobile number found
-            for (String phone : phoneNumbers) {
-                if (phone.equals(mobileNumber)) {
-                    Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
-                            (String) usersMap.get(Keys.ATTR_EMAIL),
-                            (String) usersMap.get(Keys.ATTR_MOBILE),
-                            (String) usersMap.get(Keys.ATTR_GENDER),
-                            (String) usersMap.get(Keys.IS_ADMIN));
+            String phoneNumber = (String) usersMap.get(Keys.ATTR_MOBILE);
 
-                    if (!users.getIsAdmin().equals(Keys.NOT_ADMIN)) {
-                        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
-                    }
+            if(phoneNumber != null) {
+                phoneNumbers.add(phoneNumber);
+            }
 
-                    dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
+            if (phoneNumber != null && phoneNumber.equals(mobileNumber)) {
+                Users users = new Users((String) usersMap.get(Keys.ATTR_USERNAME),
+                        (String) usersMap.get(Keys.ATTR_EMAIL),
+                        (String) usersMap.get(Keys.ATTR_MOBILE),
+                        (String) usersMap.get(Keys.ATTR_GENDER),
+                        (String) usersMap.get(Keys.IS_ADMIN));
 
-                    goToHome();
+                //todo check and make admin
+//                if (!users.getIsAdmin().equals(Keys.NOT_ADMIN)) {
+                    dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+//                }
 
-                    return;
-                }
+                dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
+
+                goToHome();
+
+                return;
             }
         }
 
@@ -338,7 +344,21 @@ public class OtpVerificationActivity extends SuperCompatActivity {
         cancelProgress();
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveString(Keys.MOBILE, mobileNumber);
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String token = instanceIdResult.getToken();
+                AppHelper.print("FCM TOKEN: "+token);
+                updateTokenToFirebase(token);
+            }
+        });
+
         goTo(this, MainActivity.class, true);
+    }
+
+    private void updateTokenToFirebase(String token) {
+
     }
 
     private void showCountTimer() {

@@ -5,6 +5,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
+import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import butterknife.BindView;
@@ -50,10 +52,10 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     TextView timeTv;
 
    /* @BindView(R.id.team_logo)
-    CircularImageView teamLogoIv;
+    CircularImageView teamLogoIv;*/
 
     @BindView(R.id.team_logo2)
-    CircularImageView teamLogo2Iv;*/
+    CircularImageView teamLogo2Iv;
 
     private NewsFeedItems toShowNewsItem;
     private ImageLoader imageLoader;
@@ -110,6 +112,14 @@ public class NewsItemViewActivity extends SuperCompatActivity {
                 }
             }
         });*/
+
+        posterIv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWithImageTransition(NewsItemViewActivity.this, PosterViewActivity.class, false, posterIv1,
+                        Keys.NEWS_ITEM, gson.toJson(toShowNewsItem));
+            }
+        });
     }
 
    /* private void showContentImg() {
@@ -132,6 +142,7 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     private void updateUi(final NewsFeedItems newsFeedItems) {
 
         Glide.with(this).load(newsFeedItems.getPstrUrl()).into(posterIv1);
+        Glide.with(this).load(newsFeedItems.gettLogo()).into(teamLogo2Iv);
 
 //        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
 //        if (posterImage != null && posterImage.exists()) {

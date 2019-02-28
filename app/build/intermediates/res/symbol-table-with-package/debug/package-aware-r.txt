@@ -21,6 +21,7 @@ anim pulse_anim
 anim scale_down_animation
 anim scale_up_animatin
 anim slide_bottom_anim
+anim slide_down_anim
 anim slide_in_anim
 anim slide_out_anim
 anim slide_up_anim
@@ -1439,7 +1440,6 @@ id circular_recycler_view
 id clip_horizontal
 id clip_vertical
 id close_icon
-id close_preview
 id club_icon
 id club_image
 id club_image_choose
@@ -1471,9 +1471,12 @@ id com_facebook_tooltip_bubble_view_text_body
 id com_facebook_tooltip_bubble_view_top_pointer
 id comment
 id comment_container
+id comment_time
+id comment_title
 id comment_view
 id comments
 id comments_recycler
+id comments_view
 id confirmation_code
 id container
 id content
@@ -1532,7 +1535,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
-id footer
+id footer_view
 id forever
 id ghost_view
 id glide_custom_view_target_tag
@@ -1540,6 +1543,7 @@ id gone
 id google_login
 id group_divider
 id groups
+id header_layout
 id header_root
 id home
 id homeAsUp
@@ -1643,6 +1647,7 @@ id no_comments_tv
 id no_members_view
 id no_news_updated
 id no_news_view
+id no_team_mem_view
 id no_team_view
 id no_updated_circular
 id none
@@ -1667,13 +1672,14 @@ id permissions_icon
 id permissions_list
 id permissions_title
 id pin
+id post
 id post_card
 id post_comment
 id posted_date_time
 id poster_image
+id posting_View
 id privacy
 id profile_image
-id profile_img
 id progress_bar
 id progress_circular
 id progress_horizontal
@@ -1700,9 +1706,9 @@ id rsend_otp_btn
 id save
 id save_admin
 id save_club
+id save_fab
 id save_image_matrix
 id save_non_transition_alpha
-id save_preview
 id save_scale_type
 id screen
 id scroll
@@ -1772,6 +1778,7 @@ id team_log_iv
 id team_logo
 id team_logo2
 id team_logo_view
+id team_member_loading_view
 id team_member_name
 id team_member_position
 id team_members_count
@@ -1824,6 +1831,8 @@ id update_team_btn
 id updated_date
 id updated_news_rv
 id useLogo
+id user_comment
+id user_image
 id user_name
 id user_profile
 id verify_btn
@@ -1923,6 +1932,7 @@ layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
 layout com_facebook_smart_device_dialog_fragment
 layout com_facebook_tooltip_bubble
+layout comments_item_view
 layout content_home
 layout content_navigation_drawer
 layout design_bottom_navigation_item
@@ -2142,6 +2152,7 @@ string com_facebook_smart_login_confirmation_cancel
 string com_facebook_smart_login_confirmation_continue_as
 string com_facebook_smart_login_confirmation_title
 string com_facebook_tooltip_default
+string comments
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -2174,6 +2185,7 @@ string dance_manager
 string date
 string db_error
 string default_members_count
+string default_notification_channel_id
 string default_web_client_id
 string delete
 string deleting_news
@@ -2204,7 +2216,9 @@ string enter_team_members_names
 string enter_team_motto
 string enter_team_name
 string enter_title_circular
+string enter_valid_year
 string enter_verification_code
+string enter_your_comment
 string enter_your_mobile_number
 string entertainment
 string error_in_db_connection
@@ -2230,6 +2244,7 @@ string fcm_fallback_notification_channel_label
 string female
 string firebase_database_url
 string forgot_password_msg
+string founded
 string function_not_set
 string gcm_defaultSenderId
 string gender
@@ -2389,6 +2404,7 @@ string team_desc
 string team_founded
 string team_logo
 string team_members_names
+string team_members_not_found
 string team_motto
 string team_name
 string tech
@@ -2639,6 +2655,7 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style DialogAnimation
+style FullScreenPosterView
 style MessengerButton
 style MessengerButton_Blue
 style MessengerButton_Blue_Large

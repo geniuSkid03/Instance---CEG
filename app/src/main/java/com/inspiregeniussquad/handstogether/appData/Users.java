@@ -10,6 +10,7 @@ public class Users {
     private ArrayList<String> likedPosts, commentedPosts, bookmarkedPosts;
     private String isAdmin; // 0 - false, 1 - true
     private String userId;
+    private String fcmToken;
 
     public Users() {
 
@@ -141,5 +142,13 @@ public class Users {
 
     public void setIsAdmin(String isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
     }
 }

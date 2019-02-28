@@ -1,5 +1,7 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -161,6 +164,23 @@ public class SuperFragment extends Fragment {
         startActivity(intent, options.toBundle());
         if (close) {
             getActivity().finish();
+        }
+    }
+
+    protected void openWithMultipleImageTransition(Context from, Class to, boolean close, ImageView viewOne, ImageView viewTwo, String key, String value) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Pair viewOnePair = Pair.create(viewOne, viewOne.getTransitionName());
+            Pair viewTwoPair = Pair.create(viewTwo, viewTwo.getTransitionName());
+            ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) from, viewOnePair, viewTwoPair);
+            Intent intent = new Intent(from, to);
+            intent.putExtra(key, value);
+            startActivity(intent, activityOptions.toBundle());
+            if(close) {
+                getActivity().finish();
+            }
+
+        } else {
+            goTo(from, to, close, key, value);
         }
     }
 

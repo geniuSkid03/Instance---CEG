@@ -20,7 +20,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
 
   private View view2131296287;
 
-  private View view2131296495;
+  private View view2131296498;
 
   private View view2131296295;
 
@@ -55,7 +55,7 @@ public class AdminActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.manage_teams, "field 'manageTeamsCv' and method 'onClicked'");
     target.manageTeamsCv = Utils.castView(view, R.id.manage_teams, "field 'manageTeamsCv'", CardView.class);
-    view2131296495 = view;
+    view2131296498 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -90,8 +90,8 @@ public class AdminActivity_ViewBinding implements Unbinder {
     view2131296290 = null;
     view2131296287.setOnClickListener(null);
     view2131296287 = null;
-    view2131296495.setOnClickListener(null);
-    view2131296495 = null;
+    view2131296498.setOnClickListener(null);
+    view2131296498 = null;
     view2131296295.setOnClickListener(null);
     view2131296295 = null;
   }

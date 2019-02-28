@@ -1,8 +1,12 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 
 import com.firebase.client.Firebase;
+import com.inspiregeniussquad.handstogether.R;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -40,5 +44,22 @@ public class Instance extends Application {
                 .build();
 
         ImageLoader.getInstance().init(imageLoaderConfiguration);
+
+        createNotificationChannel();
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.app_name);
+            String description = getString(R.string.default_notification_channel_id);
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(getString(R.string.default_notification_channel_id),
+                    name, importance);
+            mChannel.setDescription(description);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(
+                    NOTIFICATION_SERVICE);
+            assert notificationManager != null;
+            notificationManager.createNotificationChannel(mChannel);
+        }
     }
 }
