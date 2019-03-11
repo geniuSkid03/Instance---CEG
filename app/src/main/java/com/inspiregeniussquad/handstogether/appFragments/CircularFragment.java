@@ -1,6 +1,8 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -23,8 +26,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appActivities.PosterViewActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.CircularFeedAdapter;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
@@ -49,7 +54,27 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
 
         circularDataItemsArrayList = new ArrayList<>();
 
-        circularFeedAdapter = new CircularFeedAdapter(getContext(), circularDataItemsArrayList);
+        circularFeedAdapter = new CircularFeedAdapter(getContext(), circularDataItemsArrayList, new CircularFeedAdapter.CircularCallBack() {
+            @Override
+            public void onItemClicked(int position, ImageView imageView) {
+                onCircularClicked(position, imageView);
+            }
+        });
+    }
+
+    private void onCircularClicked(int position, ImageView imageView) {
+        if(circularDataItemsArrayList.get(position).getCircularImgPath() != null) {
+            openWithImageTransition(getContext(), PosterViewActivity.class, false, imageView, Keys.CIRCULAR_ITEM, gson.toJson(circularDataItemsArrayList.get(position)));
+        } else {
+            showDownloadOptions(position);
+        }
+    }
+
+    private void showDownloadOptions(int position) {
+        Intent intent = new Intent();
+        intent.setDataAndType(Uri.parse(circularDataItemsArrayList.get(position).getPdfPath()), Intent.ACTION_VIEW);
+        startActivity(intent);
+        //todo show context menu to download pdf else open pdf
     }
 
     @Override
@@ -127,6 +152,7 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
             circularDataItems.setCircularImgPath((String) map.get("circularImgPath"));
             circularDataItems.setpDate((String) map.get("pDate"));
             circularDataItems.setpTime((String) map.get("pTime"));
+            circularDataItems.setPdfPath((String) map.get("pdfPath"));
 
             circularDataItemsArrayList.add(circularDataItems);
         }
@@ -199,7 +225,12 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
             }
         }
 
-        circularFeedAdapter = new CircularFeedAdapter(getActivity(), filteredNewsItem);
+        circularFeedAdapter = new CircularFeedAdapter(getActivity(), filteredNewsItem, new CircularFeedAdapter.CircularCallBack() {
+            @Override
+            public void onItemClicked(int position, ImageView imageView) {
+                onCircularClicked(position, imageView);
+            }
+        });
         circularFeedAdapter.notifyDataSetChanged();
         circularRv.setAdapter(circularFeedAdapter);
 

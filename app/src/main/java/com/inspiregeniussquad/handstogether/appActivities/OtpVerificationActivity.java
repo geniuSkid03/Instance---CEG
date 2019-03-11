@@ -289,10 +289,22 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                         (String) usersMap.get(Keys.ATTR_GENDER),
                         (String) usersMap.get(Keys.IS_ADMIN));
 
-                //todo check and make admin
-//                if (!users.getIsAdmin().equals(Keys.NOT_ADMIN)) {
-                    dataStorage.saveBoolean(Keys.IS_ADMIN, true);
-//                }
+                users.setUserId((String) usersMap.get("userId"));
+
+                String admins = dataStorage.getString(Keys.ADMIN_INFO);
+                ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
+                }.getType());
+
+                if(adminArrayList != null && adminArrayList.size() > 0) {
+                    for(Admin admin : adminArrayList) {
+                        if(admin.getMobile().equals(mobileNumber)) {
+                            dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                            dataStorage.saveString(Keys.ADMIN_VALUE, admin.getPosition());
+                        } else {
+                            dataStorage.saveBoolean(Keys.IS_ADMIN, false);
+                        }
+                    }
+                }
 
                 dataStorage.saveString(Keys.USER_DATA, gson.toJson(users));
 
@@ -336,12 +348,14 @@ public class OtpVerificationActivity extends SuperCompatActivity {
                 for (Admin admin : adminArrayList) {
                     if (admin.getMobile().equalsIgnoreCase(mobileNumber)) {
                         dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                        dataStorage.saveString(Keys.ADMIN_VALUE, admin.getPosition());
                     }
                 }
             }
         }
 
         cancelProgress();
+
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveString(Keys.MOBILE, mobileNumber);
 

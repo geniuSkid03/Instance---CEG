@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -223,12 +222,16 @@ public class ManageAdminsActivity extends SuperCompatActivity {
 
             Admin admin = null;
 
+            assert position != null;
             switch (position) {
-                case "1":
+                case "0":
                     admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.super_admin));
                     break;
-                case "2":
+                case "1":
                     admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.admin));
+                    break;
+                case "2":
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.staff));
                     break;
                 case "3":
                     admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.editor));

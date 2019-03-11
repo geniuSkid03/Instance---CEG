@@ -42,6 +42,8 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
+import static com.inspiregeniussquad.handstogether.appData.Keys.USER_ID;
+
 public class MainActivity extends SuperCompatActivity {
 
     @BindView(R.id.nav_menu_recycler)
@@ -462,6 +464,8 @@ public class MainActivity extends SuperCompatActivity {
         super.onResume();
 
         performOnResumeOperations();
+
+        AppHelper.print("User id: "+dataStorage.getString(USER_ID));
     }
 
     @Override

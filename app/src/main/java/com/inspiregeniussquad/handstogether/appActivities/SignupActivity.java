@@ -213,7 +213,7 @@ public class SignupActivity extends SuperCompatActivity {
                 if (admin.getMobile().equalsIgnoreCase(mobileNumber)) {
                     users.setIsAdmin(admin.getPosition());
                 } else {
-                    users.setIsAdmin("0");
+                    users.setIsAdmin("-1");
                 }
             }
         }
@@ -292,7 +292,6 @@ public class SignupActivity extends SuperCompatActivity {
         });
     }
 
-    //todo save user image in firebase
     private void goToHome(Users users) {
         dataStorage.saveString(Keys.USER_NAME, users.getName());
         dataStorage.saveString(Keys.MOBILE, users.getMobile());
@@ -304,8 +303,20 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveString(Keys.USER_ID, users.getUserId());
         dataStorage.saveString(Keys.ADMIN_VALUE, users.getIsAdmin());
 
-        //todo check and change
-        dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+        String admins = dataStorage.getString(Keys.ADMIN_INFO);
+        ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
+        }.getType());
+
+        if(adminArrayList != null && adminArrayList.size() > 0) {
+            for(Admin admin : adminArrayList) {
+                if(admin.getMobile().equals(users.getMobile())) {
+                    dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                    dataStorage.saveString(Keys.ADMIN_VALUE, admin.getPosition());
+                } else {
+                    dataStorage.saveBoolean(Keys.IS_ADMIN, false);
+                }
+             }
+        }
 
         cancelProgress();
 

@@ -1232,6 +1232,7 @@ drawable ic_arrow_drop_down
 drawable ic_arrow_drop_up
 drawable ic_arrow_right
 drawable ic_arrow_up
+drawable ic_attachment_icon
 drawable ic_bookmark_done
 drawable ic_bookmark_icon
 drawable ic_broken_image
@@ -1331,6 +1332,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable pdf_icon
 drawable permission_camera
 drawable permission_contact
 drawable permission_phone
@@ -1399,6 +1401,7 @@ id alertTitle
 id all
 id alreadu_hav_accnt
 id always
+id app_bar
 id app_bar_layout
 id app_motto
 id app_name
@@ -1430,7 +1433,6 @@ id chains
 id change_num
 id checkbox
 id child_root
-id choose_image
 id chronometer
 id circular_desc
 id circular_image
@@ -1556,6 +1558,7 @@ id image
 id imageView
 id image_placeholder
 id img_loading_view
+id img_rb
 id info
 id inline
 id invisible
@@ -1583,6 +1586,7 @@ id list_header_tag
 id list_item
 id llMainContents
 id load_circular_image
+id load_pdf_file
 id load_team_image
 id login_me
 id logo
@@ -1666,6 +1670,8 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id pdf_file
+id pdf_rb
 id percent
 id permissions_hint
 id permissions_icon
@@ -1755,6 +1761,7 @@ id spread_inside
 id src_atop
 id src_in
 id src_over
+id staff_rb
 id standard
 id start
 id status_bar_latest_event_content
@@ -1830,6 +1837,7 @@ id update_profile
 id update_team_btn
 id updated_date
 id updated_news_rv
+id upload_grp
 id useLogo
 id user_comment
 id user_image
@@ -1842,11 +1850,13 @@ id view_offset_helper
 id view_pager
 id visible
 id visible_news
+id watch_video
 id webview
 id wide
 id withText
 id wrap
 id wrap_content
+id youtube_view
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer anim_duration_medium
@@ -1917,6 +1927,7 @@ layout activity_signup
 layout activity_splash
 layout activity_team_view
 layout activity_teaminfo
+layout activity_video_view
 layout add_circular_fragment
 layout add_news_fragment
 layout add_team_fragment
@@ -2028,6 +2039,7 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string SEM
 string _91
+string _or
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2107,6 +2119,7 @@ string change_number
 string character_counter_content_description
 string character_counter_pattern
 string choose
+string choose_circular_image
 string choose_club
 string choose_clubs
 string choose_email
@@ -2114,8 +2127,10 @@ string choose_from_gallery
 string choose_gender
 string choose_image
 string choose_operation
+string choose_pdf
 string choose_position
 string choose_team
+string choose_upload_type
 string choose_your_updation
 string circular
 string circular_desc
@@ -2222,6 +2237,7 @@ string enter_your_comment
 string enter_your_mobile_number
 string entertainment
 string error_in_db_connection
+string error_player
 string event_dare_empty
 string event_date
 string event_desc
@@ -2266,6 +2282,7 @@ string hint_password
 string home
 string hrm
 string i_agree
+string image
 string image_transition
 string instance_admins
 string it_will_be_shown_in_circular_tab
@@ -2311,6 +2328,7 @@ string nav_header_title
 string navigation
 string navigation_drawer_close
 string navigation_drawer_open
+string need_storage_permission
 string new_circular
 string news_updated_success
 string news_visibility
@@ -2325,6 +2343,7 @@ string no_internt_conn
 string no_members_have_been_added_yet
 string noclubs_available
 string non_tech
+string not_authorised
 string nothing_emoji
 string number_of_members
 string ok
@@ -2346,6 +2365,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pdf
 string permission
 string permission_hint
 string permission_message
@@ -2363,6 +2383,7 @@ string privacy_policy
 string processing
 string production_deisgner
 string project_id
+string provide_image_or_pdf
 string provide_team_logo
 string publish
 string rate_us
@@ -2391,6 +2412,7 @@ string so_on
 string social
 string some_error_occurred
 string sports
+string staff
 string status_bar_notification_info_overflow
 string storage_link
 string storage_permsn_hint
@@ -2444,6 +2466,7 @@ string you_haven_t_updated_any_circulars
 string you_haven_t_updated_any_news
 string your_recently_updated_circulars
 string your_recently_updated_news
+string youtube_api_key
 string yt_manager
 style AVLoadingIndicatorView
 style AVLoadingIndicatorView_Large

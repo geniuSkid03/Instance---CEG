@@ -1,5 +1,9 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -88,14 +93,20 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             }
 
             @Override
-            public void onBookmarkClicked(int position) {
+            public void onBookmarkClicked(int position, boolean isBookmarked) {
                 newsFeedAdapter.setPostAsBookmarked(position);
+
+                if (isBookmarked) {
+                    updateAsBookmarked(position);
+                } else {
+                    removeBookmarked(position);
+                }
+
                 updateBookmarkToFirebase(newsFeedItemsArrayList.get(position).isBookmarked());
             }
 
             @Override
-            public void onLikeClicked(int position, boolean isLiked) {
-                newsFeedAdapter.setPostAsLiked(position);
+            public void onLikeClicked(int position, boolean isLiked, ImageView likeIv) {
 
                 if (!isLiked) {
                     updateAsLiked(position);
@@ -103,7 +114,27 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
                     removeLiked(position);
                 }
 
+                animateLike(likeIv, isLiked);
 
+                ArrayList<String> likedUsersArrayList = newsFeedItemsArrayList.get(position).getLikedUsers();
+
+                if (!isLiked) {
+                    likedUsersArrayList.add(getUserId());
+                    newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
+                } else {
+                    if (likedUsersArrayList != null && likedUsersArrayList.size() > 0) {
+                        for (String likedUser : likedUsersArrayList) {
+                            if (likedUser.equals(getUserId())) {
+                                likedUsersArrayList.remove(likedUser);
+                            }
+                        }
+                        newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
+                    }
+                }
+
+                newsFeedItemsArrayList.get(position).setLiked(!isLiked);
+
+                newsFeedAdapter.notifyItemChanged(position);
             }
 
             @Override
@@ -113,8 +144,22 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         });
     }
 
-    private void updateAsLiked(int position) {
+    private String getUserId() {
+        return dataStorage.getString(Keys.USER_ID);
+    }
+
+    private void updateAsBookmarked(int position) {
         String postId = newsFeedItemsArrayList.get(position).getNfId();
+
+    }
+
+    private void removeBookmarked(int position) {
+
+    }
+
+    private void updateAsLiked(int position) {
+        AppHelper.print("Updating as liked");
+        final String postId = newsFeedItemsArrayList.get(position).getNfId();
 
         //updating likes count in news item
         DatabaseReference likesCountReference = newsDbReference
@@ -124,42 +169,85 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             @NonNull
             @Override
             public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-
                 Integer currentValue = mutableData.getValue(Integer.class);
                 if (currentValue == null) {
                     mutableData.setValue(1);
                 } else {
                     mutableData.setValue(currentValue + 1);
                 }
-
-
                 return Transaction.success(mutableData);
             }
 
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {
+                if (databaseError == null) {
+                    //updating liked post to user profile
+                    DatabaseReference userDbRef = usersDbReference.child(dataStorage.getString(Keys.USER_ID))
+                            .child("likedPosts");
+                    userDbRef.child(postId).setValue(postId, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError == null) {
+                                AppHelper.print("liked post added to user info");
+                            } else {
+                                AppHelper.print("liked post to user info : ERROR");
+                            }
+                        }
+                    });
+
+                    //updating news liked users
+                    DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers");
+                    String userId = dataStorage.getString(Keys.USER_ID);
+                    postRef.child(userId).setValue(userId, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError == null) {
+                                AppHelper.print("liked users added to post");
+                            } else {
+                                AppHelper.print("liked user to post info : ERROR");
+                            }
+                        }
+                    });
+                } else {
+                    AppHelper.print("ERROR in updateAsLiked");
+                }
+            }
+        });
+    }
+
+    private void animateLike(final ImageView likeIv, final boolean isLiked) {
+        AnimatorSet animatorSet = new AnimatorSet();
+        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(likeIv, "scaleX", 0.2f, 1f);
+        bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
+        bounceAnimX.setInterpolator(new BounceInterpolator());
+        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(likeIv, "scaleY", 0.2f, 1f);
+        bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
+        bounceAnimY.setInterpolator(new BounceInterpolator());
+        bounceAnimY.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
             }
         });
 
-        //updating liked post to user profile
-        DatabaseReference userDbRef = usersDbReference.child(dataStorage.getString(Keys.USER_ID))
-                .child("likedPosts");
-        userDbRef.child(postId).setValue(postId);
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+            }
+        });
 
-        //updating news liked users
-        DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers");
-        String userId = dataStorage.getString(Keys.USER_ID);
-        postRef.child(userId).setValue(userId);
+        animatorSet.play(bounceAnimX).with(bounceAnimY);
+        animatorSet.start();
     }
 
     private void removeLiked(int position) {
-        String postId = newsFeedItemsArrayList.get(position).getNfId();
+        AppHelper.print("Removing liked");
+
+        final String postId = newsFeedItemsArrayList.get(position).getNfId();
 
         //removing like count in news item
         DatabaseReference likesCountReference = newsDbReference
-                .child(newsFeedItemsArrayList.get(position).getNfId())
-                .child("likesCount");
+                .child(postId).child("likesCount");
         likesCountReference.runTransaction(new Transaction.Handler() {
             @NonNull
             @Override
@@ -168,41 +256,42 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
                 if (currentValue == null) {
                     mutableData.setValue(0);
                 } else {
-                    mutableData.setValue(currentValue - 1);
+                    if (currentValue != 0) {
+                        mutableData.setValue(currentValue - 1);
+                    }
                 }
-
-
                 return Transaction.success(mutableData);
             }
 
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {
+                if (databaseError == null) {
+                    String userId = dataStorage.getString(Keys.USER_ID);
 
-            }
-        });
+                    //removing like from user profile
+                    usersDbReference.child(userId).child("likedPosts").child(postId).removeValue(new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            AppHelper.print("Like removed in user profile");
+                        }
+                    });
 
-        String userId = dataStorage.getString(Keys.USER_ID);
-
-        //removing like from user profile
-        usersDbReference.child(userId).child("likedPosts").child(postId).removeValue(new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                AppHelper.print("Like removed in user profile");
-            }
-        });
-
-        //removing liked user in news item
-        DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers").child(userId);
-        postRef.removeValue(new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                AppHelper.print("Like removed in news item");
+                    //removing liked user in news item
+                    DatabaseReference postRef = newsDbReference.child(postId).child("likedUsers").child(userId);
+                    postRef.removeValue(new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            AppHelper.print("Like removed in news item");
+                        }
+                    });
+                }
             }
         });
     }
 
     private void updateBookmarkToFirebase(boolean bookmarked) {
         showToast("" + bookmarked);
+
 
     }
 
@@ -241,9 +330,9 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
         newsFeedRv.setAdapter(newsFeedAdapter);
 
-        if (!newsFeedAdapter.hasObservers()) {
-            newsFeedAdapter.setHasStableIds(true);
-        }
+//        if (!newsFeedAdapter.hasObservers()) {
+//            newsFeedAdapter.setHasStableIds(true);
+//        }
     }
 
     private View initNewsFeedView(View view) {
@@ -252,10 +341,10 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
         newsLoadingView = view.findViewById(R.id.shimmer_view_container);
 
-        newsFeedRv.setHasFixedSize(true);
-        newsFeedRv.setItemViewCacheSize(20);
-        newsFeedRv.setDrawingCacheEnabled(true);
-        newsFeedRv.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+//        newsFeedRv.setHasFixedSize(true);
+//        newsFeedRv.setItemViewCacheSize(20);
+//        newsFeedRv.setDrawingCacheEnabled(true);
+//        newsFeedRv.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         newsFeedRv.setLayoutManager(linearLayoutManager);
@@ -292,7 +381,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
         }
 
-        if(isRefreshing) {
+        if (isRefreshing) {
             AppHelper.print("Already refreshing");
             return;
         }
@@ -348,14 +437,20 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedItems.setCommentCount((long) map.get("commentCount"));
             newsFeedItems.settLogo((String) map.get("tLogo"));
 
-            if(dataSnapshot.child("likedUsers").exists()) {
-                for(DataSnapshot likedUsers : dataSnapshot.child("likedUsers").getChildren()) {
-                    String likedUsersKey = likedUsers.getKey();
-                    AppHelper.print("Liked users: "+likedUsersKey);
+            ArrayList<String> likedUsers = new ArrayList<>();
+
+            if (teamEntry.getKey() != null) {
+                likedUsers.clear();
+                DataSnapshot dataSnapshot1 = dataSnapshot.child(teamEntry.getKey()).child("likedUsers");
+                if (dataSnapshot1.exists()) {
+                    Map<String, String> stringMap = (Map<String, String>) dataSnapshot1.getValue();
+                    for (Map.Entry<String, String> entry : stringMap.entrySet()) {
+                        likedUsers.add(entry.getValue());
+                    }
                 }
-            } else {
-                AppHelper.print("Liked users doesnt exist");
             }
+
+            newsFeedItems.setLikedUsers(likedUsers);
 
             newsFeedItemsArrayList.add(newsFeedItems);
         }
@@ -381,7 +476,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         animateWithData(newsFeedRv);
     }
 
-    private void showLoading(){
+    private void showLoading() {
         newsFeedRv.setVisibility(View.GONE);
         noNewsTv.setVisibility(View.GONE);
 

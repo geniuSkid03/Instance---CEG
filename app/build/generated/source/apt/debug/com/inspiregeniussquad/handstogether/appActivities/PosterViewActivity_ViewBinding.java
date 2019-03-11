@@ -17,7 +17,7 @@ import java.lang.Override;
 public class PosterViewActivity_ViewBinding implements Unbinder {
   private PosterViewActivity target;
 
-  private View view2131296612;
+  private View view2131296616;
 
   @UiThread
   public PosterViewActivity_ViewBinding(PosterViewActivity target) {
@@ -33,7 +33,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.loadingIv = Utils.findRequiredViewAsType(source, R.id.image_placeholder, "field 'loadingIv'", AVLoadingIndicatorView.class);
     view = Utils.findRequiredView(source, R.id.save_fab, "field 'savePreviewIv' and method 'onClicked'");
     target.savePreviewIv = Utils.castView(view, R.id.save_fab, "field 'savePreviewIv'", FloatingActionButton.class);
-    view2131296612 = view;
+    view2131296616 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.loadingIv = null;
     target.savePreviewIv = null;
 
-    view2131296612.setOnClickListener(null);
-    view2131296612 = null;
+    view2131296616.setOnClickListener(null);
+    view2131296616 = null;
   }
 }

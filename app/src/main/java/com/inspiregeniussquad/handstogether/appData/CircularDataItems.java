@@ -2,7 +2,7 @@ package com.inspiregeniussquad.handstogether.appData;
 
 public class CircularDataItems {
 
-    private String circularImgPath, pDate, pTime;
+    private String circularImgPath, pDate, pTime, pdfPath;
     private String cTitle, cDesc;
     private String postedBy;
 
@@ -56,5 +56,13 @@ public class CircularDataItems {
 
     public void setcDesc(String cDesc) {
         this.cDesc = cDesc;
+    }
+
+    public String getPdfPath() {
+        return pdfPath;
+    }
+
+    public void setPdfPath(String pdfPath) {
+        this.pdfPath = pdfPath;
     }
 }

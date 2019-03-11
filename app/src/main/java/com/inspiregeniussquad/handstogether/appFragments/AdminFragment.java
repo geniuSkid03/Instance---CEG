@@ -16,6 +16,7 @@ import com.inspiregeniussquad.handstogether.appActivities.ManageCircularActivity
 import com.inspiregeniussquad.handstogether.appActivities.ManageClubsActivity;
 import com.inspiregeniussquad.handstogether.appActivities.ManageNewsActivity;
 import com.inspiregeniussquad.handstogether.appActivities.ManageTeamsActivity;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;
 
 public class AdminFragment extends SuperFragment {
@@ -23,7 +24,6 @@ public class AdminFragment extends SuperFragment {
     private CardView newsCv, circularCv, manageTeamsCv, manageAdminsCv, manageClubsCv;
 
     private FragmentInterfaceListener fragmentRefreshListener;
-
 
 
     @Override
@@ -73,24 +73,46 @@ public class AdminFragment extends SuperFragment {
         manageAdminsCv.setOnClickListener(clickListener);
         manageTeamsCv.setOnClickListener(clickListener);
         manageClubsCv.setOnClickListener(clickListener);
+
+        adminValue = dataStorage.getString(Keys.ADMIN_VALUE);
     }
 
     private void doActionForClick(View view) {
         switch (view.getId()) {
             case R.id.add_circular:
-                openActivity(0);
+                if (isStaff() || isSuperAdmin()) {
+                    openActivity(0);
+                } else {
+                    showToast(getString(R.string.not_authorised));
+                }
                 break;
             case R.id.add_news:
-                openActivity(1);
+                if (isEditor() || isAdmin() || isSuperAdmin()) {
+                    openActivity(1);
+                } else {
+                    showToast(getString(R.string.not_authorised));
+                }
                 break;
             case R.id.manage_teams:
-                openActivity(2);
+                if (isSuperAdmin()) {
+                    openActivity(2);
+                } else {
+                    showToast(getString(R.string.not_authorised));
+                }
                 break;
             case R.id.admin_manage_card:
-                openActivity(3);
+                if (isSuperAdmin() || isAdmin()) {
+                    openActivity(3);
+                } else {
+                    showToast(getString(R.string.not_authorised));
+                }
                 break;
             case R.id.manage_clubs:
-                openActivity(4);
+                if (isAdmin() || isSuperAdmin()) {
+                    openActivity(4);
+                } else {
+                    showToast(getString(R.string.not_authorised));
+                }
                 break;
         }
     }
@@ -115,9 +137,26 @@ public class AdminFragment extends SuperFragment {
         }
     }
 
+    private boolean isSuperAdmin() {
+        return adminValue != null && adminValue.equals("0");
+    }
+
+    private boolean isStaff() {
+        return adminValue != null && adminValue.equals("2");
+    }
+
+    private boolean isAdmin() {
+        return adminValue != null && adminValue.equals("1");
+    }
+
+    private boolean isEditor() {
+        return adminValue != null && adminValue.equals("3");
+    }
+
+    private String adminValue;
 
     public void refreshAdminsFragment() {
-
+        adminValue = dataStorage.getString(Keys.ADMIN_VALUE);
     }
 
     public void setFragmentRefreshListener(FragmentInterfaceListener fragmentRefreshListener) {

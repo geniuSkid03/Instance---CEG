@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
@@ -34,15 +36,23 @@ import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 public class AddCircularFragment extends SuperFragment {
 
     private AppCompatButton publishCircularBtn;
-    private ImageView circularIv;
-    private ImageButton loadCircularImgBtn;
+    private ImageView circularIv, pdfIv;
+    private ImageButton loadCircularImgBtn, loadPdfFileBtn;
     private EditText titleEd, descEd;
 
     private String title, description;
-    private Uri circularImgUri, uploadedCircularImgUri;
+    private Uri circularImgUri = null, uploadedUri = null;
 
     private static final int CHOOSE_FILE = 101;
+    private static final int PDF_REQ = 102;
 
+    private Uri pdfUri = null;
+
+    private RadioGroup uploadRdGrp;
+    private RadioButton pdfRb, imgRb;
+
+    private int toUpload = -1;
+    private Uri toUploadUri = null;
 
     @Override
     protected View inflateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +66,25 @@ public class AddCircularFragment extends SuperFragment {
         loadCircularImgBtn = view.findViewById(R.id.load_circular_image);
         titleEd = view.findViewById(R.id.circular_name);
         descEd = view.findViewById(R.id.circular_desc);
+        loadPdfFileBtn = view.findViewById(R.id.load_pdf_file);
+        pdfIv = view.findViewById(R.id.pdf_file);
+        uploadRdGrp = view.findViewById(R.id.upload_grp);
+        imgRb = view.findViewById(R.id.img_rb);
+        pdfRb = view.findViewById(R.id.pdf_rb);
+
+        uploadRdGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.img_rb:
+                        toUpload = 0;
+                        break;
+                    case R.id.pdf_rb:
+                        toUpload = 1;
+                        break;
+                }
+            }
+        });
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -66,7 +95,7 @@ public class AddCircularFragment extends SuperFragment {
 
         loadCircularImgBtn.setOnClickListener(clickListener);
         publishCircularBtn.setOnClickListener(clickListener);
-
+        loadPdfFileBtn.setOnClickListener(clickListener);
 
         return view;
     }
@@ -80,6 +109,9 @@ public class AddCircularFragment extends SuperFragment {
                 if (isAllDetailsAvailable()) {
                     uploadCircularImage();
                 }
+                break;
+            case R.id.load_pdf_file:
+                openToLoadPdf();
                 break;
         }
     }
@@ -99,25 +131,51 @@ public class AddCircularFragment extends SuperFragment {
         startActivityForResult(Intent.createChooser(intent, getString(R.string.select_picture)), CHOOSE_FILE);
     }
 
+    private void openToLoadPdf() {
+        if (dataStorage.getBoolean(Keys.PERMISSIONS_GRANTED)) {
+            pdfIntent();
+        } else {
+            showToast(getString(R.string.need_storage_permission));
+        }
+    }
+
+    private void pdfIntent() {
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PDF_REQ);
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == CHOOSE_FILE) {
-                circularImgUri = data.getData();
+            switch (requestCode) {
+                case CHOOSE_FILE:
+                    circularImgUri = data.getData();
 
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), circularImgUri);
-                    if (bitmap != null) {
-                        Glide.with(getContext()).load(circularImgUri).into(circularIv);
-                    } else {
-                        AppHelper.showToast(getActivity(), "Image bitmap null");
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), circularImgUri);
+                        if (bitmap != null) {
+                            Glide.with(getContext()).load(circularImgUri).into(circularIv);
+                        } else {
+                            AppHelper.showToast(getActivity(), "Image bitmap null");
+                        }
+                    } catch (Exception e) {
+                        AppHelper.showToast(getActivity(), "Exception in parsing image");
                     }
-                } catch (Exception e) {
-                    AppHelper.showToast(getActivity(), "Exception in parsing image");
-                }
-
+                    break;
+                case PDF_REQ:
+                    if (data != null) {
+                        pdfUri = data.getData();
+                        pdfIv.setImageResource(R.drawable.pdf_icon);
+                    } else {
+                        AppHelper.print("Data null onActivityResult");
+                        showToast("Please select a file...");
+                    }
+                    break;
             }
         }
     }
@@ -135,22 +193,43 @@ public class AddCircularFragment extends SuperFragment {
             return false;
         }
 
-        if (circularImgUri == null) {
-            showToast(getString(R.string.enter_circular_image));
+        if (toUpload == -1) {
+            showToast(getString(R.string.choose_upload_type));
+            return false;
+        }
+
+        if (toUpload == 1 && pdfUri == null) {
+            showToast(getString(R.string.choose_pdf));
+            return false;
+        }
+
+        if (toUpload == 0 && circularImgUri == null) {
+            showToast(getString(R.string.choose_circular_image));
             return false;
         }
 
         return true;
     }
 
+    private StorageReference storageRef;
+
     private void uploadCircularImage() {
         String circularImageName = title + "_Circular";
 
+        switch (toUpload) {
+            case 0: //image
+                storageRef = storageReference.child("Circulars/images/" + circularImageName);
+                toUploadUri = circularImgUri;
+                break;
+            case 1: //pdf
+                storageRef = storageReference.child("Circulars/pdf/" + circularImageName);
+                toUploadUri = pdfUri;
+                break;
+        }
+
+        uploadTask = storageRef.putFile(toUploadUri);
+
         showProgress(getString(R.string.uploading_data));
-
-        final StorageReference storageRef = storageReference.child("Circulars/" + circularImageName);
-
-        uploadTask = storageRef.putFile(circularImgUri);
 
         Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
             @Override
@@ -168,15 +247,15 @@ public class AddCircularFragment extends SuperFragment {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()) {
-                    uploadedCircularImgUri = task.getResult();
-                    AppHelper.print("Upload " + uploadedCircularImgUri);
+                    uploadedUri = task.getResult();
+                    AppHelper.print("Upload " + uploadedUri);
                     cancelProgress();
 
-                    if (uploadedCircularImgUri != null) {
-                        String photoStringLink = uploadedCircularImgUri.toString();
-                        AppHelper.print("Uploaded Ciruclar Uri " + photoStringLink);
+                    if (uploadedUri != null) {
+                        String photoStringLink = uploadedUri.toString();
+                        AppHelper.print("Uploaded Uri " + photoStringLink);
 
-                        onImageUploaded(uploadedCircularImgUri);
+                        onImageUploaded(uploadedUri);
                     } else {
                         cancelProgress();
                         AppHelper.print("Image uploaded but uri null");
@@ -189,43 +268,43 @@ public class AddCircularFragment extends SuperFragment {
         });
     }
 
-    private void onImageUploaded(Uri circularImgUri){
+    private void onImageUploaded(Uri circularImgUri) {
         showProgress(getString(R.string.updating_circular));
 
         CircularDataItems circularDataItems = getCircularItems(circularImgUri);
 
         circularDbReference.child(newsDbReference.push().getKey()).setValue(circularDataItems,
                 new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError,
-                                   @NonNull DatabaseReference databaseReference) {
-                cancelProgress();
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError,
+                                           @NonNull DatabaseReference databaseReference) {
+                        cancelProgress();
 
-                if (databaseError == null) {
-                    showSimpleAlert(getString(R.string.cirular_updated_success),
-                            getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                            showUpdatedCirularFeed();
-                        }
-                    });
-                } else {
-                    AppHelper.print("Database error: " + databaseError.getMessage());
+                        if (databaseError == null) {
+                            showSimpleAlert(getString(R.string.cirular_updated_success),
+                                    getString(R.string.ok), new SimpleAlert() {
+                                        @Override
+                                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                            dialogInterface.dismiss();
+                                            showUpdatedCirularFeed();
+                                        }
+                                    });
+                        } else {
+                            AppHelper.print("Database error: " + databaseError.getMessage());
 
-                    showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
-                        @Override
-                        public void onBtnClicked(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                            showUpdatedCirularFeed();
+                            showSimpleAlert(getString(R.string.db_error), getString(R.string.ok), new SimpleAlert() {
+                                @Override
+                                public void onBtnClicked(DialogInterface dialogInterface, int which) {
+                                    dialogInterface.dismiss();
+                                    showUpdatedCirularFeed();
+                                }
+                            });
                         }
-                    });
-                }
-            }
-        });
+                    }
+                });
     }
 
-    private CircularDataItems getCircularItems(Uri circularImgUri){
+    private CircularDataItems getCircularItems(Uri circularImgUri) {
 
         String pDate = AppHelper.getTodaysDate();
         String pTime = AppHelper.getCurrentTime();
@@ -234,7 +313,11 @@ public class AddCircularFragment extends SuperFragment {
 
         circularDataItems.setcTitle(title);
         circularDataItems.setcDesc(description);
-        circularDataItems.setCircularImgPath(circularImgUri.toString());
+        if(toUpload == 0) {
+            circularDataItems.setCircularImgPath(circularImgUri.toString());
+        } else if (toUpload == 1) {
+            circularDataItems.setPdfPath(circularImgUri.toString());
+        }
         circularDataItems.setpDate(pDate);
         circularDataItems.setpTime(pTime);
         circularDataItems.setPostedBy(dataStorage.getString(Keys.MOBILE));
@@ -242,7 +325,7 @@ public class AddCircularFragment extends SuperFragment {
         return circularDataItems;
     }
 
-    private void showUpdatedCirularFeed(){
+    private void showUpdatedCirularFeed() {
         clearViews();
     }
 
@@ -250,6 +333,9 @@ public class AddCircularFragment extends SuperFragment {
         titleEd.setText("");
         descEd.setText("");
         circularIv.setImageResource(0);
+        pdfUri = null;
+        circularImgUri = null;
+        pdfIv.setImageResource(0);
     }
 
 }

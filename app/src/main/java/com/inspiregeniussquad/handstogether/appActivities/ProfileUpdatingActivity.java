@@ -8,11 +8,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -27,8 +30,6 @@ import butterknife.OnClick;
 
 public class ProfileUpdatingActivity extends SuperCompatActivity {
 
-    @BindView(R.id.choose_image)
-    ImageButton chooseImgBtn;
 
     @BindView(R.id.user_profile)
     ImageView userProfileIv;
@@ -59,18 +60,68 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     private Uri userImgUri;
     private String userImagePath;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_updation);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setTitle(getString(R.string.update_profile));
+        }
+
+        loadCurrentProfile();
     }
 
-    @OnClick({R.id.choose_image, R.id.update_profile})
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void loadCurrentProfile() {
+        if (!TextUtils.isEmpty(dataStorage.getString(Keys.USER_NAME))) {
+            userNameEd.setText(dataStorage.getString(Keys.USER_NAME));
+        }
+
+        if (!TextUtils.isEmpty(dataStorage.getString(Keys.USER_EMAIL))) {
+            userEmailEd.setText(dataStorage.getString(Keys.USER_EMAIL));
+        }
+
+        if (!TextUtils.isEmpty(dataStorage.getString(Keys.USER_GENDER))) {
+            switch (dataStorage.getString(Keys.USER_GENDER)) {
+                case Keys.MALE:
+                    maleRdBtn.setChecked(true);
+                    userProfileIv.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_man));
+                    break;
+                case Keys.FEMALE:
+                    femaleRdBtn.setChecked(true);
+                    userProfileIv.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_girl));
+                    break;
+                case Keys.UNSPECIFIED:
+                    userProfileIv.setBackground(ContextCompat.getDrawable(this, R.drawable.gender_unspecified));
+                    break;
+                default:
+                    userProfileIv.setBackground(ContextCompat.getDrawable(this, R.drawable.gender_unspecified));
+                    break;
+            }
+        }
+    }
+
+    @OnClick({R.id.update_profile})
     public void onBtnClicked(View view) {
         switch (view.getId()) {
-            case R.id.choose_image:
-                showChooserDialog();
-                break;
             case R.id.update_profile:
                 updateProfile();
                 break;
@@ -102,7 +153,7 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
                 }
             }
         });
-        if(!isFinishing()){
+        if (!isFinishing()) {
             builder.show();
         }
     }
@@ -157,11 +208,6 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
             }
         }
 
-        loadUserData();
-    }
-
-    private void loadUserData() {
-        //todo load user data by using mobile number and set it in views
     }
 
     @Override
@@ -178,8 +224,8 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK) {
-            if(requestCode == OPEN_CAMERA) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == OPEN_CAMERA) {
                 Glide.with(this).load(userImgUri).into(userProfileIv);
 
                 userImagePath = getImagePath(userImgUri);
@@ -195,6 +241,6 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        finish();
     }
 }

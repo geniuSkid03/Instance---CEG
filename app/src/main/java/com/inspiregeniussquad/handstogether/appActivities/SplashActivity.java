@@ -82,9 +82,10 @@ public class SplashActivity extends SuperCompatActivity {
             public void run() {
                 splashFooterLayout.setVisibility(View.VISIBLE);
                 slideUpView(splashFooterLayout, SplashActivity.this);
-                retrieveUserInfo();
             }
         }, 1000);
+
+        retrieveUserInfo();
 
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
@@ -149,30 +150,30 @@ public class SplashActivity extends SuperCompatActivity {
 //        });
 //    }
 
-    private void retriveClubFromDb(DataSnapshot dataSnapshot) {
-        Map<String, Clubs> teamDataMap = (Map<String, Clubs>) dataSnapshot.getValue();
+//    private void retriveClubFromDb(DataSnapshot dataSnapshot) {
+//        Map<String, Clubs> teamDataMap = (Map<String, Clubs>) dataSnapshot.getValue();
+//
+//        clubsArrayList.clear();
+//
+//        for (Map.Entry<String, Clubs> teamDataEntry : teamDataMap.entrySet()) {
+//            Map map = (Map) teamDataEntry.getValue();
+//
+//            Clubs clubs = new Clubs();
+//            clubs.setClubsId((String) map.get("clubsId"));
+//            clubs.setClubsName((String) map.get("clubName"));
+//            clubs.setClubsImgUrl((String) map.get("clubsImgUrl"));
+//
+//            clubsArrayList.add(clubs);
+//
+//            AppHelper.print("Retrived Clubs info: " + clubs.getClubsId() + "\t" + clubs.getClubsName() + "\t" + clubs.getClubsImgUrl());
+//        }
+//
+//        insertClubsIntoDb(clubsArrayList);
+//    }
 
-        clubsArrayList.clear();
-
-        for (Map.Entry<String, Clubs> teamDataEntry : teamDataMap.entrySet()) {
-            Map map = (Map) teamDataEntry.getValue();
-
-            Clubs clubs = new Clubs();
-            clubs.setClubsId((String) map.get("clubsId"));
-            clubs.setClubsName((String) map.get("clubName"));
-            clubs.setClubsImgUrl((String) map.get("clubsImgUrl"));
-
-            clubsArrayList.add(clubs);
-
-            AppHelper.print("Retrived Clubs info: " + clubs.getClubsId() + "\t" + clubs.getClubsName() + "\t" + clubs.getClubsImgUrl());
-        }
-
-        insertClubsIntoDb(clubsArrayList);
-    }
-
-    private void insertClubsIntoDb(ArrayList<Clubs> clubsArrayList) {
-
-    }
+//    private void insertClubsIntoDb(ArrayList<Clubs> clubsArrayList) {
+//
+//    }
 
     private void parseUserInfo(DataSnapshot dataSnapshot) {
 
@@ -204,6 +205,7 @@ public class SplashActivity extends SuperCompatActivity {
         for (Admin admin : adminsArraylist) {
             if (admin.getMobile().equalsIgnoreCase(dataStorage.getString(Keys.MOBILE))) {
                 dataStorage.saveBoolean(Keys.IS_ADMIN, true);
+                dataStorage.saveString(Keys.ADMIN_VALUE, admin.getPosition());
             }
         }
 
@@ -277,7 +279,7 @@ public class SplashActivity extends SuperCompatActivity {
 //        }).run();
 //    }
 
-    public void onDataRetrived() {
+    private  void onDataRetrived() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -190,6 +190,7 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage:16.0.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-collection:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:16.0.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\Android Studio Projects\Instance---CEG\app\libs\YouTubeAndroidPlayerApi.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone:16.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable:28.0.0@aar" level="project" />

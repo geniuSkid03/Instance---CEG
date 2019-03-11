@@ -25,6 +25,7 @@ import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -70,10 +71,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         this.viewClickedListener = viewClickedListener;
     }
 
-    @Override
-    public void setHasStableIds(boolean hasStableIds) {
-        super.setHasStableIds(hasStableIds);
-    }
 
     @NonNull
     @Override
@@ -83,25 +80,13 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
     @Override
     public void onBindViewHolder(@NonNull NewsFeedView newsFeedItem, int position) {
-        newsFeedItem.setNewsFeed(newsFeedItemsArrayList.get(position));
-        newsFeedItem.setPosition(position, viewClickedListener);
 
-        if (newsFeedItemsArrayList.get(position).isLiked()) {
-            setLiked(true, newsFeedItem);
-        } else {
-            setLiked(false, newsFeedItem);
-        }
-
-        if (newsFeedItemsArrayList.get(position).isBookmarked()) {
-            setBookmarked(true, newsFeedItem);
-        } else {
-            setBookmarked(false, newsFeedItem);
-        }
+        newsFeedItem.bind(position, viewClickedListener);
     }
 
     @Override
     public long getItemId(int position) {
-        return Long.parseLong(newsFeedItemsArrayList.get(position).getNfId());
+        return /*Long.parseLong(newsFeedItemsArrayList.get(position).getNfId())*/position;
     }
 
     @Override
@@ -143,21 +128,18 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         animatorSet.start();
     }
 
-
-    private void setLiked(final boolean isLiked, final NewsFeedView newsFeedItem) {
+    public void setPostAsLiked(final int position, final boolean isLiked, final ImageView likeIv) {
         AnimatorSet animatorSet = new AnimatorSet();
-
-        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(newsFeedItem.likeIv, "scaleX", 0.2f, 1f);
+        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(likeIv, "scaleX", 0.2f, 1f);
         bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
         bounceAnimX.setInterpolator(new BounceInterpolator());
-
-        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(newsFeedItem.likeIv, "scaleY", 0.2f, 1f);
+        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(likeIv, "scaleY", 0.2f, 1f);
         bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
         bounceAnimY.setInterpolator(new BounceInterpolator());
         bounceAnimY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                newsFeedItem.likeIv.setImageResource(!isLiked ? R.drawable.ic_heart_icon
+                likeIv.setImageResource(!isLiked ? R.drawable.ic_heart_icon
                         : R.drawable.ic_heart_selected);
             }
         });
@@ -170,18 +152,13 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
         animatorSet.play(bounceAnimX).with(bounceAnimY);
         animatorSet.start();
-    }
 
-    public void setPostAsLiked(int position) {
-        if (newsFeedItemsArrayList.get(position).isLiked()) {
-            newsFeedItemsArrayList.get(position).setLiked(false);
+        if (isLiked) {
             newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() - 1);
         } else {
-            newsFeedItemsArrayList.get(position).setLiked(true);
             newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() + 1);
         }
-
-        notifyItemChanged(position);
+//        notifyItemChanged(position);
     }
 
     public void setPostAsBookmarked(int position) {
@@ -206,24 +183,19 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         private int position;
 
         private onViewClickedListener viewClickedListener;
-        private NewsFeedItems newsFeedItems;
 
         NewsFeedView(View view) {
             super(view);
             itemView = view;
         }
 
-        void setNewsFeed(NewsFeedItems newsFeedItems) {
-            this.newsFeedItems = newsFeedItems;
-            setUpView();
-        }
-
-        void setPosition(int position, onViewClickedListener viewClickedListener) {
+        void bind(int position, onViewClickedListener viewClickedListener) {
             this.position = position;
             this.viewClickedListener = viewClickedListener;
+            setUpView(newsFeedItemsArrayList.get(position));
         }
 
-        private void setUpView() {
+        private void setUpView(final NewsFeedItems newsFeedItems) {
             logoCiv = itemView.findViewById(R.id.logo);
             posterImgIv = itemView.findViewById(R.id.event_poster);
             imgloadingIv = itemView.findViewById(R.id.img_loading_view);
@@ -250,49 +222,33 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             likeTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getLikesCount()));
             cmntTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getCommentCount()));
 
-            if(newsFeedItems.getLikedUsers() != null) {
-                for (int i = 0; i < newsFeedItems.getLikedUsers().size(); i++) {
-                    if (newsFeedItems.getLikedUsers().get(i).equals(getUserId())) {
+            ArrayList<String> likedUsers = newsFeedItems.getLikedUsers();
+            if (likedUsers != null && likedUsers.size() > 0) {
+                AppHelper.print("Liked users exists");
+                AppHelper.print("User id: "+getUserId());
+
+                for (int i = 0; i < likedUsers.size(); i++) {
+                    if (likedUsers.get(i).equals(getUserId())) {
+                        AppHelper.print("liked User id: "+likedUsers.get(i));
+                        newsFeedItems.setLiked(true);
                         likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
+                        return;
                     } else {
                         likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+                        newsFeedItems.setLiked(false);
                     }
                 }
-            }
-
-//            if (users != null && users.getLikedPosts() != null) {
-//                if (users.getLikedPosts().size() > 0) {
-//                    for (int i = 0; i < users.getLikedPosts().size(); i++) {
-//                        String likedPostId = users.getLikedPosts().get(i);
-//                        if (likedPostId.equalsIgnoreCase(newsFeedItemsArrayList.get(i).getNfId())) {
-//                            likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
-//                        } else {
-//                            likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
-//                        }
-//                    }
-//                } else {
-//                    likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
-//                }
-//            }
-
-            if (users != null && users.getBookmarkedPosts() != null) {
-                if (users.getBookmarkedPosts().size() > 0) {
-                    for (int i = 0; i < users.getBookmarkedPosts().size(); i++) {
-                        if (users.getBookmarkedPosts().get(i).contains(newsFeedItemsArrayList.get(i).getNfId())) {
-                            bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_done));
-                        } else {
-                            bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));
-                        }
-                    }
-                } else {
-                    bookmarkIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_bookmark_icon));
-                }
+                AppHelper.print("isLiked: " + newsFeedItems.isLiked());
+            } else {
+                AppHelper.print("Liked users doesnt exists");
+                newsFeedItems.setLiked(false);
+                likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
             }
 
             likeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    viewClickedListener.onLikeClicked(position, newsFeedItems.isLiked());
+                    viewClickedListener.onLikeClicked(position, newsFeedItems.isLiked(), likeIv);
                 }
             });
             commentLayout.setOnClickListener(new View.OnClickListener() {
@@ -310,7 +266,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             bookmarkLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    viewClickedListener.onBookmarkClicked(position);
+                    viewClickedListener.onBookmarkClicked(position, newsFeedItems.isBookmarked());
                 }
             });
             readMoreTv.setOnClickListener(new View.OnClickListener() {
@@ -328,114 +284,10 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
             Glide.with(context).load(newsFeedItems.getPstrUrl()).into(posterImgIv);
             Glide.with(context).load(newsFeedItems.gettLogo()).into(logoCiv);
-
-//            File posterImage = DiskCacheUtils.findInCache(, imageLoader.getDiskCache());
-//            if (posterImage != null && posterImage.exists()) {
-//                Picasso.get().load(posterImage).fit().into(posterImgIv, new Callback() {
-//                    @Override
-//                    public void onSuccess() {
-//                        posterImgIv.setVisibility(View.VISIBLE);
-//                        imgloadingIv.hide();
-//                        imgloadingIv.setVisibility(View.GONE);
-//                    }
-//
-//                    @Override
-//                    public void onError(Exception e) {
-//                        posterImgIv.setVisibility(View.GONE);
-//                        imgloadingIv.setVisibility(View.VISIBLE);
-//                        imgloadingIv.show();
-//                    }
-//                });
-//            } else {
-//                imageLoader.loadImage(newsFeedItems.getPstrUrl(), new ImageLoadingListener() {
-//                    @Override
-//                    public void onLoadingStarted(String imageUri, View view) {
-//                        posterImgIv.setVisibility(View.GONE);
-//                        imgloadingIv.setVisibility(View.VISIBLE);
-//                        imgloadingIv.show();
-//                    }
-//
-//                    @Override
-//                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-//                        posterImgIv.setVisibility(View.GONE);
-//                        imgloadingIv.show();
-//                        imgloadingIv.setVisibility(View.VISIBLE);
-//                    }
-//
-//                    @Override
-//                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-//                        posterImgIv.setVisibility(View.VISIBLE);
-//                        imgloadingIv.setVisibility(View.GONE);
-//                        imgloadingIv.hide();
-//                        Picasso.get().load(imageUri).fit().into(posterImgIv);
-//                        newsFeedItems.setPosterUri(imageUri);
-//                    }
-//
-//                    @Override
-//                    public void onLoadingCancelled(String imageUri, View view) {
-//
-//                    }
-//                });
-//            }
-
-         /*   if (appDbs != null) {
-                if (teamData != null) {
-                    for (TeamData team : teamData) {
-                        if (team.getTeamName().equalsIgnoreCase(newsFeedItems.gettName())) {
-                            final String logoUrl = team.getTeamLogoUrl();
-                            if (logoUrl != null) {
-
-                                Glide.with(context).load(logoUrl).into(logoCiv);*/
-
-//                                File logoImage = DiskCacheUtils.findInCache(logoUrl, imageLoader.getDiskCache());
-//
-//                                if (logoImage != null && logoImage.exists()) {
-//                                    Picasso.get().load(logoImage).fit().into(logoCiv, new Callback() {
-//                                        @Override
-//                                        public void onSuccess() {
-//                                            logoCiv.setVisibility(View.VISIBLE);
-//                                        }
-//
-//                                        @Override
-//                                        public void onError(Exception e) {
-//                                            logoCiv.setVisibility(View.GONE);
-//                                        }
-//                                    });
-//                                } else {
-//                                    imageLoader.loadImage(logoUrl, new ImageLoadingListener() {
-//                                        @Override
-//                                        public void onLoadingStarted(String imageUri, View view) {
-//                                            logoCiv.setVisibility(View.GONE);
-//                                        }
-//
-//                                        @Override
-//                                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-//
-//                                        }
-//
-//                                        @Override
-//                                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-//                                            Picasso.get().load(imageUri).fit().into(logoCiv);
-//                                            logoCiv.setVisibility(View.VISIBLE);
-//
-//                                            newsFeedItems.setPstrUrl(imageUri);
-//                                        }
-//
-//                                        @Override
-//                                        public void onLoadingCancelled(String imageUri, View view) {
-//
-//                                        }
-//                                    });
-//                                }
-                         /*   }
-                        }
-                    }
-                }
-            }*/
         }
     }
 
-    public String getUserId() {
+    private String getUserId() {
         return dataStorage.getString(Keys.USER_ID);
     }
 
@@ -446,9 +298,9 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
         void onImageClicked(int position, ImageView posterImgIv);
 
-        void onBookmarkClicked(int position);
+        void onBookmarkClicked(int position, boolean isBookmarked);
 
-        void onLikeClicked(int position, boolean isLiked);
+        void onLikeClicked(int position, boolean isLiked, ImageView likeIv);
 
         void onShareClicked(int position, ImageView posterImgIv);
     }

@@ -12,16 +12,20 @@ import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appViews.CircularFeedLayout;
+
 import java.util.ArrayList;
 
 public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapter.CircularFeedView> {
 
     private ArrayList<CircularDataItems> circularDataItemsArrayList;
     private Context context;
+    private CircularCallBack circularCallBack;
 
-    public CircularFeedAdapter(Context context, ArrayList<CircularDataItems> circularDataItemsArrayList) {
+    public CircularFeedAdapter(Context context, ArrayList<CircularDataItems> circularDataItemsArrayList,
+                               CircularCallBack circularCallBack) {
         this.context = context;
         this.circularDataItemsArrayList = circularDataItemsArrayList;
+        this.circularCallBack = circularCallBack;
     }
 
     @NonNull
@@ -32,8 +36,7 @@ public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CircularFeedView holder, int position) {
-        holder.setCicularFeedView(circularDataItemsArrayList.get(position));
-        holder.setPosition(position);
+        holder.setCicularFeedView(position);
     }
 
     @Override
@@ -52,27 +55,39 @@ public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapte
         CircularFeedView(View view) {
             super(view);
             itemView = view;
-        }
 
-        void setCicularFeedView(CircularDataItems circularDataItems) {
-            setView(circularDataItems);
-        }
-
-        void setPosition(int position) {
-            this.position = position;
-        }
-
-        private void setView(CircularDataItems circularDataItems) {
             titleTv = itemView.findViewById(R.id.name);
             dateTimeTv = itemView.findViewById(R.id.read_more);
             descTv = itemView.findViewById(R.id.desc);
             circularImgIv = itemView.findViewById(R.id.event_poster);
+        }
 
+        void setCicularFeedView(int position) {
+            setView(circularDataItemsArrayList.get(position));
+            this.position = position;
+        }
+
+        private void setView(CircularDataItems circularDataItems) {
             titleTv.setText(circularDataItems.getcTitle());
             dateTimeTv.setText(String.format("%s  %s", circularDataItems.getpDate(), circularDataItems.getpTime()));
             descTv.setText(circularDataItems.getcDesc());
 
-            Glide.with(context).load(circularDataItems.getCircularImgPath()).into(circularImgIv);
+            if (circularDataItems.getCircularImgPath() != null) {
+                Glide.with(context).load(circularDataItems.getCircularImgPath()).into(circularImgIv);
+            } else {
+                Glide.with(context).load(R.drawable.pdf_icon).into(circularImgIv);
+            }
+
+            circularImgIv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    circularCallBack.onItemClicked(position, circularImgIv);
+                }
+            });
         }
+    }
+
+    public interface CircularCallBack {
+        void onItemClicked(int position, ImageView imageView);
     }
 }

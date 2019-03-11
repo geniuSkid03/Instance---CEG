@@ -23,12 +23,12 @@ public class AddAdminDialog extends Dialog {
 
     private EditText adminNameEd, adminMobileEd;
     private RadioGroup desgntRgrp;
-    private RadioButton adminRb, superAdminRb, editorRb;
+    private RadioButton adminRb, superAdminRb, editorRb, staffRb;
     private FloatingActionButton saveFab;
 
     private AdminListener adminListener;
 
-    private int designation = 0;
+    private int designation = -1;
 
 
     public AddAdminDialog(final Context context, final AdminListener adminListener) {
@@ -48,24 +48,27 @@ public class AddAdminDialog extends Dialog {
         adminRb = addAdminView.findViewById(R.id.admin_rb);
         superAdminRb = addAdminView.findViewById(R.id.super_admin_rb);
         editorRb = addAdminView.findViewById(R.id.editor_rb);
+        staffRb = addAdminView.findViewById(R.id.staff_rb);
+
         saveFab = addAdminView.findViewById(R.id.save_admin);
 
         desgntRgrp.clearCheck();
         desgntRgrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                RadioButton radioButton = radioGroup.findViewById(checkedId);
-
-                if(radioButton != null) {
-                    if (radioButton.getText().equals(context.getString(R.string.super_admin))) {
-                        designation = 1;
-                    } else if (radioButton.getText().equals(context.getString(R.string.admin))) {
+                switch (checkedId) {
+                    case R.id.staff_rb:
                         designation = 2;
-                    } else if (radioButton.getText().equals(context.getString(R.string.editor))) {
-                        designation = 3;
-                    } else {
+                        break;
+                    case R.id.super_admin_rb:
                         designation = 0;
-                    }
+                        break;
+                    case R.id.admin_rb:
+                        designation = 1;
+                        break;
+                    case R.id.editor_rb:
+                        designation = 3;
+                        break;
                 }
             }
         });
@@ -86,7 +89,7 @@ public class AddAdminDialog extends Dialog {
                     return;
                 }
 
-                if (designation == 0) {
+                if (designation == -1) {
                     Toast.makeText(context, context.getString(R.string.choose_position), Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -106,7 +109,7 @@ public class AddAdminDialog extends Dialog {
         adminNameEd.setText("");
         adminMobileEd.setText("");
         desgntRgrp.clearCheck();
-        designation = 0;
+        designation = -1;
     }
 
     public interface AdminListener {

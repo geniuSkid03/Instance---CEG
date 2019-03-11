@@ -2,6 +2,7 @@
     <string name="app_name">Instance</string>
 
     <string name="facebook_app_id">219199642342752</string>
+    <string name="youtube_api_key">AIzaSyDp-vq0ek2F-nypbGpxHL0r-3opAN2I8oc</string>
 
     <string name="appbar_scrolling_view_behavior">Scrolling</string>
     <string name="sign_out">Log Out</string>
@@ -315,5 +316,16 @@
     <string name="enter_your_comment">Enter your comment</string>
     <string name="comments">Comments:</string>
     <string name="default_notification_channel_id">Instance_Notification</string>
+    <string name="staff">College Staff</string>
+    <string name="not_authorised">Sorry, You are not authorised to view this information!</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="pdf">PDF</string>
+    <string name="_or">(or)</string>
+    <string name="need_storage_permission">Provide storage access permissions to continue..</string>
+    <string name="provide_image_or_pdf">Provide an image or pdf to upload...</string>
+    <string name="choose_upload_type">Choose upload type</string>
+    <string name="image">Image</string>
+    <string name="choose_pdf">Choose pdf to upload</string>
+    <string name="choose_circular_image">Choose circular image to upload</string>
 
 </resources>

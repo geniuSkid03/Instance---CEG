@@ -3,7 +3,9 @@ package com.inspiregeniussquad.handstogether.appActivities;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -59,6 +61,9 @@ public class NewsItemViewActivity extends SuperCompatActivity {
 
     private NewsFeedItems toShowNewsItem;
     private ImageLoader imageLoader;
+
+    @BindView(R.id.watch_video)
+    AppCompatButton watchVideoBtn;
 
       /*  private ArrayList<TeamData> teamDataArrayList;
     private String teamLogoUrl;*/
@@ -120,6 +125,13 @@ public class NewsItemViewActivity extends SuperCompatActivity {
                         Keys.NEWS_ITEM, gson.toJson(toShowNewsItem));
             }
         });
+
+        watchVideoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goTo(NewsItemViewActivity.this, VideoViewActivity.class, false, "video_id", toShowNewsItem.getVidUrl());
+            }
+        });
     }
 
    /* private void showContentImg() {
@@ -140,6 +152,8 @@ public class NewsItemViewActivity extends SuperCompatActivity {
 
 
     private void updateUi(final NewsFeedItems newsFeedItems) {
+
+        watchVideoBtn.setVisibility(TextUtils.isEmpty(newsFeedItems.getVidUrl()) ? View.GONE : View.VISIBLE);
 
         Glide.with(this).load(newsFeedItems.getPstrUrl()).into(posterIv1);
         Glide.with(this).load(newsFeedItems.gettLogo()).into(teamLogo2Iv);

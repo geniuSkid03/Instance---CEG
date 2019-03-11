@@ -121,68 +121,193 @@
 
                 </LinearLayout>
 
-                <!--Circular image-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:orientation="vertical"
-                    android:padding="4sp">
+                    android:layout_height="150dp"
+                    android:orientation="horizontal">
 
+                    <!--Circular image-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp">
+                        android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="4sp">
 
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="10dp"
-                            android:src="@drawable/ic_camera_icon"
-                            android:tint="@color/hint_text_color" />
-
-                        <TextView
-                            android:layout_width="0dp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:text="@string/circular_image"
-                            android:textColor="@color/hint_text_color"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:layout_marginBottom="5dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_camera_icon"
+                                android:tint="@color/hint_text_color" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/image"
+                                android:textColor="@color/hint_text_color"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_line">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/circular_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    android:contentDescription="@null"
+                                    android:scaleType="fitXY" />
+
+                                <ImageButton
+                                    android:id="@+id/load_circular_image"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_margin="4dp"
+                                    android:src="@drawable/ic_add_image" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/_or" />
+
+                    <!--Pdf file-->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_line">
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="4sp">
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="150dp">
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp">
 
                             <ImageView
-                                android:id="@+id/circular_image"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_attachment_icon"
+                                android:tint="@color/black" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/pdf"
+                                android:textColor="@color/hint_text_color"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_line">
+
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="150dp"
-                                android:contentDescription="@null"
-                                android:scaleType="fitXY" />
+                                android:layout_height="match_parent">
 
-                            <ImageButton
-                                android:id="@+id/load_circular_image"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_margin="4dp"
-                                android:src="@drawable/ic_add_image" />
+                                <ImageView
+                                    android:id="@+id/pdf_file"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@null"
+                                    android:scaleType="fitXY" />
 
-                        </RelativeLayout>
+                                <ImageButton
+                                    android:id="@+id/load_pdf_file"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_margin="4dp"
+                                    android:src="@drawable/ic_attachment_icon"
+                                    android:tint="@color/black" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_star_icon"
+                        android:tint="@color/hint_text_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/choose_upload_type"
+                        android:textColor="@color/hint_text_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/upload_grp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/img_rb"
+                        android:text="@string/image"
+                        android:layout_weight="1"
+                        app:buttonTint="@color/colorPrimaryDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/pdf_rb"
+                        android:text="@string/pdf"
+                        android:layout_weight="1"
+                        app:buttonTint="@color/colorPrimaryDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </RadioGroup>
 
                 <!--Circular Visibility-->
                 <!--<LinearLayout

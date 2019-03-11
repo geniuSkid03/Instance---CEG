@@ -95,6 +95,16 @@
                     android:textColor="@color/colorPrimary" />
 
                 <RadioButton
+                    android:id="@+id/staff_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/staff"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
                     android:id="@+id/super_admin_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

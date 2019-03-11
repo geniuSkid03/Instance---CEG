@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
@@ -51,6 +52,7 @@ public class PosterViewActivity extends SuperCompatActivity {
     FloatingActionButton savePreviewIv;
 
     private NewsFeedItems newsFeedItems;
+    private CircularDataItems circularDataItems;
     private ImageLoader imageLoader;
 
 
@@ -67,6 +69,7 @@ public class PosterViewActivity extends SuperCompatActivity {
 
         if (getIntent().getExtras() != null) {
             newsFeedItems = gson.fromJson(getIntent().getStringExtra(Keys.NEWS_ITEM), NewsFeedItems.class);
+            circularDataItems = gson.fromJson(getIntent().getStringExtra(Keys.CIRCULAR_ITEM), CircularDataItems.class);
         } else {
             dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, false);
             supportFinishAfterTransition();
@@ -74,16 +77,33 @@ public class PosterViewActivity extends SuperCompatActivity {
 
         imageLoader = ImageLoader.getInstance();
 
-        AppHelper.print("Poster url: "+newsFeedItems.getPstrUrl());
+        if(newsFeedItems != null) {
+            AppHelper.print("Poster url: "+newsFeedItems.getPstrUrl());
 
-        Glide.with(this).load(newsFeedItems.getPstrUrl()).into(new SimpleTarget<Drawable>() {
-            @Override
-            public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                posterIv.setImageDrawable(resource);
-                loadingIv.setVisibility(View.GONE);
-                loadingIv.hide();
-            }
-        });
+            Glide.with(this).load(newsFeedItems.getPstrUrl()).into(new SimpleTarget<Drawable>() {
+                @Override
+                public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                    posterIv.setImageDrawable(resource);
+                    loadingIv.setVisibility(View.GONE);
+                    loadingIv.hide();
+                }
+            });
+            return;
+        }
+
+        if(circularDataItems != null) {
+            AppHelper.print("Poster url: "+circularDataItems.getCircularImgPath());
+
+            Glide.with(this).load(circularDataItems.getCircularImgPath()).into(new SimpleTarget<Drawable>() {
+                @Override
+                public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                    posterIv.setImageDrawable(resource);
+                    loadingIv.setVisibility(View.GONE);
+                    loadingIv.hide();
+                }
+            });
+            return;
+        }
 
 
 //        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());

@@ -17,11 +17,11 @@ import java.lang.Override;
 public class OtpVerificationActivity_ViewBinding implements Unbinder {
   private OtpVerificationActivity target;
 
-  private View view2131296741;
+  private View view2131296747;
 
-  private View view2131296608;
+  private View view2131296612;
 
-  private View view2131296333;
+  private View view2131296334;
 
   @UiThread
   public OtpVerificationActivity_ViewBinding(OtpVerificationActivity target) {
@@ -35,7 +35,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.verify_btn, "field 'verifyBtn' and method 'oNCLick'");
     target.verifyBtn = Utils.castView(view, R.id.verify_btn, "field 'verifyBtn'", AppCompatButton.class);
-    view2131296741 = view;
+    view2131296747 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.otpTimerTv = Utils.findRequiredViewAsType(source, R.id.otp_timer, "field 'otpTimerTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.rsend_otp_btn, "field 'resendOtpBtn' and method 'oNCLick'");
     target.resendOtpBtn = Utils.castView(view, R.id.rsend_otp_btn, "field 'resendOtpBtn'", AppCompatButton.class);
-    view2131296608 = view;
+    view2131296612 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.change_num, "field 'changeNumberTv' and method 'oNCLick'");
     target.changeNumberTv = Utils.castView(view, R.id.change_num, "field 'changeNumberTv'", TextView.class);
-    view2131296333 = view;
+    view2131296334 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,11 +77,11 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.resendOtpBtn = null;
     target.changeNumberTv = null;
 
-    view2131296741.setOnClickListener(null);
-    view2131296741 = null;
-    view2131296608.setOnClickListener(null);
-    view2131296608 = null;
-    view2131296333.setOnClickListener(null);
-    view2131296333 = null;
+    view2131296747.setOnClickListener(null);
+    view2131296747 = null;
+    view2131296612.setOnClickListener(null);
+    view2131296612 = null;
+    view2131296334.setOnClickListener(null);
+    view2131296334 = null;
   }
 }

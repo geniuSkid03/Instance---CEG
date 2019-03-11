@@ -6,7 +6,6 @@ import android.support.annotation.UiThread;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,9 +19,7 @@ import java.lang.Override;
 public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
   private ProfileUpdatingActivity target;
 
-  private View view2131296336;
-
-  private View view2131296732;
+  private View view2131296737;
 
   @UiThread
   public ProfileUpdatingActivity_ViewBinding(ProfileUpdatingActivity target) {
@@ -34,15 +31,6 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     View view;
-    view = Utils.findRequiredView(source, R.id.choose_image, "field 'chooseImgBtn' and method 'onBtnClicked'");
-    target.chooseImgBtn = Utils.castView(view, R.id.choose_image, "field 'chooseImgBtn'", ImageButton.class);
-    view2131296336 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onBtnClicked(p0);
-      }
-    });
     target.userProfileIv = Utils.findRequiredViewAsType(source, R.id.user_profile, "field 'userProfileIv'", ImageView.class);
     target.userNameEd = Utils.findRequiredViewAsType(source, R.id.name, "field 'userNameEd'", EditText.class);
     target.userEmailEd = Utils.findRequiredViewAsType(source, R.id.email, "field 'userEmailEd'", EditText.class);
@@ -51,7 +39,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = Utils.findRequiredViewAsType(source, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
     view = Utils.findRequiredView(source, R.id.update_profile, "field 'updateProfileBtn' and method 'onBtnClicked'");
     target.updateProfileBtn = Utils.castView(view, R.id.update_profile, "field 'updateProfileBtn'", AppCompatButton.class);
-    view2131296732 = view;
+    view2131296737 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,7 +55,6 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.chooseImgBtn = null;
     target.userProfileIv = null;
     target.userNameEd = null;
     target.userEmailEd = null;
@@ -76,9 +63,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = null;
     target.updateProfileBtn = null;
 
-    view2131296336.setOnClickListener(null);
-    view2131296336 = null;
-    view2131296732.setOnClickListener(null);
-    view2131296732 = null;
+    view2131296737.setOnClickListener(null);
+    view2131296737 = null;
   }
 }
