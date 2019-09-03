@@ -92,6 +92,7 @@ public class ClubsFragment extends SuperFragment {
         super.onViewCreated(view, savedInstanceState);
 
         clubsRv.setAdapter(clubsRecyclerAdapter);
+        refreshClubsFragment();
     }
 
     public void refreshClubsFragment() {

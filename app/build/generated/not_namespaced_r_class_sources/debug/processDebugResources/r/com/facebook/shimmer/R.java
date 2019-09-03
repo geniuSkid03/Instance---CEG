@@ -37,13 +37,13 @@ public final class R {
         private id() {}
 
         public static final int bottom_to_top = 0x7f090042;
-        public static final int left_to_right = 0x7f0900da;
-        public static final int linear = 0x7f0900e1;
-        public static final int radial = 0x7f090153;
-        public static final int restart = 0x7f09015c;
-        public static final int reverse = 0x7f09015e;
-        public static final int right_to_left = 0x7f090162;
-        public static final int top_to_bottom = 0x7f0901d4;
+        public static final int left_to_right = 0x7f0900dc;
+        public static final int linear = 0x7f0900e3;
+        public static final int radial = 0x7f090157;
+        public static final int restart = 0x7f090160;
+        public static final int reverse = 0x7f090162;
+        public static final int right_to_left = 0x7f090166;
+        public static final int top_to_bottom = 0x7f0901d7;
     }
     public static final class styleable {
         private styleable() {}

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.AdminsAdapter;
 import com.inspiregeniussquad.handstogether.appData.Admin;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appDialogs.AddAdminDialog;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
@@ -85,6 +87,7 @@ public class ManageAdminsActivity extends SuperCompatActivity {
                 if (addAdminDialog != null) {
                     if (!addAdminDialog.isShowing() && !isFinishing()) {
                         addAdminDialog.clearValues();
+                        addAdminDialog.prepareUi(dataStorage.getString(Keys.ADMIN_VALUE));
                         addAdminDialog.show();
                     }
                 }
@@ -112,7 +115,7 @@ public class ManageAdminsActivity extends SuperCompatActivity {
                         proceedToEdit(adminArrayList.get(position));
                         break;*/
                     case R.id.remove:
-                        proceedToRemove(adminArrayList.get(position));
+                        askAndRemove(position);
                         break;
                 }
                 return true;
@@ -120,6 +123,25 @@ public class ManageAdminsActivity extends SuperCompatActivity {
         });
         menu.inflate(R.menu.admin_options_menu);
         menu.show();
+    }
+
+    private void askAndRemove(final int position) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setMessage("Are you sure you want to remove?");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                proceedToRemove(adminArrayList.get(position));
+            }
+        });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        if(!alertDialog.isShowing() && !isFinishing()) alertDialog.show();
     }
 
     private void proceedToRemove(Admin admin) {
@@ -225,16 +247,25 @@ public class ManageAdminsActivity extends SuperCompatActivity {
             assert position != null;
             switch (position) {
                 case "0":
-                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.super_admin));
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.GENIUS_ADMIN);
                     break;
                 case "1":
-                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.admin));
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.SUPER_ADMIN);
                     break;
                 case "2":
-                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.staff));
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.NEWS_ADMIN);
                     break;
                 case "3":
-                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), getString(R.string.editor));
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.NEWS_MANAGER);
+                    break;
+                case "4":
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.CIRCULAR_ADMIN);
+                    break;
+                case "5":
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.CIRCULAR_MANAGER);
+                    break;
+                case "6":
+                    admin = new Admin((String) map.get("name"), (String) map.get("mobile"), Keys.EDITOR);
                     break;
             }
 

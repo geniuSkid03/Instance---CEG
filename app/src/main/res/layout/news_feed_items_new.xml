@@ -12,6 +12,7 @@
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="6dp"
         app:cardElevation="4dp"
+        android:paddingBottom="6dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
@@ -27,6 +28,7 @@
                 layout="@layout/news_item_extras"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
                 android:layout_alignTop="@+id/news_item_image"
                 android:layout_marginTop="165dp" />
 
@@ -59,6 +61,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_below="@+id/extras"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
@@ -154,6 +157,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/extras"

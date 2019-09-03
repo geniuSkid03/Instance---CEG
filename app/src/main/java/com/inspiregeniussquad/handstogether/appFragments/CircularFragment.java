@@ -64,7 +64,8 @@ public class CircularFragment extends SuperFragment implements SearchView.OnQuer
 
     private void onCircularClicked(int position, ImageView imageView) {
         if(circularDataItemsArrayList.get(position).getCircularImgPath() != null) {
-            openWithImageTransition(getContext(), PosterViewActivity.class, false, imageView, Keys.CIRCULAR_ITEM, gson.toJson(circularDataItemsArrayList.get(position)));
+            openWithImageTransition(getContext(), PosterViewActivity.class, false,
+                    imageView, Keys.CIRCULAR_ITEM, gson.toJson(circularDataItemsArrayList.get(position)));
         } else {
             showDownloadOptions(position);
         }

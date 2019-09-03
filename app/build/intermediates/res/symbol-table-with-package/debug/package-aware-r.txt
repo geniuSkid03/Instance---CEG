@@ -1234,7 +1234,9 @@ drawable ic_arrow_right
 drawable ic_arrow_up
 drawable ic_attachment_icon
 drawable ic_bookmark_done
+drawable ic_bookmark_filled
 drawable ic_bookmark_icon
+drawable ic_bookmark_outine
 drawable ic_broken_image
 drawable ic_calendar_icon
 drawable ic_camera_icon
@@ -1395,7 +1397,6 @@ id admin_manage_card
 id admin_mobile
 id admin_name
 id admin_panel
-id admin_rb
 id admins_list
 id alertTitle
 id all
@@ -1415,6 +1416,7 @@ id beginning
 id blocking
 id bookmark
 id bookmark_container
+id bookmark_fab
 id bookmark_recycler
 id bottom
 id bottom_layout
@@ -1434,6 +1436,8 @@ id change_num
 id checkbox
 id child_root
 id chronometer
+id circular_admin_rb
+id circular_admin_rb_2
 id circular_desc
 id circular_image
 id circular_logo_view
@@ -1637,6 +1641,8 @@ id navigation_header_container
 id nested_scrollview
 id never
 id never_display
+id news_admin_rb
+id news_admin_rb_2
 id news_feed_recycler_view
 id news_item_image
 id news_rgrb
@@ -1761,7 +1767,6 @@ id spread_inside
 id src_atop
 id src_in
 id src_over
-id staff_rb
 id standard
 id start
 id status_bar_latest_event_content
@@ -2089,6 +2094,7 @@ string add_new_club
 string add_news
 string add_or_edit_team_information
 string add_team
+string added_to_bookmarks
 string adding_admin
 string admin
 string admin_added_successfully
@@ -2133,6 +2139,8 @@ string choose_team
 string choose_upload_type
 string choose_your_updation
 string circular
+string circular_admin
+string circular_admin_
 string circular_desc
 string circular_image
 string circular_name
@@ -2330,6 +2338,8 @@ string navigation_drawer_close
 string navigation_drawer_open
 string need_storage_permission
 string new_circular
+string news_admin
+string news_admin_
 string news_updated_success
 string news_visibility
 string news_will_be_shown_in_newsfeed
@@ -2392,6 +2402,7 @@ string read_more
 string registering_team_in_progress
 string registering_you
 string remove
+string removed_from_bookmarks
 string report_problem
 string requesting_otp
 string resend_otp

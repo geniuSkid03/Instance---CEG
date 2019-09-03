@@ -5,15 +5,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.MyViewPagerAdapter;
 import com.inspiregeniussquad.handstogether.appFragments.AddTeamFragment;
 import com.inspiregeniussquad.handstogether.appFragments.UpdateTeamFragment;
-import com.mikhaellopez.circularimageview.CircularImageView;
-
-import java.util.Objects;
 
 import butterknife.BindView;
 

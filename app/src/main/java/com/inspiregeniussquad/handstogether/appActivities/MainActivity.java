@@ -164,10 +164,15 @@ public class MainActivity extends SuperCompatActivity {
             }
         });
 
-        loadPersonalData();
-
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveBoolean(Keys.HOME_REFRESH_NEED, true);
+
+        editIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openUpdateProfile();
+            }
+        });
     }
 
     private void loadFragments(Bundle bundle) {
@@ -248,13 +253,6 @@ public class MainActivity extends SuperCompatActivity {
     }
 
     private void loadPersonalData() {
-        editIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openUpdateProfile();
-            }
-        });
-
         if (dataStorage.isDataAvailable(Keys.USER_DATA)) {
             Users users = gson.fromJson(dataStorage.getString(Keys.USER_DATA), Users.class);
             if (users != null) {
@@ -404,14 +402,14 @@ public class MainActivity extends SuperCompatActivity {
         if (dataStorage.getBoolean(Keys.IS_ADMIN)) {
             switch (fragmentId) {
                 case 0:
-                    if(dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
+                    if (dataStorage.getBoolean(Keys.HOME_REFRESH_NEED)) {
                         if (homeFragment != null)
                             homeFragment.refreshHomeFragment();
                     }
                     break;
                 case 1:
                     if (clubsFragment != null)
-                        clubsFragment.refreshClubsFragment();
+                        //clubsFragment.refreshClubsFragment();
                     break;
                 case 2:
                     break;
@@ -435,7 +433,7 @@ public class MainActivity extends SuperCompatActivity {
                     break;
                 case 1:
                     if (clubsFragment != null)
-                        clubsFragment.refreshClubsFragment();
+                        //clubsFragment.refreshClubsFragment();
                     break;
                 case 2:
                     if (bookmarksFragment != null)
@@ -457,6 +455,7 @@ public class MainActivity extends SuperCompatActivity {
             setAndShowFragment(getFragmentForId(noSwipeViewPager.getCurrentItem()));
             AppHelper.print("Current item: " + getFragmentForId(noSwipeViewPager.getCurrentItem()));
         }
+        loadPersonalData();
     }
 
     @Override
@@ -465,7 +464,7 @@ public class MainActivity extends SuperCompatActivity {
 
         performOnResumeOperations();
 
-        AppHelper.print("User id: "+dataStorage.getString(USER_ID));
+        AppHelper.print("User id: " + dataStorage.getString(USER_ID));
     }
 
     @Override

@@ -42,6 +42,12 @@ public class AdminActivity extends SuperCompatActivity {
             getSupportActionBar().setTitle(getString(R.string.admin_panel));
             toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
         }
+
+        updateUi();
+    }
+
+    private void updateUi() {
+
     }
 
     @Override

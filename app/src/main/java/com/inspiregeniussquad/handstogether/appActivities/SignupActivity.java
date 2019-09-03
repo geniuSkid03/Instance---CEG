@@ -279,6 +279,10 @@ public class SignupActivity extends SuperCompatActivity {
 
         users.setUserId(userId);
 
+        AppHelper.print("user id: "+userId);
+
+        users.setUserId(userId);
+
         usersDatabaseReference.child(userId).setValue(users, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -302,6 +306,7 @@ public class SignupActivity extends SuperCompatActivity {
         dataStorage.saveBoolean(Keys.IS_ONLINE, true);
         dataStorage.saveString(Keys.USER_ID, users.getUserId());
         dataStorage.saveString(Keys.ADMIN_VALUE, users.getIsAdmin());
+        dataStorage.saveString(Keys.USER_BOOKMARKS, gson.toJson(users.getBookmarkedPosts()));
 
         String admins = dataStorage.getString(Keys.ADMIN_INFO);
         ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {

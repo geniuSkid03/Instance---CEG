@@ -41,6 +41,7 @@ import com.inspiregeniussquad.handstogether.appBroadcastReceivers.SignalReceiver
 import com.inspiregeniussquad.handstogether.appData.DataStorage;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
+import com.inspiregeniussquad.handstogether.appHelpers.DbHelper;
 import com.inspiregeniussquad.handstogether.appInterfaces.Action;
 import com.inspiregeniussquad.handstogether.appUtils.AppExceptionHelper;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
@@ -122,6 +123,8 @@ public class SuperCompatActivity extends AppCompatActivity {
 
         //init fire base instance
         FirebaseApp.initializeApp(this);
+
+        DbHelper.getFirebaseDatabase();
 
         //fire base authentication
         firebaseAuth = FirebaseAuth.getInstance();
@@ -268,6 +271,7 @@ public class SuperCompatActivity extends AppCompatActivity {
             progressDialog.setMessage(msg);
             progressDialog.setCancelable(false);
             progressDialog.show();
+            AppHelper.print("Showing progress");
         }
     }
 
@@ -275,6 +279,7 @@ public class SuperCompatActivity extends AppCompatActivity {
     protected void cancelProgress() {
         if (progressDialog.isShowing() && progressDialog != null) {
             progressDialog.dismiss();
+            AppHelper.print("Progress cancelled");
         }
     }
 

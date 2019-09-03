@@ -1,7 +1,5 @@
 package com.inspiregeniussquad.handstogether.appUtils;
 
-import android.util.Log;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;

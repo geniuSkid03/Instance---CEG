@@ -21,15 +21,24 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.gson.reflect.TypeToken;
 import com.inspiregeniussquad.handstogether.R;
+import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Keys;
+import com.inspiregeniussquad.handstogether.appData.Users;
+import com.inspiregeniussquad.handstogether.appHelpers.DbHelper;
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appUtils.ImageHelper;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ProfileUpdatingActivity extends SuperCompatActivity {
-
 
     @BindView(R.id.user_profile)
     ImageView userProfileIv;
@@ -58,7 +67,8 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     private String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
 
     private Uri userImgUri;
-    private String userImagePath;
+    private String userImagePath, gender, userName,
+            userEmail;
 
     private Toolbar toolbar;
 
@@ -76,6 +86,20 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setTitle(getString(R.string.update_profile));
         }
+
+        genderRdGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.male_rb:
+                        gender = Keys.MALE;
+                        break;
+                    case R.id.female_rb:
+                        gender = Keys.FEMALE;
+                        break;
+                }
+            }
+        });
 
         loadCurrentProfile();
     }
@@ -123,9 +147,28 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     public void onBtnClicked(View view) {
         switch (view.getId()) {
             case R.id.update_profile:
-                updateProfile();
+                if (isAllDataAvailable()) {
+                    updateProfile();
+                }
                 break;
         }
+    }
+
+    private boolean isAllDataAvailable() {
+        userName = userNameEd.getText().toString().trim();
+        userEmail = userEmailEd.getText().toString().trim();
+
+        if (TextUtils.isEmpty(userName)) {
+            AppHelper.showToast(this, "Enter your name!");
+            return false;
+        }
+
+        if (TextUtils.isEmpty(userEmail)) {
+            AppHelper.showToast(this, "Enter your email!");
+            return false;
+        }
+
+        return true;
     }
 
     private void showChooserDialog() {
@@ -182,8 +225,7 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
         if (requestCode == CHOOSE_IMAGE) {
             values.put(MediaStore.Images.Media.TITLE, "User Details");
             values.put(MediaStore.Images.Media.DESCRIPTION, "User image");
-            userImgUri = getContentResolver().insert(
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            userImgUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, userImgUri);
             startActivityForResult(intent, requestCode);
         }
@@ -194,19 +236,74 @@ public class ProfileUpdatingActivity extends SuperCompatActivity {
     }
 
     private void updateProfile() {
-        //todo update profile to database
+        showProgress("Updating your profile information...");
+
+        final Users users = new Users();
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String token = instanceIdResult.getToken();
+                AppHelper.print("FCM TOKEN: "+token);
+                users.setFcmToken(token);
+            }
+        });
+
+        users.setName(userName);
+        users.setEmail(userEmail);
+
+        dataStorage.saveString(Keys.USER_NAME, userName);
+        dataStorage.saveString(Keys.USER_EMAIL, userEmail);
+        dataStorage.saveString(Keys.USER_GENDER, gender);
+
+        users.setUserId(dataStorage.getString(Keys.USER_ID));
+        users.setMobile(dataStorage.getString(Keys.MOBILE));
+        users.setGender(!TextUtils.isEmpty(gender) ? gender : getString(R.string.un_specified));
+//        users.setLikedPosts(likedPostArrayList);
+//        users.setCommentedPosts(commentedPostArrayList);
+//        users.setBookmarkedPosts(bookmarkedPostArrayList);
+
+        if (dataStorage.isDataAvailable(Keys.ADMIN_INFO)) {
+            String admins = dataStorage.getString(Keys.ADMIN_INFO);
+            ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
+            }.getType());
+
+            for (Admin admin : adminArrayList) {
+                if (admin.getMobile().equalsIgnoreCase(dataStorage.getString(Keys.MOBILE))) {
+                    users.setIsAdmin(admin.getPosition());
+                } else {
+                    users.setIsAdmin("-1");
+                }
+            }
+        }
+
+        new DbHelper().updateUser(users, new DbHelper.UserDbCallback() {
+            @Override
+            public void onUpdated() {
+                loadCurrentProfile();
+                cancelProgress();
+                AppHelper.showToast(ProfileUpdatingActivity.this, "Your profile has been" +
+                        "updated successfully!");
+            }
+
+            @Override
+            public void onFailed() {
+                cancelProgress();
+                AppHelper.showToast(ProfileUpdatingActivity.this, "Some error occurred, " +
+                        "try again later!");
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if (isAboveM()) {
+        /*if (isAboveM()) {
             permissionHelper.initPermissions(permissions);
             if (!permissionHelper.isAllPermissionAvailable()) {
                 permissionHelper.askAllPermissions();
             }
-        }
+        }*/
 
     }
 

@@ -327,5 +327,11 @@
     <string name="image">Image</string>
     <string name="choose_pdf">Choose pdf to upload</string>
     <string name="choose_circular_image">Choose circular image to upload</string>
+    <string name="circular_admin">Circular Admin</string>
+    <string name="news_admin">News Admin</string>
+    <string name="news_admin_">News Manager</string>
+    <string name="circular_admin_">News Manager</string>
+    <string name="added_to_bookmarks">Added to bookmarks!</string>
+    <string name="removed_from_bookmarks">Removed from bookmarks!</string>
 
 </resources>

@@ -108,33 +108,35 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             @Override
             public void onLikeClicked(int position, boolean isLiked, ImageView likeIv) {
 
-                if (!isLiked) {
-                    updateAsLiked(position);
-                } else {
-                    removeLiked(position);
-                }
-
                 animateLike(likeIv, isLiked);
 
-                ArrayList<String> likedUsersArrayList = newsFeedItemsArrayList.get(position).getLikedUsers();
-
-                if (!isLiked) {
-                    likedUsersArrayList.add(getUserId());
-                    newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
-                } else {
-                    if (likedUsersArrayList != null && likedUsersArrayList.size() > 0) {
-                        for (String likedUser : likedUsersArrayList) {
-                            if (likedUser.equals(getUserId())) {
-                                likedUsersArrayList.remove(likedUser);
-                            }
-                        }
-                        newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
-                    }
-                }
-
-                newsFeedItemsArrayList.get(position).setLiked(!isLiked);
-
-                newsFeedAdapter.notifyItemChanged(position);
+//                if (!isLiked) {
+//                    updateAsLiked(position);
+//                } else {
+//                    removeLiked(position);
+//                }
+//
+//                animateLike(likeIv, isLiked);
+//
+//                ArrayList<String> likedUsersArrayList = newsFeedItemsArrayList.get(position).getLikedUsers();
+//
+//                if (!isLiked) {
+//                    likedUsersArrayList.add(getUserId());
+//                    newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
+//                } else {
+//                    if (likedUsersArrayList != null && likedUsersArrayList.size() > 0) {
+//                        for (String likedUser : likedUsersArrayList) {
+//                            if (likedUser.equals(getUserId())) {
+//                                likedUsersArrayList.remove(likedUser);
+//                            }
+//                        }
+//                        newsFeedItemsArrayList.get(position).setLikedUsers(likedUsersArrayList);
+//                    }
+//                }
+//
+//                newsFeedItemsArrayList.get(position).setLiked(!isLiked);
+//
+//                newsFeedAdapter.notifyItemChanged(position);
             }
 
             @Override
@@ -150,7 +152,6 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
 
     private void updateAsBookmarked(int position) {
         String postId = newsFeedItemsArrayList.get(position).getNfId();
-
     }
 
     private void removeBookmarked(int position) {
@@ -233,6 +234,7 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
+                likeIv.setImageResource(isLiked ? R.drawable.ic_heart_selected : R.drawable.ic_heart_icon);
             }
         });
 
@@ -434,23 +436,23 @@ public class NewsFeedFragment extends SuperFragment implements SearchView.OnQuer
             newsFeedItems.setVidUrl((String) map.get("vidUrl"));
             newsFeedItems.setPstrUrl((String) map.get("pstrUrl"));
             newsFeedItems.setLikesCount((long) map.get("likesCount"));
-            newsFeedItems.setCommentCount((long) map.get("commentCount"));
-            newsFeedItems.settLogo((String) map.get("tLogo"));
-
-            ArrayList<String> likedUsers = new ArrayList<>();
-
-            if (teamEntry.getKey() != null) {
-                likedUsers.clear();
-                DataSnapshot dataSnapshot1 = dataSnapshot.child(teamEntry.getKey()).child("likedUsers");
-                if (dataSnapshot1.exists()) {
-                    Map<String, String> stringMap = (Map<String, String>) dataSnapshot1.getValue();
-                    for (Map.Entry<String, String> entry : stringMap.entrySet()) {
-                        likedUsers.add(entry.getValue());
-                    }
-                }
-            }
-
-            newsFeedItems.setLikedUsers(likedUsers);
+//            newsFeedItems.setCommentCount((long) map.get("commentCount"));
+//            newsFeedItems.settLogo((String) map.get("tLogo"));
+//
+//            ArrayList<String> likedUsers = new ArrayList<>();
+//
+//            if (teamEntry.getKey() != null) {
+//                likedUsers.clear();
+//                DataSnapshot dataSnapshot1 = dataSnapshot.child(teamEntry.getKey()).child("likedUsers");
+//                if (dataSnapshot1.exists()) {
+//                    Map<String, String> stringMap = (Map<String, String>) dataSnapshot1.getValue();
+//                    for (Map.Entry<String, String> entry : stringMap.entrySet()) {
+//                        likedUsers.add(entry.getValue());
+//                    }
+//                }
+//            }
+//
+//            newsFeedItems.setLikedUsers(likedUsers);
 
             newsFeedItemsArrayList.add(newsFeedItems);
         }

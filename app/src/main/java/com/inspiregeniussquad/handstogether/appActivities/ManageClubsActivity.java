@@ -1,40 +1,21 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appAdapters.ClubsAdapter;
-import com.inspiregeniussquad.handstogether.appData.Admin;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
-import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
-import com.inspiregeniussquad.handstogether.appDialogs.AddClubDialog;
-import com.inspiregeniussquad.handstogether.appFragments.SuperFragment;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
-import com.inspiregeniussquad.handstogether.appUtils.ImageHelper;
 
 import java.util.ArrayList;
 import java.util.Map;

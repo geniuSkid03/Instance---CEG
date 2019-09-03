@@ -76,35 +76,6 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/editor_rb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:buttonTint="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/editor"
-                    android:textColor="@color/colorPrimary" />
-
-                <RadioButton
-                    android:id="@+id/admin_rb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/admin"
-                    app:buttonTint="@color/colorPrimaryDark"
-                    android:textColor="@color/colorPrimary" />
-
-                <RadioButton
-                    android:id="@+id/staff_rb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:buttonTint="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/staff"
-                    android:textColor="@color/colorPrimary" />
-
-                <RadioButton
                     android:id="@+id/super_admin_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,6 +83,54 @@
                     app:buttonTint="@color/colorPrimaryDark"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/super_admin"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/news_admin_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/news_admin"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary" />
+
+
+                <RadioButton
+                    android:id="@+id/news_admin_rb_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/news_admin_"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/circular_admin_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/circular_admin"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/circular_admin_rb_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/circular_admin_"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioButton
+                    android:id="@+id/editor_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/editor"
                     android:textColor="@color/colorPrimary" />
 
             </RadioGroup>

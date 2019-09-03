@@ -353,8 +353,6 @@ public class AddNewsFragment extends SuperFragment {
 
         String id = newsDbReference.push().getKey();
 
-        newsFeedItems.setNfId(id);
-
         newsDbReference.child(id).setValue(newsFeedItems, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {

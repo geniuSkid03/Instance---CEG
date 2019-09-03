@@ -2,7 +2,6 @@ package com.inspiregeniussquad.handstogether.appFragments;
 
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

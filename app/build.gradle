@@ -7,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.5"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -97,6 +97,9 @@ dependencies {
 
     //shimmer loading view
     implementation 'com.facebook.shimmer:shimmer:0.4.0'
+
+    //pdf preview implementation
+    implementation 'com.github.barteksc:pdfium-android:1.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

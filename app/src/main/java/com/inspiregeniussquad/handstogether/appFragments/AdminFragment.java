@@ -75,44 +75,80 @@ public class AdminFragment extends SuperFragment {
         manageClubsCv.setOnClickListener(clickListener);
 
         adminValue = dataStorage.getString(Keys.ADMIN_VALUE);
+
+        updateUi(adminValue);
+    }
+
+    private void updateUi(String adminValue) {
+        switch (adminValue) {
+            case "0":
+                newsCv.setVisibility(View.VISIBLE);
+                circularCv.setVisibility(View.VISIBLE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.VISIBLE);
+                manageClubsCv.setVisibility(View.VISIBLE);
+                break;
+            case "1":
+                newsCv.setVisibility(View.VISIBLE);
+                circularCv.setVisibility(View.VISIBLE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.VISIBLE);
+                manageClubsCv.setVisibility(View.VISIBLE);
+                break;
+            case "2":
+                newsCv.setVisibility(View.VISIBLE);
+                circularCv.setVisibility(View.GONE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.VISIBLE);
+                manageClubsCv.setVisibility(View.VISIBLE);
+                break;
+            case "3":
+                newsCv.setVisibility(View.VISIBLE);
+                circularCv.setVisibility(View.GONE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.GONE);
+                manageClubsCv.setVisibility(View.GONE);
+                break;
+            case "4":
+                newsCv.setVisibility(View.GONE);
+                circularCv.setVisibility(View.VISIBLE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.VISIBLE);
+                manageClubsCv.setVisibility(View.VISIBLE);
+                break;
+            case "5":
+                newsCv.setVisibility(View.GONE);
+                circularCv.setVisibility(View.VISIBLE);
+                manageAdminsCv.setVisibility(View.VISIBLE);
+                manageTeamsCv.setVisibility(View.GONE);
+                manageClubsCv.setVisibility(View.GONE);
+                break;
+            case "6":
+                newsCv.setVisibility(View.VISIBLE);
+                circularCv.setVisibility(View.GONE);
+                manageAdminsCv.setVisibility(View.GONE);
+                manageTeamsCv.setVisibility(View.GONE);
+                manageClubsCv.setVisibility(View.GONE);
+                break;
+        }
     }
 
     private void doActionForClick(View view) {
         switch (view.getId()) {
             case R.id.add_circular:
-                if (isStaff() || isSuperAdmin()) {
-                    openActivity(0);
-                } else {
-                    showToast(getString(R.string.not_authorised));
-                }
+                openActivity(0);
                 break;
             case R.id.add_news:
-                if (isEditor() || isAdmin() || isSuperAdmin()) {
-                    openActivity(1);
-                } else {
-                    showToast(getString(R.string.not_authorised));
-                }
+                openActivity(1);
                 break;
             case R.id.manage_teams:
-                if (isSuperAdmin()) {
-                    openActivity(2);
-                } else {
-                    showToast(getString(R.string.not_authorised));
-                }
+                openActivity(2);
                 break;
             case R.id.admin_manage_card:
-                if (isSuperAdmin() || isAdmin()) {
-                    openActivity(3);
-                } else {
-                    showToast(getString(R.string.not_authorised));
-                }
+                openActivity(3);
                 break;
             case R.id.manage_clubs:
-                if (isAdmin() || isSuperAdmin()) {
-                    openActivity(4);
-                } else {
-                    showToast(getString(R.string.not_authorised));
-                }
+                openActivity(4);
                 break;
         }
     }
@@ -137,20 +173,32 @@ public class AdminFragment extends SuperFragment {
         }
     }
 
-    private boolean isSuperAdmin() {
+    private boolean isGeniuSAdmin() {
         return adminValue != null && adminValue.equals("0");
     }
 
-    private boolean isStaff() {
-        return adminValue != null && adminValue.equals("2");
-    }
-
-    private boolean isAdmin() {
+    private boolean isSuperAdmin() {
         return adminValue != null && adminValue.equals("1");
     }
 
-    private boolean isEditor() {
+    private boolean isNewsAdmin() {
+        return adminValue != null && adminValue.equals("2");
+    }
+
+    private boolean isNewsManager() {
         return adminValue != null && adminValue.equals("3");
+    }
+
+    private boolean isCircularAdmin() {
+        return adminValue != null && adminValue.equals("4");
+    }
+
+    private boolean isCircularManager() {
+        return adminValue != null && adminValue.equals("5");
+    }
+
+    private boolean isEditor() {
+        return adminValue != null && adminValue.equals("6");
     }
 
     private String adminValue;

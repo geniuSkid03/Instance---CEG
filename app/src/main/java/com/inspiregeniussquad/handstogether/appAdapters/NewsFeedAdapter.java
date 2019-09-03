@@ -1,18 +1,12 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -25,13 +19,11 @@ import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
-import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFeedView> {
 
@@ -100,67 +92,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         notifyItemRangeRemoved(0, size);
     }
 
-    private void setBookmarked(final boolean isBookmarked, final NewsFeedView newsFeedView) {
-        AnimatorSet animatorSet = new AnimatorSet();
-
-        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(newsFeedView.bookmarkIv, "scaleX", 0.2f, 1f);
-        bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
-        bounceAnimX.setInterpolator(new BounceInterpolator());
-
-        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(newsFeedView.bookmarkIv, "scaleY", 0.2f, 1f);
-        bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
-        bounceAnimY.setInterpolator(new BounceInterpolator());
-        bounceAnimY.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                newsFeedView.bookmarkIv.setImageResource(!isBookmarked ? R.drawable.ic_bookmark_icon
-                        : R.drawable.ic_bookmark_done);
-            }
-        });
-
-        animatorSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-            }
-        });
-
-        animatorSet.play(bounceAnimX).with(bounceAnimY);
-        animatorSet.start();
-    }
-
-    public void setPostAsLiked(final int position, final boolean isLiked, final ImageView likeIv) {
-        AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(likeIv, "scaleX", 0.2f, 1f);
-        bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
-        bounceAnimX.setInterpolator(new BounceInterpolator());
-        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(likeIv, "scaleY", 0.2f, 1f);
-        bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
-        bounceAnimY.setInterpolator(new BounceInterpolator());
-        bounceAnimY.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                likeIv.setImageResource(!isLiked ? R.drawable.ic_heart_icon
-                        : R.drawable.ic_heart_selected);
-            }
-        });
-
-        animatorSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-            }
-        });
-
-        animatorSet.play(bounceAnimX).with(bounceAnimY);
-        animatorSet.start();
-
-        if (isLiked) {
-            newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() - 1);
-        } else {
-            newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() + 1);
-        }
-//        notifyItemChanged(position);
-    }
-
     public void setPostAsBookmarked(int position) {
         if (newsFeedItemsArrayList.get(position).isBookmarked()) {
             newsFeedItemsArrayList.get(position).setBookmarked(false);
@@ -173,10 +104,11 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     class NewsFeedView extends RecyclerView.ViewHolder {
 
         private com.inspiregeniussquad.handstogether.appViews.CircularImageView logoCiv;
-        private TextView nameTv, descTv, likeTv, cmntTv, readMoreTv;
-        private ImageView posterImgIv, bookmarkIv, shareIv, likeIv, commentIv;
-        private LinearLayout likeLayout, commentLayout, shareLayout, bookmarkLayout;
+        private TextView nameTv, descTv/*, likeTv, cmntTv, readMoreTv*/;
+        private ImageView posterImgIv/*, bookmarkIv, shareIv, likeIv, commentIv*/;
+//        private LinearLayout likeLayout, commentLayout, shareLayout, bookmarkLayout;
         private AVLoadingIndicatorView imgloadingIv;
+        private CardView cardView;
 
         private View itemView;
 
@@ -199,88 +131,97 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             logoCiv = itemView.findViewById(R.id.logo);
             posterImgIv = itemView.findViewById(R.id.event_poster);
             imgloadingIv = itemView.findViewById(R.id.img_loading_view);
+            cardView = itemView.findViewById(R.id.post_card);
 
             nameTv = itemView.findViewById(R.id.name);
             descTv = itemView.findViewById(R.id.desc);
-            readMoreTv = itemView.findViewById(R.id.read_more);
-
-            likeTv = itemView.findViewById(R.id.likes);
-            cmntTv = itemView.findViewById(R.id.comments);
-
-            likeIv = itemView.findViewById(R.id.like);
-            commentIv = itemView.findViewById(R.id.comment);
-            shareIv = itemView.findViewById(R.id.share);
-            bookmarkIv = itemView.findViewById(R.id.bookmark);
-
-            likeLayout = itemView.findViewById(R.id.like_container);
-            commentLayout = itemView.findViewById(R.id.comment_container);
-            shareLayout = itemView.findViewById(R.id.share_container);
-            bookmarkLayout = itemView.findViewById(R.id.bookmark_container);
+//            readMoreTv = itemView.findViewById(R.id.read_more);
+//
+//            likeTv = itemView.findViewById(R.id.likes);
+//            cmntTv = itemView.findViewById(R.id.comments);
+//
+//            likeIv = itemView.findViewById(R.id.like);
+//            commentIv = itemView.findViewById(R.id.comment);
+//            shareIv = itemView.findViewById(R.id.share);
+//            bookmarkIv = itemView.findViewById(R.id.bookmark);
+//
+//            likeLayout = itemView.findViewById(R.id.like_container);
+//            commentLayout = itemView.findViewById(R.id.comment_container);
+//            shareLayout = itemView.findViewById(R.id.share_container);
+//            bookmarkLayout = itemView.findViewById(R.id.bookmark_container);
 
             nameTv.setText(newsFeedItems.geteName());
             descTv.setText(newsFeedItems.geteDesc());
-            likeTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getLikesCount()));
-            cmntTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getCommentCount()));
 
-            ArrayList<String> likedUsers = newsFeedItems.getLikedUsers();
-            if (likedUsers != null && likedUsers.size() > 0) {
-                AppHelper.print("Liked users exists");
-                AppHelper.print("User id: "+getUserId());
-
-                for (int i = 0; i < likedUsers.size(); i++) {
-                    if (likedUsers.get(i).equals(getUserId())) {
-                        AppHelper.print("liked User id: "+likedUsers.get(i));
-                        newsFeedItems.setLiked(true);
-                        likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
-                        return;
-                    } else {
-                        likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
-                        newsFeedItems.setLiked(false);
-                    }
-                }
-                AppHelper.print("isLiked: " + newsFeedItems.isLiked());
-            } else {
-                AppHelper.print("Liked users doesnt exists");
-                newsFeedItems.setLiked(false);
-                likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
-            }
-
-            likeLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewClickedListener.onLikeClicked(position, newsFeedItems.isLiked(), likeIv);
-                }
-            });
-            commentLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewClickedListener.onCommentsClicked(position);
-                }
-            });
-            shareLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewClickedListener.onShareClicked(position, posterImgIv);
-                }
-            });
-            bookmarkLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewClickedListener.onBookmarkClicked(position, newsFeedItems.isBookmarked());
-                }
-            });
-            readMoreTv.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     viewClickedListener.onViewClicked(position, posterImgIv, logoCiv);
                 }
             });
-            posterImgIv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewClickedListener.onImageClicked(position, posterImgIv);
-                }
-            });
+
+//            likeTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getLikesCount()));
+//            cmntTv.setText(String.format(Locale.getDefault(), "%d", newsFeedItems.getCommentCount()));
+
+//            ArrayList<String> likedUsers = newsFeedItems.getLikedUsers();
+//            if (likedUsers != null && likedUsers.size() > 0) {
+//                AppHelper.print("Liked users exists");
+//                AppHelper.print("User id: " + getUserId());
+//
+//                for (int i = 0; i < likedUsers.size(); i++) {
+//                    if (likedUsers.get(i).equals(getUserId())) {
+//                        AppHelper.print("liked User id: " + likedUsers.get(i));
+//                        newsFeedItems.setLiked(true);
+//                        likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_selected));
+//                        return;
+//                    } else {
+//                        likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+//                        newsFeedItems.setLiked(false);
+//                    }
+//                }
+//                AppHelper.print("isLiked: " + newsFeedItems.isLiked());
+//            } else {
+//                AppHelper.print("Liked users doesnt exists");
+//                newsFeedItems.setLiked(false);
+//                likeIv.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_heart_icon));
+//            }
+
+//            likeLayout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    viewClickedListener.onLikeClicked(position, newsFeedItems.isLiked(), likeIv);
+//                }
+//            });
+//            commentLayout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    viewClickedListener.onCommentsClicked(position);
+//                }
+//            });
+//            shareLayout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    viewClickedListener.onShareClicked(position, posterImgIv);
+//                }
+//            });
+//            bookmarkLayout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    viewClickedListener.onBookmarkClicked(position, newsFeedItems.isBookmarked());
+//                }
+//            });
+//            readMoreTv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    viewClickedListener.onViewClicked(position, posterImgIv, logoCiv);
+//                }
+//            });
+//            posterImgIv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    viewClickedListener.onImageClicked(position, posterImgIv);
+//                }
+//            });
 
             Glide.with(context).load(newsFeedItems.getPstrUrl()).into(posterImgIv);
             Glide.with(context).load(newsFeedItems.gettLogo()).into(logoCiv);
@@ -304,5 +245,66 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
         void onShareClicked(int position, ImageView posterImgIv);
     }
+
+//    private void setBookmarked(final boolean isBookmarked, final NewsFeedView newsFeedView) {
+//        AnimatorSet animatorSet = new AnimatorSet();
+//
+//        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(newsFeedView.bookmarkIv, "scaleX", 0.2f, 1f);
+//        bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
+//        bounceAnimX.setInterpolator(new BounceInterpolator());
+//
+//        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(newsFeedView.bookmarkIv, "scaleY", 0.2f, 1f);
+//        bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
+//        bounceAnimY.setInterpolator(new BounceInterpolator());
+//        bounceAnimY.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//                newsFeedView.bookmarkIv.setImageResource(!isBookmarked ? R.drawable.ic_bookmark_icon
+//                        : R.drawable.ic_bookmark_done);
+//            }
+//        });
+//
+//        animatorSet.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//            }
+//        });
+//
+//        animatorSet.play(bounceAnimX).with(bounceAnimY);
+//        animatorSet.start();
+//    }
+//
+//    public void setPostAsLiked(final int position, final boolean isLiked, final ImageView likeIv) {
+//        AnimatorSet animatorSet = new AnimatorSet();
+//        ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(likeIv, "scaleX", 0.2f, 1f);
+//        bounceAnimX.setDuration(Keys.ANIMATION_DURATION);
+//        bounceAnimX.setInterpolator(new BounceInterpolator());
+//        ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(likeIv, "scaleY", 0.2f, 1f);
+//        bounceAnimY.setDuration(Keys.ANIMATION_DURATION);
+//        bounceAnimY.setInterpolator(new BounceInterpolator());
+//        bounceAnimY.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//                likeIv.setImageResource(!isLiked ? R.drawable.ic_heart_icon
+//                        : R.drawable.ic_heart_selected);
+//            }
+//        });
+//
+//        animatorSet.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//            }
+//        });
+//
+//        animatorSet.play(bounceAnimX).with(bounceAnimY);
+//        animatorSet.start();
+//
+//        if (isLiked) {
+//            newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() - 1);
+//        } else {
+//            newsFeedItemsArrayList.get(position).setLikesCount(newsFeedItemsArrayList.get(position).getLikesCount() + 1);
+//        }
+////        notifyItemChanged(position);
+//    }
 
 }

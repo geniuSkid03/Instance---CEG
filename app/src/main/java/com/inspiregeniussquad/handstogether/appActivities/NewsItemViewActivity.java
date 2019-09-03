@@ -2,6 +2,8 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
@@ -15,9 +17,12 @@ import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
+import com.inspiregeniussquad.handstogether.appHelpers.DbHelper;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -65,6 +70,9 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     @BindView(R.id.watch_video)
     AppCompatButton watchVideoBtn;
 
+    @BindView(R.id.bookmark_fab)
+    FloatingActionButton bookmarkFab;
+
       /*  private ArrayList<TeamData> teamDataArrayList;
     private String teamLogoUrl;*/
 
@@ -97,6 +105,13 @@ public class NewsItemViewActivity extends SuperCompatActivity {
         } else {
             AppHelper.print("To Show Item empty");
         }
+
+        bookmarkFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkAndAddToBookmark();
+            }
+        });
 
         /*appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 
@@ -134,6 +149,71 @@ public class NewsItemViewActivity extends SuperCompatActivity {
         });
     }
 
+    private void checkAndAddToBookmark() {
+        new DbHelper().getUserBookmarks(dataStorage, new DbHelper.BookmarkCallback() {
+            @Override
+            public void onLoaded(List<String> bookmarkList) {
+                if (bookmarkList != null && bookmarkList.size() > 0) {
+                    if (bookmarkList.contains(toShowNewsItem.getNfId())) {
+                        removeFromBookmarks();
+                    } else {
+                        addToBookmarks();
+                    }
+                } else {
+                    addToBookmarks();
+                }
+            }
+
+            @Override
+            public void onError() {
+                cancelProgress();
+                AppHelper.print(getString(R.string.some_error_occurred));
+                AppHelper.showToast(NewsItemViewActivity.this, getString(R.string.some_error_occurred));
+            }
+        });
+    }
+
+    private void removeFromBookmarks() {
+        AppHelper.print("Removing from bookmarks");
+        new DbHelper().removeFromBookmark(toShowNewsItem.getNfId(), dataStorage, new DbHelper.UserDbCallback() {
+            @Override
+            public void onUpdated() {
+                AppHelper.print("Removed from bookmarks");
+                cancelProgress();
+                bookmarkFab.setImageDrawable(ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_outine));
+                AppHelper.showToast(NewsItemViewActivity.this, getString(R.string.removed_from_bookmarks));
+                AppHelper.print(getString(R.string.removed_from_bookmarks));
+            }
+
+            @Override
+            public void onFailed() {
+                cancelProgress();
+                AppHelper.showToast(NewsItemViewActivity.this, getString(R.string.some_error_occurred));
+                AppHelper.print(getString(R.string.some_error_occurred));
+            }
+        });
+    }
+
+    private void addToBookmarks() {
+        AppHelper.print("Adding to bookmarks");
+        new DbHelper().addToBookmarks(dataStorage, toShowNewsItem.getNfId(), new DbHelper.UserDbCallback() {
+            @Override
+            public void onUpdated() {
+                AppHelper.print("Added to bookmarks");
+                cancelProgress();
+                AppHelper.showToast(NewsItemViewActivity.this, getString(R.string.added_to_bookmarks));
+                bookmarkFab.setImageDrawable(ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_filled));
+            }
+
+            @Override
+            public void onFailed() {
+                cancelProgress();
+                AppHelper.showToast(NewsItemViewActivity.this, getString(R.string.some_error_occurred));
+                AppHelper.print(getString(R.string.some_error_occurred));
+            }
+        });
+    }
+
    /* private void showContentImg() {
         teamLogoIv.startAnimation(scaleDownAnim);
         teamLogoIv.setVisibility(View.INVISIBLE);
@@ -150,13 +230,14 @@ public class NewsItemViewActivity extends SuperCompatActivity {
         teamLogo2Iv.setVisibility(View.INVISIBLE);
     }*/
 
-
     private void updateUi(final NewsFeedItems newsFeedItems) {
 
         watchVideoBtn.setVisibility(TextUtils.isEmpty(newsFeedItems.getVidUrl()) ? View.GONE : View.VISIBLE);
 
         Glide.with(this).load(newsFeedItems.getPstrUrl()).into(posterIv1);
         Glide.with(this).load(newsFeedItems.gettLogo()).into(teamLogo2Iv);
+
+//        AppHelper.print("Current id: " + toShowNewsItem.getNfId() + "\tisInBookmark(): " + isInBookmark());
 
 //        File posterImage = DiskCacheUtils.findInCache(newsFeedItems.getPstrUrl(), imageLoader.getDiskCache());
 //        if (posterImage != null && posterImage.exists()) {
@@ -242,6 +323,28 @@ public class NewsItemViewActivity extends SuperCompatActivity {
             }
         });
 */
+
+        checkBookmark();
+    }
+
+    private void checkBookmark() {
+        new DbHelper().getUserBookmarks(dataStorage, new DbHelper.BookmarkCallback() {
+            @Override
+            public void onLoaded(List<String> bookmarkList) {
+                if (bookmarkList != null && bookmarkList.size() > 0) {
+                    bookmarkFab.setImageDrawable(bookmarkList.contains(toShowNewsItem.getNfId()) ?
+                            ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_filled) :
+                            ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_outine));
+                } else {
+                    bookmarkFab.setImageDrawable(ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_outine));
+                }
+            }
+
+            @Override
+            public void onError() {
+                bookmarkFab.setImageDrawable(ContextCompat.getDrawable(NewsItemViewActivity.this, R.drawable.ic_bookmark_outine));
+            }
+        });
     }
 
     @Override

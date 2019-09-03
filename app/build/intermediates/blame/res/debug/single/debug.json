@@ -196,6 +196,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_bookmark_outine.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_bookmark_outine.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d7a7bd86ccd3240345df1e23a0ec7160\\res\\layout-v21\\notification_template_custom_big.xml"
     },
@@ -388,12 +392,12 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_send_post.png.flat",
@@ -582,6 +586,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_gender_unspecified.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\gender_unspecified.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_bookmark_outine.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
@@ -1056,6 +1064,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_event_desc.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_bookmark_filled.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\anim_scale_down_animation.xml.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\anim\\scale_down_animation.xml"
     },
@@ -1436,6 +1448,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_bookmark_outine.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d7a7bd86ccd3240345df1e23a0ec7160\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
@@ -1572,6 +1588,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_drop_up.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_bookmark_filled.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d7a7bd86ccd3240345df1e23a0ec7160\\res\\layout\\notification_action.xml"
     },
@@ -1678,6 +1698,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_teaminfo.xml.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\activity_teaminfo.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_bookmark_filled.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_disabled.xml.flat",
@@ -2038,6 +2062,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_bookmark_outine.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_bookmarks.xml.flat",
@@ -2432,6 +2460,10 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_bookmark_filled.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_edit_icon.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_edit_icon.png"
     },
@@ -2442,6 +2474,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_bookmark_outine.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -2484,12 +2520,16 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\e1487821b057aab63dc1907e6661fee1\\res\\layout\\notification_media_action.xml"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_attachment_icon.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_attachment_icon.png"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-16.0.1.aar\\1cc08bdb6391e8346d40fba2a89d1c2a\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_attachment_icon.png.flat",
-        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_attachment_icon.png"
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_bookmark_outine.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
@@ -2696,12 +2736,12 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_admin_panel_unselected.png"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
-        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_messenger_button_send_white_large.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-android-sdk-4.17.0.aar\\a17147629a74e2305db014d35a95c388\\res\\layout\\messenger_button_send_white_large.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
@@ -3018,6 +3058,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_bookmark_filled.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_girl.png.flat",
@@ -3390,6 +3434,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_top_material.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\1b53c7fd45c782cd37bf6fc29ec5ae16\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_bookmark_filled.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_bookmark_filled.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
@@ -4376,6 +4424,10 @@
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_calendar_icon.png"
     },
     {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_bookmark_filled.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_bookmark_filled.xml"
+    },
+    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_add_image.png.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_add_image.png"
     },
@@ -4452,12 +4504,12 @@
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\ec0e4f862efbb9627179bf671e9aecbf\\res\\color\\design_error.xml"
     },
     {
-        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_permissions_layout.xml.flat",
-        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\permissions_layout.xml"
-    },
-    {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_dark.xml.flat",
         "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\95fe27d6325475e0780c5edfc9bdeee0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_permissions_layout.xml.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\permissions_layout.xml"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -4918,6 +4970,10 @@
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\layout_edit_news_fragment.xml.flat",
         "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\src\\main\\res\\layout\\edit_news_fragment.xml"
+    },
+    {
+        "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_bookmark_outine.png.flat",
+        "source": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_bookmark_outine.png"
     },
     {
         "merged": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_minus_icon.png.flat",
