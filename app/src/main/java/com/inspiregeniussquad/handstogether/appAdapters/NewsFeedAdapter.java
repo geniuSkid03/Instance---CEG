@@ -1,9 +1,9 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,7 +20,6 @@ import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appStorage.AppDbs;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import com.inspiregeniussquad.handstogether.appViews.NewsFeedItemsLayout;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
     private onViewClickedListener viewClickedListener;
     private AppDbs appDbs;
     private TeamData[] teamData;
-    private ImageLoader imageLoader;
+//    private ImageLoader imageLoader;
 
     private DataStorage dataStorage;
 
@@ -49,7 +48,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
         appDbs = AppDbs.getTeamDao(context);
         teamData = appDbs.teamDao().loadAll();
 
-        imageLoader = ImageLoader.getInstance();
+//        imageLoader = ImageLoader.getInstance();
 
         userDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Keys.TABLE_USER);
         likePostsReference = userDatabaseReference.child(users.getMobile()).child(Keys.LIKED_POSTS);

@@ -1,12 +1,12 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatButton;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -17,11 +17,11 @@ import java.lang.Override;
 public class OtpVerificationActivity_ViewBinding implements Unbinder {
   private OtpVerificationActivity target;
 
-  private View view2131296747;
+  private View view7f09022f;
 
-  private View view2131296612;
+  private View view7f09019e;
 
-  private View view2131296334;
+  private View view7f090070;
 
   @UiThread
   public OtpVerificationActivity_ViewBinding(OtpVerificationActivity target) {
@@ -35,7 +35,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.verify_btn, "field 'verifyBtn' and method 'oNCLick'");
     target.verifyBtn = Utils.castView(view, R.id.verify_btn, "field 'verifyBtn'", AppCompatButton.class);
-    view2131296747 = view;
+    view7f09022f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.otpTimerTv = Utils.findRequiredViewAsType(source, R.id.otp_timer, "field 'otpTimerTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.rsend_otp_btn, "field 'resendOtpBtn' and method 'oNCLick'");
     target.resendOtpBtn = Utils.castView(view, R.id.rsend_otp_btn, "field 'resendOtpBtn'", AppCompatButton.class);
-    view2131296612 = view;
+    view7f09019e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.change_num, "field 'changeNumberTv' and method 'oNCLick'");
     target.changeNumberTv = Utils.castView(view, R.id.change_num, "field 'changeNumberTv'", TextView.class);
-    view2131296334 = view;
+    view7f090070 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,11 +77,11 @@ public class OtpVerificationActivity_ViewBinding implements Unbinder {
     target.resendOtpBtn = null;
     target.changeNumberTv = null;
 
-    view2131296747.setOnClickListener(null);
-    view2131296747 = null;
-    view2131296612.setOnClickListener(null);
-    view2131296612 = null;
-    view2131296334.setOnClickListener(null);
-    view2131296334 = null;
+    view7f09022f.setOnClickListener(null);
+    view7f09022f = null;
+    view7f09019e.setOnClickListener(null);
+    view7f09019e = null;
+    view7f090070.setOnClickListener(null);
+    view7f090070 = null;
   }
 }

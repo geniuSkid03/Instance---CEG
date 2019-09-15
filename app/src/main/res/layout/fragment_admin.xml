@@ -51,7 +51,7 @@
         android:layout_margin="8dp"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/add_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,9 +127,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/add_circular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -203,9 +203,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/manage_teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -279,9 +279,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/admin_manage_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -355,9 +355,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/manage_clubs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -431,7 +431,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

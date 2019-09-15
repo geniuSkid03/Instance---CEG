@@ -4,28 +4,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Debug;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.util.Config;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.inspiregeniussquad.handstogether.BuildConfig;
-import com.inspiregeniussquad.handstogether.appActivities.SuperCompatActivity;
+import com.shockwave.pdfium.PdfDocument;
+import com.shockwave.pdfium.PdfiumCore;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,7 +51,29 @@ public class AppHelper {
     }
 
     public static void print(String message) {
-        System.out.println("AppHelper: " + message);
+        if(BuildConfig.DEBUG) {
+            System.out.println("Debug: " + message);
+        }
+    }
+
+    public static Bitmap getPreviewImageFromPdf(Context context, Uri pdfUri) {
+        Bitmap bitmap = null;
+        PdfiumCore pdfiumCore = new PdfiumCore(context);
+        try{
+            ParcelFileDescriptor parcelFileDescriptor = context.getContentResolver().openFileDescriptor(pdfUri, "r");
+            PdfDocument pdfDocument = pdfiumCore.newDocument(parcelFileDescriptor);
+            pdfiumCore.openPage(pdfDocument,0);
+            int width = pdfiumCore.getPageWidth(pdfDocument,0);
+            int height = pdfiumCore.getPageHeight(pdfDocument,0);
+            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            pdfiumCore.renderPageBitmap(pdfDocument, bitmap, 0,0,0,width,height);
+            pdfiumCore.closeDocument(pdfDocument);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
     }
 
     public static void showToast(Context context, String message) {

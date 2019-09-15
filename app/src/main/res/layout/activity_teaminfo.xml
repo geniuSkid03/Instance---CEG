@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/team_scroll_view"
@@ -85,7 +85,7 @@
 
             <!--</RelativeLayout>-->
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -193,9 +193,9 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -248,9 +248,9 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/members_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
 
-                            <android.support.v7.widget.CardView
+                            <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
@@ -339,9 +339,9 @@
 
                                 </LinearLayout>
 
-                            </android.support.v7.widget.CardView>
+                            </androidx.cardview.widget.CardView>
 
-                            <android.support.v7.widget.CardView
+                            <androidx.cardview.widget.CardView
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -378,13 +378,13 @@
 
                                 </LinearLayout>
 
-                            </android.support.v7.widget.CardView>
+                            </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
 
                     </com.facebook.shimmer.ShimmerFrameLayout>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/team_members_rv"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
@@ -407,9 +407,9 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/team_posts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -451,7 +451,7 @@
 
                     </LinearLayout>
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/team_posts_rv"
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
@@ -459,7 +459,7 @@
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
@@ -473,7 +473,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/dashboard_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -573,9 +573,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/desc_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -626,9 +626,9 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/members_card_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -667,7 +667,7 @@
 
                         </LinearLayout>
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/loading_view_grey"
@@ -675,7 +675,7 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
@@ -683,4 +683,4 @@
 
     </RelativeLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

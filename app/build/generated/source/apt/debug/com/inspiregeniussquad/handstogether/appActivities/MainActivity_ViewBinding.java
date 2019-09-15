@@ -1,14 +1,14 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.inspiregeniussquad.handstogether.R;

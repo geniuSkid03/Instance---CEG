@@ -1,9 +1,9 @@
 package com.inspiregeniussquad.handstogether.appFragments;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.inspiregeniussquad.handstogether.R;
-import com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity;
 import com.inspiregeniussquad.handstogether.appAdapters.TeamsListAdapter;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appInterfaces.FragmentInterfaceListener;

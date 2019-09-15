@@ -1,15 +1,15 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.Toolbar;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.inspiregeniussquad.handstogether.R;
 import java.lang.IllegalStateException;
 import java.lang.Override;

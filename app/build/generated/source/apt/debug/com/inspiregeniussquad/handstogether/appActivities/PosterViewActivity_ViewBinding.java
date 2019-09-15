@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appViews.ZoomImageView;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -17,7 +17,7 @@ import java.lang.Override;
 public class PosterViewActivity_ViewBinding implements Unbinder {
   private PosterViewActivity target;
 
-  private View view2131296616;
+  private View view7f0901a2;
 
   @UiThread
   public PosterViewActivity_ViewBinding(PosterViewActivity target) {
@@ -33,7 +33,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.loadingIv = Utils.findRequiredViewAsType(source, R.id.image_placeholder, "field 'loadingIv'", AVLoadingIndicatorView.class);
     view = Utils.findRequiredView(source, R.id.save_fab, "field 'savePreviewIv' and method 'onClicked'");
     target.savePreviewIv = Utils.castView(view, R.id.save_fab, "field 'savePreviewIv'", FloatingActionButton.class);
-    view2131296616 = view;
+    view7f0901a2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class PosterViewActivity_ViewBinding implements Unbinder {
     target.loadingIv = null;
     target.savePreviewIv = null;
 
-    view2131296616.setOnClickListener(null);
-    view2131296616 = null;
+    view7f0901a2.setOnClickListener(null);
+    view7f0901a2 = null;
   }
 }

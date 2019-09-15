@@ -12,43 +12,43 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int shimmer_auto_start = 0x7f0301b4;
-        public static final int shimmer_base_alpha = 0x7f0301b5;
-        public static final int shimmer_base_color = 0x7f0301b6;
-        public static final int shimmer_clip_to_children = 0x7f0301b7;
-        public static final int shimmer_colored = 0x7f0301b8;
-        public static final int shimmer_direction = 0x7f0301b9;
-        public static final int shimmer_dropoff = 0x7f0301ba;
-        public static final int shimmer_duration = 0x7f0301bb;
-        public static final int shimmer_fixed_height = 0x7f0301bc;
-        public static final int shimmer_fixed_width = 0x7f0301bd;
-        public static final int shimmer_height_ratio = 0x7f0301be;
-        public static final int shimmer_highlight_alpha = 0x7f0301bf;
-        public static final int shimmer_highlight_color = 0x7f0301c0;
-        public static final int shimmer_intensity = 0x7f0301c1;
-        public static final int shimmer_repeat_count = 0x7f0301c2;
-        public static final int shimmer_repeat_delay = 0x7f0301c3;
-        public static final int shimmer_repeat_mode = 0x7f0301c4;
-        public static final int shimmer_shape = 0x7f0301c5;
-        public static final int shimmer_tilt = 0x7f0301c6;
-        public static final int shimmer_width_ratio = 0x7f0301c7;
+        public static final int shimmer_auto_start = 0x7f030220;
+        public static final int shimmer_base_alpha = 0x7f030221;
+        public static final int shimmer_base_color = 0x7f030222;
+        public static final int shimmer_clip_to_children = 0x7f030223;
+        public static final int shimmer_colored = 0x7f030224;
+        public static final int shimmer_direction = 0x7f030225;
+        public static final int shimmer_dropoff = 0x7f030226;
+        public static final int shimmer_duration = 0x7f030227;
+        public static final int shimmer_fixed_height = 0x7f030228;
+        public static final int shimmer_fixed_width = 0x7f030229;
+        public static final int shimmer_height_ratio = 0x7f03022a;
+        public static final int shimmer_highlight_alpha = 0x7f03022b;
+        public static final int shimmer_highlight_color = 0x7f03022c;
+        public static final int shimmer_intensity = 0x7f03022d;
+        public static final int shimmer_repeat_count = 0x7f03022e;
+        public static final int shimmer_repeat_delay = 0x7f03022f;
+        public static final int shimmer_repeat_mode = 0x7f030230;
+        public static final int shimmer_shape = 0x7f030231;
+        public static final int shimmer_tilt = 0x7f030232;
+        public static final int shimmer_width_ratio = 0x7f030233;
     }
     public static final class id {
         private id() {}
 
-        public static final int bottom_to_top = 0x7f090042;
-        public static final int left_to_right = 0x7f0900dc;
-        public static final int linear = 0x7f0900e3;
-        public static final int radial = 0x7f090157;
-        public static final int restart = 0x7f090160;
-        public static final int reverse = 0x7f090162;
-        public static final int right_to_left = 0x7f090166;
-        public static final int top_to_bottom = 0x7f0901d7;
+        public static final int bottom_to_top = 0x7f090066;
+        public static final int left_to_right = 0x7f0900fa;
+        public static final int linear = 0x7f090101;
+        public static final int radial = 0x7f09018c;
+        public static final int restart = 0x7f090195;
+        public static final int reverse = 0x7f090197;
+        public static final int right_to_left = 0x7f09019b;
+        public static final int top_to_bottom = 0x7f090218;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] ShimmerFrameLayout = { 0x7f0301b4, 0x7f0301b5, 0x7f0301b6, 0x7f0301b7, 0x7f0301b8, 0x7f0301b9, 0x7f0301ba, 0x7f0301bb, 0x7f0301bc, 0x7f0301bd, 0x7f0301be, 0x7f0301bf, 0x7f0301c0, 0x7f0301c1, 0x7f0301c2, 0x7f0301c3, 0x7f0301c4, 0x7f0301c5, 0x7f0301c6, 0x7f0301c7 };
+        public static final int[] ShimmerFrameLayout = { 0x7f030220, 0x7f030221, 0x7f030222, 0x7f030223, 0x7f030224, 0x7f030225, 0x7f030226, 0x7f030227, 0x7f030228, 0x7f030229, 0x7f03022a, 0x7f03022b, 0x7f03022c, 0x7f03022d, 0x7f03022e, 0x7f03022f, 0x7f030230, 0x7f030231, 0x7f030232, 0x7f030233 };
         public static final int ShimmerFrameLayout_shimmer_auto_start = 0;
         public static final int ShimmerFrameLayout_shimmer_base_alpha = 1;
         public static final int ShimmerFrameLayout_shimmer_base_color = 2;

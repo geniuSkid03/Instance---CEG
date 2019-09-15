@@ -1,29 +1,31 @@
 package com.inspiregeniussquad.handstogether.appStorage.daos;
 
-import android.arch.persistence.db.SupportSQLiteStatement;
-import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
-import android.arch.persistence.room.EntityInsertionAdapter;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.RoomSQLiteQuery;
-import android.arch.persistence.room.SharedSQLiteStatement;
 import android.database.Cursor;
+import androidx.room.EntityDeletionOrUpdateAdapter;
+import androidx.room.EntityInsertionAdapter;
+import androidx.room.RoomDatabase;
+import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
+import androidx.room.util.CursorUtil;
+import androidx.room.util.DBUtil;
+import androidx.sqlite.db.SupportSQLiteStatement;
 import com.inspiregeniussquad.handstogether.appStorage.TeamData;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 
-@SuppressWarnings("unchecked")
-public class TeamDao_Impl implements TeamDao {
+@SuppressWarnings({"unchecked", "deprecation"})
+public final class TeamDao_Impl implements TeamDao {
   private final RoomDatabase __db;
 
-  private final EntityInsertionAdapter __insertionAdapterOfTeamData;
+  private final EntityInsertionAdapter<TeamData> __insertionAdapterOfTeamData;
 
-  private final EntityInsertionAdapter __insertionAdapterOfTeamData_1;
+  private final EntityInsertionAdapter<TeamData> __insertionAdapterOfTeamData_1;
 
-  private final EntityDeletionOrUpdateAdapter __deletionAdapterOfTeamData;
+  private final EntityDeletionOrUpdateAdapter<TeamData> __deletionAdapterOfTeamData;
 
-  private final EntityDeletionOrUpdateAdapter __updateAdapterOfTeamData;
+  private final EntityDeletionOrUpdateAdapter<TeamData> __updateAdapterOfTeamData;
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAllTeams;
 
@@ -32,7 +34,7 @@ public class TeamDao_Impl implements TeamDao {
     this.__insertionAdapterOfTeamData = new EntityInsertionAdapter<TeamData>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `TeamData`(`teamId`,`teamName`,`teamLogoUrl`,`teamMotto`,`teamMembersCount`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `TeamData` (`teamId`,`teamName`,`teamLogoUrl`,`teamMotto`,`teamMembersCount`) VALUES (nullif(?, 0),?,?,?,?)";
       }
 
       @Override
@@ -63,7 +65,7 @@ public class TeamDao_Impl implements TeamDao {
     this.__insertionAdapterOfTeamData_1 = new EntityInsertionAdapter<TeamData>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `TeamData`(`teamId`,`teamName`,`teamLogoUrl`,`teamMotto`,`teamMembersCount`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR REPLACE INTO `TeamData` (`teamId`,`teamName`,`teamLogoUrl`,`teamMotto`,`teamMembersCount`) VALUES (nullif(?, 0),?,?,?,?)";
       }
 
       @Override
@@ -144,7 +146,8 @@ public class TeamDao_Impl implements TeamDao {
   }
 
   @Override
-  public void insert(TeamData teamData) {
+  public void insert(final TeamData teamData) {
+    __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
     try {
       __insertionAdapterOfTeamData.insert(teamData);
@@ -155,7 +158,8 @@ public class TeamDao_Impl implements TeamDao {
   }
 
   @Override
-  public void insertAll(ArrayList<TeamData> teamDataArrayList) {
+  public void insertAll(final ArrayList<TeamData> teamDataArrayList) {
+    __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
     try {
       __insertionAdapterOfTeamData_1.insert(teamDataArrayList);
@@ -166,7 +170,8 @@ public class TeamDao_Impl implements TeamDao {
   }
 
   @Override
-  public void deleteTeam(TeamData teamData) {
+  public void deleteTeam(final TeamData teamData) {
+    __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
     try {
       __deletionAdapterOfTeamData.handle(teamData);
@@ -177,7 +182,8 @@ public class TeamDao_Impl implements TeamDao {
   }
 
   @Override
-  public void updateTeam(TeamData teamData) {
+  public void updateTeam(final TeamData teamData) {
+    __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
     try {
       __updateAdapterOfTeamData.handle(teamData);
@@ -189,6 +195,7 @@ public class TeamDao_Impl implements TeamDao {
 
   @Override
   public void deleteAllTeams() {
+    __db.assertNotSuspendingTransaction();
     final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllTeams.acquire();
     __db.beginTransaction();
     try {
@@ -201,7 +208,7 @@ public class TeamDao_Impl implements TeamDao {
   }
 
   @Override
-  public TeamData getTeamInfo(String teamName) {
+  public TeamData getTeamInfo(final String teamName) {
     final String _sql = "SELECT * from TeamData WHERE teamName = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -210,13 +217,14 @@ public class TeamDao_Impl implements TeamDao {
     } else {
       _statement.bindString(_argIndex, teamName);
     }
-    final Cursor _cursor = __db.query(_statement);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
-      final int _cursorIndexOfTeamId = _cursor.getColumnIndexOrThrow("teamId");
-      final int _cursorIndexOfTeamName = _cursor.getColumnIndexOrThrow("teamName");
-      final int _cursorIndexOfTeamLogoUrl = _cursor.getColumnIndexOrThrow("teamLogoUrl");
-      final int _cursorIndexOfTeamMotto = _cursor.getColumnIndexOrThrow("teamMotto");
-      final int _cursorIndexOfTeamMembersCount = _cursor.getColumnIndexOrThrow("teamMembersCount");
+      final int _cursorIndexOfTeamId = CursorUtil.getColumnIndexOrThrow(_cursor, "teamId");
+      final int _cursorIndexOfTeamName = CursorUtil.getColumnIndexOrThrow(_cursor, "teamName");
+      final int _cursorIndexOfTeamLogoUrl = CursorUtil.getColumnIndexOrThrow(_cursor, "teamLogoUrl");
+      final int _cursorIndexOfTeamMotto = CursorUtil.getColumnIndexOrThrow(_cursor, "teamMotto");
+      final int _cursorIndexOfTeamMembersCount = CursorUtil.getColumnIndexOrThrow(_cursor, "teamMembersCount");
       final TeamData _result;
       if(_cursor.moveToFirst()) {
         _result = new TeamData();
@@ -249,13 +257,14 @@ public class TeamDao_Impl implements TeamDao {
   public TeamData[] loadAll() {
     final String _sql = "Select * FROM TeamData";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    final Cursor _cursor = __db.query(_statement);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
-      final int _cursorIndexOfTeamId = _cursor.getColumnIndexOrThrow("teamId");
-      final int _cursorIndexOfTeamName = _cursor.getColumnIndexOrThrow("teamName");
-      final int _cursorIndexOfTeamLogoUrl = _cursor.getColumnIndexOrThrow("teamLogoUrl");
-      final int _cursorIndexOfTeamMotto = _cursor.getColumnIndexOrThrow("teamMotto");
-      final int _cursorIndexOfTeamMembersCount = _cursor.getColumnIndexOrThrow("teamMembersCount");
+      final int _cursorIndexOfTeamId = CursorUtil.getColumnIndexOrThrow(_cursor, "teamId");
+      final int _cursorIndexOfTeamName = CursorUtil.getColumnIndexOrThrow(_cursor, "teamName");
+      final int _cursorIndexOfTeamLogoUrl = CursorUtil.getColumnIndexOrThrow(_cursor, "teamLogoUrl");
+      final int _cursorIndexOfTeamMotto = CursorUtil.getColumnIndexOrThrow(_cursor, "teamMotto");
+      final int _cursorIndexOfTeamMembersCount = CursorUtil.getColumnIndexOrThrow(_cursor, "teamMembersCount");
       final TeamData[] _result = new TeamData[_cursor.getCount()];
       int _index = 0;
       while(_cursor.moveToNext()) {

@@ -2,7 +2,7 @@ package com.inspiregeniussquad.handstogether.appDialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Admin;
+import com.inspiregeniussquad.handstogether.appData.Keys;
 
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class AddAdminDialog extends Dialog {
 
     private EditText adminNameEd, adminMobileEd;
     private RadioGroup desgntRgrp;
-    private RadioButton adminRb, superAdminRb, editorRb, staffRb;
+    private RadioButton newsAdminRb, superAdminRb, editorRb, circularAdminRb, circularManagerRb, newsManagerRb;
     private FloatingActionButton saveFab;
 
     private AdminListener adminListener;
@@ -45,10 +46,12 @@ public class AddAdminDialog extends Dialog {
         adminNameEd = addAdminView.findViewById(R.id.admin_name);
         adminMobileEd = addAdminView.findViewById(R.id.admin_mobile);
         desgntRgrp = addAdminView.findViewById(R.id.admin_desg_grp);
-        adminRb = addAdminView.findViewById(R.id.admin_rb);
+        newsAdminRb = addAdminView.findViewById(R.id.news_admin_rb);
         superAdminRb = addAdminView.findViewById(R.id.super_admin_rb);
         editorRb = addAdminView.findViewById(R.id.editor_rb);
-        staffRb = addAdminView.findViewById(R.id.staff_rb);
+        circularAdminRb = addAdminView.findViewById(R.id.circular_admin_rb);
+        circularManagerRb = addAdminView.findViewById(R.id.circular_admin_rb_2);
+        newsManagerRb = addAdminView.findViewById(R.id.news_admin_rb_2);
 
         saveFab = addAdminView.findViewById(R.id.save_admin);
 
@@ -57,17 +60,23 @@ public class AddAdminDialog extends Dialog {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 switch (checkedId) {
-                    case R.id.staff_rb:
-                        designation = 2;
-                        break;
                     case R.id.super_admin_rb:
-                        designation = 0;
-                        break;
-                    case R.id.admin_rb:
                         designation = 1;
                         break;
-                    case R.id.editor_rb:
+                    case R.id.news_admin_rb:
+                        designation = 2;
+                        break;
+                    case R.id.news_admin_rb_2:
                         designation = 3;
+                        break;
+                    case R.id.circular_admin_rb:
+                        designation = 4;
+                        break;
+                    case R.id.circular_admin_rb_2:
+                        designation = 5;
+                        break;
+                    case R.id.editor_rb:
+                        designation = 6;
                         break;
                 }
             }
@@ -110,6 +119,43 @@ public class AddAdminDialog extends Dialog {
         adminMobileEd.setText("");
         desgntRgrp.clearCheck();
         designation = -1;
+    }
+
+    public void prepareUi(String adminType) {
+        switch (adminType) {
+            case Keys.SUPER_ADMIN:
+                superAdminRb.setVisibility(View.VISIBLE);
+                editorRb.setVisibility(View.VISIBLE);
+                circularAdminRb.setVisibility(View.VISIBLE);
+                newsAdminRb.setVisibility(View.VISIBLE);
+                newsManagerRb.setVisibility(View.VISIBLE);
+                circularManagerRb.setVisibility(View.VISIBLE);
+                break;
+            case Keys.CIRCULAR_ADMIN:
+                superAdminRb.setVisibility(View.GONE);
+                editorRb.setVisibility(View.GONE);
+                circularAdminRb.setVisibility(View.VISIBLE);
+                newsAdminRb.setVisibility(View.GONE);
+                newsManagerRb.setVisibility(View.GONE);
+                circularManagerRb.setVisibility(View.VISIBLE);
+                break;
+            case Keys.NEWS_ADMIN:
+                newsManagerRb.setVisibility(View.VISIBLE);
+                circularManagerRb.setVisibility(View.GONE);
+                superAdminRb.setVisibility(View.GONE);
+                editorRb.setVisibility(View.VISIBLE);
+                circularAdminRb.setVisibility(View.GONE);
+                newsAdminRb.setVisibility(View.VISIBLE);
+                break;
+            case Keys.GENIUS_ADMIN:
+                superAdminRb.setVisibility(View.VISIBLE);
+                editorRb.setVisibility(View.VISIBLE);
+                circularAdminRb.setVisibility(View.VISIBLE);
+                newsAdminRb.setVisibility(View.VISIBLE);
+                newsManagerRb.setVisibility(View.VISIBLE);
+                circularManagerRb.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     public interface AdminListener {

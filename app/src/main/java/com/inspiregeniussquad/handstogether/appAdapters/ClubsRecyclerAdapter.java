@@ -1,9 +1,6 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +10,19 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Clubs;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ClubsRecyclerAdapter extends RecyclerView.Adapter<ClubsRecyclerAdapter.ClubsItemViewHolder> {
 
     private Context context;
     private ArrayList<Clubs> clubsArrayList;
 
-    private ImageLoader imageLoader;
+//    private ImageLoader imageLoader;
 
 
     private ClubClickListener clubClickListener;
@@ -32,7 +32,7 @@ public class ClubsRecyclerAdapter extends RecyclerView.Adapter<ClubsRecyclerAdap
         this.clubsArrayList = clubsArrayList;
         this.clubClickListener = clubClickListener;
 
-        imageLoader = ImageLoader.getInstance();
+        //imageLoader = ImageLoader.getInstance();
     }
 
     @NonNull

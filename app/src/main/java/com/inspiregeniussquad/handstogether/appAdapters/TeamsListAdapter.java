@@ -1,9 +1,6 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +10,12 @@ import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Team;
 import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.TeamsList> {
 
@@ -23,7 +23,7 @@ public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.Team
     private Context context;
     private TeamClickListener teamClickListener;
 
-    private ImageLoader imageLoader;
+//    private ImageLoader imageLoader;
 
 
     public TeamsListAdapter(Context context, ArrayList<Team> teamArrayList, TeamClickListener teamClickListener){
@@ -31,7 +31,7 @@ public class TeamsListAdapter extends RecyclerView.Adapter<TeamsListAdapter.Team
         this.teamArrayList = teamArrayList;
         this.teamClickListener =  teamClickListener;
 
-        imageLoader = ImageLoader.getInstance();
+//        imageLoader = ImageLoader.getInstance();
     }
 
 

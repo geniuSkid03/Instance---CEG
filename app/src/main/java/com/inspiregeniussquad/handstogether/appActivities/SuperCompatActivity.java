@@ -9,13 +9,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -53,6 +47,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.content.ContextCompat;
 import butterknife.ButterKnife;
 import id.zelory.compressor.Compressor;
 
@@ -284,7 +284,8 @@ public class SuperCompatActivity extends AppCompatActivity {
     }
 
     //open activity with shared element transition
-    protected void openWithImageTransition(Context from, Class to, boolean close, ImageView imageView, String key, String value) {
+    protected void openWithImageTransition(Context from, Class to, boolean close,
+                                           ImageView imageView, String key, String value) {
         Intent intent = new Intent(from, to);
         intent.putExtra(key, value);
         ActivityOptionsCompat options = ActivityOptionsCompat.
@@ -339,7 +340,7 @@ public class SuperCompatActivity extends AppCompatActivity {
 
             //snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.red));  /*setting up action bar color*/
             snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark)); /*setting background color*/
-            ((TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text)).setTextColor(ContextCompat.getColor(this, R.color.white)); /*Setting text color*/
+            ((TextView) snackBarView.findViewById(R.id.snackbar_text)).setTextColor(ContextCompat.getColor(this, R.color.white)); /*Setting text color*/
 
             if (!isFinishing()) {
                 snackbar.show();

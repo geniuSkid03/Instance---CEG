@@ -1,15 +1,15 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatButton;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -20,17 +20,17 @@ import java.lang.Override;
 public class SignupActivity_ViewBinding implements Unbinder {
   private SignupActivity target;
 
-  private View view2131296494;
+  private View view7f09010e;
 
-  private View view2131296435;
+  private View view7f0900d2;
 
-  private View view2131296601;
+  private View view7f090192;
 
-  private View view2131296492;
+  private View view7f09010c;
 
-  private View view2131296433;
+  private View view7f0900cf;
 
-  private View view2131296446;
+  private View view7f0900df;
 
   @UiThread
   public SignupActivity_ViewBinding(SignupActivity target) {
@@ -47,7 +47,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.radioGrp = Utils.findRequiredViewAsType(source, R.id.radio_grp, "field 'radioGrp'", RadioGroup.class);
     view = Utils.findRequiredView(source, R.id.male_rb, "field 'maleRdBtn' and method 'onclicked'");
     target.maleRdBtn = Utils.castView(view, R.id.male_rb, "field 'maleRdBtn'", RadioButton.class);
-    view2131296494 = view;
+    view7f09010e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.female_rb, "field 'femaleRdBtn' and method 'onclicked'");
     target.femaleRdBtn = Utils.castView(view, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
-    view2131296435 = view;
+    view7f0900d2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.register_me, "field 'registerMeBtn' and method 'onclicked'");
     target.registerMeBtn = Utils.castView(view, R.id.register_me, "field 'registerMeBtn'", AppCompatButton.class);
-    view2131296601 = view;
+    view7f090192 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.login_me, "field 'loginMeBtn' and method 'onclicked'");
     target.loginMeBtn = Utils.castView(view, R.id.login_me, "field 'loginMeBtn'", TextView.class);
-    view2131296492 = view;
+    view7f09010c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -83,7 +83,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.facebook_login, "field 'fbLoginIv' and method 'onclicked'");
     target.fbLoginIv = Utils.castView(view, R.id.facebook_login, "field 'fbLoginIv'", ImageView.class);
-    view2131296433 = view;
+    view7f0900cf = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,7 +92,7 @@ public class SignupActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.google_login, "field 'googleLoginIv' and method 'onclicked'");
     target.googleLoginIv = Utils.castView(view, R.id.google_login, "field 'googleLoginIv'", ImageView.class);
-    view2131296446 = view;
+    view7f0900df = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -118,17 +118,17 @@ public class SignupActivity_ViewBinding implements Unbinder {
     target.fbLoginIv = null;
     target.googleLoginIv = null;
 
-    view2131296494.setOnClickListener(null);
-    view2131296494 = null;
-    view2131296435.setOnClickListener(null);
-    view2131296435 = null;
-    view2131296601.setOnClickListener(null);
-    view2131296601 = null;
-    view2131296492.setOnClickListener(null);
-    view2131296492 = null;
-    view2131296433.setOnClickListener(null);
-    view2131296433 = null;
-    view2131296446.setOnClickListener(null);
-    view2131296446 = null;
+    view7f09010e.setOnClickListener(null);
+    view7f09010e = null;
+    view7f0900d2.setOnClickListener(null);
+    view7f0900d2 = null;
+    view7f090192.setOnClickListener(null);
+    view7f090192 = null;
+    view7f09010c.setOnClickListener(null);
+    view7f09010c = null;
+    view7f0900cf.setOnClickListener(null);
+    view7f0900cf = null;
+    view7f0900df.setOnClickListener(null);
+    view7f0900df = null;
   }
 }

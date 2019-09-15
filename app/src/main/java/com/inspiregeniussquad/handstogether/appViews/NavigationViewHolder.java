@@ -1,6 +1,6 @@
 package com.inspiregeniussquad.handstogether.appViews;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.inspiregeniussquad.handstogether.appAdapters.NavMenuAdapter;

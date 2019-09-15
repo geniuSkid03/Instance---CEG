@@ -16,7 +16,7 @@ import android.util.Log;
 
 import com.inspiregeniussquad.handstogether.R;
 
-public class CircularImageView extends android.support.v7.widget.AppCompatImageView {
+public class CircularImageView extends androidx.appcompat.widget.AppCompatImageView {
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 
     // Default Values

@@ -1,14 +1,14 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.google.android.material.tabs.TabLayout;
 import com.inspiregeniussquad.handstogether.R;
 import java.lang.IllegalStateException;
 import java.lang.Override;

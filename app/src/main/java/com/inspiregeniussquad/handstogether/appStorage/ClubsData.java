@@ -1,6 +1,6 @@
 package com.inspiregeniussquad.handstogether.appStorage;
 
-import android.arch.persistence.room.Entity;
+import androidx.room.Entity;
 
 @Entity
 public class ClubsData {

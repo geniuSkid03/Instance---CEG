@@ -1,11 +1,11 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatButton;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -16,7 +16,7 @@ import java.lang.Override;
 public class MobileNumberActivity_ViewBinding implements Unbinder {
   private MobileNumberActivity target;
 
-  private View view2131296388;
+  private View view7f09009f;
 
   @UiThread
   public MobileNumberActivity_ViewBinding(MobileNumberActivity target) {
@@ -31,7 +31,7 @@ public class MobileNumberActivity_ViewBinding implements Unbinder {
     target.inputMobile = Utils.findRequiredViewAsType(source, R.id.mobile, "field 'inputMobile'", EditText.class);
     view = Utils.findRequiredView(source, R.id.continue_btn, "field 'continueBtn' and method 'onClick'");
     target.continueBtn = Utils.castView(view, R.id.continue_btn, "field 'continueBtn'", AppCompatButton.class);
-    view2131296388 = view;
+    view7f09009f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class MobileNumberActivity_ViewBinding implements Unbinder {
     target.inputMobile = null;
     target.continueBtn = null;
 
-    view2131296388.setOnClickListener(null);
-    view2131296388 = null;
+    view7f09009f.setOnClickListener(null);
+    view7f09009f = null;
   }
 }

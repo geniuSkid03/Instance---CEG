@@ -181,7 +181,7 @@
 
     </ScrollView>
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/update_team_btn"
         style="@style/ButtonBg"
         android:layout_width="match_parent"

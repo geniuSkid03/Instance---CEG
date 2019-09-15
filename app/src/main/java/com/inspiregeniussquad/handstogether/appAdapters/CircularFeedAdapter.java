@@ -1,8 +1,10 @@
 package com.inspiregeniussquad.handstogether.appAdapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
+import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.CircularFeedLayout;
 
 import java.util.ArrayList;
@@ -75,7 +78,12 @@ public class CircularFeedAdapter extends RecyclerView.Adapter<CircularFeedAdapte
             if (circularDataItems.getCircularImgPath() != null) {
                 Glide.with(context).load(circularDataItems.getCircularImgPath()).into(circularImgIv);
             } else {
-                Glide.with(context).load(R.drawable.pdf_icon).into(circularImgIv);
+                if(circularDataItems.getPdfPath() != null) {
+                    Bitmap bitmap = AppHelper.getPreviewImageFromPdf(context, Uri.parse(circularDataItems.getPdfPath()));
+                    Glide.with(context).load(bitmap != null ? bitmap : R.drawable.pdf_icon).into(circularImgIv);
+                } else {
+                    Glide.with(context).load(R.drawable.pdf_icon).into(circularImgIv);
+                }
             }
 
             circularImgIv.setOnClickListener(new View.OnClickListener() {

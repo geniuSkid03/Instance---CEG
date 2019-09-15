@@ -10,6 +10,8 @@ public class Keys {
     public static final String USER_NAME = "user_name";
     public static final String USER_EMAIL = "user_email";
     public static final String USER_GENDER = "user_gender";
+    public static final String USER_BOOKMARKS = "user_bookmarks";
+    public static final String BOOKMARKS = "bookmarks";
     public static final String PROFILE_IMAGE = "profile_image";
 
     public static final String FRAGMENT_HOME = "HOME_FRAGMENT";
@@ -49,6 +51,7 @@ public class Keys {
     public static final String ADMIN_VALUE = "admin_value";
     public static final String NOT_ADMIN = "normal_user";
     public static final String FRAGMENT_BOOKMARKS = "fragment_bookmarks";
+
     public static final String URL_PRIVACY = "https://sites.google.com/view/cegspartanz-privacy-policy/your-page-title";
     public static final String URL_TERMS = "https://sites.google.com/view/cegspartanz-privacy-policy/your-page-title";
 
@@ -82,5 +85,12 @@ public class Keys {
     //team Names
     public static final String TEAM_SPARTANZ = "CEG Spartanz";
 
+    public static final String GENIUS_ADMIN = "geniuSAdmin"; //0
+    public static final String SUPER_ADMIN = "sAdmin"; //1
+    public static final String NEWS_ADMIN = "nAdmin"; //2
+    public static final String NEWS_MANAGER = "nsManager"; //3
+    public static final String CIRCULAR_ADMIN = "cAdmin"; //4
+    public static final String CIRCULAR_MANAGER = "csManager"; //5
+    public static final String EDITOR = "nsEditor"; //6
 
 }

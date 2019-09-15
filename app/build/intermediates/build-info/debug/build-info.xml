@@ -2,93 +2,110 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="28"
-    build-mode="COLD"
+    build-mode="FULL"
     density="xxhdpi"
     format="10"
-    ir-eligibility="IMPLEMENTED_INTERFACES_CHANGE"
     plugin-version="3.2.1"
-    timestamp="1567481131411"
+    timestamp="1568580965313"
     token="-6350757260770616743"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="6264" />
+        duration="6911" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="166" />
+        duration="1654" />
     <task
         name="verifier"
-        duration="5" />
+        duration="1061" />
 
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
     <artifact
         location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
         type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1567464397637"
+        timestamp="1568580965313"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
             location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
             location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1567480473514"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="IMPLEMENTED_INTERFACES_CHANGE"
-        timestamp="1567481131411"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
+            location="E:\Android Studio Projects\Instance---CEG\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

@@ -3,8 +3,8 @@ package com.inspiregeniussquad.handstogether.appActivities;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatButton;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import android.view.View;
 import android.widget.ListView;
 

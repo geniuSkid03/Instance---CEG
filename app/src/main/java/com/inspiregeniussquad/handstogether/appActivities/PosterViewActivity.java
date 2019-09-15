@@ -8,22 +8,19 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.CircularDataItems;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.ZoomImageView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
@@ -31,6 +28,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -53,7 +52,7 @@ public class PosterViewActivity extends SuperCompatActivity {
 
     private NewsFeedItems newsFeedItems;
     private CircularDataItems circularDataItems;
-    private ImageLoader imageLoader;
+//    private ImageLoader imageLoader;
 
 
     @Override
@@ -75,7 +74,7 @@ public class PosterViewActivity extends SuperCompatActivity {
             supportFinishAfterTransition();
         }
 
-        imageLoader = ImageLoader.getInstance();
+//        imageLoader = ImageLoader.getInstance();
 
         if(newsFeedItems != null) {
             AppHelper.print("Poster url: "+newsFeedItems.getPstrUrl());

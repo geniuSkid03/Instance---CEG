@@ -1,14 +1,14 @@
 // Generated code from Butter Knife. Do not modify!
 package com.inspiregeniussquad.handstogether.appActivities;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatButton;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -19,7 +19,7 @@ import java.lang.Override;
 public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
   private ProfileUpdatingActivity target;
 
-  private View view2131296737;
+  private View view7f090225;
 
   @UiThread
   public ProfileUpdatingActivity_ViewBinding(ProfileUpdatingActivity target) {
@@ -39,7 +39,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = Utils.findRequiredViewAsType(source, R.id.female_rb, "field 'femaleRdBtn'", RadioButton.class);
     view = Utils.findRequiredView(source, R.id.update_profile, "field 'updateProfileBtn' and method 'onBtnClicked'");
     target.updateProfileBtn = Utils.castView(view, R.id.update_profile, "field 'updateProfileBtn'", AppCompatButton.class);
-    view2131296737 = view;
+    view7f090225 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -63,7 +63,7 @@ public class ProfileUpdatingActivity_ViewBinding implements Unbinder {
     target.femaleRdBtn = null;
     target.updateProfileBtn = null;
 
-    view2131296737.setOnClickListener(null);
-    view2131296737 = null;
+    view7f090225.setOnClickListener(null);
+    view7f090225 = null;
   }
 }

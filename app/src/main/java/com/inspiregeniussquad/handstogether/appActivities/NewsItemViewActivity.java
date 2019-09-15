@@ -1,12 +1,6 @@
 package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,16 +8,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.inspiregeniussquad.handstogether.R;
 import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.NewsFeedItems;
 import com.inspiregeniussquad.handstogether.appHelpers.DbHelper;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 import com.inspiregeniussquad.handstogether.appViews.CircularImageView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import butterknife.BindView;
 
 public class NewsItemViewActivity extends SuperCompatActivity {
@@ -65,7 +64,7 @@ public class NewsItemViewActivity extends SuperCompatActivity {
     CircularImageView teamLogo2Iv;
 
     private NewsFeedItems toShowNewsItem;
-    private ImageLoader imageLoader;
+//    private ImageLoader imageLoader;
 
     @BindView(R.id.watch_video)
     AppCompatButton watchVideoBtn;
@@ -96,7 +95,7 @@ public class NewsItemViewActivity extends SuperCompatActivity {
             finish();
         }
 
-        imageLoader = ImageLoader.getInstance();
+//        imageLoader = ImageLoader.getInstance();
 
 
         if (toShowNewsItem != null) {

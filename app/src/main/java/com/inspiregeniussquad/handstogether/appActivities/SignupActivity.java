@@ -2,9 +2,6 @@ package com.inspiregeniussquad.handstogether.appActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,18 +11,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -46,12 +31,11 @@ import com.inspiregeniussquad.handstogether.appData.Keys;
 import com.inspiregeniussquad.handstogether.appData.Users;
 import com.inspiregeniussquad.handstogether.appUtils.AppHelper;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -88,9 +72,9 @@ public class SignupActivity extends SuperCompatActivity {
     private GoogleApiClient googleApiClient;
     private String mobileNumber, name, email, gender;
 
-    private CallbackManager mCallbackManager;
-    private AccessTokenTracker mTokenTracker;
-    private ProfileTracker mProfileTracker;
+//    private CallbackManager mCallbackManager;
+//    private AccessTokenTracker mTokenTracker;
+//    private ProfileTracker mProfileTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +118,7 @@ public class SignupActivity extends SuperCompatActivity {
                 maleRdBtn.setChecked(true);
                 break;
             case R.id.facebook_login:
-                loginWithFb();
+                //loginWithFb();
                 break;
             case R.id.google_login:
                 getUserEmail();
@@ -191,7 +175,7 @@ public class SignupActivity extends SuperCompatActivity {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 String token = instanceIdResult.getToken();
-                AppHelper.print("FCM TOKEN: "+token);
+                AppHelper.print("FCM TOKEN: " + token);
                 users.setFcmToken(token);
             }
         });
@@ -279,7 +263,7 @@ public class SignupActivity extends SuperCompatActivity {
 
         users.setUserId(userId);
 
-        AppHelper.print("user id: "+userId);
+        AppHelper.print("user id: " + userId);
 
         users.setUserId(userId);
 
@@ -312,15 +296,15 @@ public class SignupActivity extends SuperCompatActivity {
         ArrayList<Admin> adminArrayList = gson.fromJson(admins, new TypeToken<ArrayList<Admin>>() {
         }.getType());
 
-        if(adminArrayList != null && adminArrayList.size() > 0) {
-            for(Admin admin : adminArrayList) {
-                if(admin.getMobile().equals(users.getMobile())) {
+        if (adminArrayList != null && adminArrayList.size() > 0) {
+            for (Admin admin : adminArrayList) {
+                if (admin.getMobile().equals(users.getMobile())) {
                     dataStorage.saveBoolean(Keys.IS_ADMIN, true);
                     dataStorage.saveString(Keys.ADMIN_VALUE, admin.getPosition());
                 } else {
                     dataStorage.saveBoolean(Keys.IS_ADMIN, false);
                 }
-             }
+            }
         }
 
         cancelProgress();
@@ -330,114 +314,114 @@ public class SignupActivity extends SuperCompatActivity {
 
     private void setUpFacebook() {
         // Facebook Initialization
-        FacebookSdk.sdkInitialize(getApplicationContext());
+//        FacebookSdk.sdkInitialize(getApplicationContext());
 
         //  create a callback manager to handle login responses
-        mCallbackManager = CallbackManager.Factory.create();
+//        mCallbackManager = CallbackManager.Factory.create();
 
         // set up Profile Tracker for Profile Change and Set up Token Tracker for Access Token Changes.
-        setupTokenTracker();
-        setupProfileTracker();
-
-        mTokenTracker.startTracking();
-        mProfileTracker.startTracking();
+//        setupTokenTracker();
+//        setupProfileTracker();
+//
+//        mTokenTracker.startTracking();
+//        mProfileTracker.startTracking();
     }
 
-    private void setupTokenTracker() {
-        mTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                //   Log.i(FACEBOOK, "Profile Access Token Change " + currentAccessToken);
-            }
-        };
-    }
+//    private void setupTokenTracker() {
+//        mTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                   Log.i(FACEBOOK, "Profile Access Token Change " + currentAccessToken);
+//            }
+//        };
+//    }
+//
+//    private void setupProfileTracker() {
+//        mProfileTracker = new ProfileTracker() {
+//            @Override
+//            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+//                   Log.i(FACEBOOK, "Profile Tracker profile changed" + currentProfile);
+//                if (currentProfile != null) {
+//                       Log.i(FACEBOOK, "Profile" + currentProfile);
+//                    /*try {
+//                        if(currentProfile.getProfilePictureUri(256, 256)!=null) {
+//                            Uri uri=currentProfile.getProfilePictureUri(300, 300);
+//                            Define.fb_picture=uri.toString();
+//                            Log.i(FACEBOOK, "Profile Tracker FB Profile Picture" + Define.fb_picture);
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }*/
+//
+//                }
+//            }
+//        };
+//    }
 
-    private void setupProfileTracker() {
-        mProfileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-                //   Log.i(FACEBOOK, "Profile Tracker profile changed" + currentProfile);
-                if (currentProfile != null) {
-                    //   Log.i(FACEBOOK, "Profile" + currentProfile);
-                    /*try {
-                        if(currentProfile.getProfilePictureUri(256, 256)!=null) {
-                            Uri uri=currentProfile.getProfilePictureUri(300, 300);
-                            Define.fb_picture=uri.toString();
-                            Log.i(FACEBOOK, "Profile Tracker FB Profile Picture" + Define.fb_picture);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }*/
-
-                }
-            }
-        };
-    }
-
-    private void loginWithFb() {
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
-        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                String fb_first_name = "", fb_last_name = "";
-                                try {
-                                    if (!object.getString("first_name").equals("")) {
-                                        fb_first_name = object.getString("first_name");
-                                        AppHelper.print("first_name: " + fb_first_name);
-                                    }
-                                    if (!object.getString("last_name").equals("")) {
-                                        fb_last_name = object.getString("last_name");
-                                        AppHelper.print("last_name: " + fb_last_name);
-                                    }
-
-                                    name = fb_first_name + fb_last_name;
-
-                                    if (!object.getString("email").equals("")) {
-                                        email = object.getString("email");
-                                        AppHelper.print("email: " + email);
-                                    }
-
-//                                    if (!object.getString("gender").equals("")) {
-//                                        gender = object.getString("gender");
-//                                        AppHelper.print("gender: " + gender);
+//    private void loginWithFb() {
+//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
+//        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(),
+//                        new GraphRequest.GraphJSONObjectCallback() {
+//
+//                            @Override
+//                            public void onCompleted(JSONObject object, GraphResponse response) {
+//                                String fb_first_name = "", fb_last_name = "";
+//                                try {
+//                                    if (!object.getString("first_name").equals("")) {
+//                                        fb_first_name = object.getString("first_name");
+//                                        AppHelper.print("first_name: " + fb_first_name);
 //                                    }
-
-//                                    if (!object.getJSONObject("picture").getJSONObject("data").getString("url").equals("")) {
-//                                        imgUrl = object.getJSONObject("picture").getJSONObject("data").getString("url");
-//                                        AppHelper.print("PROFILE PIC" + imgUrl);
+//                                    if (!object.getString("last_name").equals("")) {
+//                                        fb_last_name = object.getString("last_name");
+//                                        AppHelper.print("last_name: " + fb_last_name);
 //                                    }
-
-//                                    dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
-
-                                    checkAndRegister(email, name, "", 2);
-
-                                } catch (JSONException e) {
-                                    AppHelper.print("Exception in logging with fib");
-                                }
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "first_name, last_name, name, email");
-                graphRequest.setParameters(parameters);
-                graphRequest.executeAsync();
-            }
-
-            @Override
-            public void onCancel() {
-                showToast(SignupActivity.this, getString(R.string.fb_login_cancelled));
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                showToast(SignupActivity.this, getString(R.string.b_login_error));
-            }
-        });
-    }
+//
+//                                    name = fb_first_name + fb_last_name;
+//
+//                                    if (!object.getString("email").equals("")) {
+//                                        email = object.getString("email");
+//                                        AppHelper.print("email: " + email);
+//                                    }
+//
+////                                    if (!object.getString("gender").equals("")) {
+////                                        gender = object.getString("gender");
+////                                        AppHelper.print("gender: " + gender);
+////                                    }
+//
+////                                    if (!object.getJSONObject("picture").getJSONObject("data").getString("url").equals("")) {
+////                                        imgUrl = object.getJSONObject("picture").getJSONObject("data").getString("url");
+////                                        AppHelper.print("PROFILE PIC" + imgUrl);
+////                                    }
+//
+////                                    dataStorage.saveString(Keys.USER_PROFILE, imgUrl);
+//
+//                                    checkAndRegister(email, name, "", 2);
+//
+//                                } catch (JSONException e) {
+//                                    AppHelper.print("Exception in logging with fib");
+//                                }
+//                            }
+//                        });
+//                Bundle parameters = new Bundle();
+//                parameters.putString("fields", "first_name, last_name, name, email");
+//                graphRequest.setParameters(parameters);
+//                graphRequest.executeAsync();
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                showToast(SignupActivity.this, getString(R.string.fb_login_cancelled));
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                showToast(SignupActivity.this, getString(R.string.b_login_error));
+//            }
+//        });
+//    }
 
     private void setUpGoogle() {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -487,7 +471,7 @@ public class SignupActivity extends SuperCompatActivity {
                     showSnack(getString(R.string.gmail_sign_in_failed));
                 }
             } else {
-                mCallbackManager.onActivityResult(requestCode, resultCode, data);
+                //mCallbackManager.onActivityResult(requestCode, resultCode, data);
             }
         }
 

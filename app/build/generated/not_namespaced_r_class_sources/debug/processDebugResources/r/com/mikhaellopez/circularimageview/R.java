@@ -12,17 +12,17 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int civ_border = 0x7f03007f;
-        public static final int civ_border_color = 0x7f030080;
-        public static final int civ_border_width = 0x7f030081;
-        public static final int civ_shadow = 0x7f030082;
-        public static final int civ_shadow_color = 0x7f030083;
-        public static final int civ_shadow_radius = 0x7f030084;
+        public static final int civ_border = 0x7f030096;
+        public static final int civ_border_color = 0x7f030097;
+        public static final int civ_border_width = 0x7f030098;
+        public static final int civ_shadow = 0x7f030099;
+        public static final int civ_shadow_color = 0x7f03009a;
+        public static final int civ_shadow_radius = 0x7f03009b;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] CircularImageView = { 0x7f03003f, 0x7f030041, 0x7f030042, 0x7f03007f, 0x7f030080, 0x7f030081, 0x7f030082, 0x7f030083, 0x7f030084, 0x7f0301b1, 0x7f0301b2, 0x7f0301b3 };
+        public static final int[] CircularImageView = { 0x7f03004f, 0x7f030051, 0x7f030052, 0x7f030096, 0x7f030097, 0x7f030098, 0x7f030099, 0x7f03009a, 0x7f03009b, 0x7f030218, 0x7f030219, 0x7f03021a };
         public static final int CircularImageView_border = 0;
         public static final int CircularImageView_border_color = 1;
         public static final int CircularImageView_border_width = 2;
