@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Android Studio Projects\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\Genius\\Desktop\\Instance\\SourceCode\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0.aar\\37db9ed4d1a4a2f71fb55ac030c2a86d\\res\\values-v24\\values-v24.xml",

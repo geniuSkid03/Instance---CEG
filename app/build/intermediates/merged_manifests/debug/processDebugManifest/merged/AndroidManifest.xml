@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.inspiregeniussquad.handstogether"
+    package="com.instance.ceg"
     android:versionCode="1"
     android:versionName="1.5" >
 
@@ -24,7 +24,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
-        android:name="com.inspiregeniussquad.handstogether.appActivities.Instance"
+        android:name="com.instance.ceg.appActivities.Instance"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -37,9 +37,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.inspiregeniussquad.handstogether.appActivities.VideoViewActivity" />
+        <activity android:name="com.instance.ceg.appActivities.VideoViewActivity" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.SplashActivity"
+            android:name="com.instance.ceg.appActivities.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoTitle.Splash" >
             <intent-filter>
@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.MainActivity"
+            android:name="com.instance.ceg.appActivities.MainActivity"
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
@@ -66,73 +66,73 @@
              android:theme="@style/AppTheme.NoActionBar" />
         -->
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.MobileNumberActivity"
+            android:name="com.instance.ceg.appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.OtpVerificationActivity"
+            android:name="com.instance.ceg.appActivities.OtpVerificationActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.SignupActivity"
+            android:name="com.instance.ceg.appActivities.SignupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.NewsItemViewActivity"
+            android:name="com.instance.ceg.appActivities.NewsItemViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle.Splash" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ProfileUpdatingActivity"
+            android:name="com.instance.ceg.appActivities.ProfileUpdatingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.PermissionsHelperActivity"
+            android:name="com.instance.ceg.appActivities.PermissionsHelperActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.AdminActivity"
+            android:name="com.instance.ceg.appActivities.AdminActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageTeamsActivity"
+            android:name="com.instance.ceg.appActivities.ManageTeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageNewsActivity"
+            android:name="com.instance.ceg.appActivities.ManageNewsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageCircularActivity"
+            android:name="com.instance.ceg.appActivities.ManageCircularActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.AddTeamMembersActivity"
+            android:name="com.instance.ceg.appActivities.AddTeamMembersActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.PosterViewActivity"
+            android:name="com.instance.ceg.appActivities.PosterViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.CommentsViewActivity"
+            android:name="com.instance.ceg.appActivities.CommentsViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
         <provider
-            android:name="com.inspiregeniussquad.handstogether.appUtils.GenericFileProvider"
-            android:authorities="com.inspiregeniussquad.handstogether.my.package.name.provider"
+            android:name="com.instance.ceg.appUtils.GenericFileProvider"
+            android:authorities="com.instance.ceg.my.package.name.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -141,17 +141,17 @@
         </provider>
 
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageAdminsActivity"
+            android:name="com.instance.ceg.appActivities.ManageAdminsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.ManageClubsActivity"
+            android:name="com.instance.ceg.appActivities.ManageClubsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.AddClubsActivity"
+            android:name="com.instance.ceg.appActivities.AddClubsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
@@ -161,7 +161,7 @@
             android:value="@string/facebook_app_id" />
         -->
 
-        <service android:name="com.inspiregeniussquad.handstogether.appFcm.AppFcmService" >
+        <service android:name="com.instance.ceg.appFcm.AppFcmService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -181,11 +181,11 @@
             android:value="false" />
 
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.TeamsActivity"
+            android:name="com.instance.ceg.appActivities.TeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.inspiregeniussquad.handstogether.appActivities.TeamInfoActivity"
+            android:name="com.instance.ceg.appActivities.TeamInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
@@ -302,7 +302,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.inspiregeniussquad.handstogether.firebaseinitprovider"
+            android:authorities="com.instance.ceg.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
