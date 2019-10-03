@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp">
 
-        <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+        <com.instance.ceg.appViews.CircularImageView
             android:id="@+id/club_icon"
             android:layout_width="75dp"
             android:layout_height="75dp"

@@ -333,5 +333,7 @@
     <string name="circular_admin_">News Manager</string>
     <string name="added_to_bookmarks">Added to bookmarks!</string>
     <string name="removed_from_bookmarks">Removed from bookmarks!</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login_now">Login Now</string>
 
 </resources>

@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
-    <com.inspiregeniussquad.handstogether.appViews.NoSwipeViewPager
+    <com.instance.ceg.appViews.NoSwipeViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

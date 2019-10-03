@@ -95,7 +95,7 @@
         android:orientation="horizontal"
         android:padding="6dp">
 
-       <!-- <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+       <!-- <instancether.appViews.CircularImageView
             android:id="@+id/profile_img"
             android:layout_width="50dp"
             android:layout_height="50dp"

@@ -10,7 +10,7 @@
         android:tint="@color/white"
         app:backgroundTint="@color/colorPrimaryDark"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="@dimen/margin_16"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content" />
 
@@ -84,7 +84,7 @@
                     android:layout_height="90dp"
                     android:gravity="center">
 
-                    <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+                    <com.instance.ceg.appViews.CircularImageView
                         android:id="@+id/team_logo2"
                         android:layout_width="60dp"
                         android:layout_height="60dp"

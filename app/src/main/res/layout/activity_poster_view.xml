@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".appActivities.PosterViewActivity">
 
-    <com.inspiregeniussquad.handstogether.appViews.ZoomImageView
+    <com.instance.ceg.appViews.ZoomImageView
         android:id="@+id/poster_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

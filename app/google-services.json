@@ -1,112 +1,45 @@
 {
   "project_info": {
-    "project_number": "165859413607",
-    "firebase_url": "https://wefive-50838.firebaseio.com",
-    "project_id": "wefive-50838",
-    "storage_bucket": "wefive-50838.appspot.com"
+    "project_number": "92023454593",
+    "firebase_url": "https://android-applications-830bd.firebaseio.com",
+    "project_id": "android-applications-830bd",
+    "storage_bucket": "android-applications-830bd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:165859413607:android:e368f772df159c39",
+        "mobilesdk_app_id": "1:92023454593:android:6a7edd8fcf56db5e3f8680",
         "android_client_info": {
-          "package_name": "com.inspiregeniussquad.handstogether"
+          "package_name": "com.instance.ceg"
         }
       },
       "oauth_client": [
         {
-          "client_id": "165859413607-if0op0ddd558cqplot688cjh25pjfc26.apps.googleusercontent.com",
+          "client_id": "92023454593-lvvdjhf3p1e5h6g1dfdvmrvpgpqmuj25.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.inspiregeniussquad.handstogether",
-            "certificate_hash": "b1b00d154014baffff9bf1204ea91f63dfab25ec"
-          }
-        },
-        {
-          "client_id": "165859413607-hhu1moppd6ema5blqo62m5b11qrm3e13.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.inspiregeniussquad.handstogether",
-            "certificate_hash": "a35e4e505ed5fb0ab0b668b75a4744e49b63b183"
-          }
-        },
-        {
-          "client_id": "165859413607-s40hiq5e9o8so5hk47l3dv3eg2bjl7oj.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.inspiregeniussquad.handstogether",
+            "package_name": "com.instance.ceg",
             "certificate_hash": "40e1cf11dde654a7edda32bbf2acc6f912c7a221"
           }
         },
         {
-          "client_id": "165859413607-kv774rtngss6fluq8qq68k77rvmbm6dq.apps.googleusercontent.com",
+          "client_id": "92023454593-omp0pt1ep2li73qaba4vd4l9vb7ke083.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDIrQYxbCloCAmISbslRZwkDzdgqu1l02U"
+          "current_key": "AIzaSyCec97uoZW2JCAE5d50ngVWVW3z6JuVTuw"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "165859413607-qj97531p5tpdk4qomeivpenbv1lih1pu.apps.googleusercontent.com",
+              "client_id": "92023454593-omp0pt1ep2li73qaba4vd4l9vb7ke083.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:165859413607:android:024535aa998290ba",
-        "android_client_info": {
-          "package_name": "demo.example.com.wefive"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "165859413607-fu3mrej9lo39b91j6ibqpnivem0n5oc6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "demo.example.com.wefive",
-            "certificate_hash": "b1b00d154014baffff9bf1204ea91f63dfab25ec"
-          }
-        },
-        {
-          "client_id": "165859413607-kv774rtngss6fluq8qq68k77rvmbm6dq.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDIrQYxbCloCAmISbslRZwkDzdgqu1l02U"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "165859413607-qj97531p5tpdk4qomeivpenbv1lih1pu.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

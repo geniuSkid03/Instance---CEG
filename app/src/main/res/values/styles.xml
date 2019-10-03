@@ -83,6 +83,46 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+	<style name="AppTheme.NoTitle.Reveal" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Bg" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/dawn_bg</item>
+    </style>
+
+    <style name="TextContentStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/base_font</item>
+        <item name="android:textSize">@dimen/margin_13</item>
+    </style>
+
+    <style name="TextTitleStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/txt_18</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/base_font</item>
+    </style>
+
+    <style name="Toolbar.Text" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_up_anim</item>
         <item name="android:windowExitAnimation">@anim/slide_bottom_anim</item>

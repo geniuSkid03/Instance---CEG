@@ -21,7 +21,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent">
 
-            <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+            <com.instance.ceg.appViews.CircularImageView
                 android:id="@+id/team_logo"
                 android:layout_width="match_parent"
                 android:visibility="visible"
@@ -29,7 +29,7 @@
                 android:layout_alignParentStart="true"
                 android:src="@mipmap/ic_launcher" />
 
-            <!--<com.inspiregeniussquad.handstogether.appViews.CircularImageView
+            <!--<instancether.appViews.CircularImageView
                 android:id="@+id/team_logo_placeholder"
                 android:layout_width="75dp"
                 android:layout_height="75dp"

@@ -16,7 +16,7 @@
         android:textColor="@color/white"
         android:textSize="18sp" />
 
-    <com.inspiregeniussquad.handstogether.appViews.CircularImageView
+    <com.instance.ceg.appViews.CircularImageView
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="80dp"
