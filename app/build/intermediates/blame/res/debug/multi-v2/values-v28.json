@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Genius\\Desktop\\Instance\\SourceCode\\Instance---CEG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
+            "outputFile": "E:\\AndroidProjects\\Instance\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha10.aar\\550cf9ce59524270d3114afaadf025e1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-2\\files-2.1\\dc58e37f353f7048c9b1ffa7bc544646\\material-1.2.0-alpha03\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0.aar\\37da57c20ae3b93cd4ec48400d3f754a\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Genius\\.gradle\\caches\\transforms-2\\files-2.1\\fb8f7031ef66b8147647717c2aecca12\\appcompat-1.1.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

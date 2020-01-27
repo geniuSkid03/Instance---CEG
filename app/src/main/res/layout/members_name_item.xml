@@ -27,7 +27,7 @@
                 android:layout_marginEnd="5dp"
                 android:padding="3dp">
 
-                <com.mikhaellopez.circularimageview.CircularImageView
+                <com.instance.ceg.appViews.CircularImageView
                     android:id="@+id/member_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"

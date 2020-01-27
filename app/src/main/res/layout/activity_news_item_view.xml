@@ -36,7 +36,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <com.instance.ceg.appViews.CircularImageView
         android:id="@+id/circular_logo_view"
         android:layout_width="75dp"
         android:layout_height="75dp"

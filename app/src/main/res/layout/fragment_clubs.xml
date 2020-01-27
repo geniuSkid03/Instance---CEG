@@ -52,14 +52,4 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/club_loading_view"
-        app:indicatorColor="@color/colorPrimaryDark"
-        android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible"
-        style="@style/AVLoadingIndicatorView.Small"
-        app:indicatorName="BallPulseSyncIndicator"
-        android:layout_height="wrap_content" />
-
 </RelativeLayout>

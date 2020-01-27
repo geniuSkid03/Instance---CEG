@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="com.instance.ceg.appActivities.Instance"
+        android:name=".appActivities.Instance"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
@@ -26,9 +26,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name="com.instance.ceg.appActivities.VideoViewActivity"></activity>
+        <activity android:name=".appActivities.EditNewsActivity"
+            android:launchMode="singleTask"
+            android:noHistory="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".appActivities.WebActivity" />
+        <activity android:name=".appActivities.VideoViewActivity" />
         <activity
-            android:name="com.instance.ceg.appActivities.SplashActivity"
+            android:name=".appActivities.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoTitle.Splash">
             <intent-filter>
@@ -41,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.instance.ceg.appActivities.MainActivity"
+            android:name=".appActivities.MainActivity"
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
@@ -55,72 +61,72 @@
              android:theme="@style/AppTheme.NoActionBar" />
         -->
         <activity
-            android:name="com.instance.ceg.appActivities.MobileNumberActivity"
+            android:name=".appActivities.MobileNumberActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.OtpVerificationActivity"
+            android:name=".appActivities.OtpVerificationActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.SignupActivity"
+            android:name=".appActivities.SignupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.NewsItemViewActivity"
+            android:name=".appActivities.NewsItemViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle.Splash" />
         <activity
-            android:name="com.instance.ceg.appActivities.ProfileUpdatingActivity"
+            android:name=".appActivities.ProfileUpdatingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.PermissionsHelperActivity"
+            android:name=".appActivities.PermissionsHelperActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.instance.ceg.appActivities.AdminActivity"
+            android:name=".appActivities.AdminActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.ManageTeamsActivity"
+            android:name=".appActivities.ManageTeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.ManageNewsActivity"
+            android:name=".appActivities.ManageNewsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.ManageCircularActivity"
+            android:name=".appActivities.ManageCircularActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.AddTeamMembersActivity"
+            android:name=".appActivities.AddTeamMembersActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.PosterViewActivity"
+            android:name=".appActivities.PosterViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.instance.ceg.appActivities.CommentsViewActivity"
+            android:name=".appActivities.CommentsViewActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
         <provider
-            android:name="com.instance.ceg.appUtils.GenericFileProvider"
+            android:name=".appUtils.GenericFileProvider"
             android:authorities="${applicationId}.my.package.name.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -130,25 +136,26 @@
         </provider>
 
         <activity
-            android:name="com.instance.ceg.appActivities.ManageAdminsActivity"
+            android:name=".appActivities.ManageAdminsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.ManageClubsActivity"
+            android:name=".appActivities.ManageClubsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
         <activity
-            android:name="com.instance.ceg.appActivities.AddClubsActivity"
+            android:name=".appActivities.AddClubsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitle" />
-<!--<meta-data
+        <!--
+<meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />-->
-
-        <service android:name="com.instance.ceg.appFcm.AppFcmService">
+            android:value="@string/facebook_app_id" />
+        -->
+        <service android:name=".appFcm.AppFcmService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -168,11 +175,11 @@
             android:value="false" />
 
         <activity
-            android:name="com.instance.ceg.appActivities.TeamsActivity"
+            android:name=".appActivities.TeamsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.instance.ceg.appActivities.TeamInfoActivity"
+            android:name=".appActivities.TeamInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

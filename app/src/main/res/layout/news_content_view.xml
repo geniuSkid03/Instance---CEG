@@ -27,7 +27,7 @@
             android:layout_height="90dp"
             android:gravity="center">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
+            <com.instance.ceg.appViews.CircularImageView
                 android:id="@+id/team_logo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"

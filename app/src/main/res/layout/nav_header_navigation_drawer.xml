@@ -19,13 +19,13 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
-        <com.mikhaellopez.circularimageview.CircularImageView
+        <com.instance.ceg.appViews.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/nav_header_desc"
-            app:civ_border="true"
-            app:civ_border_width="1dp" />
+            app:border="true"
+            app:border_width="1dp" />
 
         <TextView
             android:id="@+id/user_name"

@@ -44,7 +44,7 @@
                     android:background="@color/colorPrimary"
                     android:gravity="center">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <com.instance.ceg.appViews.CircularImageView
                         android:id="@+id/user_profile"
                         android:layout_width="100dp"
                         android:layout_height="100dp"

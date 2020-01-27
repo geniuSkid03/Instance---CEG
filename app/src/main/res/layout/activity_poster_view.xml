@@ -17,17 +17,6 @@
         android:transitionName="@string/image_transition"
         tools:src="@drawable/splash_icon" />
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/image_placeholder"
-        style="@style/AVLoadingIndicatorView.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible"
-        app:indicatorColor="@color/colorPrimaryDark"
-        app:indicatorName="BallPulseSyncIndicator" />
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save_fab"
         android:layout_width="wrap_content"

@@ -11,6 +11,20 @@
         app:backgroundTint="@color/colorPrimaryDark"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/margin_16"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/share_fab"
+        android:layout_above="@+id/bookmark_fab"
+        android:tint="@color/white"
+        android:src="@drawable/ic_share_post_icon"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/margin_80"
+        android:layout_marginEnd="@dimen/margin_16"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content" />
 
