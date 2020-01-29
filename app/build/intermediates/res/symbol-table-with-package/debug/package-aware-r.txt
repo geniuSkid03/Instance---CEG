@@ -2742,6 +2742,7 @@ layout activity_add_clubs
 layout activity_add_team_members
 layout activity_admin
 layout activity_comments_view
+layout activity_edit_circular
 layout activity_edit_news
 layout activity_main_new
 layout activity_manage_admins
@@ -3041,6 +3042,7 @@ string default_members_count
 string default_notification_channel_id
 string default_web_client_id
 string delete
+string deleting_circular
 string deleting_news
 string designation
 string dummy_text

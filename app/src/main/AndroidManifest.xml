@@ -26,11 +26,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".appActivities.EditNewsActivity"
+        <activity android:name=".appActivities.EditCircularActivity"></activity>
+        <activity
+            android:name=".appActivities.EditNewsActivity"
             android:launchMode="singleTask"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".appActivities.WebActivity" />
         <activity android:name=".appActivities.VideoViewActivity" />
         <activity

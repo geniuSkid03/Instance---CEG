@@ -6,8 +6,8 @@ android {
         applicationId "com.instance.ceg"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 7
-        versionName "2.1"
+        versionCode 9
+        versionName "2.3"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -98,3 +98,4 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
+

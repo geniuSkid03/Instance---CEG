@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ import com.instance.ceg.appUtils.TeamDataHelper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
@@ -135,6 +137,39 @@ public class EditNewsActivity extends SuperCompatActivity {
                 }
             }
         }
+
+        loadDatePicker();
+
+        loadTimePicker();
+    }
+
+    private void loadDatePicker() {
+        Calendar calendar = dateSelected;
+
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateSelected.set(year, month, day, 0, 0);
+                eventDateTv.setText(AppHelper.getFormattedDate(dateSelected));
+                AppHelper.print("Date: " + eventDateTv.getText().toString());
+
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        eventDateTv.setText(AppHelper.getFormattedDate(dateSelected));
+
+        AppHelper.print("Date: " + eventDateTv.getText().toString());
+    }
+
+    private void loadTimePicker() {
+        int hour = timeSelected.get(Calendar.HOUR_OF_DAY);
+        int minute = timeSelected.get(Calendar.MINUTE);
+
+        timePickerDialog = new TimePickerDialog(this, (timePicker, hrs, mins) -> {
+            eventTimeTv.setText(String.format(Locale.getDefault(), "%d:%d", hrs, mins));
+            AppHelper.print("Time: " + eventTimeTv.getText().toString().trim());
+        }, hour, minute, true);
+        eventTimeTv.setText(String.format(Locale.getDefault(), "%d:%d", hour, minute));
+        AppHelper.print("Time: " + eventTimeTv.getText().toString().trim());
     }
 
     private void doFunctionsForClick(View view) {
