@@ -65,8 +65,8 @@
     <string name="press_again_to_exit">Press BACK again to exit!</string>
     <string name="collpasing_tool_bar_image">Collapsing Tool bar Image</string>
     <string name="end">*-*-*-*-*-*-*</string>
-    <string name="requesting_otp">Requesting Otp…</string>
-    <string name="verifying_otp">Verifying otp…</string>
+    <string name="requesting_otp">Requesting OTP…</string>
+    <string name="verifying_otp">Verifying OTP…</string>
     <string name="registering_you">Registering your account…</string>
     <string name="some_error_occurred">Some Error Occurred, try again later!</string>
     <string name="no_internet_title">No Internet!</string>
@@ -268,7 +268,7 @@
     <string name="choose_clubs">Choose club!</string>
     <string name="choose_club">Choose club</string>
     <string name="member_position">Designation</string>
-    <string name="enter_otp">Enter Otp</string>
+    <string name="enter_otp">Enter OTP</string>
     <string name="otP">OTP</string>
     <string name="enter_mobile_number">Enter mobile number</string>
     <string name="so_on">…</string>
@@ -285,7 +285,7 @@
     <string name="connect_yourself_with_ceg">Connect yourself with CEG</string>
     <string name="nothing_emoji">¯\\\_(ツ)_/¯</string>
     <string name="mob_verify">MOBILE VERIFICATION</string>
-    <string name="otp_verify">Otp Verification</string>
+    <string name="otp_verify">OTP Verification</string>
     <string name="name_not_found">Name not found!</string>
     <string name="email_not_found">Email not found!</string>
     <string name="un_specified">UnSpecified</string>
@@ -338,5 +338,10 @@
     <string name="about_us">\t\t\t\tCollege is where you start focusing on your career and become serious towards what you want out of  your passion, your dreams. College provide students with many opportunities to get involved in areas of interest outside of class, through athletic programs, clubs, jobs, internships, volunteer opportunities and study programs. All of these chances to expand from the classroom help students expand on their beliefs and values and find things they care about in life and ways to get involved. By giving students the option of participating in all of these activities to unveil their talents, each individual can make their college experience unique and thus define themselves as their own person. This is why a college experience is such a great opportunity today and is becoming more of a necessity. Even providing scholarships to students to manage their finances ensures strong relationships with the college. This quote by Swami Vivekananda very aptly enforces our responsibility toward providing education for all. Education goes a long way in bringing a change in the society by creating a fair competitive environment. Government and non-government organizations do their bit by providing scholarships for students. Students do not invest time in searching for available scholarships, though the information is all right there, INSTANCE is an official mobile application of college of engineering Guindy, Anna university developed by CEG SPARTANZ, the variety team of CEG. The aim is to ensure the delivery of valuable information at the right time that benefit the students of CEG. It provides instant updates of scholarships, events and activities of all the official clubs of CEG, tech fests and culturals of CEG. It also provides facilitates to save and share the information published.</string>
     <string name="updating_team_in_progress">Updating team information!</string>
     <string name="deleting_circular">Deleting cirular item...</string>
+    <string name="close">Close</string>
+    <string name="try_later">Some error occurred, try again later!</string>
+    <string name="news_editor">News Editor</string>
+    <string name="circular_editor">Circular Editor</string>
+    <string name="genius_admin">geniuS Admin</string>
 
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="6dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="6dp"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
@@ -26,12 +27,12 @@
                 layout="@layout/news_item_image" />
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/extras"
-                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/news_item_image"
                 android:layout_marginTop="165dp"
-                android:layout_height="wrap_content">
+                android:layout_marginBottom="4dp">
 
                 <TextView
                     android:id="@+id/name"
@@ -41,45 +42,64 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:padding="6dp"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/name"
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center|end"
-                    android:layout_below="@+id/name"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="18sp">
+                    android:layout_marginEnd="18sp"
+                    android:layout_marginBottom="8dp">
 
                     <TextView
                         android:id="@+id/desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_toStartOf="@+id/read_more"
+                        android:layout_marginEnd="@dimen/margin_4"
+                        android:layout_toStartOf="@+id/read_more_container"
+                        android:paddingStart="@dimen/margin_6"
+                        android:paddingLeft="@dimen/margin_8"
+                        android:maxLines="3"
                         android:ellipsize="end"
-                        android:maxLines="2"
-                        android:paddingStart="6dp"
-                        android:paddingLeft="8dp"
-                        android:paddingEnd="2sp"
-                        android:paddingRight="8dp"
+                        android:paddingEnd="@dimen/margin_2"
+                        android:paddingRight="@dimen/margin_8"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:text="@string/dummy_text" />
 
-                    <TextView
-                        android:layout_marginStart="8dp"
-                        android:id="@+id/read_more"
-                        android:layout_alignParentEnd="true"
+                    <LinearLayout
+                        android:id="@+id/read_more_container"
                         android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="2dp"
-                        android:paddingEnd="2dp"
-                        android:text="@string/read_more" />
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/read_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center_vertical"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp" />
+
+                        <TextView
+                            android:id="@+id/read_more_tv"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin_30"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center_vertical"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            android:text="@string/read_more" />
+
+                    </LinearLayout>
 
                 </RelativeLayout>
 

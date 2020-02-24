@@ -128,6 +128,7 @@ attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr behavior_autoHide
 attr behavior_autoShrink
+attr behavior_draggable
 attr behavior_expandedOffset
 attr behavior_fitToContents
 attr behavior_halfExpandedRatio
@@ -353,7 +354,6 @@ attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
 attr floatingActionButtonStyle
-attr floatingLabel
 attr font
 attr fontFamily
 attr fontProviderAuthority
@@ -429,6 +429,7 @@ attr itemTextAppearanceActive
 attr itemTextAppearanceInactive
 attr itemTextColor
 attr keylines
+attr labelBehavior
 attr labelStyle
 attr labelVisibilityMode
 attr lastBaselineToBottomHeight
@@ -984,9 +985,8 @@ color mtrl_choice_chip_background_color
 color mtrl_choice_chip_ripple_color
 color mtrl_choice_chip_text_color
 color mtrl_error
-color mtrl_extended_fab_bg_color_selector
-color mtrl_extended_fab_ripple_color
-color mtrl_extended_fab_text_color_selector
+color mtrl_fab_bg_color_selector
+color mtrl_fab_icon_text_color_selector
 color mtrl_fab_ripple_color
 color mtrl_filled_background_color
 color mtrl_filled_icon_tint
@@ -1922,6 +1922,7 @@ drawable button_text_bg
 drawable circular_icon
 drawable circular_view
 drawable circular_view_white
+drawable close_icon_with_bg
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1980,6 +1981,7 @@ drawable ic_circular_selected
 drawable ic_circular_unselected
 drawable ic_clear_black_24dp
 drawable ic_close_icon
+drawable ic_close_icon_white
 drawable ic_clubs
 drawable ic_clubs_unselected
 drawable ic_comment_bubble
@@ -2029,6 +2031,7 @@ drawable ic_optins
 drawable ic_others
 drawable ic_position_icon
 drawable ic_profile
+drawable ic_remove_red_eye_black_24dp
 drawable ic_save_icon
 drawable ic_search
 drawable ic_send_icon
@@ -2084,6 +2087,7 @@ drawable png_mobile_icon
 drawable png_sms
 drawable rectangle_border
 drawable ripple
+drawable ripple_cornered
 drawable rounded_btn_bg
 drawable shadow_bg
 drawable side_nav_bar
@@ -2217,8 +2221,8 @@ id chip3
 id chip_group
 id chronometer
 id circular_admin_rb
-id circular_admin_rb_2
 id circular_desc
+id circular_editor_rb
 id circular_image
 id circular_logo_view
 id circular_name
@@ -2285,7 +2289,6 @@ id drawer_layout
 id dropdown_menu
 id edit
 id edit_query
-id editor_rb
 id email
 id end
 id end_padder
@@ -2313,8 +2316,10 @@ id fill_vertical
 id filled
 id fitToContents
 id fixed
+id floating
 id footer_view
 id forever
+id genius_admin_rb
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -2439,7 +2444,7 @@ id navigation_header_container
 id nested_scrollview
 id never
 id news_admin_rb
-id news_admin_rb_2
+id news_editor_rb
 id news_feed_recycler_view
 id news_item_image
 id news_rgrb
@@ -2501,6 +2506,10 @@ id radio
 id radio_grp
 id rate_app
 id read_more
+id read_more_close
+id read_more_container
+id read_more_tv
+id read_more_txt
 id refresh_updated_circular
 id register_me
 id remove
@@ -2514,6 +2523,7 @@ id right_side
 id right_to_left
 id root_view
 id rounded
+id row_index_key
 id rsend_otp_btn
 id save
 id save_admin
@@ -2661,6 +2671,7 @@ id user_comment
 id user_image
 id user_name
 id user_profile
+id venue_tv
 id verify_btn
 id version_layout
 id version_value
@@ -2673,6 +2684,7 @@ id webProgress
 id webview
 id wide
 id withText
+id withinBounds
 id wrap
 id wrap_content
 id youtube_view
@@ -2774,6 +2786,7 @@ layout app_bar_home
 layout app_bar_navigation_drawer
 layout circular_item_view
 layout circular_item_view_new
+layout circular_read_more_item
 layout club_item_view
 layout clubs_item_view
 layout comments_item_view
@@ -2997,11 +3010,13 @@ string circular
 string circular_admin
 string circular_admin_
 string circular_desc
+string circular_editor
 string circular_image
 string circular_name
 string circular_visiblity
 string cirular_updated_success
 string clear_text_end_icon_content_description
+string close
 string club_added_successfully
 string club_name
 string clubs
@@ -3107,6 +3122,7 @@ string function_not_set
 string gcm_defaultSenderId
 string gender
 string general
+string genius_admin
 string gmail_sign_in_failed
 string google_api_key
 string google_app_id
@@ -3208,6 +3224,7 @@ string need_storage_permission
 string new_circular
 string news_admin
 string news_admin_
+string news_editor
 string news_updated_success
 string news_visibility
 string news_will_be_shown_in_newsfeed
@@ -3315,6 +3332,7 @@ string title_activity_navigation_drawer
 string to_make_or_remove_admins
 string to_make_or_remove_clubs
 string tresurer
+string try_later
 string two
 string un_specified
 string unable_to_remove_admin
@@ -3581,6 +3599,7 @@ style ButtonBg
 style CardView
 style CardView_Dark
 style CardView_Light
+style CorneredButtonBg
 style DialogAnimation
 style EmptyTheme
 style FullScreenPosterView
@@ -4078,7 +4097,7 @@ styleable AppCompatTheme android_windowIsFloating android_windowAnimationStyle a
 styleable Badge backgroundColor badgeGravity badgeTextColor horizontalOffset maxCharacterCount number verticalOffset
 styleable BottomAppBar backgroundTint elevation fabAlignmentMode fabAnimationMode fabCradleMargin fabCradleRoundedCornerRadius fabCradleVerticalOffset hideOnScroll paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets
 styleable BottomNavigationView backgroundTint elevation itemBackground itemHorizontalTranslationEnabled itemIconSize itemIconTint itemRippleColor itemTextAppearanceActive itemTextAppearanceInactive itemTextColor labelVisibilityMode menu
-styleable BottomSheetBehavior_Layout android_elevation backgroundTint behavior_expandedOffset behavior_fitToContents behavior_halfExpandedRatio behavior_hideable behavior_peekHeight behavior_saveFlags behavior_skipCollapsed shapeAppearance shapeAppearanceOverlay
+styleable BottomSheetBehavior_Layout android_elevation backgroundTint behavior_draggable behavior_expandedOffset behavior_fitToContents behavior_halfExpandedRatio behavior_hideable behavior_peekHeight behavior_saveFlags behavior_skipCollapsed shapeAppearance shapeAppearanceOverlay
 styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
@@ -4097,7 +4116,7 @@ styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_a
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable ExtendedFloatingActionButton elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
-styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
+styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
@@ -4139,7 +4158,7 @@ styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottom
 styleable ShapeableImageView strokeColor strokeWidth
 styleable ShimmerFrameLayout shimmer_auto_start shimmer_base_alpha shimmer_base_color shimmer_clip_to_children shimmer_colored shimmer_direction shimmer_dropoff shimmer_duration shimmer_fixed_height shimmer_fixed_width shimmer_height_ratio shimmer_highlight_alpha shimmer_highlight_color shimmer_intensity shimmer_repeat_count shimmer_repeat_delay shimmer_repeat_mode shimmer_shape shimmer_tilt shimmer_width_ratio
 styleable SignInButton buttonSize colorScheme scopeUris
-styleable Slider android_value android_stepSize android_valueFrom android_valueTo floatingLabel haloColor haloRadius labelStyle thumbColor thumbElevation thumbRadius tickColor tickColorActive tickColorInactive trackColor trackColorActive trackColorInactive trackHeight
+styleable Slider android_value android_stepSize android_valueFrom android_valueTo haloColor haloRadius labelBehavior labelStyle thumbColor thumbElevation thumbRadius tickColor tickColorActive tickColorInactive trackColor trackColorActive trackColorInactive trackHeight
 styleable Snackbar snackbarButtonStyle snackbarStyle snackbarTextViewStyle
 styleable SnackbarLayout android_maxWidth actionTextColorAlpha animationMode backgroundOverlayColorAlpha backgroundTint backgroundTintMode elevation maxActionInlineWidth
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme

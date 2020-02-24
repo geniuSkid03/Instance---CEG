@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:id="@+id/bookmark_fab"
-        android:tint="@color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/margin_16"
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:layout_margin="@dimen/margin_16"
+        android:src="@drawable/ic_remove_red_eye_black_24dp"
+        android:tint="@color/white"
+        app:backgroundTint="@color/colorPrimaryDark" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
-        android:id="@+id/share_fab"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_above="@+id/bookmark_fab"
-        android:tint="@color/white"
-        android:src="@drawable/ic_share_post_icon"
-        app:backgroundTint="@color/colorPrimaryDark"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="@dimen/margin_80"
-        android:layout_marginEnd="@dimen/margin_16"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
-
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_80"
+        android:src="@drawable/ic_share_post_icon"
+        android:tint="@color/white"
+        app:backgroundTint="@color/colorPrimaryDark" />
+-->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
@@ -82,16 +83,142 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/title"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:padding="2dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:fontFamily="@font/base_font"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_12"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:textStyle="bold"
+                        android:padding="@dimen/margin_2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/txt_20"
+                        tools:text="Title of the event" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_2">
+
+                        <!--Date-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_calendar_icon"
+                                    android:tint="@color/colorPrimaryDark" />
+
+                                <TextView
+                                    android:id="@+id/date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:padding="1dp"
+                                    android:text="@string/loading"
+                                    android:textSize="@dimen/txt_15" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--Time-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_time_icon"
+                                    android:tint="@color/colorPrimaryDark" />
+
+                                <TextView
+                                    android:id="@+id/time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:padding="1dp"
+                                    android:text="@string/loading"
+                                    android:textSize="@dimen/txt_15" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--Venue info-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_2"
+                        android:paddingTop="@dimen/margin_6">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_event_venue"
+                                android:tint="@color/colorPrimaryDark" />
+
+                            <TextView
+                                android:id="@+id/venue_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:padding="1dp"
+                                android:fontFamily="@font/base_font"
+                                android:text="@string/loading"
+                                android:textSize="@dimen/txt_15" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="90dp"
@@ -114,83 +241,49 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginEnd="@dimen/margin_8"
                 android:orientation="horizontal">
-
-                <!--Date-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_calendar_icon"
-                            android:tint="@color/colorPrimaryDark" />
-
-                        <TextView
-                            android:id="@+id/date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
-                            android:padding="1dp"
-                            android:text="@string/loading"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!--Time-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_time_icon"
-                            android:tint="@color/colorPrimaryDark" />
-
-                        <TextView
-                            android:id="@+id/time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
-                            android:padding="1dp"
-                            android:text="@string/loading"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/watch_video"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    style="@style/CorneredButtonBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_40"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/base_font"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="Video"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/txt_15" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bookmark_fab"
+                    style="@style/CorneredButtonBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_40"
                     android:layout_gravity="center"
                     android:layout_marginStart="6dp"
-                    android:text="Watch Video"
-                    android:textAllCaps="false" />
+                    android:layout_weight="1"
+                    android:fontFamily="@font/base_font"
+                    android:text="Preview"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/txt_15" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/share_fab"
+                    style="@style/CorneredButtonBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_40"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/base_font"
+                    android:text="Share"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/txt_15" />
 
             </LinearLayout>
 
@@ -199,11 +292,16 @@
                 android:id="@+id/desc_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif"
-                android:padding="2dp"
-                android:textColor="@color/app_grey" />
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:paddingStart="@dimen/margin_8"
+                android:paddingTop="@dimen/margin_8"
+                android:fontFamily="@font/base_font"
+                android:paddingEnd="@dimen/margin_8"
+                android:paddingBottom="@dimen/margin_38"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_16"
+                tools:text="@string/dummy_text" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -212,7 +310,8 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/end"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
