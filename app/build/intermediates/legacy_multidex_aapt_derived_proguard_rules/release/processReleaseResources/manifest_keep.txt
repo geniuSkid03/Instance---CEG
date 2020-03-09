@@ -1,0 +1,4 @@
+# Referenced at E:\AndroidProjects\Instance\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:26
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at E:\AndroidProjects\Instance\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:26
+-keep class com.instance.ceg.appActivities.Instance { <init>(); }

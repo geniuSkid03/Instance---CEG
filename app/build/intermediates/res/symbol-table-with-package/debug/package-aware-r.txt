@@ -2240,6 +2240,7 @@ id club_name_
 id club_name_spinner
 id club_name_text
 id club_view_root
+id clubs_item
 id clubs_list
 id clubs_recycler
 id collapseActionView
@@ -2972,6 +2973,8 @@ string already_have_an_account
 string already_registered_login_here
 string app_name
 string app_photo
+string app_read
+string app_write
 string appbar_scrolling_view_behavior
 string b_login_error
 string bookmsrks
