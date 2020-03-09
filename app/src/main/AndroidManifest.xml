@@ -14,6 +14,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <permission android:name="READ_DB" android:label="@string/app_read" android:protectionLevel="normal"/>
+    <permission android:name="WRITE_DB" android:label="@string/app_write" android:protectionLevel="normal"/>
+
     <application
         android:name=".appActivities.Instance"
         android:allowBackup="false"
@@ -131,6 +134,8 @@
             android:name=".appUtils.GenericFileProvider"
             android:authorities="${applicationId}.my.package.name.provider"
             android:exported="false"
+            android:writePermission="${applicationId}.my.package.name.provider.READ_DB"
+            android:readPermission="${applicationId}.my.package.name.provider.WRITE_DB"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"

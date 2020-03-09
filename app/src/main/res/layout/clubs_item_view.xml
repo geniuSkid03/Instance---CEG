@@ -7,6 +7,7 @@
     app:cardElevation="4dp"
     android:clickable="true"
     android:focusable="true"
+    android:id="@+id/clubs_item"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardUseCompatPadding="true">
 

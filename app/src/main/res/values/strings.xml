@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Instance</string>
+    <string name="app_read">InstanceRead</string>
+    <string name="app_write">InstanceWrite</string>
 
     <string name="facebook_app_id">219199642342752</string>
     <string name="youtube_api_key">AIzaSyDp-vq0ek2F-nypbGpxHL0r-3opAN2I8oc</string>
